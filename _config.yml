@@ -1,8 +1,8 @@
 title: "Hyunwoong Go"
 github_username: gusdnd852
-github_repo: "blog"
+github_repo: "bigdata-lecture"
 url: "https://gusdnd852.github.io"
-baseurl: "/blog" 
+baseurl: "/bigdata-lecture"
 
 email: "gusdnd852@naver.com"
 facebook_username: "gusdnd852"
