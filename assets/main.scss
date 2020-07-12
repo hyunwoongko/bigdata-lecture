@@ -55,8 +55,8 @@ $jupyter-background: #F4F4F4;
 code {
 	border-radius: 1px;
 	font-family: 'Jeju Gothic', sans-serif;
-	color: rgb(172, 65, 65);
-        background-color: $jupyter-background;
+    color: rgb(210, 160, 25);
+    background-color: $jupyter-background;
 }
 
 pre {
@@ -108,7 +108,7 @@ float: none;
 }
 
 h1, h2, h3{
-	color: rgb(172, 65, 65);
+	color: rgb(210, 160, 25);
 	margin-bottom: 3px !important;
 }
 
@@ -322,7 +322,7 @@ h6:hover .anchor-link {
 }
 
 .category-tags-link {
-  color:rgb(187, 129, 129) !important;
+  color: rgb(238, 199, 81) !important;
     text-align: justify;
     word-break: break-all;
 }
