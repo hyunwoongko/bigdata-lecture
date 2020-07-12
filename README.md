@@ -1,6 +1,7 @@
 <br><br>
-<img src="https://user-images.githubusercontent.com/38183241/87243459-1f146400-c471-11ea-9761-ba08fba08119.png" align="center">
+<img src="../images/main.jpg">
 <br><br>
+
 
 안녕하세요. 이 블로그는 2020년 전북대학교 빅데이터 양성사업 수업에서 
 인공지능/머신러닝 수업을 위해 만들어진 블로그입니다. 위의 Material을 클릭해서

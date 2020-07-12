@@ -4,10 +4,9 @@ title: Orientation
 permalink: /orientation
 ---
 
-## 1. 머릿말
+### 1. 머릿말
 
-<img src="https://user-images.githubusercontent.com/38183241/87243459-1f146400-c471-11ea-9761-ba08fba08119.png" align="center">
-<br><br>
+![](../images/main.jpg)
 
 안녕하세요. 저는 전북대학교 소프트웨어공학과를 졸업하고 현재 전북대학교 자율로봇 연구실에서 인턴으로 근무중인 고현웅이라고합니다. 이번에 여름방학 빅데이터 특강에서 인공지능 분야 조교(2주) 및 프로젝트 멘토(1달)를 맡게 되어 이 문서를 작성합니다. 
 <br><br>
@@ -19,9 +18,9 @@ permalink: /orientation
 <br><br>
 
 
-##2. 배우게 될 내용
+### 2. 배우게 될 내용
 
-### 1) 기초적인 수학 이론을 학습합니다.
+#### 1) 기초적인 수학 이론을 학습합니다.
 
 여러분들은 강의 초반에 선형대수, 확률통계, 미적분, 정보이론에 대한 기초 지식을 학습하게 됩니다.
 머신러닝을 공부할 때 정말 실제로 필요한 내용과 매우 기초적인 지식들만 담고 
@@ -29,7 +28,7 @@ permalink: /orientation
 정말 쉽고 재밌게 알려드릴게요! 이건 수포자였던 제가 장담합니다.
 <br><br><br>
 
-### 2) 다양한 머신러닝/딥러닝 모델의 이론적 배경을 학습합니다.
+#### 2) 다양한 머신러닝/딥러닝 모델의 이론적 배경을 학습합니다.
 
 ![img](https://user-images.githubusercontent.com/38183241/87243488-4ec36c00-c471-11ea-88fd-98ebfb1c4e49.png)
 
@@ -44,7 +43,7 @@ permalink: /orientation
 - 2주차 목요일 : 군집화모델(Cluster Models), 차원축소모델(Dimensional Reduction)
 <br><br><br>
 
-### 3) 배운 이론으로 다양한 실습을 진행합니다.
+#### 3) 배운 이론으로 다양한 실습을 진행합니다.
 
 ![image](https://user-images.githubusercontent.com/38183241/87243517-86321880-c471-11ea-9354-409a9701923d.png)
 
@@ -57,7 +56,7 @@ permalink: /orientation
 - 2주차 목요일 : 붓꽃 종류 군집화, 이미지 압축, 데이터 시각화
 <br><br><br>
 
-### 4) 가장 최신의, 가장 효율적인 도구들의 사용법을 배웁니다.
+#### 4) 가장 최신의, 가장 효율적인 도구들의 사용법을 배웁니다.
 
 ![image](https://user-images.githubusercontent.com/38183241/87243474-34898e00-c471-11ea-88d1-edfdfe083130.png)
 
@@ -70,7 +69,7 @@ permalink: /orientation
 <br><br><br>
 
 
-## 4. 강의자 소개
+### 3. 강의자 소개
 
 <img width=250 src="https://ar.jbnu.ac.kr/user/ar/image/Malrey.png">
 <br><br>
