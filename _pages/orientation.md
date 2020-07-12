@@ -67,5 +67,33 @@ permalink: /orientation
 - Matplotlib : 가장 유명한 데이터 시각화 라이브러리
 - Sklearn : 가장 유명하고 쉽게 사용할 수 있는 머신러닝 프레임워크
 - Tensorflow 2.0 : 정말 편리하고 사용하기 편한 딥러닝 프레임워크
+<br><br><br>
 
 
+## 4. 강의자 소개
+
+<img width=250 src="https://ar.jbnu.ac.kr/user/ar/image/Malrey.png">
+<br><br>
+
+- 이말례 교수
+  - 약력 :
+    - 전북대학교 컴퓨터공학부 교수 및 자율로봇 연구실 지도
+    - 2018년도 전북대학교 피인용도 우수교수 선정 (2012~16 : 519회)
+    - 2017 세계 최초 인공지능 로봇축구 월드컵 대회 우승
+  - 홈페이지 : https://ar.jbnu.ac.kr
+  - 이메일 : mrlee@chonbuk.ac.kr
+  - 연락처 : 010-3611-8004
+
+<br><br>
+
+<img width=250 src="https://avatars1.githubusercontent.com/u/38183241?s=460&u=6423bedbaf16cb1b4d5429a2ebdbca135bffa99d&v=4">
+<br><br>
+
+- 고현웅 조교
+  - 약력 :
+    - 전북대학교 컴퓨터공학부 자율로봇 연구실 논문연구 인턴
+    - 다양한 머신러닝/딥러닝 프로젝트 및 오픈소스 활동 경험 다수 보유
+    - 미래창조과학부, 한국전력 등 전국단위 해커톤 입상실적 보유
+  - 홈페이지 : https://github.com/gusdnd852
+  - 이메일 : gusdnd852@naver.com
+  - 연락처 : 010-7464-8595

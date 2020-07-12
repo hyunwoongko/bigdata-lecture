@@ -13,14 +13,4 @@ search_exclude: true
 	{% endfor %}
 	{% assign categories = categories | sort_natural %}
 
-	<!----- CONTENTS ------>
-	<div class="main-contents">
-
-		<ul class="contents-right">
-			<h2>Notebooks</h2>
-			{% for category in categories %}
-				<li><a href="category.html?cate={{ category }}">{{ category }}</a></li>
-			{% endfor %}
-		</ul>
-	</div>
 </div>
