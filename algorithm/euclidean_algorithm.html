@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>유클리드 호제법 | Hyunwoong Go</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="유클리드 호제법" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="최대공약수의 3가지 성질, 유클리드 알고리즘의 구현및 최적화" />
+<meta property="og:description" content="최대공약수의 3가지 성질, 유클리드 알고리즘의 구현및 최적화" />
+<link rel="canonical" href="https://gusdnd852.github.io/blog/algorithm/euclidean_algorithm" />
+<meta property="og:url" content="https://gusdnd852.github.io/blog/algorithm/euclidean_algorithm" />
+<meta property="og:site_name" content="Hyunwoong Go" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-07-11T00:00:00-05:00" />
+<script type="application/ld+json">
+{"url":"https://gusdnd852.github.io/blog/algorithm/euclidean_algorithm","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://gusdnd852.github.io/blog/algorithm/euclidean_algorithm"},"headline":"유클리드 호제법","dateModified":"2020-07-11T00:00:00-05:00","datePublished":"2020-07-11T00:00:00-05:00","description":"최대공약수의 3가지 성질, 유클리드 알고리즘의 구현및 최적화","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <link rel="stylesheet" href="/blog/assets/main.css">
+
+<!-- Wikplayer https://www.wikplayer.com -->
+<script type="text/javascript" src="https://www.wikplayer.com/code.js" 
+data-config="{'skin':'skins/wikmini/funkyMiniRed/skin.css','volume':50,'autoplay':false,'shuffle':false,'repeat':0,'showcomment':false,'marqueetexton':false,'placement':'mini','showplaylist':false,'playlist':[{'title':'Relax%20%2F%20Study','url':'https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D5qap5aO4i9A'},{'title':'Sleep%20%2F%20Chill','url':'https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DDWcJFNfaw9c'}]}" ></script>
+<!-- Wikplayer code end --><link type="application/atom+xml" rel="alternate" href="https://gusdnd852.github.io/blog/feed.xml" title="Hyunwoong Go" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+          ]}
+        );
+      });
+    </script>
+  
+
+  <script>
+  function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+  }
+  window.onload = wrap_img;
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      // add link icon to anchor tags
+      var elem = document.querySelectorAll(".anchor-link")
+      elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+      // remove paragraph tags in rendered toc (happens from notebooks)
+      var toctags = document.querySelectorAll(".toc-entry")
+      toctags.forEach(e => (e.firstElementChild.innerText = e.firstElementChild.innerText.replace('¶', '')))
+    });
+  </script>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+     @media screen and (max-width : 511px) {
+         body { 
+		font-size: 0.84rem; 
+	}pre, code, blockquote {
+		font-size: 0.84rem !important;
+	}
+	.katex, .mord {
+		font: normal 1.02em 'KaTeX_Main', sans-serif !important;
+	}
+	.minner, .mord.mtight {
+		font: normal 0.90em 'KaTeX_Main', sans-serif !important;
+	}
+	.page-meta {
+		font-size: 0.9rem !important;
+	}
+	.contents-left{
+		display: none !important;
+	}
+	.contents-right, .contents-left {
+    		display: block;
+    		text-align: center;
+		margin-left: 0px !important;
+    		margin-right: 0px !important;
+    		list-style: none;
+    	}
+	.mobile_hide{
+		display: none;
+	}
+	.contents-right > li {
+    		display: inline-block;
+    		margin: 3px;
+    		word-break: keep-all;
+	}
+     }
+ 
+
+     @media screen and (min-width : 512px) and (max-width : 767px) {
+         body { 
+		font-size: 0.92rem; 
+	}pre, code, blockquote {
+		font-size: 0.92rem !important;
+	}
+	.katex, .mord {
+		font: normal 1.04em 'KaTeX_Main', sans-serif !important;
+	}
+	.minner, .mord.mtight {
+		font: normal 0.92em 'KaTeX_Main', sans-serif !important;
+	}
+	.page-meta {
+		font-size: 1.0rem !important;
+	}
+	.contents-left{
+		display: none !important;
+	}
+	.contents-right, .contents-left {
+    		display: block;
+    		text-align: center;
+		margin-left: 0px !important;
+    		margin-right: 0px !important;
+    		list-style: none;
+    	}    
+	.mobile_hide{
+		display: none !important;
+	}
+	.contents-right > li {
+    		display: inline-block;
+    		margin: 3px;
+    		word-break: keep-all;
+	}
+     }
+ 
+     @media screen and (min-width : 768px) and (max-width : 1024px) {
+         body {
+		 font-size: 1.0rem; 
+	}pre, code, blockquote {
+		font-size: 1.0rem !important;
+	}
+	.katex, .mord {
+		font: normal 1.05em 'KaTeX_Main', sans-serif !important;
+	}
+	.minner, .mord.mtight {
+		font: normal 0.93em 'KaTeX_Main', sans-serif !important;
+	}
+	.page-meta {
+		font-size: 1.1rem !important;
+	}
+	.contents-right, .contents-left {
+		display: inline-block;
+    		vertical-align: top;
+    		text-align: left;
+		list-style: none;
+    	}  
+	.contents-left{
+		margin-left: 20px !important;
+    		margin-right: 3.0rem;
+	}
+	.mobile_hide{
+		display: block !important;
+	}
+     }
+
+     @media screen and (min-width : 1025px) {
+         body { 
+		font-size: 1.08rem; 
+	}pre, code, blockquote {
+		font-size: 1.08rem !important;
+	}
+     	.katex, .mord {
+		font: normal 1.06em 'KaTeX_Main', sans-serif !important;
+	}
+	.minner, .mord.mtight {
+		font: normal 0.94em 'KaTeX_Main', sans-serif !important;
+	}
+	.page-meta {
+		font-size: 1.2rem !important;
+	}
+	.contents-right, .contents-left {
+    		display: inline-block;
+    		vertical-align: top;
+    		text-align: left;
+		list-style: none;
+    	}
+	.contents-right > h2, .contents-left > h2 {
+    		margin-botton: 2px
+	}  
+	.contents-left{
+    		margin-left: 0 !important;
+    		margin-right: 3.0rem;
+	}
+	.mobile_hide{
+		display: block !important;
+	}
+     }
+
+    </style>
+  <body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Hyunwoong Go</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about">About</a><a class="page-link" href="/blog/environments">Environments</a><a class="page-link" href="/blog/flashcards">Flashcards</a><a class="page-link" href="/blog/schedules">Schedules</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content" style="flex: none;" >
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h2 class="post-title p-name" itemprop="name headline">유클리드 호제법</h1><p class="page-description">최대공약수의 3가지 성질, 유클리드 알고리즘의 구현및 최적화</p
+      <i class="fas fa-tags category-tags-icon"></i><p class="category-tags"> 
+      
+        <a class="category-tags-link" href="/blog/category.html?cate=알고리즘">알고리즘</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+	
+	<div class="px-1">
+    <a href="https://mybinder.org/v2/gh/gusdnd852/blog/master?filepath=_notebooks%2Falgorithm_002_euclidean_algorithm.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/blog/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+	
+	<div class="px-1">
+<a href="https://github.com/gusdnd852/blog/tree/master/_notebooks/algorithm_002_euclidean_algorithm.ipynb" role="button">
+    <img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=&message=View%20On%20GitHub&color=586069&logo=github&labelColor=2f363d">
+</a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#1.-알고리즘-개요">1. 알고리즘 개요 </a></li>
+<li class="toc-entry toc-h3"><a href="#2.-최대공약수의-성질">2. 최대공약수의 성질 </a></li>
+<li class="toc-entry toc-h3"><a href="#3.-수도-코드">3. 수도 코드 </a></li>
+<li class="toc-entry toc-h3"><a href="#4.-알고리즘-구현">4. 알고리즘 구현 </a></li>
+<li class="toc-entry toc-h3"><a href="#5.-알고리즘-최적화">5. 알고리즘 최적화 </a></li>
+<li class="toc-entry toc-h3"><a href="#6.Reference">6.Reference </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/algorithm_002_euclidean_algorithm.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
+<h3 id="1.-알고리즘-개요">
+<a class="anchor" href="#1.-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%9C%EC%9A%94" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. 알고리즘 개요<a class="anchor-link" href="#1.-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%9C%EC%9A%94"> </a>
+</h3>
+<p>기계적으로 두 정수의 최대 공약수(Greatest Common Divisor)를 구하는 알고리즘이다. 우리는 소인수분해를 사용하는데, 이는 직관에 의존한 방법으로 컴퓨터엔 부적합하다. 참고로 소인수분해는 대표적인 NP Problem으로 다항시간 안에 풀리는 것도 보장되지 않는다.
+<br><br></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.-최대공약수의-성질">
+<a class="anchor" href="#2.-%EC%B5%9C%EB%8C%80%EA%B3%B5%EC%95%BD%EC%88%98%EC%9D%98-%EC%84%B1%EC%A7%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. 최대공약수의 성질<a class="anchor-link" href="#2.-%EC%B5%9C%EB%8C%80%EA%B3%B5%EC%95%BD%EC%88%98%EC%9D%98-%EC%84%B1%EC%A7%88"> </a>
+</h3>
+<p>U &gt; V인 두 수가 있을 때, 최대공약수(gcd) 연산을 ◇라고 정의한다. 이 성질에 대한 증명은 <a href="https://nukeguys.tistory.com/29">여기</a>를 확인하면 된다. <br><br></p>
+<ol>
+<li>뺄셈법칙 : U ◇ V = (U-V) ◇ V</li>
+<li>교환법칙 : U ◇ V = V ◇ U</li>
+<li>항등원 : U ◇ 0 = U
+<br><br>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.-수도-코드">
+<a class="anchor" href="#3.-%EC%88%98%EB%8F%84-%EC%BD%94%EB%93%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. 수도 코드<a class="anchor-link" href="#3.-%EC%88%98%EB%8F%84-%EC%BD%94%EB%93%9C"> </a>
+</h3>
+<p>위와 같은 규칙을 이용해서 U와 V중 한 쪽을 먼저 0으로 만들고, 남은 한쪽의 값을 반환하게 하면 손쉽게 최대공약수를 구할 수 있을 것이다.
+<br></p>
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">gcd</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span> <span class="kt">int</span> <span class="n">v</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="s">"v가 u보다 크면"</span><span class="p">)</span> <span class="s">"u와 v를 바꾼다."</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="s">"v가 0이라면"</span><span class="p">)</span> <span class="k">return</span> <span class="n">u</span><span class="p">;</span>
+    <span class="k">else</span> <span class="s">"u-v와 v의 최대공약수를 계산해본다.</span>
+
+    <span class="s">"이 것을 값이 반환될 때까지 반복한다."</span>
+<span class="p">}</span>
+</pre></div>
+<p><br><br></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="4.-알고리즘-구현">
+<a class="anchor" href="#4.-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B5%AC%ED%98%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. 알고리즘 구현<a class="anchor-link" href="#4.-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B5%AC%ED%98%84"> </a>
+</h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#include&lt;stdio.h&gt;</span>
+
+<span class="n">void</span> <span class="n">swap</span><span class="p">(</span><span class="nb">int</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="nb">int</span> <span class="o">*</span><span class="n">b</span><span class="p">){</span>
+    <span class="nb">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="o">*</span><span class="n">a</span><span class="p">;</span>
+    <span class="o">*</span><span class="n">a</span> <span class="o">=</span> <span class="o">*</span><span class="n">b</span><span class="p">;</span>
+    <span class="o">*</span><span class="n">b</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">/*</span>
+<span class="o">*</span> <span class="n">u와</span> <span class="n">v모두</span> <span class="mi">0</span><span class="n">인</span> <span class="n">경우를</span> <span class="n">제외하고는</span>
+<span class="o">*</span> <span class="n">u가</span> <span class="n">v보다</span> <span class="n">무조건</span> <span class="n">커야한다는</span> <span class="n">전제</span> <span class="n">때문에</span>
+<span class="o">*</span> <span class="n">v는</span> <span class="mi">0</span><span class="n">이</span> <span class="n">될</span> <span class="n">수</span> <span class="n">있지만</span><span class="p">,</span> <span class="n">u는</span> <span class="mi">0</span><span class="n">이</span> <span class="n">될</span> <span class="n">수</span> <span class="n">없음</span>
+<span class="o">*/</span>
+<span class="nb">int</span> <span class="n">gcd</span><span class="p">(</span><span class="nb">int</span> <span class="n">u</span><span class="p">,</span> <span class="nb">int</span> <span class="n">v</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">v</span> <span class="o">&gt;</span> <span class="n">u</span><span class="p">)</span> <span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">u</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">v</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">"u=</span><span class="si">%d</span><span class="s2">, v=</span><span class="si">%d</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">v</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="n">u</span><span class="p">;</span>    
+    <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">u</span><span class="o">-</span><span class="n">v</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">(){</span>
+    <span class="nb">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">gcd</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">280</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">결과 = </span><span class="si">%d</span><span class="s2">"</span><span class="p">,</span> <span class="n">result</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>u=280, v=30
+u=250, v=30
+u=220, v=30
+u=190, v=30
+u=160, v=30
+u=130, v=30
+u=100, v=30
+u=70, v=30
+u=40, v=30
+u=30, v=10
+u=20, v=10
+u=10, v=10
+u=10, v=0
+
+결과 = 10</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br><br></p>
+<h3 id="5.-알고리즘-최적화">
+<a class="anchor" href="#5.-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%B5%9C%EC%A0%81%ED%99%94" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. 알고리즘 최적화<a class="anchor-link" href="#5.-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%B5%9C%EC%A0%81%ED%99%94"> </a>
+</h3>
+<p>실행결과를 보면 280-30, 250-30.. 최종적으로 40-30까지 빼서 v는 10이 된다. 한번에 u에서 v를 빼서 10을 만들 순 없을까? 나머지 연산을 사용하면 가능하다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#include&lt;stdio.h&gt;</span>
+
+<span class="n">void</span> <span class="n">swap</span><span class="p">(</span><span class="nb">int</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="nb">int</span> <span class="o">*</span><span class="n">b</span><span class="p">){</span>
+    <span class="nb">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="o">*</span><span class="n">a</span><span class="p">;</span>
+    <span class="o">*</span><span class="n">a</span> <span class="o">=</span> <span class="o">*</span><span class="n">b</span><span class="p">;</span>
+    <span class="o">*</span><span class="n">b</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">/*</span>
+<span class="o">*</span> <span class="n">u와</span> <span class="n">v모두</span> <span class="mi">0</span><span class="n">인</span> <span class="n">경우를</span> <span class="n">제외하고는</span>
+<span class="o">*</span> <span class="n">u가</span> <span class="n">v보다</span> <span class="n">무조건</span> <span class="n">커야한다는</span> <span class="n">전제</span> <span class="n">때문에</span>
+<span class="o">*</span> <span class="n">v는</span> <span class="mi">0</span><span class="n">이</span> <span class="n">될</span> <span class="n">수</span> <span class="n">있지만</span><span class="p">,</span> <span class="n">u는</span> <span class="mi">0</span><span class="n">이</span> <span class="n">될</span> <span class="n">수</span> <span class="n">없음</span>
+<span class="o">*/</span>
+<span class="nb">int</span> <span class="n">gcd</span><span class="p">(</span><span class="nb">int</span> <span class="n">u</span><span class="p">,</span> <span class="nb">int</span> <span class="n">v</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">v</span> <span class="o">&gt;</span> <span class="n">u</span><span class="p">)</span> <span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">u</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">v</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">"u=</span><span class="si">%d</span><span class="s2">, v=</span><span class="si">%d</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">v</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="n">u</span><span class="p">;</span>    
+    <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">u</span><span class="o">%</span><span class="k">v</span>, v);
+    <span class="o">//</span> <span class="n">use</span> <span class="s1">'%'</span> <span class="n">insted</span> <span class="n">of</span> <span class="s1">'-'</span>  
+<span class="p">}</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">(){</span>
+    <span class="nb">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">gcd</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">280</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">결과 = </span><span class="si">%d</span><span class="s2">"</span><span class="p">,</span> <span class="n">result</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>u=280, v=30
+u=30, v=10
+u=10, v=0
+
+결과 = 10</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br><br></p>
+<h3 id="6.Reference">
+<a class="anchor" href="#6.Reference" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.Reference<a class="anchor-link" href="#6.Reference"> </a>
+</h3>
+<p>
+</p>
+<center>
+<div class="h_iframe">
+<iframe src="https://www.youtube.com/embed/OlpNg81Csn0" frameborder="0" allowfullscreen=""></iframe>
+</div>
+</center>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+    <br><br>
+    <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = “https://gusdnd852.github.io/algorithm/euclidean_algorithm“;
+this.page.identifier = 유클리드 호제법;
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://gusdnd852.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+<a class="u-url" href="/blog/algorithm/euclidean_algorithm" hidden></a>
+</article>
+
+<script>
+	function run_exec(){
+		if("binder" === "binder"){
+			if(confirm("이 노트북은 CPU환경인 Binder에서 소스코드를 실행합니다.")){
+				var binder_path = "https://mybinder.org/v2/gh/gusdnd852/blog/master?filepath=_notebooks%2Falgorithm_002_euclidean_algorithm.ipynb";
+				alert("Binder는 Docker기반의 컨테이너를 직접 빌드하기 때문에 시간이 다소 소요됩니다. Build logs의 show버튼을 눌러서 진행상황을 확인하세요");
+				window.open(binder_path, "_blank");
+							
+			}
+			
+		}else if("binder" === "colab"){
+			if(confirm("이 노트북은 GPU환경인 Google Colab에서 소스코드를 실행합니다.")){
+				var colab_path = "https://colab.research.google.com/github/gusdnd852/blog/blob/master/_notebooks/algorithm_002_euclidean_algorithm.ipynb";
+				alert("GPU 설정을 위해 Colab 상단 메뉴중, 런타임 → 런타임 유형변경에서 GPU를 선택해주세요. (미선택시 CPU에서 실행됨)");
+				window.open(colab_path, "_blank");
+			}			
+		}else{
+			alert("해당 실행환경은 구동이 불가능합니다. Binder와 Google Colab 중 한가지를 선택해주세요.");
+		}
+	}
+
+    function code_listener() {
+	var input_area = document.getElementsByClassName("input_area");
+	var output_area = document.getElementsByClassName("output_area");
+    	
+	for(var i = 0 ; i < input_area.length; i++){
+		input_area[i].onclick = function(){
+			run_exec();
+    		}
+	}
+
+	for(var i = 0 ; i < output_area.length; i++){
+		output_area[i].onclick = function(){
+			run_exec();
+    		}
+	}
+    } 
+
+    code_listener();
+</script>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+      <div class="footer-col">
+	<footer-elem class=px-2>
+		<a href="https://github.com/gusdnd852">
+			<svg class="social svg-icon">
+				<use xlink:href="/blog/assets/minima-social-icons.svg#github"></use>
+			</svg>
+			<span class="username">Github</span>
+		</a>
+	</footer-elem>
+
+	<footer-elem class=px-2>
+		<a href="https://youtube.com/channel/UCb7DJAuj1LulbY8WEr2EDUw">
+			<svg class="social svg-icon">
+				<use xlink:href="/blog/assets/minima-social-icons.svg#youtube"></use>
+			</svg>
+			<span class="username">Youtube</span>
+		</a>
+	</footer-elem>
+
+	<footer-elem class=px-2>
+		<a href="https://www.facebook.com/gusdnd852">
+			<svg class="social svg-icon">
+				<use xlink:href="/blog/assets/minima-social-icons.svg#facebook"></use>
+			</svg>
+			<span class="username">Facebook</span>
+		</a>
+	</footer-elem>
+	<br>
+	<div class="copyright">
+		© Copyright 2020 Hyunwoong Go. All rights reserved.
+	</div>
+      </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>벡터란? | Hyunwoong Go</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="벡터란?" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="벡터의 컨셉과 2가지 기본연산" />
+<meta property="og:description" content="벡터의 컨셉과 2가지 기본연산" />
+<link rel="canonical" href="https://gusdnd852.github.io/blog/linear_algebra/vector" />
+<meta property="og:url" content="https://gusdnd852.github.io/blog/linear_algebra/vector" />
+<meta property="og:site_name" content="Hyunwoong Go" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-07-11T00:00:00-05:00" />
+<script type="application/ld+json">
+{"url":"https://gusdnd852.github.io/blog/linear_algebra/vector","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://gusdnd852.github.io/blog/linear_algebra/vector"},"headline":"벡터란?","dateModified":"2020-07-11T00:00:00-05:00","datePublished":"2020-07-11T00:00:00-05:00","description":"벡터의 컨셉과 2가지 기본연산","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <link rel="stylesheet" href="/blog/assets/main.css">
+
+<!-- Wikplayer https://www.wikplayer.com -->
+<script type="text/javascript" src="https://www.wikplayer.com/code.js" 
+data-config="{'skin':'skins/wikmini/funkyMiniRed/skin.css','volume':50,'autoplay':false,'shuffle':false,'repeat':0,'showcomment':false,'marqueetexton':false,'placement':'mini','showplaylist':false,'playlist':[{'title':'Relax%20%2F%20Study','url':'https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D5qap5aO4i9A'},{'title':'Sleep%20%2F%20Chill','url':'https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DDWcJFNfaw9c'}]}" ></script>
+<!-- Wikplayer code end --><link type="application/atom+xml" rel="alternate" href="https://gusdnd852.github.io/blog/feed.xml" title="Hyunwoong Go" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+          ]}
+        );
+      });
+    </script>
+  
+
+  <script>
+  function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+  }
+  window.onload = wrap_img;
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      // add link icon to anchor tags
+      var elem = document.querySelectorAll(".anchor-link")
+      elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+      // remove paragraph tags in rendered toc (happens from notebooks)
+      var toctags = document.querySelectorAll(".toc-entry")
+      toctags.forEach(e => (e.firstElementChild.innerText = e.firstElementChild.innerText.replace('¶', '')))
+    });
+  </script>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+     @media screen and (max-width : 511px) {
+         body { 
+		font-size: 0.84rem; 
+	}pre, code, blockquote {
+		font-size: 0.84rem !important;
+	}
+	.katex, .mord {
+		font: normal 1.02em 'KaTeX_Main', sans-serif !important;
+	}
+	.minner, .mord.mtight {
+		font: normal 0.90em 'KaTeX_Main', sans-serif !important;
+	}
+	.page-meta {
+		font-size: 0.9rem !important;
+	}
+	.contents-left{
+		display: none !important;
+	}
+	.contents-right, .contents-left {
+    		display: block;
+    		text-align: center;
+		margin-left: 0px !important;
+    		margin-right: 0px !important;
+    		list-style: none;
+    	}
+	.mobile_hide{
+		display: none;
+	}
+	.contents-right > li {
+    		display: inline-block;
+    		margin: 3px;
+    		word-break: keep-all;
+	}
+     }
+ 
+
+     @media screen and (min-width : 512px) and (max-width : 767px) {
+         body { 
+		font-size: 0.92rem; 
+	}pre, code, blockquote {
+		font-size: 0.92rem !important;
+	}
+	.katex, .mord {
+		font: normal 1.04em 'KaTeX_Main', sans-serif !important;
+	}
+	.minner, .mord.mtight {
+		font: normal 0.92em 'KaTeX_Main', sans-serif !important;
+	}
+	.page-meta {
+		font-size: 1.0rem !important;
+	}
+	.contents-left{
+		display: none !important;
+	}
+	.contents-right, .contents-left {
+    		display: block;
+    		text-align: center;
+		margin-left: 0px !important;
+    		margin-right: 0px !important;
+    		list-style: none;
+    	}    
+	.mobile_hide{
+		display: none !important;
+	}
+	.contents-right > li {
+    		display: inline-block;
+    		margin: 3px;
+    		word-break: keep-all;
+	}
+     }
+ 
+     @media screen and (min-width : 768px) and (max-width : 1024px) {
+         body {
+		 font-size: 1.0rem; 
+	}pre, code, blockquote {
+		font-size: 1.0rem !important;
+	}
+	.katex, .mord {
+		font: normal 1.05em 'KaTeX_Main', sans-serif !important;
+	}
+	.minner, .mord.mtight {
+		font: normal 0.93em 'KaTeX_Main', sans-serif !important;
+	}
+	.page-meta {
+		font-size: 1.1rem !important;
+	}
+	.contents-right, .contents-left {
+		display: inline-block;
+    		vertical-align: top;
+    		text-align: left;
+		list-style: none;
+    	}  
+	.contents-left{
+		margin-left: 20px !important;
+    		margin-right: 3.0rem;
+	}
+	.mobile_hide{
+		display: block !important;
+	}
+     }
+
+     @media screen and (min-width : 1025px) {
+         body { 
+		font-size: 1.08rem; 
+	}pre, code, blockquote {
+		font-size: 1.08rem !important;
+	}
+     	.katex, .mord {
+		font: normal 1.06em 'KaTeX_Main', sans-serif !important;
+	}
+	.minner, .mord.mtight {
+		font: normal 0.94em 'KaTeX_Main', sans-serif !important;
+	}
+	.page-meta {
+		font-size: 1.2rem !important;
+	}
+	.contents-right, .contents-left {
+    		display: inline-block;
+    		vertical-align: top;
+    		text-align: left;
+		list-style: none;
+    	}
+	.contents-right > h2, .contents-left > h2 {
+    		margin-botton: 2px
+	}  
+	.contents-left{
+    		margin-left: 0 !important;
+    		margin-right: 3.0rem;
+	}
+	.mobile_hide{
+		display: block !important;
+	}
+     }
+
+    </style>
+  <body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Hyunwoong Go</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about">About</a><a class="page-link" href="/blog/environments">Environments</a><a class="page-link" href="/blog/flashcards">Flashcards</a><a class="page-link" href="/blog/schedules">Schedules</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content" style="flex: none;" >
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h2 class="post-title p-name" itemprop="name headline">벡터란?</h1><p class="page-description">벡터의 컨셉과 2가지 기본연산</p
+      <i class="fas fa-tags category-tags-icon"></i><p class="category-tags"> 
+      
+        <a class="category-tags-link" href="/blog/category.html?cate=선형대수학">선형대수학</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+	
+	<div class="px-1">
+<a href="https://github.com/gusdnd852/blog/tree/master/_notebooks/linear_algebra_002_vector.ipynb" role="button">
+    <img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=&message=View%20On%20GitHub&color=586069&logo=github&labelColor=2f363d">
+</a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#1.-벡터란-무엇일까?">1. 벡터란 무엇일까? </a></li>
+<li class="toc-entry toc-h3"><a href="#2.-사실-이들은-모두-같은-것이다.">2. 사실 이들은 모두 같은 것이다. </a></li>
+<li class="toc-entry toc-h3"><a href="#3.-벡터의-두가지-기본연산-:-벡터합과-스칼라곱">3. 벡터의 두가지 기본연산 : 벡터합과 스칼라곱 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#1)-벡터-합-:-두-벡터를-이어-붙이기">1) 벡터 합 : 두 벡터를 이어 붙이기 </a></li>
+<li class="toc-entry toc-h4"><a href="#2)-스칼라-곱-:-벡터를-상수배-만큼-늘리거나-줄이기">2) 스칼라 곱 : 벡터를 상수배 만큼 늘리거나 줄이기 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#4.-Reference">4. Reference </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/linear_algebra_002_vector.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
+<h3 id="1.-벡터란-무엇일까?">
+<a class="anchor" href="#1.-%EB%B2%A1%ED%84%B0%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C?" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. 벡터란 무엇일까?<a class="anchor-link" href="#1.-%EB%B2%A1%ED%84%B0%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C?"> </a>
+</h3>
+<p><img src="/blog/images/copied_from_nb/./img/linear_algebra/001_01.png" alt=""></p>
+<p>선형대수의 기본 조각은 선형방정식, 바로 벡터라고 했다. 그래서 우리는 이 벡터가 무엇인지 아는 것이 굉장히 중요하다. 기본적으로 벡터를 생각하는 가장 일반적인 3가지의 관점이 존재한다. 바로 물리학, 컴퓨터과학, 수학이다.
+<br><br></p>
+<p>물릭학에게 벡터는 방향을 나타내는 물리량이다. 그들에게는 방향과 크기만 같으면 어디에 있던 같은 벡터이다. 컴퓨터과학에게 벡터는 순차리스트이다. 이들은 벡터를 이용하여 여러가지 데이터를 모델링한다. 수학에게는 벡터는 이들을 모두 포함하는 개념으로 <code>벡터 합</code>과 <code>스칼라 곱</code>이라는 개념이 성립하면 벡터이다. (추가적으로 항등원, 역원 조건 등 다양한 조건이 있지만 위의 벡터 합과 스칼라 곱이 훨씬 중요하다)
+<br><br></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.-사실-이들은-모두-같은-것이다.">
+<a class="anchor" href="#2.-%EC%82%AC%EC%8B%A4-%EC%9D%B4%EB%93%A4%EC%9D%80-%EB%AA%A8%EB%91%90-%EA%B0%99%EC%9D%80-%EA%B2%83%EC%9D%B4%EB%8B%A4." aria-hidden="true"><span class="octicon octicon-link"></span></a>2. 사실 이들은 모두 같은 것이다.<a class="anchor-link" href="#2.-%EC%82%AC%EC%8B%A4-%EC%9D%B4%EB%93%A4%EC%9D%80-%EB%AA%A8%EB%91%90-%EA%B0%99%EC%9D%80-%EA%B2%83%EC%9D%B4%EB%8B%A4."> </a>
+</h3>
+<p><img src="/blog/images/copied_from_nb/./img/linear_algebra/001_02.gif" alt=""></p>
+<p>선형대수에서 벡터를 이야기할 때 원점에 꼬리를 둔 화살표를 하나 생각하는 것이 좋다. 물리학 관점에서는 꼬리의 위치가 어디로든 움직일 수 있지만 선형대수에서는 대부분 원점에 꼬리를 둔다. 원점에 꼬리를 두고 그 화살표가 가리키는 그 지점(좌표)가 컴퓨터 사이언스 관점에서의 리스트였던 것이다. 이렇게 컴퓨터 사이언스 관점의 벡터와 물리학 관점의 벡터는 표현하는 방법만 다를뿐 사실은 동일한 것이다. 이 둘(수치적 / 기하학적)이 서로 번역될 수 있고, 이러한 과정에서 선형대수의 중요한 특징들이 드러난다. 또한 평범한 좌표인 $(1, 2)$과 벡터를 구분하기 위해서 관례적으로 $\begin{bmatrix} 1 \\ 2 \end{bmatrix}$와 같은 열벡터로 표기한다.
+<br><br></p>
+<p><img src="/blog/images/copied_from_nb/./img/linear_algebra/001_03.gif" alt=""></p>
+<p>만약 $ \begin{bmatrix} 2 \\ 1 \\ 3 \end{bmatrix}$ 처럼 리스트의 원소가 3개라면 항이 3개인 벡터가 되는 것이고 이는 위처럼 기하학적으로 3차원 공간으로 확장된 화살표가 된다. (4차원 이상은 시각화가 어려움)
+<br><br></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.-벡터의-두가지-기본연산-:-벡터합과-스칼라곱">
+<a class="anchor" href="#3.-%EB%B2%A1%ED%84%B0%EC%9D%98-%EB%91%90%EA%B0%80%EC%A7%80-%EA%B8%B0%EB%B3%B8%EC%97%B0%EC%82%B0-:-%EB%B2%A1%ED%84%B0%ED%95%A9%EA%B3%BC-%EC%8A%A4%EC%B9%BC%EB%9D%BC%EA%B3%B1" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. 벡터의 두가지 기본연산 : 벡터합과 스칼라곱<a class="anchor-link" href="#3.-%EB%B2%A1%ED%84%B0%EC%9D%98-%EB%91%90%EA%B0%80%EC%A7%80-%EA%B8%B0%EB%B3%B8%EC%97%B0%EC%82%B0-:-%EB%B2%A1%ED%84%B0%ED%95%A9%EA%B3%BC-%EC%8A%A4%EC%B9%BC%EB%9D%BC%EA%B3%B1"> </a>
+</h3>
+<h4 id="1)-벡터-합-:-두-벡터를-이어-붙이기">
+<a class="anchor" href="#1)-%EB%B2%A1%ED%84%B0-%ED%95%A9-:-%EB%91%90-%EB%B2%A1%ED%84%B0%EB%A5%BC-%EC%9D%B4%EC%96%B4-%EB%B6%99%EC%9D%B4%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>1) 벡터 합 : 두 벡터를 이어 붙이기<a class="anchor-link" href="#1)-%EB%B2%A1%ED%84%B0-%ED%95%A9-:-%EB%91%90-%EB%B2%A1%ED%84%B0%EB%A5%BC-%EC%9D%B4%EC%96%B4-%EB%B6%99%EC%9D%B4%EA%B8%B0"> </a>
+</h4>
+<p><img src="/blog/images/copied_from_nb/./img/linear_algebra/001_04.gif" alt=""></p>
+<p>기하학적인 개념에서 본다면 <code>벡터 합</code>은 벡터의 꼬리를 다른 벡터의 끝에 놓고 두 벡터를 잇는 새로운 벡터를 그리는 것과 동일하다. 즉, $\vec{v}$를 갔다가 $\vec{w}$를 가면 결과적으로 $\vec{v} + \vec{w}$이 간 곳과 동일한 좌표에 도달하게 된다. 컴퓨터 사이언스(수치적)관점에서는 벡터들이 지금까지 어떻게 연산되었는지에 관계 없이 $\vec{v} = \begin{bmatrix} 1 \\ 2 \end{bmatrix}$이고, $\vec{w} = \begin{bmatrix} 1 \\ 2 \end{bmatrix}$라면, 결과적으로  $\vec{v} = \vec{w}$이다. 따라서 두 벡터를 따라가서 도달한 끝지점을 가리키는 벡터가 있다면, 그 벡터가 두 벡터의 합이 된다.
+<br><br></p>
+<p><img src="/blog/images/copied_from_nb/./img/linear_algebra/001_05.gif" alt=""></p>
+<p>수치적인 관점에서 벡터의 합을 계산해본다면 각 차원(자리)의 값들을 더해주면 그 결과벡터가 된다. 즉, 1번째 원소끼리 더하고 2번째 원소끼리 더하고 n번째 원소끼리 더해서 출력된 벡터가 두 벡터의 합이 된다. 위처럼 x축으로 1만큼 가고 다시 2만큼 간 뒤에, y축으로 2만큼 올라갔다가 1만큼 내려온, 그 위치를 가리키는 벡터가 곧 두 벡터를 더한 벡터가 된다는 것이다.
+<br><br></p>
+<p><img src="/blog/images/copied_from_nb/./img/linear_algebra/001_06.png" alt=""></p>
+<p>1차원에서 생각해보자면 이는 수직선과 굉장히 비슷한 개념이다. 우리가 $2 + 3$을 생각할 때 0에서 오른쪽으로 2칸 이동하고 다시 오른쪽으로 3칸 이동한다. $4 - 2$를 생각할 땐 0에서 오른쪽으로 4칸 이동하고 왼쪽으로 2칸 이동한다. 방향이 더 추가되었을 뿐, 정수, 유리수와 같은 수들과 본질적으로 동일하다. 이렇게 기하학적인 의미에서 이해하는 것과 수치적으로 계산을 하는것 모두 유용하다. 기하학은 그 과정을 머릿속으로 이해하게 해주며 수치는 이들을 실제로 계산할 수 있는 방법을 제공한다.
+<br><br></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="2)-스칼라-곱-:-벡터를-상수배-만큼-늘리거나-줄이기">
+<a class="anchor" href="#2)-%EC%8A%A4%EC%B9%BC%EB%9D%BC-%EA%B3%B1-:-%EB%B2%A1%ED%84%B0%EB%A5%BC-%EC%83%81%EC%88%98%EB%B0%B0-%EB%A7%8C%ED%81%BC-%EB%8A%98%EB%A6%AC%EA%B1%B0%EB%82%98-%EC%A4%84%EC%9D%B4%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>2) 스칼라 곱 : 벡터를 상수배 만큼 늘리거나 줄이기<a class="anchor-link" href="#2)-%EC%8A%A4%EC%B9%BC%EB%9D%BC-%EA%B3%B1-:-%EB%B2%A1%ED%84%B0%EB%A5%BC-%EC%83%81%EC%88%98%EB%B0%B0-%EB%A7%8C%ED%81%BC-%EB%8A%98%EB%A6%AC%EA%B1%B0%EB%82%98-%EC%A4%84%EC%9D%B4%EA%B8%B0"> </a>
+</h4>
+<p><img src="/blog/images/copied_from_nb/./img/linear_algebra/001_07.gif" alt=""></p>
+<p><img src="/blog/images/copied_from_nb/./img/linear_algebra/001_08.gif" alt=""></p>
+<p><img src="/blog/images/copied_from_nb/./img/linear_algebra/001_09.gif" alt=""></p>
+<p>스칼라 곱은 벡터의 방향을 바꾸지 않고 그 크기만 상수배만큼 늘리거나 줄이는 것을 의미한다. 이런 과정을 Scaling이라고 부르고, 얼마만큼 조절하기 위한 숫자를 Scaler(스케일러 =&gt; 스칼라)라고 한다. 물론 음수를 곱하게 되면 방향이 뒤바뀌게 되지만 절대적으로 유지되는 것은 $x$와 $y$가 어떤 관계에 있는지는 유지된다. $\begin{bmatrix} 1 \\ 2 \end{bmatrix}$에 -3을 곱해서 $\begin{bmatrix} -3 \\ -6 \end{bmatrix}$이 된다고 해도 $x$와 $y$는 그대로 3배 만큼 차이난다. 이는 기하학적으로 볼 때 하나의 직선상에서 벗어나지 않는 범위에서 움직이는 것을 의미한다. ($y = \frac{1}{2}x$를 벗어나지 않는다)
+<br><br></p>
+<p><img src="/blog/images/copied_from_nb/./img/linear_algebra/001_06.png" alt=""></p>
+<p>스칼라 곱도 마찬가지로 수직선에서 생각해도 역시 동일하다. 숫자 2가 오른쪽으로 두칸 이동한 것이라면 이 것을 2배만큼 늘려서 4까지 이동시킬 수도 있고 길이를 -3만큼 곱해서 -6까지 이동시키는 것도 역시 가능하다. 대신 벡터의 경우는 방향이 더 추가된 것 뿐. 본질은 동일하다. 
+<br><br></p>
+<p><img src="/blog/images/copied_from_nb/./img/linear_algebra/001_10.gif" alt=""></p>
+<p>스칼라 곱을 계산할 때는 벡터의 모든 차원에 해당 스케일러(스칼라)를 곱해주기만 하면 된다. 위의 예시처럼 $2 \times \begin{bmatrix} 3 \\ 1 \end{bmatrix}$라면 모든 차원 (3, 1)에 각각 2를 곱해서 $\begin{bmatrix} 6 \\ 2 \end{bmatrix}$가 된다.<br><br></p>
+<blockquote>
+<p>앞으로 이야기 하겠지만 선형대수는 위의 두가지 연산에서만 도는 경향이 있다. 선형대수에서 다루는 시스템인 선형방정식이 바로 <code>선형성</code>을 유지해야하기 때문이다. (제곱하거나 루트를 씌우거나 미적분을 하거나 하면 선형성이 깨져버린다) 딱 더한만큼만 더해지고, 딱 곱한만큼만 곱해진 시스템만 다루기 때문에 <code>벡터 합</code>과 <code>스칼라 곱</code>. 이 두가지 연산이 가장 중요하다.</p>
+</blockquote>
+<p><br><br></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="4.-Reference">
+<a class="anchor" href="#4.-Reference" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. Reference<a class="anchor-link" href="#4.-Reference"> </a>
+</h3>
+<p>
+</p>
+<center>
+<div class="h_iframe">
+<iframe src="https://www.youtube.com/embed/fNk_zzaMoSs" frameborder="0" allowfullscreen=""></iframe>
+</div>
+</center>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+    <br><br>
+    <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = “https://gusdnd852.github.io/linear_algebra/vector“;
+this.page.identifier = 벡터란?;
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://gusdnd852.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+<a class="u-url" href="/blog/linear_algebra/vector" hidden></a>
+</article>
+
+<script>
+	function run_exec(){
+		if("" === "binder"){
+			if(confirm("이 노트북은 CPU환경인 Binder에서 소스코드를 실행합니다.")){
+				var binder_path = "https://mybinder.org/v2/gh/gusdnd852/blog/master?filepath=_notebooks%2Flinear_algebra_002_vector.ipynb";
+				alert("Binder는 Docker기반의 컨테이너를 직접 빌드하기 때문에 시간이 다소 소요됩니다. Build logs의 show버튼을 눌러서 진행상황을 확인하세요");
+				window.open(binder_path, "_blank");
+							
+			}
+			
+		}else if("" === "colab"){
+			if(confirm("이 노트북은 GPU환경인 Google Colab에서 소스코드를 실행합니다.")){
+				var colab_path = "https://colab.research.google.com/github/gusdnd852/blog/blob/master/_notebooks/linear_algebra_002_vector.ipynb";
+				alert("GPU 설정을 위해 Colab 상단 메뉴중, 런타임 → 런타임 유형변경에서 GPU를 선택해주세요. (미선택시 CPU에서 실행됨)");
+				window.open(colab_path, "_blank");
+			}			
+		}else{
+			alert("해당 실행환경은 구동이 불가능합니다. Binder와 Google Colab 중 한가지를 선택해주세요.");
+		}
+	}
+
+    function code_listener() {
+	var input_area = document.getElementsByClassName("input_area");
+	var output_area = document.getElementsByClassName("output_area");
+    	
+	for(var i = 0 ; i < input_area.length; i++){
+		input_area[i].onclick = function(){
+			run_exec();
+    		}
+	}
+
+	for(var i = 0 ; i < output_area.length; i++){
+		output_area[i].onclick = function(){
+			run_exec();
+    		}
+	}
+    } 
+
+    code_listener();
+</script>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+      <div class="footer-col">
+	<footer-elem class=px-2>
+		<a href="https://github.com/gusdnd852">
+			<svg class="social svg-icon">
+				<use xlink:href="/blog/assets/minima-social-icons.svg#github"></use>
+			</svg>
+			<span class="username">Github</span>
+		</a>
+	</footer-elem>
+
+	<footer-elem class=px-2>
+		<a href="https://youtube.com/channel/UCb7DJAuj1LulbY8WEr2EDUw">
+			<svg class="social svg-icon">
+				<use xlink:href="/blog/assets/minima-social-icons.svg#youtube"></use>
+			</svg>
+			<span class="username">Youtube</span>
+		</a>
+	</footer-elem>
+
+	<footer-elem class=px-2>
+		<a href="https://www.facebook.com/gusdnd852">
+			<svg class="social svg-icon">
+				<use xlink:href="/blog/assets/minima-social-icons.svg#facebook"></use>
+			</svg>
+			<span class="username">Facebook</span>
+		</a>
+	</footer-elem>
+	<br>
+	<div class="copyright">
+		© Copyright 2020 Hyunwoong Go. All rights reserved.
+	</div>
+      </div>
+  </div>
+</footer>
+</body>
+</html>

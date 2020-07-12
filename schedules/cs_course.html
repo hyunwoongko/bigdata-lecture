@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>CS Courses | Hyunwoong Go</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="CS Courses" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="전북대학교 빅데이터 강의용 블로그" />
+<meta property="og:description" content="전북대학교 빅데이터 강의용 블로그" />
+<link rel="canonical" href="https://gusdnd852.github.io/blog/schedules/cs_course" />
+<meta property="og:url" content="https://gusdnd852.github.io/blog/schedules/cs_course" />
+<meta property="og:site_name" content="Hyunwoong Go" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-07-11T00:00:00-05:00" />
+<script type="application/ld+json">
+{"url":"https://gusdnd852.github.io/blog/schedules/cs_course","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://gusdnd852.github.io/blog/schedules/cs_course"},"headline":"CS Courses","dateModified":"2020-07-11T00:00:00-05:00","datePublished":"2020-07-11T00:00:00-05:00","description":"전북대학교 빅데이터 강의용 블로그","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <link rel="stylesheet" href="/blog/assets/main.css">
+
+<!-- Wikplayer https://www.wikplayer.com -->
+<script type="text/javascript" src="https://www.wikplayer.com/code.js" 
+data-config="{'skin':'skins/wikmini/funkyMiniRed/skin.css','volume':50,'autoplay':false,'shuffle':false,'repeat':0,'showcomment':false,'marqueetexton':false,'placement':'mini','showplaylist':false,'playlist':[{'title':'Relax%20%2F%20Study','url':'https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D5qap5aO4i9A'},{'title':'Sleep%20%2F%20Chill','url':'https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DDWcJFNfaw9c'}]}" ></script>
+<!-- Wikplayer code end --><link type="application/atom+xml" rel="alternate" href="https://gusdnd852.github.io/blog/feed.xml" title="Hyunwoong Go" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+          ]}
+        );
+      });
+    </script>
+  
+
+  <script>
+  function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+  }
+  window.onload = wrap_img;
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      // add link icon to anchor tags
+      var elem = document.querySelectorAll(".anchor-link")
+      elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+      // remove paragraph tags in rendered toc (happens from notebooks)
+      var toctags = document.querySelectorAll(".toc-entry")
+      toctags.forEach(e => (e.firstElementChild.innerText = e.firstElementChild.innerText.replace('¶', '')))
+    });
+  </script>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+     @media screen and (max-width : 511px) {
+         body { 
+		font-size: 0.84rem; 
+	}pre, code, blockquote {
+		font-size: 0.84rem !important;
+	}
+	.katex, .mord {
+		font: normal 1.02em 'KaTeX_Main', sans-serif !important;
+	}
+	.minner, .mord.mtight {
+		font: normal 0.90em 'KaTeX_Main', sans-serif !important;
+	}
+	.page-meta {
+		font-size: 0.9rem !important;
+	}
+	.contents-left{
+		display: none !important;
+	}
+	.contents-right, .contents-left {
+    		display: block;
+    		text-align: center;
+		margin-left: 0px !important;
+    		margin-right: 0px !important;
+    		list-style: none;
+    	}
+	.mobile_hide{
+		display: none;
+	}
+	.contents-right > li {
+    		display: inline-block;
+    		margin: 3px;
+    		word-break: keep-all;
+	}
+     }
+ 
+
+     @media screen and (min-width : 512px) and (max-width : 767px) {
+         body { 
+		font-size: 0.92rem; 
+	}pre, code, blockquote {
+		font-size: 0.92rem !important;
+	}
+	.katex, .mord {
+		font: normal 1.04em 'KaTeX_Main', sans-serif !important;
+	}
+	.minner, .mord.mtight {
+		font: normal 0.92em 'KaTeX_Main', sans-serif !important;
+	}
+	.page-meta {
+		font-size: 1.0rem !important;
+	}
+	.contents-left{
+		display: none !important;
+	}
+	.contents-right, .contents-left {
+    		display: block;
+    		text-align: center;
+		margin-left: 0px !important;
+    		margin-right: 0px !important;
+    		list-style: none;
+    	}    
+	.mobile_hide{
+		display: none !important;
+	}
+	.contents-right > li {
+    		display: inline-block;
+    		margin: 3px;
+    		word-break: keep-all;
+	}
+     }
+ 
+     @media screen and (min-width : 768px) and (max-width : 1024px) {
+         body {
+		 font-size: 1.0rem; 
+	}pre, code, blockquote {
+		font-size: 1.0rem !important;
+	}
+	.katex, .mord {
+		font: normal 1.05em 'KaTeX_Main', sans-serif !important;
+	}
+	.minner, .mord.mtight {
+		font: normal 0.93em 'KaTeX_Main', sans-serif !important;
+	}
+	.page-meta {
+		font-size: 1.1rem !important;
+	}
+	.contents-right, .contents-left {
+		display: inline-block;
+    		vertical-align: top;
+    		text-align: left;
+		list-style: none;
+    	}  
+	.contents-left{
+		margin-left: 20px !important;
+    		margin-right: 3.0rem;
+	}
+	.mobile_hide{
+		display: block !important;
+	}
+     }
+
+     @media screen and (min-width : 1025px) {
+         body { 
+		font-size: 1.08rem; 
+	}pre, code, blockquote {
+		font-size: 1.08rem !important;
+	}
+     	.katex, .mord {
+		font: normal 1.06em 'KaTeX_Main', sans-serif !important;
+	}
+	.minner, .mord.mtight {
+		font: normal 0.94em 'KaTeX_Main', sans-serif !important;
+	}
+	.page-meta {
+		font-size: 1.2rem !important;
+	}
+	.contents-right, .contents-left {
+    		display: inline-block;
+    		vertical-align: top;
+    		text-align: left;
+		list-style: none;
+    	}
+	.contents-right > h2, .contents-left > h2 {
+    		margin-botton: 2px
+	}  
+	.contents-left{
+    		margin-left: 0 !important;
+    		margin-right: 3.0rem;
+	}
+	.mobile_hide{
+		display: block !important;
+	}
+     }
+
+    </style>
+  <body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Hyunwoong Go</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about">About</a><a class="page-link" href="/blog/environments">Environments</a><a class="page-link" href="/blog/flashcards">Flashcards</a><a class="page-link" href="/blog/schedules">Schedules</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content" style="flex: none;" >
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h2 class="post-title p-name" itemprop="name headline">CS Courses</h1>
+
+    
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#1.-건너뛴-부분">1. 건너뛴 부분 </a></li>
+<li class="toc-entry toc-h3"><a href="#2.-강의-자료">2. 강의 자료 </a></li>
+<li class="toc-entry toc-h3"><a href="#3.-스케줄-및-진행현황">3. 스케줄 및 진행현황 </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/courses_cs.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
+<h3 id="1.-건너뛴-부분">
+<a class="anchor" href="#1.-%EA%B1%B4%EB%84%88%EB%9B%B4-%EB%B6%80%EB%B6%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. 건너뛴 부분<a class="anchor-link" href="#1.-%EA%B1%B4%EB%84%88%EB%9B%B4-%EB%B6%80%EB%B6%84"> </a>
+</h3>
+<ul>
+<li>컴퓨터구조 : 어셈블러, 링커, 로더 자세한 설명 with DLL(다이나믹 링킹 라이브러리) → 5월안에 찾아서 공부하기
+<br><br>
+</li>
+</ul>
+<h3 id="2.-강의-자료">
+<a class="anchor" href="#2.-%EA%B0%95%EC%9D%98-%EC%9E%90%EB%A3%8C" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. 강의 자료<a class="anchor-link" href="#2.-%EA%B0%95%EC%9D%98-%EC%9E%90%EB%A3%8C"> </a>
+</h3>
+<ul>
+<li>논리회로 : <a href="https://www.youtube.com/watch?v=23kEL4QLhuM&amp;list=PL4mqT4nB0TyAV8zfXyyiW--ZZx2pN8Sto">유튜브 뽕교수의전자공학</a> 강의듣기</li>
+<li>임베디드시스템 : <a href="http://www.kocw.net/home/search/kemView.do?kemId=1174876">최규상교수님(영남대)</a> 강의듣기</li>
+<li>마이크로프로세서 : <a href="http://www.kocw.net/home/search/kemView.do?kemId=153708">이인석교수님(한국기술교육대) 1</a> + <a href="http://www.kocw.net/home/search/kemView.do?kemId=168947">이인석교수님(한국기술교육대) 2</a>
+</li>
+<li>알고리즘 : <a href="https://www.youtube.com/watch?v=mzM3S5FtKuw&amp;list=PLl5LpJCoD2mCIRn0Fkt8z07EK320ZmHgY">유튜브 jakelee</a> + <a href="http://www.kocw.net/home/search/kemView.do?kemId=1190355">남원홍교수님(건국대)</a> + <a href="http://www.kocw.net/home/m/search/kemView.do?kemId=1014820">조행래교수님(영남대)</a> + 찾아서 공부</li>
+<li>컴퓨터구조 : <a href="http://www.kocw.net/home/search/kemView.do?kemId=1125218">최규상교수님(영남대)</a> + <a href="https://m.blog.naver.com/PostList.nhn?blogId=mayooyos&amp;categoryNo=26&amp;listStyle=style1">네이버블로그 구믓</a>
+</li>
+<li>운영체제 : <a href="http://www.kocw.net/home/search/kemView.do?kemId=978503">양희재교수님(영남대)</a> 강의듣기</li>
+<li>리눅스시스템 : <a href="http://www.kocw.net/home/search/kemView.do?kemId=1266434">최태영교수님(금오공대)</a> 강의듣기</li>
+<li>데이터베이스 : <a href="http://www.yes24.com/Product/Goods/9194489">한빛미디어 데이터베이스</a> 개론 책보기</li>
+<li>컴퓨터 네트워크 : <a href="http://www.kocw.net/home/search/kemView.do?kemId=1210517">남윤석교수님(동국대)</a> + <a href="http://www.kocw.net/home/search/kemView.do?kemId=1169634&amp;ar=relateCourse">이석복교수님(한양대)</a>
+</li>
+<li>소프트웨어공학 : <a href="http://www.kocw.net/home/search/kemView.do?kemId=1300178">최은만교수님(동국대)</a>
+</li>
+<li>언어론 : <a href="https://www.hanbit.co.kr/store/books/look.php?p_code=B2476698303">한빛미디어 프로그래밍 언어론</a> 책보기</li>
+<li>컴파일러 : <a href="http://ocw.kookmin.ac.kr/?course=17980">강승식교수님(국민대)</a>
+</li>
+<li>이산수학 : <a href="http://www.yes24.com/Product/Goods/35196368">한빛미디어 컴퓨팅사고를 키우는 이산수학</a> 책보기
+<br><br>
+</li>
+</ul>
+<h3 id="3.-스케줄-및-진행현황">
+<a class="anchor" href="#3.-%EC%8A%A4%EC%BC%80%EC%A4%84-%EB%B0%8F-%EC%A7%84%ED%96%89%ED%98%84%ED%99%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. 스케줄 및 진행현황<a class="anchor-link" href="#3.-%EC%8A%A4%EC%BC%80%EC%A4%84-%EB%B0%8F-%EC%A7%84%ED%96%89%ED%98%84%ED%99%A9"> </a>
+</h3>
+<ul>
+<li><del>논리회로 : 아날로그-디지털, 진수변환법, 보수표기법, 코드, 반도체, 다이오드, 트랜지스터, MOSFET, 불대수</del></li>
+<li><del>알고리즘 : 기초 알고리즘 (A La Russe, 유클리드호제법, 소수판별, 에라토스테네스의 체, 우선법),</del></li>
+<li><del>알고리즘 : 재귀호출 (피보나치, 하노이탑, 플러드필, 프랙탈트리, 파일찾기, 메모이제이션)</del></li>
+<li><del>알고리즘 : 정렬 알고리즘(버블,선택,삽입,쉘,퀵,합병,기수,계수,힙)</del></li>
+<li><del>알고리즘 : 검색알고리즘(순차검색, 이분검색, 내분검색)</del></li>
+<li><del>컴퓨터구조 : Performance of Computer</del></li>
+<li><del>운영체제 : 운영체제 개요, 프로세스 관리, CPU 스케줄링 알고리즘 (1) - 스케쥴링 척도, FCFS</del></li>
+<li><del>데이터베이스 : 데이터베이스 기본 개념</del></li>
+<li><del>컴퓨터 네트워크 : 데이터통신 서론, 네트워크 모델</del></li>
+<li><del>논리회로 : 민텀, 맥스텀, 표준형, 정형, Don't Care</del></li>
+<li><del>마이크로 프로세서 : 마이크로 컨트롤러</del></li>
+<li><del>알고리즘 : 자료구조의 분류, 단순구조, 문자열알고리즘</del></li>
+<li><del>컴퓨터구조 : Instructions: Language of the Computer 3차시 (1), (2)</del></li>
+<li><del>운영체제 : CPU 스케줄링 알고리즘 (2) - SJF, Priority, RR 스케쥴링</del></li>
+<li><del>데이터베이스 : 데이터베이스 관리 시스템 (DBMS)</del></li>
+<li><del>컴퓨터 네트워크 : 물리층 개요</del></li>
+<li><del>소프트웨어공학 : 소프트웨어공학 개요, 개발프로세스</del></li>
+<li><del>언어론 : 프로그래밍 언어론 개요</del></li>
+<li><del>논리회로 : K-Map, Q-M 방법</del></li>
+<li><del>마이크로 프로세서 : ATmega 128 특징</del></li>
+<li><del>알고리즘 : 리스트, 스택, 큐, 덱 + 응용 문제</del></li>
+<li><del>컴퓨터구조 : Instructions: Language of the Computer 4차시 (1), (2)</del></li>
+<li><del>운영체제 : CPU 스케줄링 알고리즘 (3) - 다중 큐 스케쥴링, 프로세스 생성과 소멸, 쓰레드</del></li>
+<li><del>데이터베이스 : 데이터베이스 시스템</del></li>
+<li><del>컴퓨터 네트워크 : 디지털 전송</del></li>
+<li><del>소프트웨어공학 : 애자일 프로세스</del></li>
+<li><del>언어론 : 프로그래밍 언어의 구문</del></li>
+<li><del>논리회로 : 2레벨구현, 해저드</del></li>
+<li><del>마이크로 프로세서 : 패턴을 이용한 LED 점등</del></li>
+<li>알고리즘 : 비선형구조 1 - 이진 트리, 2 - 힙, 검색 구조 - 맵, 집합, AVL트리, 2-3, 2-3-4, 레드블랙, 트라이, B, B*, B+ 트리</li>
+<li>컴퓨터구조 : Instructions: Language of the Computer 5차시 (1), (2)</li>
+<li>운영체제 : 프로세스 동기화 - 프로세스 동기화의 중요성, 은행계좌 문제</li>
+<li>데이터베이스 : 관계 데이터 모델 (1)</li>
+<li>컴퓨터 네트워크 : 아날로그 전송</li>
+<li>소프트웨어공학 : 요구분석</li>
+<li>언어론 : 4장 변수</li>
+<li>이산수학 : 명제, 논리적 동치 (~~87P)</li>
+<li>논리회로 : 조합논리회로 1 (HA, FA, 2비트가산기)</li>
+<li>마이크로 프로세서 : 변수의 범위, 타이머/카운터, 오버플로 인터럽트</li>
+<li>알고리즘 : 비선형구조 3 - 그래프, 그래프 알고리즘 (기수검색, BFS, DFS, 최소 스패닝 트리(MST), 최소 공통조상 (LCA))</li>
+<li>컴퓨터구조 : Arichmetic for Computers 6차시 (1), (2)</li>
+<li>운영체제 : 임계구역 문제 - 임계구역문제, 동기화 도구</li>
+<li>데이터베이스 : 관계 데이터 모델 (2)</li>
+<li>컴퓨터 네트워크 : 대역 사용률</li>
+<li>소프트웨어공학 : 사용사례</li>
+<li>언어론 : 5장 : 바인딩</li>
+<li>이산수학 : 변수포함 명제, 추론 (~~101P)</li>
+<li>논리회로 : 조합논리회로 2 (인코더, 디코더, Enable, Active Low)</li>
+<li>마이크로 프로세서 : 채터링 방지 대책,</li>
+<li>알고리즘 : 그래프 알고리즘 (크루스칼, 프림, 다익스트라, 위상정렬, 플로이드 와샬, 이분매칭, 단절점과 단절성, 2-SAT) </li>
+<li>컴퓨터구조 :  The Processor 7차시 (1), (2)</li>
+<li>운영체제 : 세마포어 - 세마포를 사용한 프로세스 동기화</li>
+<li>데이터베이스 : 관계 데이터 연산 (1)</li>
+<li>컴퓨터 네트워크 : 전송매체</li>
+<li>소프트웨어공학 : UML 다이어그램 (1)</li>
+<li>언어론 : 6장 : 식</li>
+<li>이산수학 : 증명의 이해, 직접증명법, 간접증명법 (~~123P)</li>
+<li>논리회로 : 조합논리회로 3 (멀티플렉서, 디멀티플렉서)</li>
+<li>마이크로 프로세서 : 타이머/카운터</li>
+<li>알고리즘 : 그래프 응용 (강결합 요소, AOE 네트워크, 임계작업, 네트워크 플로우, 최소비용최대유량, 벨만-포드 알고리즘)</li>
+<li>컴퓨터구조 : The Processor 8차시 (1), (2)</li>
+<li>운영체제 : 생산자-소비자 문제 - 전통적 동기화 문제, 생산자-소비자 문제</li>
+<li>데이터베이스 : 관계 데이터 연산 (2)</li>
+<li>컴퓨터 네트워크 : 교환기</li>
+<li>소프트웨어공학 : UML 다이어그램 (2)</li>
+<li>언어론 : 7장 : 부프로그램</li>
+<li>이산수학 : 존재/반례증명법, 수학적 귀납법(137P)</li>
+<li>논리회로 : 조합논리회로 4 (3-State 버퍼, MSI설계, ROM, PLA, PAL)</li>
+<li>마이크로 프로세서 :  오버플로 인터럽트</li>
+<li>알고리즘 : 파일구조 개요 (레코드, 필드, 파일분류, 선정요소), 파일 처리 (파일 디렉토리 등, C유닉스, C스탠다드, Java 입출력)</li>
+<li>컴퓨터구조 : The Processor 9차시 (1), (2) </li>
+<li>운영체제 : 기타 전통적 동기화 문제 - 읽기-쓰기 문제, 식사하는 철학자 문제</li>
+<li>데이터베이스 : 데이터베이스 언어 SQL (1)</li>
+<li>컴퓨터 네트워크 : 데이터링크층 개요</li>
+<li>소프트웨어공학 : 설계원리</li>
+<li>언어론 : 8장 : 예외처리</li>
+<li>이산수학 : 집합의 개념, 집합의 종류, 집합연산 (159P)</li>
+<li>논리회로 : 순차논리회로 1 (SR래치, Gated래치, D래치) </li>
+<li>마이크로 프로세서 : 세그먼트</li>
+<li>알고리즘 : 순차파일 구조 (스트림파일, 필드, 레코드, 순차접근, 임의접근, 순차탐색, 헤더레코드, 입력순차파일, 키순차파일, 설계, 신마스터파일) 1</li>
+<li>컴퓨터구조 : Large and Fast: Exploiting Memory Hierarchy 10차시 (1), (2)</li>
+<li>운영체제 : 교착상태 - 교착상태 필요조건, 교착상태의 해결법</li>
+<li>데이터베이스 : 데이터베이스 언어 SQL (2)</li>
+<li>컴퓨터 네트워크 : 오류검츨 및 정정</li>
+<li>소프트웨어공학 : 아키텍처 설계</li>
+<li>언어론 : 9장 : 객체지향 프로그래밍</li>
+<li>이산수학 : 대수법칙, 집합의 분할 (~~175P)</li>
+<li>논리회로 : 순차논리회로 2 (플립플롭, JK플립플롭, JK래치)</li>
+<li>마이크로 프로세서 : 세그먼트 동적표시</li>
+<li>알고리즘 : 순차파일 구조 (스트림파일, 필드, 레코드, 순차접근, 임의접근, 순차탐색, 헤더레코드, 입력순차파일, 키순차파일, 설계, 신마스터파일) 2</li>
+<li>컴퓨터구조 : Large and Fast: Exploiting Memory Hierarchy 11차시 (1), (2)</li>
+<li>운영체제 : 모니터 - 프로세스 동기화의 다른 도구인 모니터 사용</li>
+<li>데이터베이스 : 데이터베이스 언어 SQL (3)</li>
+<li>컴퓨터 네트워크 : 데이터 링크 제어와 프로토콜</li>
+<li>소프트웨어공학 : UI 설계 및 실습</li>
+<li>언어론 : 10장 : 함수형 프로그래밍</li>
+<li>이산수학 : 행렬개념, 행렬 연산, 행렬 종류 (~~192P)</li>
+<li>논리회로 : 순차논리회로 3 (계수기, 카운터) </li>
+<li>마이크로 프로세서 : 세그먼트 동적 표시</li>
+<li>알고리즘 : 파일 정렬/합병 알고리즘 (내부정렬 , 외부정렬 (대체선택, 자연선택), 이진/밸런스이진/K way/폴리페이즈/캐스케이드 소트/머지, 2PMM, 호프만알고리즘) 1</li>
+<li>컴퓨터구조 : Large and Fast: Exploiting Memory Hierarchy 12차시 (1), (2)</li>
+<li>운영체제 : 정리와 복습 (1) - 프로세스 관리와 관련한 복습</li>
+<li>데이터베이스 : 데이터베이스 언어 SQL (4)</li>
+<li>컴퓨터 네트워크 : 매체접근 제어</li>
+<li>소프트웨어공학 : 디자인 패턴 (1)</li>
+<li>언어론 : 11장 : 논리형 프로그래밍</li>
+<li>이산수학 : 행렬식, 역행렬, 연립1차방정식 (~~212P)</li>
+<li>임베디드 시스템 : Embedded System &amp; Real Time System</li>
+<li>마이크로 프로세서 : 동적표시 프로그램</li>
+<li>알고리즘 : 파일 정렬/합병 알고리즘 (내부정렬 , 외부정렬 (대체선택, 자연선택), 이진/밸런스이진/K way/폴리페이즈/캐스케이드 소트/머지, 2PMM, 호프만알고리즘) 2</li>
+<li>컴퓨터구조 : Storage and Other I/O Topics 13차시 (1), (2)</li>
+<li>운영체제 : 주기억장치 관리 개요 - 주기억장치 역사, 주소 개념, 메모리 절약 - 동적적재, 동적연결, 스와핑 </li>
+<li>데이터베이스 : 데이터베이스 설계 (1)</li>
+<li>컴퓨터 네트워크 : 유선랜 (이더넷)</li>
+<li>소프트웨어공학 : 디자인 패턴 (2)</li>
+<li>컴파일러 : 컴파일러 개요</li>
+<li>이산수학 : 관계의 개념, 관계 표현, 관계 성질 (~~248P)</li>
+<li>임베디드 시스템 : Embedded System Board (Achro-5250) </li>
+<li>마이크로 프로세서 : 정적함수</li>
+<li>알고리즘 : 탐색구조 (인덱스, LRU, BST, AVL, 2-3, 2-3-4, 레드블랙, 트라이, B, B*, B+트리 복습)</li>
+<li>컴퓨터구조 : Hard Disk Structure + Time Calculation</li>
+<li>운영체제 : 연속메모리할당 - 최초적합, 최적적합, 최악적합, 페이징 - 페이지 테이블, 주소변환</li>
+<li>데이터베이스 : 데이터베이스 설계 (2)</li>
+<li>컴퓨터 네트워크 : 다른 유선망 (점화막, 비동기 전달모드)</li>
+<li>소프트웨어공학 : 디자인 패턴 (3)</li>
+<li>컴파일러 : 언어와 문법</li>
+<li>이산수학 : 합성관계, 관계 폐포, 동치관계와 부분순서관계 (~~278P)</li>
+<li>임베디드 시스템 : Real Time Scheduling </li>
+<li>마이크로프로세서 : LCD 인터페이스</li>
+<li>알고리즘 : 인덱싱 알고리즘 (인덱스, 레코드연산, {컴포저,타이틀,세컨더리}인덱스, 인덱스 순차파일(VSAM/ISAM), 다중키 파일(역인덱스, 역파일, 다중리스트), 바인딩) 1</li>
+<li>컴퓨터구조 : Other Secondary Storages (Tape, Optical Disk, RAID, Flash Memory, SSD) (1)</li>
+<li>운영체제 : 세그멘테이션 - 세그멘트 테이블, 주소변환, 가상메모리 - 가상메모리 개요와 원리</li>
+<li>데이터베이스 : 정규화 (1)</li>
+<li>컴퓨터 네트워크 : 무선랜</li>
+<li>소프트웨어공학 : 디자인 패턴 (4)</li>
+<li>컴파일러 : 정규 언어</li>
+<li>이산수학 :  함수 개념, 함수 특성 (~~299P)</li>
+<li>임베디드 시스템 : Priority Inversion, Virtualization</li>
+<li>마이크로프로세서 : 문자표시 모듈 파일작성</li>
+<li>알고리즘 : 인덱싱 알고리즘 (인덱스, 레코드연산, {컴포저,타이틀,세컨더리}인덱스, 인덱스 순차파일(VSAM/ISAM), 다중키 파일(역인덱스, 역파일, 다중리스트), 바인딩) 2</li>
+<li>컴퓨터구조 : Other Secondary Storages (Tape, Optical Disk, RAID, Flash Memory, SSD) (2)</li>
+<li>운영체제 : 요구 페이징 - 요구페이징 개요, 페이지 부재, 페이지 교체 - 페이지 교체 필요성, 희생 페이지 설정 원칙</li>
+<li>데이터베이스 : 정규화 (2)</li>
+<li>컴퓨터 네트워크 : 연결 장치와 가상랜</li>
+<li>소프트웨어공학 : UML 코드매핑 </li>
+<li>컴파일러 : 정규 표현</li>
+<li>이산수학 : 합성함수, 함수 종류 (~~315P)</li>
+<li>임베디드 시스템 : Linux Installation, Linux Commands, Vi Commands</li>
+<li>마이크로프로세서 : 16비트 타이머/카운터</li>
+<li>알고리즘 : n차원 공간파일구조 - (격자파일, k-d, k-d-b, 사분, R, R+, R*트리) </li>
+<li>컴퓨터구조 : Other Secondary Storages (Tape, Optical Disk, RAID, Flash Memory, SSD) (3)</li>
+<li>운영체제 : 프레임 할당 - 프레임 할당, 정적/동적 할당, 쓰레싱, 페이지 크기</li>
+<li>데이터베이스 : 회복과 병행제어 (1)</li>
+<li>컴퓨터 네트워크 : 컴퓨터 네트워크의 기본</li>
+<li>소프트웨어공학 : 구현 </li>
+<li>컴파일러 : 유한 오토마타</li>
+<li>이산수학 : 그래프 개념, 그래프 종류, 그래프 표현(~~355P)</li>
+<li>임베디드 시스템 : Embedded System Environment, Tool Chain</li>
+<li>마이크로프로세서 : 16비트 타이머/카운터 레지스터</li>
+<li>알고리즘 : 텍스트 파일구조 - (역리스트 파일, 시그니처 파일) </li>
+<li>컴퓨터구조 : Other Secondary Storages (Tape, Optical Disk, RAID, Flash Memory, SSD) (4)</li>
+<li>운영체제 : 페이지 교체 알고리즘 - FIFO, OPT, LRU, 전역/지역교체, </li>
+<li>데이터베이스 : 회복과 병행제어 (2)</li>
+<li>컴퓨터 네트워크 : 애플리케이션 계층</li>
+<li>소프트웨어공학 : 테스팅 (1)</li>
+<li>컴파일러 : 정규언어의 표현</li>
+<li>이산수학 : 오일러 해밀턴, 그래프 활용 (~~373P)</li>
+<li>임베디드 시스템 : Boot Loader, Boot Loader Installation</li>
+<li>마이크로프로세서 : 16비트 타이머/카운터 실습</li>
+<li>알고리즘 : 해싱 알고리즘 (직접파일, 상대파일, 해싱(중간제곱, 중첩), 콜리전(선형탑색, 독립오버플로,이중해싱, 동거자체인, 버킷주소, 테이블해싱), 확장성직접파일(가상해싱), 동적해싱, 확장성해싱, 선형해싱), 해시테이블 1</li>
+<li>운영체제 : 파일 할당 - 디스크 구조, 파일 위한 디스크 블록 할당, 연속할당, 연결할당의 장단점</li>
+<li>데이터베이스 : 보안과 권한관리 (3)</li>
+<li>컴퓨터 네트워크 : 유선랜 (4), 무선랜 (1)</li>
+<li>소프트웨어공학 : 테스팅 (2)</li>
+<li>컴파일러 : LEX </li>
+<li>이산수학 : 트리 개념, 이진트리 (~~400P)</li>
+<li>임베디드 시스템 : Linux Kernel, Linux File System Installation</li>
+<li>마이크로프로세서 : 타이머/카운터 주파수 측정</li>
+<li>알고리즘 : 해싱 알고리즘 (직접파일, 상대파일, 해싱(중간제곱, 중첩), 콜리전(선형탑색, 독립오버플로,이중해싱, 동거자체인, 버킷주소, 테이블해싱), 확장성직접파일(가상해싱), 동적해싱, 확장성해싱, 선형해싱), 해시테이블 2</li>
+<li>운영체제 : 디스크 스케쥴링 - 색인할당, 디스크 탐색시간, FCFS, SSTF, SCAN 알고리즘 및 변종</li>
+<li>데이터베이스 : 보안과 권한관리 (4)</li>
+<li>컴퓨터 네트워크 : 애플리케이션 계층</li>
+<li>소프트웨어공학 : 유지보수</li>
+<li>컴파일러 : 문맥자유문법</li>
+<li>이산수학 : 트리의 활용(~~432P)</li>
+<li>임베디드 시스템 : Linux File System, Linux Kernel Configuration </li>
+<li>마이크로프로세서 : RC서보모터 구동</li>
+<li>알고리즘 : 그리디 기법 (압축 알고리즘 (권오흠)), 다이나믹 프로그래밍 (Knapsack, 외판원순회 문제, 설탕배달) </li>
+<li>운영체제 : 블로킹, 스풀링, 버퍼링- 디스크버퍼, 페이지캐시, 단순버퍼, 예상버퍼, 디블로킹, 이중버퍼, 버퍼링풀링, 버퍼링계산 (1)</li>
+<li>데이터베이스 : 데이터베이스 응용기술 (1)</li>
+<li>컴퓨터 네트워크 : 전송층 개념</li>
+<li>소프트웨어공학 : 프로젝트 관리 (1)</li>
+<li>컴파일러 : 문법의 유형</li>
+<li>이산수학 : 불대수 개념, 표현, 논리게이트 (~~493P)</li>
+<li>임베디드 시스템 : System Call, Adding a New System Call</li>
+<li>마이크로프로세서 : 아날로그 디지털 변환기</li>
+<li>알고리즘 : 백트래킹 (N-Queen 문제, Bounded Traveling Salesman 문제, 분할정복 (Strassen의 행렬곱셈, Closeset Pair)</li>
+<li>운영체제 : 블로킹, 스풀링, 버퍼링- 디스크버퍼, 페이지캐시, 단순버퍼, 예상버퍼, 디블로킹, 이중버퍼, 버퍼링풀링, 버퍼링계산 (2)</li>
+<li>데이터베이스 : 데이터베이스 응용기술 (2)</li>
+<li>컴퓨터 네트워크 : Congestion Control</li>
+<li>소프트웨어공학 : 프로젝트 관리 (2)</li>
+<li>컴파일러 : 구문분석 (1) </li>
+<li>이산수학 : 합법칙, 곱법칙, 순열, 조합 (~~523P)</li>
+<li>임베디드 시스템 : Module Programming, Proc File System</li>
+<li>마이크로프로세서 : 싱글엔드 입력과 차등입력</li>
+<li>알고리즘 : 완전 탐색 알고리즘 (비트마스크, 순열), 기하 알고리즘 (CCW, Convex Hull, Line Sweeping)</li>
+<li>운영체제 : 블로킹, 스풀링, 버퍼링- 디스크버퍼, 페이지캐시, 단순버퍼, 예상버퍼, 디블로킹, 이중버퍼, 버퍼링풀링, 버퍼링계산 (3)</li>
+<li>데이터베이스 : 데이터 과학과 빅데이터 (1)</li>
+<li>컴퓨터 네트워크 : 네트워크층 개요, IP프로토콜 (1)</li>
+<li>소프트웨어공학 : 품질관리 </li>
+<li>컴파일러 : 구문분석 (2)</li>
+<li>이산수학 : 확률, 확률분포 (~~543P)</li>
+<li>임베디드 시스템 : Adding a New Entry into Proc File System, Device Driver</li>
+<li>마이크로프로세서 : USART 1</li>
+<li>알고리즘 : 서로소 집합 (Disjoint), 유니온 파인드 (Union Fine), 이항계수, 카탈란 수, 오일러 피함수</li>
+<li>리눅스 시스템 : 시스템 관리</li>
+<li>데이터베이스 : 데이터 과학과 빅데이터 (2)</li>
+<li>컴퓨터 네트워크 : 라우팅 프로토콜 (1), (2)</li>
+<li>소프트웨어공학 : 추가차시</li>
+<li>컴파일러 : 파서</li>
+<li>이산수학 :  알고리즘 개념, 알고리즘 효율성, 다양한 알고리즘 (565P)</li>
+<li>임베디드 시스템 : Device Driver Implementation, Achro-5250's Device Driver (1)</li>
+<li>마이크로프로세서 : USART 2</li>
+<li>알고리즘 : 다항식 (다항식 개요, 라그랑지보간법), 행렬 (DenseMatrix, 가우스-조르단 소거법, SparseMatrix), 방정식 (이분법, Regular Falsi법, 시컨트법, 뉴턴법) </li>
+<li>리눅스 시스템 : 부팅</li>
+<li>컴퓨터 네트워크 : 라우팅 프로토콜 (3), (4)</li>
+<li>소프트웨어공학 : 추가차시</li>
+<li>임베디드 시스템 : Achro-5250's Device Driver (2), Anchro-5250 Display Control</li>
+<li>마이크로프로세서 : 스텝모터 구동</li>
+<li>알고리즘 : 미적분 1 (수치미분, 수치적분 - 사각형법, 사다리꼴법), 미적분 2 (수치적분 - 심슨법, AdaptiveQuadrature, 몬테카를로법) </li>
+<li>리눅스 시스템 : 파일입출력 (1), (2)</li>
+<li>컴퓨터 네트워크 : 라우팅 프로토콜 (5), 유선랜(1)</li>
+<li>알고리즘 : 회귀 (회귀 개요, 선형회귀, 회귀분석 일반화)</li>
+<li>리눅스 시스템 : 파일과 디렉토리 (1), (2)</li>
+<li>컴퓨터 네트워크 : 유선랜 (2), (3)</li>
+<li>알고리즘 : 스플리안 (허밋 스플리안, 베지어 스플리안, 카스텔죠 알고리즘, B스플라인)</li>
+<li>리눅스 시스템 : 프로세스 (1), (2)</li>
+<li>컴퓨터 네트워크 : 멀티미디어 네트워크</li>
+<li>리눅스 시스템 : 소켓프로그래밍 (1), (2)</li>
+<li>컴퓨터 네트워크 : 네트워크 보안 (1), (2)</li>
+<li>리눅스 시스템 : Signal, IPC(1), (2)</li>
+<li>리눅스 시스템 : 고급 I/O</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+    <br><br>
+    <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = “https://gusdnd852.github.io/schedules/cs_course“;
+this.page.identifier = CS Courses;
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://gusdnd852.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+<a class="u-url" href="/blog/schedules/cs_course" hidden></a>
+</article>
+
+<script>
+	function run_exec(){
+		if("" === "binder"){
+			if(confirm("이 노트북은 CPU환경인 Binder에서 소스코드를 실행합니다.")){
+				var binder_path = "https://mybinder.org/v2/gh/gusdnd852/blog/master?filepath=_notebooks%2Fcourses_cs.ipynb";
+				alert("Binder는 Docker기반의 컨테이너를 직접 빌드하기 때문에 시간이 다소 소요됩니다. Build logs의 show버튼을 눌러서 진행상황을 확인하세요");
+				window.open(binder_path, "_blank");
+							
+			}
+			
+		}else if("" === "colab"){
+			if(confirm("이 노트북은 GPU환경인 Google Colab에서 소스코드를 실행합니다.")){
+				var colab_path = "https://colab.research.google.com/github/gusdnd852/blog/blob/master/_notebooks/courses_cs.ipynb";
+				alert("GPU 설정을 위해 Colab 상단 메뉴중, 런타임 → 런타임 유형변경에서 GPU를 선택해주세요. (미선택시 CPU에서 실행됨)");
+				window.open(colab_path, "_blank");
+			}			
+		}else{
+			alert("해당 실행환경은 구동이 불가능합니다. Binder와 Google Colab 중 한가지를 선택해주세요.");
+		}
+	}
+
+    function code_listener() {
+	var input_area = document.getElementsByClassName("input_area");
+	var output_area = document.getElementsByClassName("output_area");
+    	
+	for(var i = 0 ; i < input_area.length; i++){
+		input_area[i].onclick = function(){
+			run_exec();
+    		}
+	}
+
+	for(var i = 0 ; i < output_area.length; i++){
+		output_area[i].onclick = function(){
+			run_exec();
+    		}
+	}
+    } 
+
+    code_listener();
+</script>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+      <div class="footer-col">
+	<footer-elem class=px-2>
+		<a href="https://github.com/gusdnd852">
+			<svg class="social svg-icon">
+				<use xlink:href="/blog/assets/minima-social-icons.svg#github"></use>
+			</svg>
+			<span class="username">Github</span>
+		</a>
+	</footer-elem>
+
+	<footer-elem class=px-2>
+		<a href="https://youtube.com/channel/UCb7DJAuj1LulbY8WEr2EDUw">
+			<svg class="social svg-icon">
+				<use xlink:href="/blog/assets/minima-social-icons.svg#youtube"></use>
+			</svg>
+			<span class="username">Youtube</span>
+		</a>
+	</footer-elem>
+
+	<footer-elem class=px-2>
+		<a href="https://www.facebook.com/gusdnd852">
+			<svg class="social svg-icon">
+				<use xlink:href="/blog/assets/minima-social-icons.svg#facebook"></use>
+			</svg>
+			<span class="username">Facebook</span>
+		</a>
+	</footer-elem>
+	<br>
+	<div class="copyright">
+		© Copyright 2020 Hyunwoong Go. All rights reserved.
+	</div>
+      </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>코드 개요 | Hyunwoong Go</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="코드 개요" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="이진, n초과, M out of N, BCD, 자기보수, 5043210코드의 개념 / 3초과 코드의 개념과 연산법" />
+<meta property="og:description" content="이진, n초과, M out of N, BCD, 자기보수, 5043210코드의 개념 / 3초과 코드의 개념과 연산법" />
+<link rel="canonical" href="https://gusdnd852.github.io/blog/logical_circuit/code_introduction" />
+<meta property="og:url" content="https://gusdnd852.github.io/blog/logical_circuit/code_introduction" />
+<meta property="og:site_name" content="Hyunwoong Go" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-07-11T00:00:00-05:00" />
+<script type="application/ld+json">
+{"url":"https://gusdnd852.github.io/blog/logical_circuit/code_introduction","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://gusdnd852.github.io/blog/logical_circuit/code_introduction"},"headline":"코드 개요","dateModified":"2020-07-11T00:00:00-05:00","datePublished":"2020-07-11T00:00:00-05:00","description":"이진, n초과, M out of N, BCD, 자기보수, 5043210코드의 개념 / 3초과 코드의 개념과 연산법","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <link rel="stylesheet" href="/blog/assets/main.css">
+
+<!-- Wikplayer https://www.wikplayer.com -->
+<script type="text/javascript" src="https://www.wikplayer.com/code.js" 
+data-config="{'skin':'skins/wikmini/funkyMiniRed/skin.css','volume':50,'autoplay':false,'shuffle':false,'repeat':0,'showcomment':false,'marqueetexton':false,'placement':'mini','showplaylist':false,'playlist':[{'title':'Relax%20%2F%20Study','url':'https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D5qap5aO4i9A'},{'title':'Sleep%20%2F%20Chill','url':'https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DDWcJFNfaw9c'}]}" ></script>
+<!-- Wikplayer code end --><link type="application/atom+xml" rel="alternate" href="https://gusdnd852.github.io/blog/feed.xml" title="Hyunwoong Go" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+          ]}
+        );
+      });
+    </script>
+  
+
+  <script>
+  function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+  }
+  window.onload = wrap_img;
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      // add link icon to anchor tags
+      var elem = document.querySelectorAll(".anchor-link")
+      elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+      // remove paragraph tags in rendered toc (happens from notebooks)
+      var toctags = document.querySelectorAll(".toc-entry")
+      toctags.forEach(e => (e.firstElementChild.innerText = e.firstElementChild.innerText.replace('¶', '')))
+    });
+  </script>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+     @media screen and (max-width : 511px) {
+         body { 
+		font-size: 0.84rem; 
+	}pre, code, blockquote {
+		font-size: 0.84rem !important;
+	}
+	.katex, .mord {
+		font: normal 1.02em 'KaTeX_Main', sans-serif !important;
+	}
+	.minner, .mord.mtight {
+		font: normal 0.90em 'KaTeX_Main', sans-serif !important;
+	}
+	.page-meta {
+		font-size: 0.9rem !important;
+	}
+	.contents-left{
+		display: none !important;
+	}
+	.contents-right, .contents-left {
+    		display: block;
+    		text-align: center;
+		margin-left: 0px !important;
+    		margin-right: 0px !important;
+    		list-style: none;
+    	}
+	.mobile_hide{
+		display: none;
+	}
+	.contents-right > li {
+    		display: inline-block;
+    		margin: 3px;
+    		word-break: keep-all;
+	}
+     }
+ 
+
+     @media screen and (min-width : 512px) and (max-width : 767px) {
+         body { 
+		font-size: 0.92rem; 
+	}pre, code, blockquote {
+		font-size: 0.92rem !important;
+	}
+	.katex, .mord {
+		font: normal 1.04em 'KaTeX_Main', sans-serif !important;
+	}
+	.minner, .mord.mtight {
+		font: normal 0.92em 'KaTeX_Main', sans-serif !important;
+	}
+	.page-meta {
+		font-size: 1.0rem !important;
+	}
+	.contents-left{
+		display: none !important;
+	}
+	.contents-right, .contents-left {
+    		display: block;
+    		text-align: center;
+		margin-left: 0px !important;
+    		margin-right: 0px !important;
+    		list-style: none;
+    	}    
+	.mobile_hide{
+		display: none !important;
+	}
+	.contents-right > li {
+    		display: inline-block;
+    		margin: 3px;
+    		word-break: keep-all;
+	}
+     }
+ 
+     @media screen and (min-width : 768px) and (max-width : 1024px) {
+         body {
+		 font-size: 1.0rem; 
+	}pre, code, blockquote {
+		font-size: 1.0rem !important;
+	}
+	.katex, .mord {
+		font: normal 1.05em 'KaTeX_Main', sans-serif !important;
+	}
+	.minner, .mord.mtight {
+		font: normal 0.93em 'KaTeX_Main', sans-serif !important;
+	}
+	.page-meta {
+		font-size: 1.1rem !important;
+	}
+	.contents-right, .contents-left {
+		display: inline-block;
+    		vertical-align: top;
+    		text-align: left;
+		list-style: none;
+    	}  
+	.contents-left{
+		margin-left: 20px !important;
+    		margin-right: 3.0rem;
+	}
+	.mobile_hide{
+		display: block !important;
+	}
+     }
+
+     @media screen and (min-width : 1025px) {
+         body { 
+		font-size: 1.08rem; 
+	}pre, code, blockquote {
+		font-size: 1.08rem !important;
+	}
+     	.katex, .mord {
+		font: normal 1.06em 'KaTeX_Main', sans-serif !important;
+	}
+	.minner, .mord.mtight {
+		font: normal 0.94em 'KaTeX_Main', sans-serif !important;
+	}
+	.page-meta {
+		font-size: 1.2rem !important;
+	}
+	.contents-right, .contents-left {
+    		display: inline-block;
+    		vertical-align: top;
+    		text-align: left;
+		list-style: none;
+    	}
+	.contents-right > h2, .contents-left > h2 {
+    		margin-botton: 2px
+	}  
+	.contents-left{
+    		margin-left: 0 !important;
+    		margin-right: 3.0rem;
+	}
+	.mobile_hide{
+		display: block !important;
+	}
+     }
+
+    </style>
+  <body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Hyunwoong Go</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about">About</a><a class="page-link" href="/blog/environments">Environments</a><a class="page-link" href="/blog/flashcards">Flashcards</a><a class="page-link" href="/blog/schedules">Schedules</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content" style="flex: none;" >
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h2 class="post-title p-name" itemprop="name headline">코드 개요</h1><p class="page-description">이진, n초과, M out of N, BCD, 자기보수, 5043210코드의 개념 / 3초과 코드의 개념과 연산법</p
+      <i class="fas fa-tags category-tags-icon"></i><p class="category-tags"> 
+      
+        <a class="category-tags-link" href="/blog/category.html?cate=논리회로">논리회로</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+	
+	<div class="px-1">
+    <a href="https://mybinder.org/v2/gh/gusdnd852/blog/master?filepath=_notebooks%2Flogical_circuit_006_code_introduction.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/blog/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+	
+	<div class="px-1">
+<a href="https://github.com/gusdnd852/blog/tree/master/_notebooks/logical_circuit_006_code_introduction.ipynb" role="button">
+    <img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=&message=View%20On%20GitHub&color=586069&logo=github&labelColor=2f363d">
+</a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#1.-코드의-정의와-최소-비트">1. 코드의 정의와 최소 비트 </a></li>
+<li class="toc-entry toc-h3"><a href="#2.-코드의-형식">2. 코드의 형식 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#1)-Binary-Code-(이진코드)">1) Binary Code (이진코드) </a></li>
+<li class="toc-entry toc-h4"><a href="#2)-Excess-n-Code-(n초과-코드)">2) Excess-n Code (n초과 코드) </a></li>
+<li class="toc-entry toc-h4"><a href="#3)-M-out-of-N-code">3) M out of N code </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#3.-다양한-코드-예시">3. 다양한 코드 예시 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#1)-8421코드-(BCD코드)">1) 8421코드 (BCD코드) </a></li>
+<li class="toc-entry toc-h4"><a href="#2)-84-2-1코드">2) 84-2-1코드 </a></li>
+<li class="toc-entry toc-h4"><a href="#3)-2421코드">3) 2421코드 </a></li>
+<li class="toc-entry toc-h4"><a href="#4)-5043210코드">4) 5043210코드 </a></li>
+<li class="toc-entry toc-h4"><a href="#5)-Excess-3-Code-(3초과-코드)">5) Excess-3 Code (3초과 코드) </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#4.-3초과-코드의-계산법">4. 3초과 코드의 계산법 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#1)-연산법칙">1) 연산법칙 </a></li>
+<li class="toc-entry toc-h4"><a href="#2)-연산법칙-해석">2) 연산법칙 해석 </a></li>
+<li class="toc-entry toc-h4"><a href="#3)-계산-예시">3) 계산 예시 </a></li>
+<li class="toc-entry toc-h4"><a href="#4)-구현">4) 구현 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#5.-Reference">5. Reference </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/logical_circuit_006_code_introduction.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
+<h3 id="1.-코드의-정의와-최소-비트">
+<a class="anchor" href="#1.-%EC%BD%94%EB%93%9C%EC%9D%98-%EC%A0%95%EC%9D%98%EC%99%80-%EC%B5%9C%EC%86%8C-%EB%B9%84%ED%8A%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. 코드의 정의와 최소 비트<a class="anchor-link" href="#1.-%EC%BD%94%EB%93%9C%EC%9D%98-%EC%A0%95%EC%9D%98%EC%99%80-%EC%B5%9C%EC%86%8C-%EB%B9%84%ED%8A%B8"> </a>
+</h3>
+<p>코드는 암호화 전/후가 달라야하며, 암호자와 복호자 사이에 일정한 규칙에 의해 생성되어야한다. 규칙이 일정하지 않거나 전/후가 동일하면 그것은 Non-Code라고 부른다. 또한 $2^{(n-1)}$ ~ $2^n$개의 사건을 구분하는 코드를 위해서는 반드시 n개 이상의 비트가 필요하다. (e.g. 9 ~ 16개의 사건 구분에 4개의 비트 필요)
+<br><br></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.-코드의-형식">
+<a class="anchor" href="#2.-%EC%BD%94%EB%93%9C%EC%9D%98-%ED%98%95%EC%8B%9D" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. 코드의 형식<a class="anchor-link" href="#2.-%EC%BD%94%EB%93%9C%EC%9D%98-%ED%98%95%EC%8B%9D"> </a>
+</h3>
+<ul>
+<li>다양한 코드의 형식에 대해 알아보자.
+<br><br>
+</li>
+</ul>
+<h4 id="1)-Binary-Code-(이진코드)">
+<a class="anchor" href="#1)-Binary-Code-(%EC%9D%B4%EC%A7%84%EC%BD%94%EB%93%9C)" aria-hidden="true"><span class="octicon octicon-link"></span></a>1) Binary Code (이진코드)<a class="anchor-link" href="#1)-Binary-Code-(%EC%9D%B4%EC%A7%84%EC%BD%94%EB%93%9C)"> </a>
+</h4>
+<p>2진수로 나타낸 코드로 각 자리수에 따라 의미하는 값이 다르게 가중되기 때문에 가중코드라고 부르며, 아래의 코드의 경우는 2-1 코드라고 부른다. (1째 자리는 2, 1째 자리는 1로 가중됨)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">구분</th>
+<th style="text-align:center">1째 자리수</th>
+<th style="text-align:center">2째 자리수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h4 id="2)-Excess-n-Code-(n초과-코드)">
+<a class="anchor" href="#2)-Excess-n-Code-(n%EC%B4%88%EA%B3%BC-%EC%BD%94%EB%93%9C)" aria-hidden="true"><span class="octicon octicon-link"></span></a>2) Excess-n Code (n초과 코드)<a class="anchor-link" href="#2)-Excess-n-Code-(n%EC%B4%88%EA%B3%BC-%EC%BD%94%EB%93%9C)"> </a>
+</h4>
+<p>위의 이진코드의 모든 수에 일정한 숫자 n을 더한 것을 n초과 코드라고 한다. 아래는 모든 수에 1을 더한 1초과 코드이다. n초과 코드는 자리수가 가중치를 갖는다고 볼 수 없으므로 비가중 코드이다.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">구분</th>
+<th style="text-align:center">1째 자리수</th>
+<th style="text-align:center">2째 자리수</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h4 id="3)-M-out-of-N-code">
+<a class="anchor" href="#3)-M-out-of-N-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>3) M out of N code<a class="anchor-link" href="#3)-M-out-of-N-code"> </a>
+</h4>
+<p>항상 N개의 코드중 1의 개수가 M개여야하는 코드로, 항상 1의 개수가 일정해야하기 때문에, 일정하지 않은 경우 오류가 발생한 것으로 간주 할 수 있다. 때문에 이러한 코드를 오류검출코드라고 한다.
+<br><br></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.-다양한-코드-예시">
+<a class="anchor" href="#3.-%EB%8B%A4%EC%96%91%ED%95%9C-%EC%BD%94%EB%93%9C-%EC%98%88%EC%8B%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. 다양한 코드 예시<a class="anchor-link" href="#3.-%EB%8B%A4%EC%96%91%ED%95%9C-%EC%BD%94%EB%93%9C-%EC%98%88%EC%8B%9C"> </a>
+</h3>
+<h4 id="1)-8421코드-(BCD코드)">
+<a class="anchor" href="#1)-8421%EC%BD%94%EB%93%9C-(BCD%EC%BD%94%EB%93%9C)" aria-hidden="true"><span class="octicon octicon-link"></span></a>1) 8421코드 (BCD코드)<a class="anchor-link" href="#1)-8421%EC%BD%94%EB%93%9C-(BCD%EC%BD%94%EB%93%9C)"> </a>
+</h4>
+<p>10개의 사건을 구분하기 위한 이진코드로 각 자리가 8421의 가중값을 갖기 때문에 8421코드라고 부름. 또한 Binary Code Decimal라는 말로 BCD코드라고도 불린다 (정확히는 8421, 5421, 2421 등의 코드를 통틀어서 BCD코드라고 하는데, 대표적으로 8421코드를 말하기 때문에 거의 BCD=8421처럼 말하기도 한다)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">구분</th>
+<th style="text-align:center">8</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h4 id="2)-84-2-1코드">
+<a class="anchor" href="#2)-84-2-1%EC%BD%94%EB%93%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>2) 84-2-1코드<a class="anchor-link" href="#2)-84-2-1%EC%BD%94%EB%93%9C"> </a>
+</h4>
+<p>각 자리수가 8, 4, -2, -1의 가중 값을 갖는 코드이다. 특이한 성질로 정가운데인 4와 5를 기준으로 0과9, 1과8, 2와7 등이 서로 1의 보수의 관계를 갖는다. 이러한 코드를 자기보수코드 (Self Compliemnt Code)라고 부름.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">구분</th>
+<th style="text-align:center">8</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">-2</th>
+<th style="text-align:center">-1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h4 id="3)-2421코드">
+<a class="anchor" href="#3)-2421%EC%BD%94%EB%93%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>3) 2421코드<a class="anchor-link" href="#3)-2421%EC%BD%94%EB%93%9C"> </a>
+</h4>
+<p>각 자리수가 2, 4, 2, 1의 가중값을 갖는 코드로, 이 코드도 역시 자기보수코드임.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">구분</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h4 id="4)-5043210코드">
+<a class="anchor" href="#4)-5043210%EC%BD%94%EB%93%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>4) 5043210코드<a class="anchor-link" href="#4)-5043210%EC%BD%94%EB%93%9C"> </a>
+</h4>
+<p>5, 0, 4, 3, 2, 1, 0의 가중치를 갖는 코드로, 2 out of 7코드이다. 이 코드는 7개의 자리수에서 항상 1의 개수가 2개로 유지되어야하기 때문에 오류 검출코드로 사용할 수 있다.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">구분</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">0</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h4 id="5)-Excess-3-Code-(3초과-코드)">
+<a class="anchor" href="#5)-Excess-3-Code-(3%EC%B4%88%EA%B3%BC-%EC%BD%94%EB%93%9C)" aria-hidden="true"><span class="octicon octicon-link"></span></a>5) Excess-3 Code (3초과 코드)<a class="anchor-link" href="#5)-Excess-3-Code-(3%EC%B4%88%EA%B3%BC-%EC%BD%94%EB%93%9C)"> </a>
+</h4>
+<p>84-2-1코드나 2421처럼 자기보수코드이지만 비가중치코드이다. 자기보수코드이면서 2421이나 84-2-1등의 코드보다 덧셈뺄셈 등의 연산이 비교적 간단하기 때문에 보수계산을 위해 쓴다.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">구분</th>
+<th style="text-align:center">8</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+</tbody>
+</table>
+<p><br><br></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="4.-3초과-코드의-계산법">
+<a class="anchor" href="#4.-3%EC%B4%88%EA%B3%BC-%EC%BD%94%EB%93%9C%EC%9D%98-%EA%B3%84%EC%82%B0%EB%B2%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. 3초과 코드의 계산법<a class="anchor-link" href="#4.-3%EC%B4%88%EA%B3%BC-%EC%BD%94%EB%93%9C%EC%9D%98-%EA%B3%84%EC%82%B0%EB%B2%95"> </a>
+</h3>
+<p>3초과 코드는 특수한 연산법이 있다. 3이 더해졌기 때문에 이에 대한 처리를 해야한다.
+<br><br></p>
+<h4 id="1)-연산법칙">
+<a class="anchor" href="#1)-%EC%97%B0%EC%82%B0%EB%B2%95%EC%B9%99" aria-hidden="true"><span class="octicon octicon-link"></span></a>1) 연산법칙<a class="anchor-link" href="#1)-%EC%97%B0%EC%82%B0%EB%B2%95%EC%B9%99"> </a>
+</h4>
+<ul>
+<li>캐리가 발생하지 않은 아랫자리 → 3을 뺀다</li>
+<li>캐리가 발생한 아랫자리 → 3을 더한다.</li>
+<li>새롭게 추가된 윗자리 → 3을 더한다.
+<br><br>
+</li>
+</ul>
+<h4 id="2)-연산법칙-해석">
+<a class="anchor" href="#2)-%EC%97%B0%EC%82%B0%EB%B2%95%EC%B9%99-%ED%95%B4%EC%84%9D" aria-hidden="true"><span class="octicon octicon-link"></span></a>2) 연산법칙 해석<a class="anchor-link" href="#2)-%EC%97%B0%EC%82%B0%EB%B2%95%EC%B9%99-%ED%95%B4%EC%84%9D"> </a>
+</h4>
+<p>캐리가 발생하지 않은 자리의 경우, 두 수가 더해질 때 각각 3씩 총 6이 더해진 숫자가 되므로 3을 빼야한다. 캐리가 발생하고 남은 아랫자리의 경우 남은 코드는 8421코드이기 때문에 3을 더해야한다. 새롭게 추가된 자리 역시 0001이 아니라 0100로 올려줘야하기 때문에 3을 더한다.
+<br><br></p>
+<h4 id="3)-계산-예시">
+<a class="anchor" href="#3)-%EA%B3%84%EC%82%B0-%EC%98%88%EC%8B%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>3) 계산 예시<a class="anchor-link" href="#3)-%EA%B3%84%EC%82%B0-%EC%98%88%EC%8B%9C"> </a>
+</h4>
+<p>26 + 88을 계산하면 0101 1001 + 1011 1011을 계산해야한다. 이를 그냥 BCD코드라고 생각하고 계산하면 0001 0001 0100이 된다. 그러나 첫째 4자리와 둘째 4자리에서 모두 캐리가 발생하였고, 새롭게 셋째 4자리가 추가되었으므로, 각 4자리마다 3씩 더해주면 된다. 따라서 0001→0100, 0001→0100, 0100→0111이 되어 최종 결과는 0100 0100 0111 → 114로 잘 계산된다.
+<br><br></p>
+<h4 id="4)-구현">
+<a class="anchor" href="#4)-%EA%B5%AC%ED%98%84" aria-hidden="true"><span class="octicon octicon-link"></span></a>4) 구현<a class="anchor-link" href="#4)-%EA%B5%AC%ED%98%84"> </a>
+</h4>
+<p></p>
+<div class="flash">
+    <svg class="octicon octicon-info" viewbox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 01-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 01-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg>
+    <strong>Note: </strong>일부 내용이 생략된 소스코드입니다. 아래 코드 셀을 클릭하여 전체 소스코드를 확인하세요.
+</div>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">excess_3_rule</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">carry</span><span class="p">):</span>
+    
+    <span class="k">if</span> <span class="n">carry</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="s1">''</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">number</span><span class="p">])</span>
+        <span class="n">addition</span> <span class="o">=</span> <span class="n">binary_addition</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="s1">'0011'</span><span class="p">)</span> <span class="c1"># 3</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">addition</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">addition</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]]</span>
+        <span class="c1"># 캐리가 발생한 자리는 3을 더함</span>
+        
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="s1">''</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">number</span><span class="p">])</span>
+        <span class="n">addition</span> <span class="o">=</span> <span class="n">binary_addition</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="s1">'1101'</span><span class="p">)</span> <span class="c1"># 13</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">addition</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">addition</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]]</span>
+        <span class="c1"># 캐리가 발생하지 않은 자리는 3을 빼야하는데 감산기가 없으므로</span>
+        <span class="c1"># 보수를 더하고 뒷자리 가져오면 결과 동일 (16진수 =&gt; 보수는 13)</span>
+
+    <span class="k">return</span> <span class="n">number</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">excess_3</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span><span class="nb">str</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">list</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    3초과코드 계산기</span>
+<span class="sd">    이전에 구현했던 이진연산 코드를 살짝 변형함</span>
+<span class="sd">    """</span>
+    
+    <span class="n">a</span><span class="p">:</span><span class="nb">list</span> <span class="o">=</span> <span class="n">split_binary</span><span class="p">(</span><span class="n">preprocessing</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+    <span class="n">b</span><span class="p">:</span><span class="nb">list</span> <span class="o">=</span> <span class="n">split_binary</span><span class="p">(</span><span class="n">preprocessing</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+    <span class="n">total</span><span class="p">,</span> <span class="n">carry</span> <span class="o">=</span> <span class="p">[],</span> <span class="mi">0</span>
+    
+    <span class="c1"># 두 수의 자리수가 안맞으면 맞춰줌</span>
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">):</span> <span class="n">b</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'0000'</span><span class="p">)</span>
+        <span class="k">else</span> <span class="p">:</span> <span class="n">a</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'0000'</span><span class="p">)</span>
+    
+    <span class="n">a</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span> <span class="c1"># 뒤부터 연산해야하기 때문에 뒤집음</span>
+    <span class="n">b</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span> <span class="c1"># 뒤부터 연산해야하기 때문에 뒤집음</span>
+    
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="n">ai</span> <span class="o">=</span> <span class="s1">''</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+        <span class="n">bi</span> <span class="o">=</span> <span class="s1">''</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="n">unit</span> <span class="o">=</span> <span class="p">[]</span>
+        
+        <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">ai</span><span class="p">,</span> <span class="n">bi</span><span class="p">)):</span>
+            <span class="n">aij</span><span class="p">,</span> <span class="n">bij</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">aij</span> <span class="o">+</span> <span class="n">bij</span> <span class="o">+</span> <span class="n">carry</span>
+            
+            <span class="k">if</span> <span class="n">result</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span> 
+                <span class="n">result</span> <span class="o">-=</span> <span class="mi">2</span> <span class="p">;</span> <span class="n">carry</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span> 
+                <span class="n">carry</span> <span class="o">=</span> <span class="mi">0</span>
+            
+            <span class="n">unit</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="n">unit</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+                <span class="n">unit</span> <span class="o">=</span> <span class="n">excess_3_rule</span><span class="p">(</span><span class="n">unit</span><span class="p">,</span> <span class="n">carry</span><span class="p">)</span>
+
+        <span class="n">total</span> <span class="o">+=</span> <span class="n">unit</span>
+        
+    <span class="k">if</span> <span class="n">carry</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="c1"># 더할 때 그냥 한번에 4 더해줌 (1 + 3)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]:</span>
+            <span class="n">total</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        
+    <span class="n">total</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">total</span><span class="p">]</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">split_binary</span><span class="p">(</span><span class="s1">''</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">total</span><span class="p">))</span>
+    <span class="n">total</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">total</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'0101 1001 + 1011 1011 = </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">' '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">excess_3</span><span class="p">(</span><span class="s1">'01011001'</span><span class="p">,</span> <span class="s1">'10111011'</span><span class="p">))))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'0100 + 0110 = </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">' '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">excess_3</span><span class="p">(</span><span class="s1">'0100'</span><span class="p">,</span> <span class="s1">'0110'</span><span class="p">))))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0101 1001 + 1011 1011 = 0100 0100 0111
+0100 + 0110 = 0111
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br><br></p>
+<h3 id="5.-Reference">
+<a class="anchor" href="#5.-Reference" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. Reference<a class="anchor-link" href="#5.-Reference"> </a>
+</h3>
+<p>
+</p>
+<center>
+<div class="h_iframe">
+<iframe src="https://www.youtube.com/embed/kqRKRo4jjQ8" frameborder="0" allowfullscreen=""></iframe>
+</div>
+</center>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+    <br><br>
+    <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = “https://gusdnd852.github.io/logical_circuit/code_introduction“;
+this.page.identifier = 코드 개요;
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://gusdnd852.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+<a class="u-url" href="/blog/logical_circuit/code_introduction" hidden></a>
+</article>
+
+<script>
+	function run_exec(){
+		if("binder" === "binder"){
+			if(confirm("이 노트북은 CPU환경인 Binder에서 소스코드를 실행합니다.")){
+				var binder_path = "https://mybinder.org/v2/gh/gusdnd852/blog/master?filepath=_notebooks%2Flogical_circuit_006_code_introduction.ipynb";
+				alert("Binder는 Docker기반의 컨테이너를 직접 빌드하기 때문에 시간이 다소 소요됩니다. Build logs의 show버튼을 눌러서 진행상황을 확인하세요");
+				window.open(binder_path, "_blank");
+							
+			}
+			
+		}else if("binder" === "colab"){
+			if(confirm("이 노트북은 GPU환경인 Google Colab에서 소스코드를 실행합니다.")){
+				var colab_path = "https://colab.research.google.com/github/gusdnd852/blog/blob/master/_notebooks/logical_circuit_006_code_introduction.ipynb";
+				alert("GPU 설정을 위해 Colab 상단 메뉴중, 런타임 → 런타임 유형변경에서 GPU를 선택해주세요. (미선택시 CPU에서 실행됨)");
+				window.open(colab_path, "_blank");
+			}			
+		}else{
+			alert("해당 실행환경은 구동이 불가능합니다. Binder와 Google Colab 중 한가지를 선택해주세요.");
+		}
+	}
+
+    function code_listener() {
+	var input_area = document.getElementsByClassName("input_area");
+	var output_area = document.getElementsByClassName("output_area");
+    	
+	for(var i = 0 ; i < input_area.length; i++){
+		input_area[i].onclick = function(){
+			run_exec();
+    		}
+	}
+
+	for(var i = 0 ; i < output_area.length; i++){
+		output_area[i].onclick = function(){
+			run_exec();
+    		}
+	}
+    } 
+
+    code_listener();
+</script>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+      <div class="footer-col">
+	<footer-elem class=px-2>
+		<a href="https://github.com/gusdnd852">
+			<svg class="social svg-icon">
+				<use xlink:href="/blog/assets/minima-social-icons.svg#github"></use>
+			</svg>
+			<span class="username">Github</span>
+		</a>
+	</footer-elem>
+
+	<footer-elem class=px-2>
+		<a href="https://youtube.com/channel/UCb7DJAuj1LulbY8WEr2EDUw">
+			<svg class="social svg-icon">
+				<use xlink:href="/blog/assets/minima-social-icons.svg#youtube"></use>
+			</svg>
+			<span class="username">Youtube</span>
+		</a>
+	</footer-elem>
+
+	<footer-elem class=px-2>
+		<a href="https://www.facebook.com/gusdnd852">
+			<svg class="social svg-icon">
+				<use xlink:href="/blog/assets/minima-social-icons.svg#facebook"></use>
+			</svg>
+			<span class="username">Facebook</span>
+		</a>
+	</footer-elem>
+	<br>
+	<div class="copyright">
+		© Copyright 2020 Hyunwoong Go. All rights reserved.
+	</div>
+      </div>
+  </div>
+</footer>
+</body>
+</html>
