@@ -1,4 +1,4 @@
-title: "Hyunwoong Go"
+title: "Tensorflow로 쉽게 시작하는 머신러닝"
 github_username: gusdnd852
 github_repo: "bigdata-lecture"
 url: "https://gusdnd852.github.io"
@@ -6,7 +6,6 @@ baseurl: "/bigdata-lecture"
 
 email: "gusdnd852@naver.com"
 facebook_username: "gusdnd852"
-youtube_username: "UCb7DJAuj1LulbY8WEr2EDUw"
 disqus-shortname: gusdnd852
 use_math: true
 show_description: true
