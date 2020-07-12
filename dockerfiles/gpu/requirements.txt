@@ -1,0 +1,11 @@
+matplotlib==3.2.1
+pandas==1.0.4
+torch==1.5.0
+torchvision==0.6.0
+gensim==3.8.3
+konlpy==0.5.2
+flask==1.1.2
+tensorflow==1.15.2
+keras==2.3.0
+sklearn==0.0
+schemdraw==0.6.0

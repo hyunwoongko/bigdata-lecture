@@ -11,26 +11,19 @@ jobs:
     if: ( github.event.commits[0].message != 'Initial commit' ) || github.run_number > 1
     runs-on: ubuntu-latest
     steps:
-      
-    - name: Check if secret exists
-      if: github.event_name == 'push'
-      run: |
-        if [ -z "$deploy_key" ]
-        then
-          echo "You do not have a secret named SSH_DEPLOY_KEY.  This means you did not follow the setup instructions carefully.  Please try setting up your repo again with the right secrets."
-          exit 1;
-        fi
-      env:
-       deploy_key: ${{ secrets.SSH_DEPLOY_KEY }}
-          
 
     - name: Copy Repository Contents
       uses: actions/checkout@master
       with:
         persist-credentials: false
 
+    - name: fastpages repo only - convert notebooks and word docs to posts
+      if: github.repository == 'fastai/fastpages'
+      uses: ./ # use code in this repo instead of a pinned version, for testing.
+
     - name: convert notebooks and word docs to posts
-      uses: ./_action_files
+      if: github.repository != 'fastai/fastpages'
+      uses: fastai/fastpages@v2.1.2 # use a pinned version
 
     - name: setup directories for Jekyll build
       run: |
@@ -38,11 +31,9 @@ jobs:
         sudo chmod -R 777 .
 
     - name: Jekyll build
-      uses: docker://hamelsmu/fastpages-jekyll
+      uses: docker://jekyll/jekyll
       with:
-        args: bash -c "gem install bundler && jekyll build -V --strict_front_matter --trace"
-      env:
-        JEKYLL_ENV: 'production'
+        args: jekyll build -V
         
     - name: copy CNAME file into _site if CNAME exists
       run: |
@@ -50,7 +41,7 @@ jobs:
         cp CNAME _site/ 2>/dev/null || :
 
     - name: Deploy
-      if: github.event_name == 'push'
+      if: github.event_name	== 'push'
       uses: peaceiris/actions-gh-pages@v3
       with:
         deploy_key: ${{ secrets.SSH_DEPLOY_KEY }}

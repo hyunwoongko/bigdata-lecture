@@ -1,0 +1,40 @@
+---
+layout: default
+---
+
+<div class="page-category">
+    {% assign categories = "" | split:"" %}
+    {% for c in site.categories %}
+      {% assign categories = categories | push: c[0] %}
+    {% endfor %}
+    {% assign categories = categories | sort_natural %}
+
+    {% for category in categories  %}
+	<div id="category-{{category}}" class="category-posts">
+	        <h2 id ="{{ category }}">{{ category }}</h2>
+        	<a name="{{ category | slugize }}"></a>
+        
+		{% for post in site.categories[category] reversed %}
+        		<article class="archive-item">
+          			<p class="post-meta post-meta-title"><a class="page-meta" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></p>
+        		</article>
+        	{% endfor %}
+        </div>
+    {% endfor %}
+</div>
+
+<script type="text/javascript">
+    function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+
+    window.onload = function() {
+        var cate = getParameterByName('cate');
+        if (cate && document.getElementById('category-' + cate)) {
+            document.getElementById('category-' + cate).style.display = 'block';
+        }
+    };
+</script>

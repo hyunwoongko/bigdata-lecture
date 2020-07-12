@@ -1,0 +1,38 @@
+<footer class="site-footer h-card">
+  <data class="u-url" href="{{ "/" | relative_url }}"></data>
+
+  <div class="wrapper">
+      <div class="footer-col">
+	<footer-elem class=px-2>
+		<a href="https://github.com/{{ site.github.owner_name | cgi_escape | escape }}">
+			<svg class="social svg-icon">
+				<use xlink:href="{{ '/assets/minima-social-icons.svg#github' | relative_url }}"></use>
+			</svg>
+			<span class="username">Github</span>
+		</a>
+	</footer-elem>
+
+	<footer-elem class=px-2>
+		<a href="https://youtube.com/channel/{{ site.youtube_username| cgi_escape | escape }}">
+			<svg class="social svg-icon">
+				<use xlink:href="{{ '/assets/minima-social-icons.svg#youtube' | relative_url }}"></use>
+			</svg>
+			<span class="username">Youtube</span>
+		</a>
+	</footer-elem>
+
+	<footer-elem class=px-2>
+		<a href="https://www.facebook.com/{{ site.facebook_username| cgi_escape | escape }}">
+			<svg class="social svg-icon">
+				<use xlink:href="{{ '/assets/minima-social-icons.svg#facebook' | relative_url }}"></use>
+			</svg>
+			<span class="username">Facebook</span>
+		</a>
+	</footer-elem>
+	<br>
+	<div class="copyright">
+		© Copyright 2020 {{site.title}}. All rights reserved.
+	</div>
+      </div>
+  </div>
+</footer>
