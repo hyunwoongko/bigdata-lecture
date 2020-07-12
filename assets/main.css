@@ -215,7 +215,7 @@ table td { border: 1px solid #e8e8e8; }
 
 .social-media-list { line-height: 100% !important; }
 
-code { border-radius: 1px; font-family: 'Jeju Gothic', sans-serif; color: #d2a019; background-color: #F4F4F4; }
+code { border-radius: 1px; font-family: 'Jeju Gothic', sans-serif; color: #f36537; background-color: #F4F4F4; }
 
 pre { border-radius: 6px; font-family: 'Jeju Gothic', sans-serif; }
 
@@ -231,7 +231,7 @@ pre { border-radius: 6px; font-family: 'Jeju Gothic', sans-serif; }
 
 .footer-heading { display: none; }
 
-h1, h2, h3 { color: #d2a019; margin-bottom: 3px !important; }
+h1, h2, h3 { color: #f36537; margin-bottom: 3px !important; }
 
 h4, h5 { color: #2d2d2d; margin-bottom: 3px !important; }
 
@@ -461,6 +461,6 @@ h1:hover .anchor-link, h2:hover .anchor-link, h3:hover .anchor-link, h4:hover .a
 
 .category-tags-icon { padding-left: 0.375em; opacity: 35%; }
 
-.category-tags-link { color: #eec751 !important; text-align: justify; word-break: break-all; }
+.category-tags-link { color: #f36537 !important; text-align: justify; word-break: break-all; }
 
 * { -webkit-font-smoothing: antialiased !important; text-rendering: optimizeLegibility !important; font-family: 'Jeju Gothic', sans-serif; line-height: 202%; }
