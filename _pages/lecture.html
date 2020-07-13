@@ -13,7 +13,7 @@ permalink: /lecture
 
     {% for category in categories  %}
 	<div id="category-{{category}}" class="category-posts">
-	        <h2 id ="{{ category }}">{{ category }}</h2>
+	        <h3 id ="{{ category }}">{{ category }}</h3>
         	<a name="{{ category | slugize }}"></a>
         
 		{% for post in site.categories[category] reversed %}
