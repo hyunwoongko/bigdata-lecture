@@ -227,7 +227,7 @@ pre { border-radius: 6px; font-family: 'Jeju Gothic', sans-serif; }
 
 .post-content p, .post-content li { color: #323232; text-align: justify; word-break: break-all; }
 
-.category-posts { display: none; text-align: center; }
+.category-posts { text-align: center; }
 
 .footer-heading { display: none; }
 
