@@ -16,7 +16,7 @@ permalink: /lecture
 	        <h3 id ="{{ category }}">{{ category }}</h3>
         	<a name="{{ category | slugize }}"></a>
         
-		{% for post in site.categories[category] reversed %}
+		{% for post in site.categories[category] %}
         		<article class="archive-item">
           			<p class="post-meta post-meta-title"><a class="page-meta" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></p>
         		</article>
