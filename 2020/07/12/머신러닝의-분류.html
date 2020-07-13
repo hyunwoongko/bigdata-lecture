@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="shortcut icon" type="image/x-icon" href="/bigdata-lecture/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Title | TensorFlow로 쉽게 시작하는 머신러닝</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Title" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="전북대학교 빅데이터 강의용 블로그" />
+<meta property="og:description" content="전북대학교 빅데이터 강의용 블로그" />
+<link rel="canonical" href="https://gusdnd852.github.io/bigdata-lecture/2020/07/12/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D%EC%9D%98-%EB%B6%84%EB%A5%98.html" />
+<meta property="og:url" content="https://gusdnd852.github.io/bigdata-lecture/2020/07/12/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D%EC%9D%98-%EB%B6%84%EB%A5%98.html" />
+<meta property="og:site_name" content="TensorFlow로 쉽게 시작하는 머신러닝" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-07-12T00:00:00-05:00" />
+<script type="application/ld+json">
+{"url":"https://gusdnd852.github.io/bigdata-lecture/2020/07/12/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D%EC%9D%98-%EB%B6%84%EB%A5%98.html","@type":"BlogPosting","headline":"Title","dateModified":"2020-07-12T00:00:00-05:00","datePublished":"2020-07-12T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://gusdnd852.github.io/bigdata-lecture/2020/07/12/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D%EC%9D%98-%EB%B6%84%EB%A5%98.html"},"description":"전북대학교 빅데이터 강의용 블로그","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <link rel="stylesheet" href="/bigdata-lecture/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://gusdnd852.github.io/bigdata-lecture/feed.xml" title="TensorFlow로 쉽게 시작하는 머신러닝" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+          ]}
+        );
+      });
+    </script>
+  
+
+  <script>
+  function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+  }
+  window.onload = wrap_img;
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      // add link icon to anchor tags
+      var elem = document.querySelectorAll(".anchor-link")
+      elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+      // remove paragraph tags in rendered toc (happens from notebooks)
+      var toctags = document.querySelectorAll(".toc-entry")
+      toctags.forEach(e => (e.firstElementChild.innerText = e.firstElementChild.innerText.replace('¶', '')))
+    });
+  </script>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+     @media screen and (max-width : 511px) {
+         body { 
+		font-size: 0.84rem; 
+	}pre, code, blockquote {
+		font-size: 0.84rem !important;
+	}
+	.katex, .mord {
+		font: normal 1.02em 'KaTeX_Main', sans-serif !important;
+	}
+	.minner, .mord.mtight {
+		font: normal 0.90em 'KaTeX_Main', sans-serif !important;
+	}
+	.page-meta {
+		font-size: 0.9rem !important;
+	}
+	.contents-left{
+		display: none !important;
+	}
+	.contents-right, .contents-left {
+    		display: block;
+    		text-align: center;
+		margin-left: 0px !important;
+    		margin-right: 0px !important;
+    		list-style: none;
+    	}
+	.mobile_hide{
+		display: none;
+	}
+	.contents-right > li {
+    		display: inline-block;
+    		margin: 3px;
+    		word-break: keep-all;
+	}
+     }
+ 
+
+     @media screen and (min-width : 512px) and (max-width : 767px) {
+         body { 
+		font-size: 0.92rem; 
+	}pre, code, blockquote {
+		font-size: 0.92rem !important;
+	}
+	.katex, .mord {
+		font: normal 1.04em 'KaTeX_Main', sans-serif !important;
+	}
+	.minner, .mord.mtight {
+		font: normal 0.92em 'KaTeX_Main', sans-serif !important;
+	}
+	.page-meta {
+		font-size: 1.0rem !important;
+	}
+	.contents-left{
+		display: none !important;
+	}
+	.contents-right, .contents-left {
+    		display: block;
+    		text-align: center;
+		margin-left: 0px !important;
+    		margin-right: 0px !important;
+    		list-style: none;
+    	}    
+	.mobile_hide{
+		display: none !important;
+	}
+	.contents-right > li {
+    		display: inline-block;
+    		margin: 3px;
+    		word-break: keep-all;
+	}
+     }
+ 
+     @media screen and (min-width : 768px) and (max-width : 1024px) {
+         body {
+		 font-size: 1.0rem; 
+	}pre, code, blockquote {
+		font-size: 1.0rem !important;
+	}
+	.katex, .mord {
+		font: normal 1.05em 'KaTeX_Main', sans-serif !important;
+	}
+	.minner, .mord.mtight {
+		font: normal 0.93em 'KaTeX_Main', sans-serif !important;
+	}
+	.page-meta {
+		font-size: 1.1rem !important;
+	}
+	.contents-right, .contents-left {
+		display: inline-block;
+    		vertical-align: top;
+    		text-align: left;
+		list-style: none;
+    	}  
+	.contents-left{
+		margin-left: 20px !important;
+    		margin-right: 3.0rem;
+	}
+	.mobile_hide{
+		display: block !important;
+	}
+     }
+
+     @media screen and (min-width : 1025px) {
+         body { 
+		font-size: 1.08rem; 
+	}pre, code, blockquote {
+		font-size: 1.08rem !important;
+	}
+     	.katex, .mord {
+		font: normal 1.06em 'KaTeX_Main', sans-serif !important;
+	}
+	.minner, .mord.mtight {
+		font: normal 0.94em 'KaTeX_Main', sans-serif !important;
+	}
+	.page-meta {
+		font-size: 1.2rem !important;
+	}
+	.contents-right, .contents-left {
+    		display: inline-block;
+    		vertical-align: top;
+    		text-align: left;
+		list-style: none;
+    	}
+	.contents-right > h2, .contents-left > h2 {
+    		margin-botton: 2px
+	}  
+	.contents-left{
+    		margin-left: 0 !important;
+    		margin-right: 3.0rem;
+	}
+	.mobile_hide{
+		display: block !important;
+	}
+     }
+
+    </style>
+  <body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/bigdata-lecture/">TensorFlow로 쉽게 시작하는 머신러닝</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/bigdata-lecture/lecture">Lecture</a><a class="page-link" href="/bigdata-lecture/orientation">Orientation</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content" style="flex: none;" >
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h2 class="post-title p-name" itemprop="name headline">Title</h1>
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+	
+	<div class="px-1">
+<a href="https://github.com/gusdnd852/bigdata-lecture/tree/master/_notebooks/01-02-머신러닝의 분류.ipynb" role="button">
+    <img class="notebook-badge-image" src="https://img.shields.io/static/v1?label=&message=View%20On%20GitHub&color=586069&logo=github&labelColor=2f363d">
+</a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/01-02-머신러닝의 분류.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#47672;&#49888;&#47084;&#45789;&#51032;-&#48516;&#47448;">&#47672;&#49888;&#47084;&#45789;&#51032; &#48516;&#47448;<a class="anchor-link" href="#&#47672;&#49888;&#47084;&#45789;&#51032;-&#48516;&#47448;"> </a></h2><p><img src="https://post-phinf.pstatic.net/MjAxODA4MDJfMjE1/MDAxNTMzMTg1NTE0MTMz.gONCk2zIvr6T1V4zVSza4PMXDZold_Ub4KwGFd8aF1Eg.eCAfQh9s_PIgJMVicFfEVQG1Vx6Yoe8DmFPEBlpZOakg.JPEG/image_4722008581533185470963.jpg?type=w1200" alt="img" /></p>
+<ul>
+<li>머신러닝엔 크게 3가지 분류가 있고 자세하게 구분하면 그보다 많게 분류할 수 있습니다.</li>
+<li>3가지 대분류인 지도학습, 비지도학습, 강화학습에 대해 알아봅시다.</li>
+<li>더욱 세밀한 분류인 준지도학습, 퓨샷학습, 제로샷학습에 대해서도 알아봅시다.
+<br /><br /></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="1.-&#51648;&#46020;-&#54617;&#49845;-(Supervised-Learning)">1. &#51648;&#46020; &#54617;&#49845; (Supervised Learning)<a class="anchor-link" href="#1.-&#51648;&#46020;-&#54617;&#49845;-(Supervised-Learning)"> </a></h3><p><img src="https://post-phinf.pstatic.net/MjAxODA4MDJfMjc1/MDAxNTMzMTg1NTQwMDcw.rDJmkQSchSqyhifIOpV5EJg5DeDx71XYgWXW07JUE3Ig.vDvL6PDJixUx5livk3llUwKeBUgSrT3l1TgCNRCuXxIg.JPEG/2%EC%A7%80%EB%8F%84%ED%95%99%EC%8A%B5.jpg?type=w1200" alt="img" />
+지도학습은 데이터와 정답이 제공되는 경우를 말합니다. 그래서 "지도 (Superviesed)"라고 합니다. 위 그림처럼 사람이 직접 "이 동물은 기린이야. 이 동물은 고양이야" 처럼 사람이 컴퓨터를 지도하는 방법입니다. 다음과 같은 데이터셋의 형태라면 지도학습을 적용할 수 있습니다.<br /><br /><br /></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="1)-&#48516;&#47448;-(Classification)">1) &#48516;&#47448; (Classification)<a class="anchor-link" href="#1)-&#48516;&#47448;-(Classification)"> </a></h3><p>데이터를 보고 그 데이터가 속한 클래스를 정확하게 맞추는 문제를 분류문제 (Classification)이라고 하며, 분류문제는 지도학습의 가장 대표적인 예시입니다. 응용분야는 문서분류(Document Classification), 이미지분류(Image Classification), 암진단(분류, Cancer Diagnosis), 감정분류(Sentimental Analysis) 등이 있습니다. 아래 예시를 통해 자세히 배워봅시다.</p>
+<p><br /><br /></p>
+<h4 id="1-1)-&#48708;&#47564;-&#48516;&#47448;-&#50696;&#51228;">1-1) &#48708;&#47564; &#48516;&#47448; &#50696;&#51228;<a class="anchor-link" href="#1-1)-&#48708;&#47564;-&#48516;&#47448;-&#50696;&#51228;"> </a></h4>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">weight_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;이름&#39;</span><span class="p">,</span> <span class="s1">&#39;신장&#39;</span> <span class="p">,</span> <span class="s1">&#39;몸무게&#39;</span><span class="p">,</span> <span class="s1">&#39;비만(정답)&#39;</span><span class="p">],</span>
+
+    <span class="n">data</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;도람푸&#39;</span><span class="p">,</span> <span class="mi">177</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="s1">&#39;정상&#39;</span><span class="p">],</span>
+          <span class="p">[</span><span class="s1">&#39;핵정은&#39;</span><span class="p">,</span> <span class="mi">165</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="s1">&#39;비만&#39;</span><span class="p">],</span>
+          <span class="p">[</span><span class="s1">&#39;김병만&#39;</span><span class="p">,</span> <span class="mi">165</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="s1">&#39;정상&#39;</span><span class="p">],</span>     
+          <span class="p">[</span><span class="s1">&#39;김준현&#39;</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">105</span><span class="p">,</span> <span class="s1">&#39;비만&#39;</span><span class="p">],</span>    
+          <span class="p">[</span><span class="s1">&#39;오지헌&#39;</span><span class="p">,</span> <span class="mi">178</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="s1">&#39;정상&#39;</span><span class="p">],</span>    
+          <span class="p">[</span><span class="s1">&#39;유재석&#39;</span><span class="p">,</span> <span class="mi">176</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="s1">&#39;정상&#39;</span><span class="p">],</span>    
+          <span class="p">[</span><span class="s1">&#39;유민상&#39;</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="s1">&#39;비만&#39;</span><span class="p">],</span>
+          <span class="p">[</span><span class="s1">&#39;나비만&#39;</span><span class="p">,</span> <span class="mi">168</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="s1">&#39;???&#39;</span><span class="p">]]</span>
+<span class="p">)</span>
+
+<span class="n">weight_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>이름</th>
+      <th>신장</th>
+      <th>몸무게</th>
+      <th>비만(정답)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>도람푸</td>
+      <td>177</td>
+      <td>76</td>
+      <td>정상</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>핵정은</td>
+      <td>165</td>
+      <td>85</td>
+      <td>비만</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>김병만</td>
+      <td>165</td>
+      <td>61</td>
+      <td>정상</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>김준현</td>
+      <td>180</td>
+      <td>105</td>
+      <td>비만</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>오지헌</td>
+      <td>178</td>
+      <td>72</td>
+      <td>정상</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>유재석</td>
+      <td>176</td>
+      <td>71</td>
+      <td>정상</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>유민상</td>
+      <td>180</td>
+      <td>110</td>
+      <td>비만</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>나비만</td>
+      <td>168</td>
+      <td>83</td>
+      <td>???</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>만약 우리가 직접 어떤 사람(7번 나비만)의 정보를 입력받아서 비만인지 아닌지 구분하는 시스템이 되어본다고 가정합시다. 이 때 우리는 비만의 기준을 알기 위해서 기존에 우리가 가지고 있던 데이터를 보고 판단을 수행해야합니다. 때문에 비만의 기준을 알려면 데이터들에 어떤 경우엔 정상이고 어떤 경우엔 비만인지 반드시 적혀있어야 그걸 보고 판단할 수 있습니다. 그러나 우리는 사전에 비만이 무엇인지에 대한 배경지식이 있기 때문에 비만(정답) 열 없이도 키와 몸무게만 보고도 판단 가능해보입니다. 다음과 같은 예제를 봅시다. <br /><br /></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="1-2)-&#44284;&#51068;-&#46321;&#44553;-&#48516;&#47448;-&#50696;&#49884;">1-2) &#44284;&#51068; &#46321;&#44553; &#48516;&#47448; &#50696;&#49884;<a class="anchor-link" href="#1-2)-&#44284;&#51068;-&#46321;&#44553;-&#48516;&#47448;-&#50696;&#49884;"> </a></h4>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fruit_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;농장&#39;</span><span class="p">,</span> <span class="s1">&#39;당도&#39;</span> <span class="p">,</span> <span class="s1">&#39;수분함유량&#39;</span><span class="p">,</span> <span class="s1">&#39;등급(정답)&#39;</span><span class="p">],</span>
+
+    <span class="n">data</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;농장A&#39;</span><span class="p">,</span> <span class="mf">35.2</span><span class="p">,</span> <span class="mf">16.3</span><span class="p">,</span> <span class="s1">&#39;1등급&#39;</span><span class="p">],</span>
+          <span class="p">[</span><span class="s1">&#39;농장A&#39;</span><span class="p">,</span> <span class="mf">8.9</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">,</span> <span class="s1">&#39;2등급&#39;</span><span class="p">],</span>
+          <span class="p">[</span><span class="s1">&#39;농장B&#39;</span><span class="p">,</span> <span class="mf">8.4</span><span class="p">,</span> <span class="mf">44.5</span><span class="p">,</span> <span class="s1">&#39;3등급&#39;</span><span class="p">],</span>     
+          <span class="p">[</span><span class="s1">&#39;농장C&#39;</span><span class="p">,</span> <span class="mf">27.4</span><span class="p">,</span> <span class="mf">20.1</span><span class="p">,</span> <span class="s1">&#39;4등급&#39;</span><span class="p">],</span>
+          <span class="p">[</span><span class="s1">&#39;농장D&#39;</span><span class="p">,</span> <span class="mf">24.0</span><span class="p">,</span> <span class="mf">25.2</span><span class="p">,</span> <span class="s1">&#39;???&#39;</span><span class="p">]]</span>
+<span class="p">)</span>
+
+<span class="n">fruit_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>농장</th>
+      <th>당도</th>
+      <th>수분함유량</th>
+      <th>등급(정답)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>농장A</td>
+      <td>35.2</td>
+      <td>16.3</td>
+      <td>1등급</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>농장A</td>
+      <td>8.9</td>
+      <td>6.5</td>
+      <td>2등급</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>농장B</td>
+      <td>8.4</td>
+      <td>44.5</td>
+      <td>3등급</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>농장C</td>
+      <td>27.4</td>
+      <td>20.1</td>
+      <td>4등급</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>농장D</td>
+      <td>24.0</td>
+      <td>25.2</td>
+      <td>???</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>위 데이터를 보고 농장D에서 나온 과일의 등급을 예상해봅시다. 컴퓨터가 비만 데이터를 바라보면 아마 여러분이 위 데이터를 바라본 모습일 것입니다. 이 데이터를 받고나서 위 문제를 푸는데, 등급(정답) 열이 있기 때문에  그나마 이 과일이 1 ~ 2 등급 언저리쯤 되고 3등급 아닐거라고 생각 할 수 있습니다. 그런데 등급(정답)열이 주어지지 않으면 이 문제를 어떻게 풀 수 있을까요?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="1-3)-&#51096;&#47803;&#46108;-&#44284;&#51068;-&#46321;&#44553;-&#48516;&#47448;-&#50696;&#49884;-(&#51221;&#45813;&#50676;&#51060;-&#50630;&#45716;-&#44221;&#50864;)">1-3) &#51096;&#47803;&#46108; &#44284;&#51068; &#46321;&#44553; &#48516;&#47448; &#50696;&#49884; (&#51221;&#45813;&#50676;&#51060; &#50630;&#45716; &#44221;&#50864;)<a class="anchor-link" href="#1-3)-&#51096;&#47803;&#46108;-&#44284;&#51068;-&#46321;&#44553;-&#48516;&#47448;-&#50696;&#49884;-(&#51221;&#45813;&#50676;&#51060;-&#50630;&#45716;-&#44221;&#50864;)"> </a></h4>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fruit_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;등급(정답)&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>농장</th>
+      <th>당도</th>
+      <th>수분함유량</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>농장A</td>
+      <td>35.2</td>
+      <td>16.3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>농장A</td>
+      <td>8.9</td>
+      <td>6.5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>농장B</td>
+      <td>8.4</td>
+      <td>44.5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>농장C</td>
+      <td>27.4</td>
+      <td>20.1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>농장D</td>
+      <td>24.0</td>
+      <td>25.2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>컴퓨터가 봐도 마찬가지입니다. 컴퓨터는 비만이 무엇인지, 과육이 무엇인지 모르는 고철덩어리이기 때문에 정확하게 1등급인지 2등급인지 3등급인지, 비만인지 정상인지 맞춰야하는 문제라면 반드시 미리 정답도 함께 알려줘야만 합니다. 컴퓨터가 아무리 똑똑해도 정확하게 분류하는 문제의 경우는 반드시 정답이 포함된 데이터 셋을 줘야만 풀 수 있습니다. (여러분이 위처럼 정답 열이 없는 문제는 푸는게 거의 불가능 한 것과 마찬가지 입니다.) 또, 신경써야 할 부분이 있습니다. 아래의 예시도 봅시다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="1-4)-&#51096;&#47803;&#46108;-&#48708;&#47564;-&#48516;&#47448;-&#50696;&#51228;-(&#48516;&#47448;-&#48520;&#44032;&#45733;&#54620;-&#45936;&#51060;&#53552;)">1-4) &#51096;&#47803;&#46108; &#48708;&#47564; &#48516;&#47448; &#50696;&#51228; (&#48516;&#47448; &#48520;&#44032;&#45733;&#54620; &#45936;&#51060;&#53552;)<a class="anchor-link" href="#1-4)-&#51096;&#47803;&#46108;-&#48708;&#47564;-&#48516;&#47448;-&#50696;&#51228;-(&#48516;&#47448;-&#48520;&#44032;&#45733;&#54620;-&#45936;&#51060;&#53552;)"> </a></h4>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wrong_weight_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;이름&#39;</span><span class="p">,</span> <span class="s1">&#39;신장&#39;</span> <span class="p">,</span> <span class="s1">&#39;몸무게&#39;</span><span class="p">,</span> <span class="s1">&#39;비만(정답)&#39;</span><span class="p">],</span>
+
+    <span class="n">data</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;이수근&#39;</span><span class="p">,</span> <span class="mi">165</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="s1">&#39;비만&#39;</span><span class="p">],</span>
+          <span class="p">[</span><span class="s1">&#39;김병만&#39;</span><span class="p">,</span> <span class="mi">165</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="s1">&#39;정상&#39;</span><span class="p">],</span>
+          <span class="p">[</span><span class="s1">&#39;오나미&#39;</span><span class="p">,</span> <span class="mi">155</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;비만&#39;</span><span class="p">],</span>     
+          <span class="p">[</span><span class="s1">&#39;박나래&#39;</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;정상&#39;</span><span class="p">],</span>
+          <span class="p">[</span><span class="s1">&#39;윤미래&#39;</span><span class="p">,</span> <span class="mi">162</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="s1">&#39;정상&#39;</span><span class="p">],</span>     
+          <span class="p">[</span><span class="s1">&#39;김다미&#39;</span><span class="p">,</span> <span class="mi">157</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="s1">&#39;정상&#39;</span><span class="p">],</span>     
+          <span class="p">[</span><span class="s1">&#39;박수홍&#39;</span><span class="p">,</span> <span class="mi">175</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="s1">&#39;비만&#39;</span><span class="p">],</span>     
+          <span class="p">[</span><span class="s1">&#39;김국진&#39;</span><span class="p">,</span> <span class="mi">172</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="s1">&#39;정상&#39;</span><span class="p">],</span>     
+          <span class="p">[</span><span class="s1">&#39;김슬기&#39;</span><span class="p">,</span> <span class="mi">157</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="s1">&#39;???&#39;</span><span class="p">]]</span>
+<span class="p">)</span>
+
+<span class="n">wrong_weight_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>이름</th>
+      <th>신장</th>
+      <th>몸무게</th>
+      <th>비만(정답)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>이수근</td>
+      <td>165</td>
+      <td>64</td>
+      <td>비만</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>김병만</td>
+      <td>165</td>
+      <td>61</td>
+      <td>정상</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>오나미</td>
+      <td>155</td>
+      <td>50</td>
+      <td>비만</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>박나래</td>
+      <td>150</td>
+      <td>50</td>
+      <td>정상</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>윤미래</td>
+      <td>162</td>
+      <td>60</td>
+      <td>정상</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>김다미</td>
+      <td>157</td>
+      <td>52</td>
+      <td>정상</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>박수홍</td>
+      <td>175</td>
+      <td>70</td>
+      <td>비만</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>김국진</td>
+      <td>172</td>
+      <td>70</td>
+      <td>정상</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>김슬기</td>
+      <td>157</td>
+      <td>51</td>
+      <td>???</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>컴퓨터에게 어떤 걸 구분시키려면 그 데이터 클래스 간의 구분이 확실하게 되어야합니다. 우리가 컴퓨터의 입장이 된다고 생각해봅시다. 위와 같은 문제는 컴퓨터도 찍을 수 밖에 없습니다. (정확도는 당연히 기대할 수 없겠죠?) 나중에 더 자세히 말하겠지만 컴퓨터가 분류(Classification) 문제를 보면 아래처럼 학습합니다.</p>
+<p><br /></p>
+<p><img src="https://user-images.githubusercontent.com/38183241/83531750-50bc1600-a528-11ea-877a-ccf5d6f2d0b7.png" alt="image" /></p>
+<p><br /></p>
+<p>데이터들을 잘 보고, 구분 될만한 곳에 선을 긋는 것입니다. 그래서 선 왼쪽으로는 비만, 선 오른쪽으로는 정상으로 보는 것입니다. 실제로 구분이 잘 되는 데이터와 안되는 데이터를 비교해봅시다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+
+<span class="k">def</span> <span class="nf">draw_graph</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">boundary</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  정상과 비만 데이터를 그래프로 표시하는 함수입니다.</span>
+
+<span class="sd">  :param data: 표시할 데이터프레임</span>
+<span class="sd">  :param boundary: 데이터 클래스를 구분하는 선</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+
+  <span class="n">normal_people</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;비만(정답)&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;정상&#39;</span><span class="p">]</span>
+  <span class="n">fat_people</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;비만(정답)&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;비만&#39;</span><span class="p">]</span>
+  <span class="n">qeury_person</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;비만(정답)&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;???&#39;</span><span class="p">]</span>
+
+  <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">normal_people</span><span class="p">[</span><span class="s1">&#39;신장&#39;</span><span class="p">],</span> <span class="n">normal_people</span><span class="p">[</span><span class="s1">&#39;몸무게&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;normal&#39;</span><span class="p">)</span> 
+  <span class="c1"># 정상 데이터</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">fat_people</span><span class="p">[</span><span class="s1">&#39;신장&#39;</span><span class="p">],</span> <span class="n">fat_people</span><span class="p">[</span><span class="s1">&#39;몸무게&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;fat&#39;</span><span class="p">)</span> 
+  <span class="c1"># 비만 데이터</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">qeury_person</span><span class="p">[</span><span class="s1">&#39;신장&#39;</span><span class="p">],</span> <span class="n">qeury_person</span><span class="p">[</span><span class="s1">&#39;몸무게&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;question&#39;</span><span class="p">)</span> 
+  <span class="c1"># 쿼리 데이터 (맞출 문제)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">*</span><span class="n">boundary</span><span class="p">)</span> 
+  <span class="c1"># 데이터 클래스를 구분할 수 있는 선</span>
+
+  <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;height&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;weight&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 구분이 가능한 데이터입니다.</span>
+<span class="n">weight_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>이름</th>
+      <th>신장</th>
+      <th>몸무게</th>
+      <th>비만(정답)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>도람푸</td>
+      <td>177</td>
+      <td>76</td>
+      <td>정상</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>핵정은</td>
+      <td>165</td>
+      <td>85</td>
+      <td>비만</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>김병만</td>
+      <td>165</td>
+      <td>61</td>
+      <td>정상</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>김준현</td>
+      <td>180</td>
+      <td>105</td>
+      <td>비만</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>오지헌</td>
+      <td>178</td>
+      <td>72</td>
+      <td>정상</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>유재석</td>
+      <td>176</td>
+      <td>71</td>
+      <td>정상</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>유민상</td>
+      <td>180</td>
+      <td>110</td>
+      <td>비만</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>나비만</td>
+      <td>168</td>
+      <td>83</td>
+      <td>???</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 구분이 가능한 데이터입니다.</span>
+<span class="n">draw_graph</span><span class="p">(</span><span class="n">weight_df</span><span class="p">,</span> <span class="p">([</span><span class="mi">160</span><span class="p">,</span> <span class="mi">185</span><span class="p">],</span> <span class="p">[</span><span class="mi">70</span><span class="p">,</span> <span class="mi">90</span><span class="p">]),</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Proper Dataset&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+" />
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>위와 같은 데이터는 두 클래스를 나눌 수 있는 구분선이 분명해 보입니다. 그러면 우리가 머신러닝 모델을 만들 때, 저 선을 찾아내면 성공적으로 비만 분류 모델을 만들어낼 수 있습니다. 녹색으로 표시된 7번 나비만은 선보다 위쪽에 있기 때문에 비만으로 분류해낼 수 있습니다. 그러나 아래와 같은 데이터는 어떨까요?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 구분이 불가능한 데이터입니다.</span>
+<span class="n">wrong_weight_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>이름</th>
+      <th>신장</th>
+      <th>몸무게</th>
+      <th>비만(정답)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>이수근</td>
+      <td>165</td>
+      <td>64</td>
+      <td>비만</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>김병만</td>
+      <td>165</td>
+      <td>61</td>
+      <td>정상</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>오나미</td>
+      <td>155</td>
+      <td>50</td>
+      <td>비만</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>박나래</td>
+      <td>150</td>
+      <td>50</td>
+      <td>정상</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>윤미래</td>
+      <td>162</td>
+      <td>60</td>
+      <td>정상</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>김다미</td>
+      <td>157</td>
+      <td>52</td>
+      <td>정상</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>박수홍</td>
+      <td>175</td>
+      <td>70</td>
+      <td>비만</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>김국진</td>
+      <td>172</td>
+      <td>70</td>
+      <td>정상</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>김슬기</td>
+      <td>157</td>
+      <td>51</td>
+      <td>???</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 구분이 불가능한 데이터입니다.</span>
+<span class="n">draw_graph</span><span class="p">(</span><span class="n">wrong_weight_df</span><span class="p">,</span> <span class="p">(),</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Wrong Dataset&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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5F1M/YAlkuo+596IeFDSzySVkoxPbAY+BSBpAHBbRJwTEXskfRp4COgE3BERTxcwVjMza0AR0dYx5E1ZWVmUl5e3dRhmZu2GpNURUZa171C9zdXMzNpYazwoZ2aWN7t376aiooK33367rUNpV7p168agQYPo0qVLk+s4QZhZu1JRUUGvXr0YPHgw6RinHUBE8Oqrr1JRUcGQIUOaXM+XmMysXXn77bc58sgjnRyaQRJHHnlks3tdThBm1u44OTRfS/7MnCDMzCyTE4SZWTszePBgtm9vOEl2/nmQ2syK2tI1ldz80Aa2VtcwoKQ7s6cMZerozLk/W8WePXvo3Ll9/Op1D8LMitbSNZXcsPgpKqtrCKCyuoYbFj/F0jUHN7Xb5s2bGTZsGNdccw0nnXQSkydPpqamhrVr13LKKacwcuRIpk2bxuuvvw7AxIkT+dznPkdZWRm33HILEydO5POf/zxlZWUMGzaMVatWMX36dI477ji+/OUv7/2cqVOncvLJJ3PSSSexYMGCg4q5JZwgzKxo3fzQBmp219Yrq9ldy80PbTjoc2/cuJFrr72Wp59+mpKSEn71q19x+eWX8+1vf5t169YxYsQIvvrVr+49fteuXZSXl/NP//RPABx22GGUl5cza9YsLrjgAn74wx+yfv167rrrLl599VUA7rjjDlavXk15eTnz5s3bW95anCDMrGhtra5pVnlzDBkyhNLSUgBOPvlknn/+eaqrq/nYxz4GwIwZM1i5cuXe4y+++OJ69c8//3wARowYwUknnUT//v3p2rUrxx57LFu2JMvhzJs3j1GjRnHKKaewZcsWNm7ceNBxN0f7uBBmZtYCA0q6U5mRDAaUdD/oc3ft2nXv+06dOlFdXb3f43v27JlZ/33ve1+9c73vfe9jz549PProozz88MM88cQT9OjRg4kTJ7b60+PuQZhZ0Zo9ZSjdu3SqV9a9SydmTxma98/q3bs3ffr04bHHHgPgZz/72d7eREvs2LGDPn360KNHD5577jn++Mc/5ivUJnMPwsyKVt3dSq11F9Pdd9/NrFmzeOuttzj22GO58847W3yus846ix//+McMGzaMoUOHcsopp+Qx0qbxdN9m1q48++yzDBs2rK3DaJey/uw83beZmTVbQS8xSdoM7ARqgT0RUSbpZuA8YBfwPHBlROwzupNVt5CxmplZfa3R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
+" />
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>만약 위와 같은 데이터가 주어진다면 선을 어떻게 그을 수 있을까요? 선을 어디에 그어도 높은 정확도를 얻기 어렵습니다. 우리는 8번 김슬기를 과연 비만으로 분류해야할까요? 아니면 정상으로 분류해야할까요?
+<br /><br /></p>
+<p>이전 글에서 머신러닝이 굉장히 만능인 것 처럼 묘사했지만, 머신러닝은 만능이 아닙니다. 매우 잘 정제된 데이터가 있어야만 머신러닝은 잘 동작합니다. 모델의 성능보다 데이터의 양과 질이 훨씬 중요하다고 할 수 있습니다. 작년 프로젝트 때 분류가 안되는 데이터를 분류하고 싶다는 분들이 너무 많으셨고, 프로젝트 막판쯤 가서 아이디어 바꾸고 고생하시고 그랬는데 올해는 그런 일이 없었으면 좋겠습니다. <br /><br /></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2)-&#54924;&#44480;-(Regression)">2) &#54924;&#44480; (Regression)<a class="anchor-link" href="#2)-&#54924;&#44480;-(Regression)"> </a></h3><p>회귀라고 하니까 뭔가 굉장히 어려워 보이지만 실은 하나도 그렇지 않습니다. 분류는 정답 클래스가 확실하게 구분된 경우에 해당합니다. 회귀는 지도학습으로 정답은 주어지지만, 정답 클래스가 정확하게 구분되지 않는 경우를 의미합니다. <br /><br /></p>
+<h4 id="2-1)-&#51665;&#51032;-&#44032;&#44201;-&#54924;&#44480;-&#50696;&#49884;">2-1) &#51665;&#51032; &#44032;&#44201; &#54924;&#44480; &#50696;&#49884;<a class="anchor-link" href="#2-1)-&#51665;&#51032;-&#44032;&#44201;-&#54924;&#44480;-&#50696;&#49884;"> </a></h4>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+    <br><br>
+    <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = “https://gusdnd852.github.io/2020/07/12/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D%EC%9D%98-%EB%B6%84%EB%A5%98.html“;
+this.page.identifier = Title;
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://gusdnd852.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+<a class="u-url" href="/bigdata-lecture/2020/07/12/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D%EC%9D%98-%EB%B6%84%EB%A5%98.html" hidden></a>
+</article>
+
+<script>
+	function run_exec(){
+		if("" === "binder"){
+			if(confirm("이 노트북은 CPU환경인 Binder에서 소스코드를 실행합니다.")){
+				var binder_path = "https://mybinder.org/v2/gh/gusdnd852/bigdata-lecture/master?filepath=_notebooks%2F01-02-%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D%EC%9D%98+%EB%B6%84%EB%A5%98.ipynb";
+				alert("Binder는 Docker기반의 컨테이너를 직접 빌드하기 때문에 시간이 다소 소요됩니다. Build logs의 show버튼을 눌러서 진행상황을 확인하세요");
+				window.open(binder_path, "_blank");
+							
+			}
+			
+		}else if("" === "colab"){
+			if(confirm("이 노트북은 GPU환경인 Google Colab에서 소스코드를 실행합니다.")){
+				var colab_path = "https://colab.research.google.com/github/gusdnd852/bigdata-lecture/blob/master/_notebooks/01-02-머신러닝의 분류.ipynb";
+				alert("GPU 설정을 위해 Colab 상단 메뉴중, 런타임 → 런타임 유형변경에서 GPU를 선택해주세요. (미선택시 CPU에서 실행됨)");
+				window.open(colab_path, "_blank");
+			}			
+		}else{
+			alert("해당 실행환경은 구동이 불가능합니다. Binder와 Google Colab 중 한가지를 선택해주세요.");
+		}
+	}
+
+    function code_listener() {
+	var input_area = document.getElementsByClassName("input_area");
+	var output_area = document.getElementsByClassName("output_area");
+    	
+	for(var i = 0 ; i < input_area.length; i++){
+		input_area[i].onclick = function(){
+			run_exec();
+    		}
+	}
+
+	for(var i = 0 ; i < output_area.length; i++){
+		output_area[i].onclick = function(){
+			run_exec();
+    		}
+	}
+    } 
+
+    code_listener();
+</script>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/bigdata-lecture/"></data>
+
+  <div class="wrapper">
+      <div class="footer-col">
+	<footer-elem class=px-2>
+		<a href="https://github.com/gusdnd852">
+			<svg class="social svg-icon">
+				<use xlink:href="/bigdata-lecture/assets/minima-social-icons.svg#github"></use>
+			</svg>
+			<span class="username">Github</span>
+		</a>
+	</footer-elem>
+
+	<footer-elem class=px-2>
+		<a href="https://youtube.com/channel/UCb7DJAuj1LulbY8WEr2EDUw">
+			<svg class="social svg-icon">
+				<use xlink:href="/bigdata-lecture/assets/minima-social-icons.svg#youtube"></use>
+			</svg>
+			<span class="username">Youtube</span>
+		</a>
+	</footer-elem>
+
+	<footer-elem class=px-2>
+		<a href="https://www.facebook.com/gusdnd852">
+			<svg class="social svg-icon">
+				<use xlink:href="/bigdata-lecture/assets/minima-social-icons.svg#facebook"></use>
+			</svg>
+			<span class="username">Facebook</span>
+		</a>
+	</footer-elem>
+	<br>
+	<div class="copyright">
+		© Copyright 2020 TensorFlow로 쉽게 시작하는 머신러닝. All rights reserved.
+	</div>
+      </div>
+  </div>
+</footer>
+</body>
+</html>
