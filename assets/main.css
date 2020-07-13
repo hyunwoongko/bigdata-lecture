@@ -227,8 +227,6 @@ pre { border-radius: 6px; font-family: 'Jeju Gothic', sans-serif; }
 
 .post-content p, .post-content li { color: #323232; text-align: justify; word-break: break-all; }
 
-.category-posts { text-align: center; }
-
 .footer-heading { display: none; }
 
 h1, h2, h3 { color: #f36537; margin-bottom: 3px !important; }
