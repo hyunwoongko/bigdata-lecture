@@ -13,7 +13,6 @@ comments: true
     {% if page.categories.size > 0 and site.show_tags %}
       <i class="fas fa-tags category-tags-icon"></i><p class="category-tags"> 
       {% for category in  page.categories  %}
-            {{category}}
         {% unless forloop.last %}&nbsp;{% endunless %}
       {% endfor %}
       </p>
