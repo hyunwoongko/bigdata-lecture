@@ -89,17 +89,13 @@ float: none;
     height: 0;
 }
 
-// make non-headings slightly lighter
 .post-content p, .post-content li {
    color: #323232;
     text-align: justify;
     word-break: break-all;
 }
 
-// for category searching by url
-// http://zhangwenli.com/blog/2014/05/18/jekyll-tag-searching/
 .category-posts {
-	display: none;
 	text-align : center;
 }
 
