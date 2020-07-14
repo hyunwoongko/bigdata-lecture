@@ -197,6 +197,8 @@ table td { border: 1px solid #e8e8e8; }
 .highlight .vi { color: #008080; }
 .highlight .il { color: #099; }
 
+img { width: 100% !important; }
+
 .page-category { margin-bottom: 30px !important; }
 
 .post-header { margin-top: 30px !important; margin-bottom: 15px !important; }
