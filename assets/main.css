@@ -197,7 +197,7 @@ table td { border: 1px solid #e8e8e8; }
 .highlight .vi { color: #008080; }
 .highlight .il { color: #099; }
 
-* { -webkit-font-smoothing: antialiased !important; text-rendering: optimizeLegibility !important; font-family: 'Jeju Gothic', sans-serif; line-height: 202%; }
+*:not(span) { -webkit-font-smoothing: antialiased !important; text-rendering: optimizeLegibility !important; font-family: 'Jeju Gothic', sans-serif; line-height: 202%; }
 
 img { width: 100% !important; }
 
