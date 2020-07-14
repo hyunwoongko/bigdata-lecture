@@ -217,7 +217,7 @@ img { width: 100% !important; }
 
 .social-media-list { line-height: 100% !important; }
 
-code { border-radius: 1px; font-family: 'Jeju Gothic', sans-serif; color: #f36537; background-color: #d0d0d0; }
+code { border-radius: 1px; font-family: 'Jeju Gothic', sans-serif; color: #f36537; background-color: #c0c0c0; }
 
 pre { border-radius: 6px; font-family: 'Jeju Gothic', sans-serif; }
 
@@ -245,11 +245,13 @@ h4, h5 { color: #2d2d2d; margin-bottom: 3px !important; }
 
 .language-c + .language-plaintext { border-left: 1px solid grey; margin-left: 1rem !important; }
 
-.input_area pre, .input_area div { margin-top: 1.5rem !important; padding-bottom: 0 !important; padding-top: 0 !important; background: #d0d0d0 !important; -webkit-font-smoothing: antialiased; font-family: 'Nanum Gothic Coding', serif  !important; text-rendering: optimizeLegibility; border-radius: 5px !important; line-height: 130% !important; }
+.input_area pre, .input_area div { margin-top: 1.5rem !important; padding-bottom: 0 !important; padding-top: 0 !important; background: #c0c0c0 !important; -webkit-font-smoothing: antialiased; font-family: 'Nanum Gothic Coding', serif  !important; text-rendering: optimizeLegibility; border-radius: 5px !important; line-height: 130% !important; }
 
-.output_area pre, .output_area div { margin-bottom: 2rem !important; margin-top: 1.5rem !important; padding-bottom: 0 !important; padding-top: 0 !important; background: white !important; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; border-radius: 5px !important; line-height: 180% !important; }
+.output_area pre, .output_area div { margin-bottom: 2rem !important; margin-top: 1.5rem !important; padding-bottom: 0 !important; padding-top: 0 !important; background: #c0c0c0 !important; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; border-radius: 5px !important; line-height: 180% !important; }
 
 .code_cell table { width: auto; }
+
+pre, pre > code, .highlight { background-color: #c0c0c0; }
 
 .highlight .c { color: #408080; font-style: italic; }
 

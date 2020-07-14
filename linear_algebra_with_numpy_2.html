@@ -268,8 +268,8 @@
 <li class="toc-entry toc-h3"><a href="#2.-Shape">2. Shape </a></li>
 <li class="toc-entry toc-h3"><a href="#3.-행렬의-연산">3. 행렬의 연산 </a>
 <ul>
-<li class="toc-entry toc-h4"><a href="#3.1.-행렬-합-(=-벡터-합)">3.1. 행렬 합 (= 벡터 합) </a></li>
-<li class="toc-entry toc-h4"><a href="#3.2.-스칼라-곱">3.2. 스칼라 곱 </a></li>
+<li class="toc-entry toc-h4"><a href="#3.1.-행렬-합-(=-벡터-합,-Matrix-Addition)">3.1. 행렬 합 (= 벡터 합, Matrix Addition) </a></li>
+<li class="toc-entry toc-h4"><a href="#3.2.-스칼라-곱-(Scalar-Multiplication)">3.2. 스칼라 곱 (Scalar Multiplication) </a></li>
 <li class="toc-entry toc-h4"><a href="#3.3.-원소곱-(Elementwise-Multiplication)">3.3. 원소곱 (Elementwise Multiplication) </a></li>
 <li class="toc-entry toc-h4"><a href="#3.4.-행렬---벡터-곱-(Matrix---Vector-Multiplication)">3.4. 행렬 - 벡터 곱 (Matrix - Vector Multiplication) </a></li>
 <li class="toc-entry toc-h4"><a href="#3.5.-행렬-곱-(Matrix-Multiplication)">3.5. 행렬 곱 (Matrix Multiplication) </a></li>
@@ -522,8 +522,8 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 </h3>
 <p>벡터 챕터에서는 가장 중요한 기본 연산인 벡터합과 스칼라 곱에 대해 배웠습니다. 행렬은 벡터보다 조금 더 다양한 연산을 가지고 있습니다. 아래에서 차례로 알아봅시다.
 <br><br></p>
-<h4 id="3.1.-행렬-합-(=-벡터-합)">
-<a class="anchor" href="#3.1.-%ED%96%89%EB%A0%AC-%ED%95%A9-(=-%EB%B2%A1%ED%84%B0-%ED%95%A9)" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.1. 행렬 합 (= 벡터 합)<a class="anchor-link" href="#3.1.-%ED%96%89%EB%A0%AC-%ED%95%A9-(=-%EB%B2%A1%ED%84%B0-%ED%95%A9)"> </a>
+<h4 id="3.1.-행렬-합-(=-벡터-합,-Matrix-Addition)">
+<a class="anchor" href="#3.1.-%ED%96%89%EB%A0%AC-%ED%95%A9-(=-%EB%B2%A1%ED%84%B0-%ED%95%A9,-Matrix-Addition)" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.1. 행렬 합 (= 벡터 합, Matrix Addition)<a class="anchor-link" href="#3.1.-%ED%96%89%EB%A0%AC-%ED%95%A9-(=-%EB%B2%A1%ED%84%B0-%ED%95%A9,-Matrix-Addition)"> </a>
 </h4>
 <p>행렬 합은 두 행렬을 더 합니다. 벡터 합과 동일한 방식으로 수행됩니다. 각 원소 자리에 있는 수를 더합니다.
 주의할 것은 벡터 합이나 행렬 합은 Shape가 동일할 때만 수행 가능합니다. Shape가 다른 경우 더할 수 없습니다.</p>
@@ -740,8 +740,8 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br><br></p>
-<h4 id="3.2.-스칼라-곱">
-<a class="anchor" href="#3.2.-%EC%8A%A4%EC%B9%BC%EB%9D%BC-%EA%B3%B1" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.2. 스칼라 곱<a class="anchor-link" href="#3.2.-%EC%8A%A4%EC%B9%BC%EB%9D%BC-%EA%B3%B1"> </a>
+<h4 id="3.2.-스칼라-곱-(Scalar-Multiplication)">
+<a class="anchor" href="#3.2.-%EC%8A%A4%EC%B9%BC%EB%9D%BC-%EA%B3%B1-(Scalar-Multiplication)" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.2. 스칼라 곱 (Scalar Multiplication)<a class="anchor-link" href="#3.2.-%EC%8A%A4%EC%B9%BC%EB%9D%BC-%EA%B3%B1-(Scalar-Multiplication)"> </a>
 </h4>
 <p>스칼라곱도 벡터에서 하던 방식과 동일하게 하면 됩니다. 모든 원소에 해당 스칼라를 곱합니다.</p>
 
@@ -758,9 +758,9 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">matrix_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> 
                      <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
 
-<span class="n">scaler</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">scalar</span> <span class="o">=</span> <span class="mi">2</span>
 
-<span class="n">matrix_a</span> <span class="o">*</span> <span class="n">scaler</span>
+<span class="n">matrix_a</span> <span class="o">*</span> <span class="n">scalar</span>
 </pre></div>
 
     </div>
