@@ -273,7 +273,9 @@
 <li class="toc-entry toc-h4"><a href="#3.3.-원소곱-(Elementwise-Multiplication)">3.3. 원소곱 (Elementwise Multiplication) </a></li>
 <li class="toc-entry toc-h4"><a href="#3.4.-행렬---벡터-곱-(Matrix---Vector-Multiplication)">3.4. 행렬 - 벡터 곱 (Matrix - Vector Multiplication) </a></li>
 <li class="toc-entry toc-h4"><a href="#3.5.-Shape-규칙-(Rule-of-multiplication)">3.5. Shape 규칙 (Rule of multiplication) </a></li>
-<li class="toc-entry toc-h4"><a href="#3.5.-행렬-곱-(Matrix-Multiplication)">3.5. 행렬 곱 (Matrix Multiplication) </a></li>
+<li class="toc-entry toc-h4"><a href="#3.6.-행렬-곱-(Matrix-Multiplication)">3.6. 행렬 곱 (Matrix Multiplication) </a></li>
+<li class="toc-entry toc-h4"><a href="#3.7.-행렬곱의-교환법칙은-성립하지-않는다?">3.7. 행렬곱의 교환법칙은 성립하지 않는다? </a></li>
+<li class="toc-entry toc-h4"><a href="#3.8.-더-높은-차원의-행렬">3.8. 더 높은 차원의 행렬 </a></li>
 </ul>
 </li>
 </ul><!--
@@ -991,8 +993,8 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br><br></p>
-<h4 id="3.5.-행렬-곱-(Matrix-Multiplication)">
-<a class="anchor" href="#3.5.-%ED%96%89%EB%A0%AC-%EA%B3%B1-(Matrix-Multiplication)" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.5. 행렬 곱 (Matrix Multiplication)<a class="anchor-link" href="#3.5.-%ED%96%89%EB%A0%AC-%EA%B3%B1-(Matrix-Multiplication)"> </a>
+<h4 id="3.6.-행렬-곱-(Matrix-Multiplication)">
+<a class="anchor" href="#3.6.-%ED%96%89%EB%A0%AC-%EA%B3%B1-(Matrix-Multiplication)" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.6. 행렬 곱 (Matrix Multiplication)<a class="anchor-link" href="#3.6.-%ED%96%89%EB%A0%AC-%EA%B3%B1-(Matrix-Multiplication)"> </a>
 </h4>
 <p>이제 조금 특별한 연산인 행렬곱에 대해 소개합니다. 행렬과 행렬을 곱한다는 것은 (원소곱이 아니라 행렬 단위로 곱한다는 것) 합성함수를 만드는 것과 동일합니다. 변환에 변환을 적용하는 것은 함수에 함수를 적용하는 것과 동일한 이치이기 때문입니다.
 <br><br></p>
@@ -1172,8 +1174,11 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><br>
-한 가지 중요한 사항은 행렬곱은 교환법칙이 성립하지 않는다는 것입니다. A @ B와 B @ A가 같지 않습니다. 왜 그런지는 매우 단순한데, 순서를 바꿔서 움직이면 변환 결과가 달라지기 때문입니다. 만약 Shear를 먼저한다면 아래 처럼 움직입니다.</p>
+<p><br></p>
+<h4 id="3.7.-행렬곱의-교환법칙은-성립하지-않는다?">
+<a class="anchor" href="#3.7.-%ED%96%89%EB%A0%AC%EA%B3%B1%EC%9D%98-%EA%B5%90%ED%99%98%EB%B2%95%EC%B9%99%EC%9D%80-%EC%84%B1%EB%A6%BD%ED%95%98%EC%A7%80-%EC%95%8A%EB%8A%94%EB%8B%A4?" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.7. 행렬곱의 교환법칙은 성립하지 않는다?<a class="anchor-link" href="#3.7.-%ED%96%89%EB%A0%AC%EA%B3%B1%EC%9D%98-%EA%B5%90%ED%99%98%EB%B2%95%EC%B9%99%EC%9D%80-%EC%84%B1%EB%A6%BD%ED%95%98%EC%A7%80-%EC%95%8A%EB%8A%94%EB%8B%A4?"> </a>
+</h4>
+<p>한 가지 중요한 사항은 행렬곱은 교환법칙이 성립하지 않는다는 것입니다. A @ B와 B @ A가 같지 않습니다. 왜 그런지는 매우 단순한데, 순서를 바꿔서 움직이면 변환 결과가 달라지기 때문입니다. 만약 Shear를 먼저한다면 아래 처럼 움직입니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/62.gif?raw=true" alt="img">
 <br><br></p>
 <p>그러나 우리가 rotate 먼저 한다면 아래처럼 움직입니다.</p>
@@ -1182,25 +1187,6 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <p>두 결과가 매우 상이한데, 이는 매우 당연한 것입니다. 때문에 행렬을 곱할 때는 순서를 주의해줘야합니다. 회전 후 기울인 것과 기울이고 회전한 것의 결과가 다르기 때문이죠.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/64.gif?raw=true" alt="img">
 <br><br></p>
-<p>3차원에서의 연산도 크게 다르지 않습니다. 새로운 기저벡터인 $\hat{k}$가 생긴 것 외에는 계산 방법은 동일합니다.</p>
-<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/65.gif?raw=true" alt="img">
-<br><br></p>
-<p>마찬가지로 3차원 행렬은 3차원 공간상에서 벡터가 변환되는 과정을 나타낸 것입니다. 각각 열은 각 기저들 (i, j, k)이 어디로 움질일지를 나타냅니다.</p>
-<ul>
-<li>$\hat{i}$</li>
-</ul>
-<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/66.gif?raw=true" alt="img">
-<br><br></p>
-<ul>
-<li>$\hat{j}$</li>
-</ul>
-<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/67.gif?raw=true" alt="img">
-<br><br></p>
-<ul>
-<li>$\hat{k}$</li>
-</ul>
-<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/68.gif?raw=true" alt="img">
-<br><br></p>
 
 </div>
 </div>
@@ -1208,6 +1194,29 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="3.8.-더-높은-차원의-행렬">
+<a class="anchor" href="#3.8.-%EB%8D%94-%EB%86%92%EC%9D%80-%EC%B0%A8%EC%9B%90%EC%9D%98-%ED%96%89%EB%A0%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.8. 더 높은 차원의 행렬<a class="anchor-link" href="#3.8.-%EB%8D%94-%EB%86%92%EC%9D%80-%EC%B0%A8%EC%9B%90%EC%9D%98-%ED%96%89%EB%A0%AC"> </a>
+</h4>
+<p>더 높은 차원에서의 행렬도 크게 다르지 않습니다. 2차원보다 높은 차원인 3차원에서의 연산도 크게 다르지 않습니다. 새로운 기저벡터인 $\hat{k}$가 생긴 것 외에는 계산 방법은 동일합니다.
+<br><br></p>
+<ul>
+<li>$\hat{i}$의 변환</li>
+</ul>
+<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/66.gif?raw=true" alt="img">
+<br><br></p>
+<ul>
+<li>$\hat{j}$의 변환</li>
+</ul>
+<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/67.gif?raw=true" alt="img">
+<br><br></p>
+<ul>
+<li>$\hat{k}$의 변환</li>
+</ul>
+<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/68.gif?raw=true" alt="img">
+<br><br></p>
+<p>마찬가지로 3차원 행렬은 3차원 공간상에서 벡터가 변환되는 과정을 나타낸 것입니다. 각각 열은 각 기저들 (i, j, k)이 어디로 움질일지를 나타내는 것입니다.</p>
+<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/65.gif?raw=true" alt="img">
+<br><br></p>
 <p>이제 여러분은 벡터와 행렬이 무엇인지 거의 완벽하게 이해했습니다. 선형대수 마지막 시간으로 다양한 변환 함수들에 대해 배우고, 벡터의 길이, 벡터와 벡터간의 거리 계산법에 대해 배워봅시다.</p>
 
 </div>
