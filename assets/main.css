@@ -271,7 +271,7 @@ pre, pre > code, .highlight { background-color: #f0f0f0; }
 .highlight .cp { color: #BC7A00; }
 
 /* Comment.Preproc */
-.highlight .c1 { color: #408080; }
+.highlight .c1 { color: #408080; font-style: normal !important; }
 
 /* Comment.Single */
 .highlight .cs { color: #408080; }
