@@ -203,7 +203,7 @@ img { width: 100% !important; }
 
 .page-category { margin-bottom: 30px !important; }
 
-h1, h2, h3, h4, h5 { color: #f36537 !important; margin-bottom: 3px !important; }
+h1, h2, h3, h4, h5 { color: #bd3900 !important; margin-bottom: 3px !important; }
 
 .post-header { margin-top: 30px !important; margin-bottom: 15px !important; }
 
@@ -462,3 +462,5 @@ h1:hover .anchor-link, h2:hover .anchor-link, h3:hover .anchor-link, h4:hover .a
 .category-tags-icon { padding-left: 0.375em; opacity: 35%; }
 
 .category-tags-link { color: #f36537 !important; text-align: justify; word-break: break-all; }
+
+div.output_subarea.output_text.output_error > pre { background: #ffd3d3 !important; color: #b22b31 !important; }
