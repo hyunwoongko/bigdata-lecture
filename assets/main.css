@@ -201,6 +201,8 @@ img { width: 100% !important; }
 
 .page-category { margin-bottom: 30px !important; }
 
+h1, h2, h3, h4, h5 { color: #f36537 !important; margin-bottom: 3px !important; }
+
 .post-header { margin-top: 30px !important; margin-bottom: 15px !important; }
 
 .main-contents { margin-bottom: 2rem; }
@@ -231,8 +233,6 @@ pre { border-radius: 6px; font-family: 'Jeju Gothic', sans-serif; }
 
 .footer-heading { display: none; }
 
-h1, h2, h3, h4, h5 { color: #f36537; margin-bottom: 3px !important; }
-
 .post img { display: block; vertical-align: top; margin-left: auto; margin-right: auto; }
 
 .post figcaption { text-align: center; font-size: .8rem; font-style: italic; color: light-grey; }
@@ -243,9 +243,9 @@ h1, h2, h3, h4, h5 { color: #f36537; margin-bottom: 3px !important; }
 
 .language-c + .language-plaintext { border-left: 1px solid grey; margin-left: 1rem !important; }
 
-.input_area pre, .input_area div { margin-top: 1.5rem !important; padding-bottom: 0 !important; padding-top: 0 !important; background: #f0f0f0 !important; -webkit-font-smoothing: antialiased; font-family: 'Nanum Gothic Coding', serif  !important; text-rendering: optimizeLegibility; border-radius: 5px !important; line-height: 130% !important; }
+.input_area pre, .input_area div { margin-top: 1.5rem !important; padding-bottom: 0 !important; padding-top: 0 !important; background: #f0f0f0 !important; -webkit-font-smoothing: antialiased; font-family: 'Monaco', serif  !important; text-rendering: optimizeLegibility; border-radius: 5px !important; line-height: 130% !important; }
 
-.output_area pre, .output_area div { margin-bottom: 2rem !important; margin-top: 1.5rem !important; padding-bottom: 0 !important; padding-top: 0 !important; background: #f0f0f0 !important; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; border-radius: 5px !important; line-height: 180% !important; }
+.output_area pre, .output_area div { margin-bottom: 2rem !important; margin-top: 1.5rem !important; padding-bottom: 0 !important; padding-top: 0 !important; background: #f0f0f0 !important; font-family: 'Monaco', serif  !important; text-rendering: optimizeLegibility; border-radius: 5px !important; line-height: 180% !important; }
 
 .code_cell table { width: auto; }
 
