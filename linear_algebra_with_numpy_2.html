@@ -262,6 +262,7 @@
 <li class="toc-entry toc-h4"><a href="#1.1.-변환-(Transformation)">1.1. 변환 (Transformation) </a></li>
 <li class="toc-entry toc-h4"><a href="#1.2.-선형-변환-(Linear-Transformation)">1.2. 선형 변환 (Linear Transformation) </a></li>
 <li class="toc-entry toc-h4"><a href="#1.3.-굳이-변환-이야기를-꺼내는-이유?">1.3. 굳이 변환 이야기를 꺼내는 이유? </a></li>
+<li class="toc-entry toc-h4"><a href="#1.4.-행렬의-본질">1.4. 행렬의 본질 </a></li>
 </ul>
 </li>
 </ul><!--
@@ -315,7 +316,8 @@
 <h4 id="1.2.-선형-변환-(Linear-Transformation)">
 <a class="anchor" href="#1.2.-%EC%84%A0%ED%98%95-%EB%B3%80%ED%99%98-(Linear-Transformation)" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.2. 선형 변환 (Linear Transformation)<a class="anchor-link" href="#1.2.-%EC%84%A0%ED%98%95-%EB%B3%80%ED%99%98-(Linear-Transformation)"> </a>
 </h4>
-<p>그러나, 선형대수에서는 모든 종류의 변환을 다루지 않습니다. 선형대수에서는 모든 벡터가 선형성을 유지해야하기 때문에 "선형 변환"에 대하서만 다루고, "비 선형 변환"은 다루지 않습니다. 시각적으로 볼 때, 변환이 선형적(Linear)하다는 것은 두가지 속성을 의미합니다.</p>
+<p>그러나, 선형대수에서는 모든 종류의 변환을 다루지 않습니다. 선형대수에서는 모든 벡터가 선형성을 유지해야하기 때문에 "선형 변환"에 대하서만 다루고, "비 선형 변환"은 다루지 않습니다. 시각적으로 볼 때, 변환이 선형적(Linear)하다는 것은 두가지 속성을 의미합니다. 
+<br><br></p>
 <ul>
 <li>모든 벡터는 변환 이후에도 휘지 않고 직선이여야 한다. </li>
 <li>원점은 그대로 원점(0, 0)이여야 한다.</li>
@@ -344,6 +346,15 @@
 <p>변환 결과, 기저 $\hat{i}$는 $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$에서 $\begin{bmatrix} 1 \\ -2 \end{bmatrix}$로 움직였고, $\hat{j}$는 $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$에서 $\begin{bmatrix} 3 \\ 0 \end{bmatrix}$으로 움직였습니다. 따라서 변환된 벡터 $\vec{v}$ = -1 <em> $\begin{bmatrix} 1 \\ -2 \end{bmatrix}$ + 2 </em> $\begin{bmatrix} 3 \\ 0 \end{bmatrix}$이 되고, 이 값은 $\begin{bmatrix} 5 \\ 2 \end{bmatrix}$로 변환된 $\vec{v}$의 위치와 동일합니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/46.gif?raw=true" alt="img">
 <br><br></p>
+<p>이렇게 기저벡터가 어디로 움직였는지만 알면, 해당 공간의 모든 벡터가 어디로 움직였는지 알 수 있게 됩니다.</p>
+<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/47.gif?raw=true" alt="img">
+<br><br></p>
+<h4 id="1.4.-행렬의-본질">
+<a class="anchor" href="#1.4.-%ED%96%89%EB%A0%AC%EC%9D%98-%EB%B3%B8%EC%A7%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.4. 행렬의 본질<a class="anchor-link" href="#1.4.-%ED%96%89%EB%A0%AC%EC%9D%98-%EB%B3%B8%EC%A7%88"> </a>
+</h4>
+<p>위의 내용을 정리해서 써봅시다. $\hat{i}$는 $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$에서 $\begin{bmatrix} 1 \\ -2 \end{bmatrix}$로 움직였고, $\hat{j}$는 $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$에서 $\begin{bmatrix} 3 \\ 0 \end{bmatrix}$으로 움직였습니다.</p>
+<p><br></p>
+<p>따라서 임의의 벡터 $\vec{v}$는 $\begin{bmatrix} x \\ y \end{bmatrix}$에서 x <em> $\begin{bmatrix} 1 \\ -2 \end{bmatrix}$ + y </em> x * $\begin{bmatrix} 1 \\ -2 \end{bmatrix}$</p>
 
 </div>
 </div>

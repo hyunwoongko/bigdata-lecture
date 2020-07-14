@@ -1274,13 +1274,13 @@
 <h3 id="6.-기저벡터">
 <a class="anchor" href="#6.-%EA%B8%B0%EC%A0%80%EB%B2%A1%ED%84%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. 기저벡터<a class="anchor-link" href="#6.-%EA%B8%B0%EC%A0%80%EB%B2%A1%ED%84%B0"> </a>
 </h3>
-<p>여러분에게 이제 벡터가 어느정도 익숙해졌다고 생각합니다. 이제 선형대수에서 꽤나 중요한 개념인 "기저 벡터"에 대해 다뤄 보려고 합니다.</p>
+<p>여러분에게 이제 벡터가 어느정도 익숙해졌다고 생각합니다. 이제 선형대수에서 꽤나 중요한 개념인 "기저 벡터"에 대해 다뤄 보려고 합니다. (여기부터 내용이 조금 어렵습니다. 중간에 이해 안가시면 반드시 손 들고 물어봐주세요.)</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/34.png?raw=true" alt="img"></p>
 <p>xy 좌표계에는 아주 특별한 벡터인 $\hat{i}$(녹색)와 $\hat{j}$(분홍색)가 있습니다. $\hat{i}$는 $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$의 좌표를 가지고 $\hat{j}$는 $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$의 좌표를 가집니다. 이 두 벡터에 스칼라곱을 한 뒤에 벡터합을 수행하면 2차원 공간에 있는 어떤 벡터든지 만들어 낼 수 있습니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/35.gif?raw=true" alt="img"></p>
 <p>가령 $\begin{bmatrix} 3 \\ -2 \end{bmatrix}$을 만들려면 3$\hat{i}$ - 2$\hat{j}$와 같이 만들 수 있습니다. 3$\hat{i}$ = $\begin{bmatrix} 3 \\ 0 \end{bmatrix}$이 되고, -2$\hat{j}$ = $\begin{bmatrix} 0 \\ -2 \end{bmatrix}$이 되어 두 벡터를 더하면 $\begin{bmatrix} 3 \\ -2 \end{bmatrix}$이 됩니다. 비슷하게, $\begin{bmatrix} 20 \\ 41 \end{bmatrix}$을 만들려면 20$\hat{i}$ + 41$\hat{j}$와 같이 만들어 낼 수 있습니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/36.gif?raw=true" alt="img"></p>
-<p>이렇게 n개의 벡터를 각각 스칼라곱하여 벡터합 하는 연산을 우리는 앞으로 "선형 결합(linear combination)"이라고 부릅니다. 그리고 이렇게 두 벡터의 선형 결합으로 해당 차원의 모든 벡터를 다 만들어내는 것을 공간을 "생성(span)"한다고 부르며, $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$, $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$과 같이 선형결합을 통해서 공간을 생성할 수 있는 벡터의 집합을 우리는 "기저 벡터(basis vector)"라고 부릅니다. 즉, 위의 $\hat{i}$와 $\hat{j}$는 2차원 평면공간을 생성할 수 있는 기저 벡터인 것이죠. 그러나 기저벡터가 꼭 $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$과 $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$이여야 하는 것은 아닙니다.</p>
+<p>이렇게 n개의 벡터를 각각 스칼라곱하여 벡터합 하는 연산을 우리는 앞으로 "선형 결합(linear combination)"이라고 부릅니다. 그리고 이렇게 n개 벡터의 선형 결합으로 n 차원의 모든 벡터를 다 만들어내는 행위를 공간을 "생성(span)"한다고 부르며, $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$, $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$과 같이 선형결합을 통해서 공간을 생성할 수 있는 벡터의 집합을 우리는 "기저 벡터(basis vector)"라고 부릅니다. 즉, 위의 $\hat{i}$와 $\hat{j}$는 2차원 평면공간을 생성할 수 있는 기저 벡터인 것이죠. 그러나 기저벡터가 꼭 $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$과 $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$이여야 하는 것은 아닙니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/37.png?raw=true" alt="img"></p>
 <p>위와 같이 $\vec{v}$ = $\begin{bmatrix} 1 \\ 2 \end{bmatrix}$, $\vec{w}$ = $\begin{bmatrix} 3 \\ -1 \end{bmatrix}$과 같은 두 벡터로도 얼마든지 2차원 공간의 모든 벡터를 만들어 낼 수 있습니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/38.gif?raw=true" alt="img"></p>
