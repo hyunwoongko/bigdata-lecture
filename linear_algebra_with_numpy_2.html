@@ -272,7 +272,7 @@
 <li class="toc-entry toc-h4"><a href="#3.2.-스칼라-곱-(Scalar-Multiplication)">3.2. 스칼라 곱 (Scalar Multiplication) </a></li>
 <li class="toc-entry toc-h4"><a href="#3.3.-원소곱-(Elementwise-Multiplication)">3.3. 원소곱 (Elementwise Multiplication) </a></li>
 <li class="toc-entry toc-h4"><a href="#3.4.-행렬---벡터-곱-(Matrix---Vector-Multiplication)">3.4. 행렬 - 벡터 곱 (Matrix - Vector Multiplication) </a></li>
-<li class="toc-entry toc-h4"><a href="#3.5.-Shape-규칙">3.5. Shape 규칙 </a></li>
+<li class="toc-entry toc-h4"><a href="#3.5.-Shape-규칙-(Rule-of-multiplication)">3.5. Shape 규칙 (Rule of multiplication) </a></li>
 <li class="toc-entry toc-h4"><a href="#3.5.-행렬-곱-(Matrix-Multiplication)">3.5. 행렬 곱 (Matrix Multiplication) </a></li>
 </ul>
 </li>
@@ -928,8 +928,8 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="3.5.-Shape-규칙">
-<a class="anchor" href="#3.5.-Shape-%EA%B7%9C%EC%B9%99" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.5. Shape 규칙<a class="anchor-link" href="#3.5.-Shape-%EA%B7%9C%EC%B9%99"> </a>
+<h4 id="3.5.-Shape-규칙-(Rule-of-multiplication)">
+<a class="anchor" href="#3.5.-Shape-%EA%B7%9C%EC%B9%99-(Rule-of-multiplication)" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.5. Shape 규칙 (Rule of multiplication)<a class="anchor-link" href="#3.5.-Shape-%EA%B7%9C%EC%B9%99-(Rule-of-multiplication)"> </a>
 </h4>
 <p>벡터와 행렬 혹은 행렬과 행렬을 곱하려면 곱하는 두 벡터/행렬의 Shape이 맞아야합니다. 벡터 - 행렬곱과 행렬 - 행렬곱 (원소곱이 아닌 행렬 단위곱)에서는 아래와 같은 Shape에 대한 규칙이 있습니다. <br></p>
 <ul>
@@ -1005,7 +1005,9 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/52.gif?raw=true" alt="img">
 <br><br></p>
 <p>회전하고나면 $\hat{i}$는 그대로 $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$이고, $\hat{j}$는 $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$에서 $\begin{bmatrix} 1 \\ 1 \end{bmatrix}$이 됩니다. 따라서 이 변환은 $\begin{bmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{bmatrix}$이 됩니다. 이 두 행렬을 $\begin{bmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{bmatrix}$ @ $\begin{bmatrix} 0 &amp; 1 \\ -1 &amp; 0 \end{bmatrix}$과 같이 행렬 곱하면 어떻게 될까요? 정답은 두 연산을 각각 실행하는 것이 됩니다.</p>
-<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/54.gif?raw=true" alt="img"></p>
+<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/54.gif?raw=true" alt="img">
+<br><br></p>
+<p>합성된 변환을 계산하면 아래처럼 계산할 수 있는데요. 각각 $\hat{i}$와 $\hat{j}$가 $\begin{bmatrix} 1 \\ 1 \end{bmatrix}$과 $\begin{bmatrix} -1 \\ 0 \end{bmatrix}$으로 이동했기 때문에 합성 변환에 대한 행렬은 $\begin{bmatrix} 1 &amp; 1 \\ -1 &amp; 0 \end{bmatrix}$이 됩니다. 그리고 이 변환은 이전의 두 변환과는 다른 새로운 변환이 됩니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/55.gif?raw=true" alt="img">
 <br><br></p>
 
