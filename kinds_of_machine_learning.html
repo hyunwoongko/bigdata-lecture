@@ -343,11 +343,15 @@
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-hide</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="n">weight_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'이름'</span><span class="p">,</span> <span class="s1">'신장'</span> <span class="p">,</span> <span class="s1">'몸무게'</span><span class="p">,</span> <span class="s1">'비만(정답)'</span><span class="p">],</span>
@@ -369,6 +373,7 @@
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -492,11 +497,15 @@
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fruit_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-hide</span>
+<span class="n">fruit_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'농장'</span><span class="p">,</span> <span class="s1">'당도'</span> <span class="p">,</span> <span class="s1">'수분함유량'</span><span class="p">,</span> <span class="s1">'등급(정답)'</span><span class="p">],</span>
 
     <span class="n">data</span><span class="o">=</span><span class="p">[[</span><span class="s1">'농장A'</span><span class="p">,</span> <span class="mf">35.2</span><span class="p">,</span> <span class="mf">16.3</span><span class="p">,</span> <span class="s1">'1등급'</span><span class="p">],</span>
@@ -513,6 +522,7 @@
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -557,21 +567,21 @@
       <td>농장A</td>
       <td>8.9</td>
       <td>6.5</td>
-      <td>2등급</td>
+      <td>3등급</td>
     </tr>
     <tr>
       <th>2</th>
       <td>농장B</td>
       <td>8.4</td>
       <td>44.5</td>
-      <td>3등급</td>
+      <td>1등급</td>
     </tr>
     <tr>
       <th>3</th>
       <td>농장C</td>
       <td>27.4</td>
       <td>20.1</td>
-      <td>4등급</td>
+      <td>2등급</td>
     </tr>
     <tr>
       <th>4</th>
@@ -615,17 +625,22 @@
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fruit_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">'등급(정답)'</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-hide</span>
+<span class="n">fruit_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">'등급(정답)'</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -721,11 +736,15 @@
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wrong_weight_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-hide</span>
+<span class="n">wrong_weight_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'이름'</span><span class="p">,</span> <span class="s1">'신장'</span> <span class="p">,</span> <span class="s1">'몸무게'</span><span class="p">,</span> <span class="s1">'비만(정답)'</span><span class="p">],</span>
 
     <span class="n">data</span><span class="o">=</span><span class="p">[[</span><span class="s1">'이수근'</span><span class="p">,</span> <span class="mi">165</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="s1">'비만'</span><span class="p">],</span>
@@ -746,6 +765,7 @@
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -868,11 +888,15 @@
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-hide</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 
 
 <span class="k">def</span> <span class="nf">draw_weight_graph</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">boundary</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
@@ -909,17 +933,22 @@
 </div>
 </div>
 
+    </details>
 </div>
     
 
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 구분이 가능한 데이터입니다.</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-hide</span>
+<span class="c1"># 구분이 가능한 데이터입니다.</span>
 <span class="n">weight_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
@@ -927,6 +956,7 @@
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -1031,11 +1061,15 @@
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 구분이 가능한 데이터입니다.</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-hide</span>
+<span class="c1"># 구분이 가능한 데이터입니다.</span>
 <span class="n">draw_weight_graph</span><span class="p">(</span><span class="n">weight_df</span><span class="p">,</span> <span class="p">([</span><span class="mi">160</span><span class="p">,</span> <span class="mi">185</span><span class="p">],</span> <span class="p">[</span><span class="mi">70</span><span class="p">,</span> <span class="mi">90</span><span class="p">]),</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Proper Dataset'</span><span class="p">)</span>
 </pre></div>
 
@@ -1043,6 +1077,7 @@
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -1073,11 +1108,15 @@
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 구분이 불가능한 데이터입니다.</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-hide</span>
+<span class="c1"># 구분이 불가능한 데이터입니다.</span>
 <span class="n">wrong_weight_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
@@ -1085,6 +1124,7 @@
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -1196,11 +1236,15 @@
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 구분이 불가능한 데이터입니다.</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-hide</span>
+<span class="c1"># 구분이 불가능한 데이터입니다.</span>
 <span class="n">draw_weight_graph</span><span class="p">(</span><span class="n">wrong_weight_df</span><span class="p">,</span> <span class="p">(),</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Wrong Dataset'</span><span class="p">)</span>
 </pre></div>
 
@@ -1208,6 +1252,7 @@
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -1253,11 +1298,15 @@
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">housing_price_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-hide</span>
+<span class="n">housing_price_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'넓이(m^2)'</span><span class="p">,</span> <span class="s1">'가격(억)'</span><span class="p">],</span>
 
     <span class="n">data</span><span class="o">=</span><span class="p">[[</span><span class="mi">35</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>     
@@ -1279,6 +1328,7 @@
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -1383,11 +1433,15 @@
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">draw_housing_graph</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">boundary</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-hide</span>
+<span class="k">def</span> <span class="nf">draw_housing_graph</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">boundary</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    집의 넓이-가격 데이터를 그래프로 표시하는 함수입니다.</span>
 
@@ -1411,23 +1465,29 @@
 </div>
 </div>
 
+    </details>
 </div>
     
 
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">draw_housing_graph</span><span class="p">(</span><span class="n">housing_price_df</span><span class="p">,</span> <span class="p">(),</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Proper Dataset'</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-hide</span>
+<span class="n">draw_housing_graph</span><span class="p">(</span><span class="n">housing_price_df</span><span class="p">,</span> <span class="p">(),</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Proper Dataset'</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -1458,11 +1518,15 @@
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_weight_bias</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-hide</span>
+<span class="k">def</span> <span class="nf">get_weight_bias</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">):</span>
     <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">a1</span>
     <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">a2</span>
     
@@ -1505,17 +1569,22 @@
 </div>
 </div>
 
+    </details>
 </div>
     
 
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sample</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'넓이(m^2)'</span><span class="p">:</span><span class="mi">62</span><span class="p">}</span> <span class="c1"># 예측용 데이터, 아직 가격을 모름</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-hide</span>
+<span class="n">sample</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'넓이(m^2)'</span><span class="p">:</span><span class="mi">62</span><span class="p">}</span> <span class="c1"># 예측용 데이터, 아직 가격을 모름</span>
 
 <span class="n">draw_housing_graph_with_sample</span><span class="p">(</span><span class="n">housing_price_df</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Proper Dataset'</span><span class="p">,</span> <span class="n">sample</span><span class="o">=</span><span class="n">sample</span><span class="p">)</span>
 </pre></div>
@@ -1524,6 +1593,7 @@
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -1555,7 +1625,7 @@
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>위의 예시는 가장 아래쪽에 있는 점과 가장 끝쪽의 점의 좌표를 이용해 두 점을 지나는 직선의 방정식을 구하고, 이를 통해 주어진 샘플(62미터)의 가격을 예측해보는 예시입니다.
+<p>위의 예시는 가장 아래쪽에 있는 점과 가장 끝쪽의 점의 좌표를 이용해 두 점을 지나는 직선의 방정식을 구하고, 이를 통해 임의의 샘플(62미터)의 가격을 예측해보는 예시입니다.
 이렇게 회귀는 데이터를 가장 잘 설명하는 방정식을 찾아내는 것을 의미합니다. 위처럼 데이터를 가장 잘 설명하는 하나의 선을 찾아낸다면, X 좌표가 주어졌을때, 
 그 방정식에 대입하여 Y좌표를 구해낼 수 있습니다. 위에서는 y = 0.049x - 0.711이라는 직선의 방정식을 찾았고, x에 62을 대입하면 0.049를 곱하고 0.711을 빼서 y의 값(23.27)을 알아낼 수 있습니다.</p>
 
@@ -1565,17 +1635,22 @@
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">housing_price_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-hide</span>
+<span class="n">housing_price_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -1718,11 +1793,15 @@
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-hide</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
 
 <span class="n">iris_dataset</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
 <span class="n">data</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="n">iris_dataset</span><span class="p">[</span><span class="s1">'data'</span><span class="p">],</span> <span class="n">iris_dataset</span><span class="p">[</span><span class="s1">'target'</span><span class="p">]</span>
@@ -1740,6 +1819,7 @@
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -1773,11 +1853,15 @@
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-hide</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 
@@ -1803,17 +1887,22 @@
 </div>
 </div>
 
+    </details>
 </div>
     
 
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 2개의 군집으로 군집화</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-hide</span>
+<span class="c1"># 2개의 군집으로 군집화</span>
 <span class="n">cluster</span><span class="p">(</span><span class="n">K</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
@@ -1821,6 +1910,7 @@
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -1843,11 +1933,15 @@
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 3개의 군집으로 군집화</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-hide</span>
+<span class="c1"># 3개의 군집으로 군집화</span>
 <span class="n">cluster</span><span class="p">(</span><span class="n">K</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 
@@ -1855,6 +1949,7 @@
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -1877,11 +1972,15 @@
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 4개의 군집으로 군집화</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-hide</span>
+<span class="c1"># 4개의 군집으로 군집화</span>
 <span class="n">cluster</span><span class="p">(</span><span class="n">K</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 
@@ -1889,6 +1988,7 @@
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -1911,11 +2011,15 @@
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 10개의 군집으로 군집화</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-hide</span>
+<span class="c1"># 10개의 군집으로 군집화</span>
 <span class="n">cluster</span><span class="p">(</span><span class="n">K</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
@@ -1923,6 +2027,7 @@
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -1955,11 +2060,15 @@
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">([</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-hide</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">([</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]])</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="n">target</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">dataset</span><span class="p">[</span><span class="n">target</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">'setosa'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="n">target</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">dataset</span><span class="p">[</span><span class="n">target</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">'vergicolor'</span><span class="p">)</span>
@@ -1981,6 +2090,7 @@
 </div>
 </div>
 
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
