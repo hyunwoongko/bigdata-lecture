@@ -14,6 +14,11 @@ img{
     margin-bottom: 30px !important;
 }
 
+h1, h2, h3, h4, h5{
+  color: rgb(243, 101, 55) !important;
+  margin-bottom: 3px !important;
+}
+
 .post-header {
     margin-top: 30px !important;
     margin-bottom: 15px !important;
@@ -102,11 +107,6 @@ float: none;
     display: none;
 }
 
-h1, h2, h3, h4, h5{
-	color: rgb(243, 101, 55);
-	margin-bottom: 3px !important;
-}
-
 .post img {
         display: block;
         vertical-align: top;
@@ -144,10 +144,10 @@ h1, h2, h3, h4, h5{
         padding-top:0 !important;
         background: $jupyter-background !important;
         -webkit-font-smoothing: antialiased;
-	font-family: 'Nanum Gothic Coding', serif  !important; // 코드셀만 코딩폰트 적용
+	    font-family: 'Monaco', serif  !important; // 코드셀만 코딩폰트 적용
         text-rendering: optimizeLegibility;
         border-radius: 5px !important;
-	line-height: 130% !important;
+	    line-height: 130% !important;
 }
 
 .output_area pre, .output_area div {
@@ -156,7 +156,7 @@ h1, h2, h3, h4, h5{
         padding-bottom:0 !important;
         padding-top:0 !important;
         background: $jupyter-background !important;
-        -webkit-font-smoothing: antialiased;
+        font-family: 'Monaco', serif  !important; // 코드셀만 코딩폰트 적용        -webkit-font-smoothing: antialiased;
         text-rendering: optimizeLegibility;
         border-radius: 5px !important;
         line-height: 180% !important;
