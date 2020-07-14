@@ -269,6 +269,7 @@
 <li class="toc-entry toc-h3"><a href="#5.-벡터의-두가지-기본연산-:-벡터합과-스칼라곱">5. 벡터의 두가지 기본연산 : 벡터합과 스칼라곱 </a>
 <ul>
 <li class="toc-entry toc-h4"><a href="#5.1.-벡터-합-:-두-벡터를-이어-붙이기">5.1. 벡터 합 : 두 벡터를 이어 붙이기 </a></li>
+<li class="toc-entry toc-h4"><a href="#5.2.-스칼라-곱-:-벡터를-상수배-만큼-늘리거나-줄이기">5.2. 스칼라 곱 : 벡터를 상수배 만큼 늘리거나 줄이기 </a></li>
 </ul>
 </li>
 </ul><!--
@@ -1052,7 +1053,215 @@
 <p>이를 수치적인 관점에서 계산해본다면 각 차원(자리)값 들을 더해주면 결과 벡터가 됩니다. 즉 1번째 원소끼리 더한 값이 결과 벡터의 1번째 원소가 되고, 2번째 원소끼리 더한 값이 결과벡터의 2번재 원소값이 됩니다.</p>
 <p><br></p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/29.jpg?raw=true" alt="img"></p>
-<p>이 개념은 수직선과 굉장히 비슷한 개념입니다. 우리가 2 + 3을 수직선에서 생각할 때 0에서 오른쪽으로 2칸 이동하고 다시 3칸 이동하는 것과 동일하게 벡터는 단지 위아래 방향이 하나 더 추가된 것 뿐입니다. 이렇게 벡터의 합 연산도 본질적으로 정수, 유리수와 같은 숫자들과 본질적으로 동일합니다.</p>
+<p>이 개념은 수직선과 굉장히 비슷한 개념입니다. 우리가 2 + 3을 수직선에서 생각할 때 0에서 오른쪽으로 2칸 이동하고 다시 3칸 이동하는 것과 동일하게 벡터는 단지 위아래 방향이 하나 더 추가된 것 뿐입니다. 이렇게 벡터의 합 연산도 본질적으로 정수, 유리수와 같은 숫자들과 본질적으로 동일합니다. 이제 이 벡터 합을 numpy를 이용해 구현해봅시다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">npvec_v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">npvec_w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">npvec_addiation</span> <span class="o">=</span> <span class="n">npvec_v</span> <span class="o">+</span> <span class="n">npvec_w</span>
+
+<span class="n">npvec_addiation</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([4, 1])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>numpy를 이용하면 +연산으로 매우 쉽게 두 벡터의 합을 구해낼 수 있습니다. 만약 파이썬 리스트를 서로 더했다면 이러한 결과가 아니라 아래와 같은 결과를 얻었을 것입니다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pyvec_v</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">pyvec_w</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">pyvec_addition</span> <span class="o">=</span> <span class="n">pyvec_v</span> <span class="o">+</span> <span class="n">pyvec_w</span>
+
+<span class="n">pyvec_addition</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[1, 2, 3, -1]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Python 리스트의 합은 두 리스트의 원소를 모두 가지고 있는 새로운 리스트를 만드는 연산입니다. 때문에 이러한 벡터 연산을 편하고 깔끔하게 수행하려면 numpy를 사용하는것이 굉장히 좋습니다. <br><br></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="5.2.-스칼라-곱-:-벡터를-상수배-만큼-늘리거나-줄이기">
+<a class="anchor" href="#5.2.-%EC%8A%A4%EC%B9%BC%EB%9D%BC-%EA%B3%B1-:-%EB%B2%A1%ED%84%B0%EB%A5%BC-%EC%83%81%EC%88%98%EB%B0%B0-%EB%A7%8C%ED%81%BC-%EB%8A%98%EB%A6%AC%EA%B1%B0%EB%82%98-%EC%A4%84%EC%9D%B4%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.2. 스칼라 곱 : 벡터를 상수배 만큼 늘리거나 줄이기<a class="anchor-link" href="#5.2.-%EC%8A%A4%EC%B9%BC%EB%9D%BC-%EA%B3%B1-:-%EB%B2%A1%ED%84%B0%EB%A5%BC-%EC%83%81%EC%88%98%EB%B0%B0-%EB%A7%8C%ED%81%BC-%EB%8A%98%EB%A6%AC%EA%B1%B0%EB%82%98-%EC%A4%84%EC%9D%B4%EA%B8%B0"> </a>
+</h4>
+<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/26.gif?raw=true" alt="img"></p>
+<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/27.gif?raw=true" alt="img"></p>
+<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/28.gif?raw=true" alt="img"></p>
+<p>스칼라곱은 벡터의 방향을 바꾸지 않고 그 크기만 상수배 만큼 늘리거나 줄이는 것을 의미합니다. 이러한 과정을 Scaling이라고 부르고, Scaling을 얼마나 할 것인지 결정하는 상수 값을 Scaler라고 합니다. 영어 발음으로는 '스케일러'가 맞지만 보통은 '스칼라'라고 부릅니다.</p>
+<p><br></p>
+<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/29.jpg?raw=true" alt="img"></p>
+<p>물론 음수를 곱하게 되면 방향이 뒤바뀌게 되지만 절대적으로 x와 y사이의 비율, 즉 기울기는 그대로 유지되기 때문에 방향이 변하지 않는다고 한 것입니다. [1, 2]에 -3을 곱해서 [-3, -6]이 된다고 해도 x와 y 사이의 비율은 그대로 1 : 2가 됩니다. 스칼라곱도 마찬가지로 수직선에서 생각할 수 있습니다. 숫자 3 위치에 어떤 값이 있다면, 그 값을 2배 늘리면 6에 도달하게 됩니다. 벡터의 경우는 방향만 추가되었을뿐 그 본질은 같습니다.</p>
+<p><br></p>
+<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/30.gif?raw=true" alt="img"></p>
+<p>스칼라곱을 수치적으로 계산할 때는 벡터의 모든 차원에 스케일러 값을 곱해주면 됩니다. 벡터가 [3, 1]라면 여기에 2를 곱하면 [6, 2]가 됩니다. 간단하죠? 이제 스칼라 곱을 numpy를 이용해 구현해봅시다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">npvec_v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="n">npvec_multiplication</span> <span class="o">=</span> <span class="n">npvec_v</span> <span class="o">*</span> <span class="n">scaler</span>
+
+<span class="n">npvec_multiplication</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([6, 2])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>위와 같이 단순하게 * 연산을 사용하여 상수값 2를 numpy 벡터에 곱해주면 손쉽게 스칼라 곱을 계산해낼 수 있습니다. 만약 numpy가 아니라 파이썬 리스트를 곱했다면 아래와 같이 수행될 것입니다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pyvec_v</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="n">pyvec_multiplication</span> <span class="o">=</span> <span class="n">pyvec_v</span> <span class="o">*</span> <span class="n">scaler</span>
+
+<span class="n">pyvec_multiplication</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[3, 1, 3, 1]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>파이썬리스트의 곱셈 연산은 해당 리스트를 n배로 복제해낸 원소를 가지고 있는 리스트를 새로 만드는 연산입니다. 이렇게 파이썬 리스트의 경우 벡터 연산에</p>
 
 </div>
 </div>
