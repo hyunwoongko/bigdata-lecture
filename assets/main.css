@@ -209,7 +209,7 @@ h1, h2, h3, h4, h5 { color: #f36537 !important; margin-bottom: 3px !important; }
 
 .main-contents { margin-bottom: 2rem; }
 
-.footer-col { width: calc(100% - (30px /2)); text-align: center; }
+.footer-col { width: calc(100% - (30px / 2)); text-align: center; }
 
 .copyright { color: #828282; font-size: 90%; }
 
@@ -245,9 +245,9 @@ pre { border-radius: 6px; font-family: 'Jeju Gothic', sans-serif; }
 
 .language-c + .language-plaintext { border-left: 1px solid grey; margin-left: 1rem !important; }
 
-.input_area pre, .input_area div { margin-top: 1.5rem !important; padding-bottom: 0 !important; padding-top: 0 !important; background: #f0f0f0 !important; -webkit-font-smoothing: antialiased; font-family: 'Monaco', serif  !important; text-rendering: optimizeLegibility; border-radius: 5px !important; line-height: 190% !important; }
+.input_area pre, .input_area div { margin-top: 1.5rem !important; padding-bottom: 0 !important; padding-top: 0 !important; background: #f0f0f0 !important; -webkit-font-smoothing: antialiased; font-family: 'Monaco', serif !important; text-rendering: optimizeLegibility; border-radius: 5px !important; line-height: 190% !important; font-size: 0.92rem !important; }
 
-.output_area pre, .output_area div { margin-bottom: 2rem !important; margin-top: 1.5rem !important; padding-bottom: 0 !important; padding-top: 0 !important; background: #f0f0f0 !important; font-family: 'Monaco', serif  !important; text-rendering: optimizeLegibility; border-radius: 5px !important; line-height: 180% !important; }
+.output_area pre, .output_area div { margin-bottom: 2rem !important; margin-top: 1.5rem !important; padding-bottom: 0 !important; padding-top: 0 !important; background: #f0f0f0 !important; font-family: 'Monaco', serif !important; text-rendering: optimizeLegibility; border-radius: 5px !important; line-height: 180% !important; font-size: 0.92rem !important; }
 
 .code_cell table { width: auto; }
 
