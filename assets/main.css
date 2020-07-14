@@ -253,7 +253,7 @@ pre { border-radius: 6px; font-family: 'Jeju Gothic', sans-serif; }
 
 pre, pre > code, .highlight { background-color: #f0f0f0; }
 
-.highlight .c { color: #408080; font-style: italic; }
+.highlight .c { color: #408080; }
 
 /* Comment */
 .highlight .err { border: 1px solid #FF0000; }
@@ -265,23 +265,21 @@ pre, pre > code, .highlight { background-color: #f0f0f0; }
 .highlight .o { color: #800080; }
 
 /* Operator */
-.highlight .cm { color: #408080; font-style: italic; }
+.highlight .cm { color: #408080; }
 
 /* Comment.Multiline */
 .highlight .cp { color: #BC7A00; }
 
 /* Comment.Preproc */
-.highlight .c1 { color: #408080; font-style: italic; }
+.highlight .c1 { color: #408080; }
 
 /* Comment.Single */
-.highlight .cs { color: #408080; font-style: italic; }
+.highlight .cs { color: #408080; }
 
 /* Comment.Special */
 .highlight .gd { color: #A00000; }
 
 /* Generic.Deleted */
-.highlight .ge { font-style: italic; }
-
 /* Generic.Emph */
 .highlight .gr { color: #FF0000; }
 
@@ -391,7 +389,7 @@ pre, pre > code, .highlight { background-color: #f0f0f0; }
 .highlight .sc { color: #BA2121; }
 
 /* Literal.String.Char */
-.highlight .sd { color: #BA2121; font-style: italic; }
+.highlight .sd { color: #BA2121; }
 
 /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121; }
