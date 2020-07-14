@@ -7,7 +7,7 @@
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
 $jupyter-background: #f0f0f0;
 
-* {
+*:not(span) {
   -webkit-font-smoothing: antialiased !important;
   text-rendering: optimizeLegibility !important;
   font-family: 'Jeju Gothic', sans-serif;
