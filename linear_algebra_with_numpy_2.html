@@ -272,6 +272,7 @@
 <li class="toc-entry toc-h4"><a href="#3.2.-스칼라-곱-(Scalar-Multiplication)">3.2. 스칼라 곱 (Scalar Multiplication) </a></li>
 <li class="toc-entry toc-h4"><a href="#3.3.-원소곱-(Elementwise-Multiplication)">3.3. 원소곱 (Elementwise Multiplication) </a></li>
 <li class="toc-entry toc-h4"><a href="#3.4.-행렬---벡터-곱-(Matrix---Vector-Multiplication)">3.4. 행렬 - 벡터 곱 (Matrix - Vector Multiplication) </a></li>
+<li class="toc-entry toc-h4"><a href="#3.5.-Shape-규칙">3.5. Shape 규칙 </a></li>
 <li class="toc-entry toc-h4"><a href="#3.5.-행렬-곱-(Matrix-Multiplication)">3.5. 행렬 곱 (Matrix Multiplication) </a></li>
 </ul>
 </li>
@@ -432,8 +433,8 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>위와 같이 np.array 객체에 .shape를 붙이면 현재 객체의 shape를 알 수 있습니다.
-몇가지 예시를 더 보겠습니다.</p>
-<p><br></p>
+몇가지 예시를 더 보겠습니다.
+<br></p>
 
 </div>
 </div>
@@ -446,7 +447,7 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">vec_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],</span> 
-                  <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> 
+                  <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span>
                   <span class="p">[</span><span class="mi">3</span><span class="p">]])</span>
 
 <span class="c1"># 행 3개, 열 1개</span>
@@ -531,6 +532,16 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>shape이 맞는 경우 행렬 합</li>
+</ul>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -576,7 +587,9 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><br></p>
+<ul>
+<li>shape이 맞지 않는 경우 행렬 합</li>
+</ul>
 
 </div>
 </div>
@@ -632,7 +645,9 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><br></p>
+<ul>
+<li>shape이 맞는 경우 벡터 합</li>
+</ul>
 
 </div>
 </div>
@@ -647,10 +662,10 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Shape이 동일한 경우 (2, 1) &amp; (2, 1)</span>
 
 <span class="n">vec_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],</span> 
-                <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
+                  <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
 
 <span class="n">vec_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],</span> 
-                <span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
+                  <span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
 
 <span class="n">vec_a</span> <span class="o">+</span> <span class="n">vec_b</span>
 </pre></div>
@@ -682,7 +697,9 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><br></p>
+<ul>
+<li>shape이 맞지 않는 경우 벡터 합</li>
+</ul>
 
 </div>
 </div>
@@ -697,11 +714,11 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Shape이 다른 경우 (2, 1) &amp; (3, 1)</span>
 
 <span class="n">vec_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],</span> 
-                <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
+                  <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
 
 <span class="n">vec_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],</span> 
-                <span class="p">[</span><span class="mi">2</span><span class="p">],</span>
-                <span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
+                  <span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
 
 <span class="n">vec_a</span> <span class="o">+</span> <span class="n">vec_b</span>
 <span class="c1"># Shape 에러 발생!</span>
@@ -809,7 +826,7 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">matrix_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> 
                      <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
 
-<span class="n">matrix_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> 
+<span class="n">matrix_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
                      <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
 
 <span class="n">matrix_a</span> <span class="o">*</span> <span class="n">matrix_b</span>
@@ -842,7 +859,7 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><br><br>
+<p><br>
 벡터도 원소 곱이 가능합니다만, 벡터의 정의에 해당하는 2가지 연산(벡터합, 스칼라곱)에 해당되지 않기 때문에 여기에서 소개합니다.</p>
 
 </div>
@@ -856,10 +873,10 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">vec_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],</span> 
-                     <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
+                  <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
 
 <span class="n">vec_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">],</span> 
-                     <span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
+                  <span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
 
 <span class="n">vec_a</span> <span class="o">*</span> <span class="n">vec_b</span>
 </pre></div>
@@ -910,14 +927,15 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>벡터와 행렬을 곱하려면 둘의 Shape이 맞아야합니다. 벡터 - 행렬곱과 행렬 - 행렬곱 (원소곱이 아닌 행렬 단위곱)에서는 아래와 같은 Shape에 대한 규칙이 있습니다.</p>
-<p><br></p>
-
-<pre><code>Rule of multiplication
-(a, b) * (b, d) → (a, d)
-
-1. 앞쪽 벡터/행렬의 b와 뒤쪽 벡터/행렬의 b는 동일해야한다.
-2. 계산결과 나오는 벡터/행렬의 Shape은 (a, d)가 된다.</code></pre>
+<h4 id="3.5.-Shape-규칙">
+<a class="anchor" href="#3.5.-Shape-%EA%B7%9C%EC%B9%99" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.5. Shape 규칙<a class="anchor-link" href="#3.5.-Shape-%EA%B7%9C%EC%B9%99"> </a>
+</h4>
+<p>벡터와 행렬 혹은 행렬과 행렬을 곱하려면 곱하는 두 벡터/행렬의 Shape이 맞아야합니다. 벡터 - 행렬곱과 행렬 - 행렬곱 (원소곱이 아닌 행렬 단위곱)에서는 아래와 같은 Shape에 대한 규칙이 있습니다. <br></p>
+<ul>
+<li>Rule of multiplication : (a, b) * (b, d) → (a, d)</li>
+<li>앞쪽 벡터/행렬의 b와 뒤쪽 벡터/행렬의 b는 동일해야한다.</li>
+<li>계산결과 나오는 벡터/행렬의 Shape은 (a, d)가 된다.</li>
+</ul>
 <p><br></p>
 <p>이 규칙에 유의하여 계산해야하며, 연산에는 @라는 기호를 사용합니다. 
 파이썬에서 * 는 원소곱을 의미하며 @는 행렬-벡터곱, 행렬-행렬곱을 의미합니다.</p>
@@ -934,12 +952,13 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Shape : (2, 1)</span>
 <span class="n">vec_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],</span> 
-                 <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
+                  <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
 
 <span class="c1"># Shape : (2, 2)</span>
-<span class="n">mat_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> 
+<span class="n">mat_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
                   <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
 
+<span class="c1"># Shape : (2, 2) @ (2, 1) = (2, 1)</span>
 <span class="n">mat_a</span> <span class="o">@</span> <span class="n">vec_x</span>
 </pre></div>
 
@@ -974,8 +993,14 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <h4 id="3.5.-행렬-곱-(Matrix-Multiplication)">
 <a class="anchor" href="#3.5.-%ED%96%89%EB%A0%AC-%EA%B3%B1-(Matrix-Multiplication)" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.5. 행렬 곱 (Matrix Multiplication)<a class="anchor-link" href="#3.5.-%ED%96%89%EB%A0%AC-%EA%B3%B1-(Matrix-Multiplication)"> </a>
 </h4>
-<p>이제 조금 특별한 연산인 행렬곱에 대해 소개합니다. 일반적으로 우리는 행렬곱 공식을 외웠습니다. 그러나 행렬곱을 그렇게 하는 데에는 명백한 이유가 있습니다. 
-행렬과 행렬을 곱한다는 것은 (원소곱이 아니라 행렬 단위로 곱한다는 것) 합성함수를 만드는 것과 동일합니다.</p>
+<p>이제 조금 특별한 연산인 행렬곱에 대해 소개합니다. 행렬과 행렬을 곱한다는 것은 (원소곱이 아니라 행렬 단위로 곱한다는 것) 합성함수를 만드는 것과 동일합니다. 변환에 변환을 적용하는 것은 함수에 함수를 적용하는 것과 동일한 이치이기 때문입니다.
+<br><br></p>
+<p>여기에서 두가지 변환을 소개하겠습니다. 첫번째는 회전(Rotation)입니다. 여기서는 반시계방향으로 90도 회전해보겠습니다.</p>
+<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/51.gif?raw=true" alt="img">
+<br><br></p>
+<p>회전하고나면 $\hat{i}$는 $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$에서 $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$이 되고, $\hat{j}$는 $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$에서 $\begin{bmatrix} -1 \\ 0 \end{bmatrix}$이 됩니다. 따라서 이 변환은 $\begin{bmatrix} 0 &amp; 1 \\ -1 &amp; 0 \end{bmatrix}$이 됩니다.
+<br><br></p>
+<p>두번째는 기울이기(Shear)입니다.</p>
 
 </div>
 </div>
