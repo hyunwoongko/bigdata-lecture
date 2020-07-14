@@ -331,17 +331,17 @@
 <br><br></p>
 <p>예를 들어 $\vec{v}$ = $\begin{bmatrix} -1 \\ 2 \end{bmatrix}$라는 벡터가 변환 되었다고 합시다. 그러면 어떻게 이 변환 함수를 찾아낼 수 있을까요? 이 변환이 어떤 변환이였는지 계산하려면, 우리는 기저벡터가 어디에서 어디로 이동했는지만 알면 됩니다. 이 부분을 이해하기 위해서 앞 선 챕터에서 기저벡터에 대해 언급 했던 것 입니다.</p>
 <p><br></p>
-<p>xy 평면공간의 정규직교 기저벡터는 $\vec{i}$ = $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$과 $\vec{j}$ = $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$입니다. 그리고 $\begin{bmatrix} -1 \\ 2 \end{bmatrix}$는 -1$\vec{i}$ + 2$\vec{j}$가 됩니다. 여기까지는 이전 챕터에서 이야기 했던 내용입니다.</p>
+<p>xy 평면공간의 정규직교 기저벡터는 $\hat{i}$ = $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$과 $\hat{j}$ = $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$입니다. 그리고 $\begin{bmatrix} -1 \\ 2 \end{bmatrix}$는 -1$\hat{i}$ + 2$\hat{j}$가 됩니다. 여기까지는 이전 챕터에서 이야기 했던 내용입니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/43.gif?raw=true" alt="img">
 <br><br></p>
-<p>변환을 적용하면, 벡터가 움직인다고 했고, 기저벡터 역시 벡터이기 때문에 움직입니다. 자 이제, 변환이 적용된 이후에 기저벡터를 transformed $\vec{i}$과 transformed $\vec{j}$이라고 해보겠습니다.</p>
+<p>변환을 적용하면, 벡터가 움직인다고 했고, 기저벡터 역시 벡터이기 때문에 움직입니다. 자 이제, 변환이 적용된 이후에 기저벡터를 transformed $\hat{i}$과 transformed $\hat{j}$이라고 해보겠습니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/44.gif?raw=true" alt="img">
 <br><br></p>
-<p>기존에 변환 전 $\vec{v}$ = $\begin{bmatrix} -1 \\ 2 \end{bmatrix}$ = -1 $\vec{i}$ + 2 $\vec{j}$ 였습니다. 마찬가지로 변환된 transformed $\vec{v}$ = - 1 transformed $\vec{i}$ + 2 transformed $\vec{j}$로 이전의 비율(-1, 2)이 유지됩니다. <br><br></p>
-<p>결론적으로 변환 전에 우리가 찾던 벡터 $\vec{v}$(노란색)을 이루는 $\vec{i}$와 $\vec{j}$의 어떠한 선형결합이 변환 후에도 같은 결합으로 유지됩니다. 이 말은 즉, 단순히 $\vec{i}$와 $\vec{j}$가 변환 이후에 어디로 갔는지만 알면 벡터 $\vec{v}$가 어디로 움직였는지도 알 수 있다는 말입니다.</p>
+<p>기존에 변환 전 $\vec{v}$ = $\begin{bmatrix} -1 \\ 2 \end{bmatrix}$ = -1 $\hat{i}$ + 2 $\hat{j}$ 였습니다. 마찬가지로 변환된 transformed $\vec{v}$ = - 1 transformed $\hat{i}$ + 2 transformed $\hat{j}$로 이전의 비율(-1, 2)이 유지됩니다. <br><br></p>
+<p>결론적으로 변환 전에 우리가 찾던 벡터 $\vec{v}$(노란색)을 이루는 $\hat{i}$와 $\hat{j}$의 어떠한 선형결합이 변환 후에도 같은 결합으로 유지됩니다. 이 말은 즉, 단순히 $\hat{i}$와 $\hat{j}$가 변환 이후에 어디로 갔는지만 알면 벡터 $\vec{v}$가 어디로 움직였는지도 알 수 있다는 말입니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/45.gif?raw=true" alt="img">
 <br><br></p>
-<p>변환 결과, 기저 $\vec{i}$는 $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$에서 $\begin{bmatrix} 1 \\ -2 \end{bmatrix}$로 움직였고, $\vec{j}$는 $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$에서 $\begin{bmatrix} 3 \\ 0 \end{bmatrix}$으로 움직였습니다. 따라서 변환된 벡터 $\vec{v}$ = -1 <em> $\begin{bmatrix} 1 \\ -2 \end{bmatrix}$ + 2 </em> $\begin{bmatrix} 3 \\ 0 \end{bmatrix}$이 되고, 이 값은 $\begin{bmatrix} 5 \\ 2 \end{bmatrix}$로 변환된 $\vec{v}$의 위치와 동일합니다.</p>
+<p>변환 결과, 기저 $\hat{i}$는 $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$에서 $\begin{bmatrix} 1 \\ -2 \end{bmatrix}$로 움직였고, $\hat{j}$는 $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$에서 $\begin{bmatrix} 3 \\ 0 \end{bmatrix}$으로 움직였습니다. 따라서 변환된 벡터 $\vec{v}$ = -1 <em> $\begin{bmatrix} 1 \\ -2 \end{bmatrix}$ + 2 </em> $\begin{bmatrix} 3 \\ 0 \end{bmatrix}$이 되고, 이 값은 $\begin{bmatrix} 5 \\ 2 \end{bmatrix}$로 변환된 $\vec{v}$의 위치와 동일합니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/46.gif?raw=true" alt="img">
 <br><br></p>
 
