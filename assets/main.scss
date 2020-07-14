@@ -5,7 +5,7 @@
 @import "{{ site.theme }}";
 @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
-$jupyter-background: #B0B0B0;
+$jupyter-background: #d0d0d0;
 
 img{
   width: 100% !important;
@@ -161,7 +161,7 @@ h4, h5 {
         margin-top:1.5rem !important;
         padding-bottom:0 !important;
         padding-top:0 !important;
-        background: $jupyter-background !important;
+        background: rgb(255, 255, 255) !important;
         -webkit-font-smoothing: antialiased;
         text-rendering: optimizeLegibility;
         border-radius: 5px !important;
@@ -170,9 +170,6 @@ h4, h5 {
 
 .code_cell table { width: auto; }
 
-pre, pre > code, .highlight {
-    background-color: $jupyter-background;
-}
 
 // more themes are below
 // http://jwarby.github.io/jekyll-pygments-themes/languages/python.html
