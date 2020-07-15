@@ -1171,8 +1171,102 @@ scratch_l1_norm :  5
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>위와 같이 우리가 앞서서 배운 벡터 norm에 대한 공식과 np.linalg.norm의 계산이 정확히 일치하는 것을 알 수 있습니다.</p>
 <p><br></p>
-<p>두 벡터 사이의 Distance를 구하려면</p>
+<p>이제 두 벡터 사이의 Distance를 구해봅시다. 두 벡터 사이의 Distance를 구하려면 두 벡터의 차이의 norm을 계산하면 됩니다. 그 이유는 아래를 보면 알 수 있는데요. 제가 앞서서 벡터 합에 대해서만 이야기 했지 벡터 차에 대해서는 이야기 한 적이 없습니다. 따라서 여기에서 간단하게 설명하고 넘어갑니다. 두 벡터의 차이를 계산할 때는 벡터 합처럼 두 벡터의 자리 별로 차이를 계산하면 됩니다. $\begin{bmatrix} 2 \\ 3 \end{bmatrix}$ - $\begin{bmatrix} 1 \\ 1 \end{bmatrix}$ = $\begin{bmatrix} 1 \\ 2 \end{bmatrix}$가 됩니다. 그리고 이렇게 계산하여 나온 벡터는 아래 처럼 두 벡터 사이의 거리를 나타내는 벡터가 됩니다.</p>
+<p><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT1NAIJDK0g5MbkKtLRLz_mfAYtOngjZc1mNA&amp;usqp=CAU" alt="">
+<br><br></p>
+<p>따라서 두 벡터의 차이의 norm을 구하면 그 것이 두 벡터사이의 거리를 나타내는 벡터의 길이가 됩니다. 이해가셨나요? 이러한 사실을 바탕으로 numpy로 구현해보겠습니다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="n">vec_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">vec_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">vec_diff</span> <span class="o">=</span> <span class="n">vec_a</span> <span class="o">-</span> <span class="n">vec_b</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'vector difference : '</span><span class="p">,</span> <span class="n">vec_diff</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'euclidean distance : '</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">vec_diff</span><span class="p">,</span> <span class="nb">ord</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'manhatten distance : '</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">vec_diff</span><span class="p">,</span> <span class="nb">ord</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>vector difference :  [1 2]
+euclidean distance :  2.23606797749979
+manhatten distance :  3.0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="n">vec_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">vec_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'euclidean distance : '</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">vec_a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">vec_b</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">vec_a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">vec_b</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'manhatten distance : '</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">vec_a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">vec_b</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="nb">abs</span><span class="p">(</span><span class="n">vec_a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">vec_b</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>euclidean distance :  2.23606797749979
+manhatten distance :  3
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
+<p>이렇게 두 벡터의 차인 vec_diff를 구하고 그 diff의 norm을 계산한것과 우리가 알고 있는 거리에 대한 정의를 사용해 계산한 거리가 동일합니다. 따라서 앞으로 거리를 계산할 때는 위 처럼 편의를 위해 벡터 차를 구하고, 그 벡터 차의 norm을 사용하는 것이 바람직 하겠습니다. 여기까지 해서 여러분은 하루만에 머신러닝에 필요한 선형대수 내용을 모두 배우셨습니다. 이렇게 복잡하고 어려운 수학을 왜 배웠나 싶으실 수도 있는데 이후에 진행하다 보면 "선형대수 안 들어놓았으면 머신러닝 건들지도 못하겠구나."라는 생각이 자연스레 떠오르실 겁니다. 모두 수고하셨습니다 !</p>
 
 </div>
 </div>
