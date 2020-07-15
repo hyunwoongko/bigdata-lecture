@@ -1068,7 +1068,7 @@ np.random.rand(shape)와 같이 사용할 수 있습니다.</p>
 <p>맨하탄 거리는 약간 다릅니다. $\begin{bmatrix} 2 \\ 3 \end{bmatrix}$와  $\begin{bmatrix} 5 \\ 10 \end{bmatrix}$ 같은 벡터가 있다면 두 벡터 사이의 맨하탄 거리는 $|5 - 2| + |10 - 3|$이 됩니다. 이렇게 구하는 거리를 맨하탄 거리, 혹은 L1 거리라고 합니다. 
 <br><br></p>
 <p><img src="https://mblogthumb-phinf.pstatic.net/MjAxNzA0MTJfMjQ2/MDAxNDkxOTY0NDkyNzUw.pcEqq7JbtHYh31aVcK3RF7xvlOWCfbnV77A9GDyKyZ8g.9L1Un6iGL7n0Slpnrdp57GQS0zecsXTM6jypv72Vk4kg.PNG.samsjang/%EC%BA%A1%EC%B2%98.PNG?type=w2" alt=""></p>
-<p>길어지는 식을 시그마를 이용해 간단하게 나타낼 수 있습니다. 맨하탄 거리는 $\sum |a_1 - a_2|$를, 유클리디언 거리는 $\sum \sqrt{(a_1 - a_2)^2}$로 나타낼 수 있습니다. 그렇다면 $\sum \sqrt[3]{(a_1 - a_2)^3}$이나 $\sum \sqrt[4]{(a_1 - a_2)^4}$같은 거리는 없을까요? 있습니다. 이런 거리들을 전부 일반화 시킨 것을 Mincowski(민코프스키) 거리라고 합니다. 민코프스키 거리는 $\sum \sqrt[p]{(a_1 - a_2)^p}$와 같이 나타내고 P = 1일때는 맨하탄 거리, P = 2일때는 유클리디언 거리가 됩니다.
+<p>길어지는 식을 시그마를 이용해 간단하게 나타낼 수 있습니다. 맨하탄 거리는 $\sum |a_1 - a_2|$를, 유클리디언 거리는 $\sum \sqrt{(a_1 - a_2)^2}$로 나타낼 수 있습니다. 그렇다면 $\sum \sqrt[3]{(a_1 - a_2)^3}$이나 $\sum \sqrt[4]{(a_1 - a_2)^4}$같은 거리는 없을까요? 있습니다. 이런 거리들을 전부 일반화 시킨 것을 Minkowski(민코프스키) 거리라고 합니다. 민코프스키 거리는 $\sum \sqrt[p]{(a_1 - a_2)^p}$와 같이 나타내고 P = 1일때는 맨하탄 거리, P = 2일때는 유클리디언 거리가 됩니다.
 <br><br></p>
 <h4 id="6.2.-Norm">
 <a class="anchor" href="#6.2.-Norm" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.2. Norm<a class="anchor-link" href="#6.2.-Norm"> </a>
@@ -1077,7 +1077,7 @@ np.random.rand(shape)와 같이 사용할 수 있습니다.</p>
 <br><br></p>
 <p>무슨 말이냐면, 예를 들어 $\begin{bmatrix} 2 \\ 3 \end{bmatrix}$과 같은 벡터가 있다면 원점과의 거리(길이)는 $\sqrt{(0 - 2)^2 + (0-3)^2}$인데, (0, 0)은 계산하는 의미가 없으므로 그냥 $\sqrt{2^2 + 3^2}$가 된다는 것입니다. Norm도 역시 마찬가지로 L1 Norm, L2 Norm 등이 존재하는데, 원점과의 거리를 계산할 때 유클리디언 거리로 계산하면 L2 Norm이 되고, 맨하탄 거리로 계산하면 L1 Norm이 됩니다.
 <br><br></p>
-<p>norm은 numpy의 linalg 패키지에 있는 norm 함수로 매우 쉽게 계산할 수 있습니다.</p>
+<p>norm은 numpy의 linalg 패키지에 있는 norm 함수로 매우 쉽게 계산할 수 있습니다. 이 때, ord는 minkowski의 p를 몇으로 설정하지에 관한 것으로 ord가 2이면 유클리디언 거리 ord가 1이면 맨하탄 거리가 됩니다.</p>
 
 </div>
 </div>
@@ -1098,6 +1098,7 @@ np.random.rand(shape)와 같이 사용할 수 있습니다.</p>
 <span class="n">np_l2_norm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">vec_a</span><span class="p">,</span> <span class="nb">ord</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">sc_l2_norm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">vec_a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">vec_a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
 
+<span class="c1"># L2 Norm (유클리디안 길이) 계산</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">'numpy_l2_norm : '</span><span class="p">,</span> <span class="n">np_l2_norm</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">'scratch_l2_norm : '</span><span class="p">,</span> <span class="n">sc_l2_norm</span><span class="p">)</span>
 </pre></div>
@@ -1124,6 +1125,58 @@ scratch_l2_norm :  3.605551275463989
 </div>
     
 
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="n">vec_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+
+<span class="c1"># linalg는 Linear Algebra의 줄임말입니다.</span>
+<span class="n">np_l1_norm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">vec_a</span><span class="p">,</span> <span class="nb">ord</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">sc_l1_norm</span> <span class="o">=</span> <span class="p">(</span><span class="n">vec_a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">vec_a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># L1 Norm (맨하탄 길이) 계산</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'numpy_l1_norm : '</span><span class="p">,</span> <span class="n">np_l1_norm</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'scratch_l1_norm : '</span><span class="p">,</span> <span class="n">sc_l1_norm</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>numpy_l1_norm :  5.0
+scratch_l1_norm :  5
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
+<p>두 벡터 사이의 Distance를 구하려면</p>
+
+</div>
+</div>
+</div>
 </div>
 
 
