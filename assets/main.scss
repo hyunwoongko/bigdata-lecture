@@ -312,7 +312,7 @@ pre, pre > code, .highlight {
 
 /* Keyword.Type */
 .highlight .m {
-  color: #0000FF
+  color: #00A000
 }
 
 /* Literal.Number */
@@ -328,6 +328,12 @@ pre, pre > code, .highlight {
 /* Name.Attribute */
 .highlight .nb {
   color: #008000
+}
+
+/* Name.Namespace */
+.highlight .n {
+  color: #1558b8;
+  font-weight: bold
 }
 
 /* Name.Builtin */
@@ -398,22 +404,22 @@ pre, pre > code, .highlight {
 
 /* Text.Whitespace */
 .highlight .mf {
-  color: #0000FF
+  color: #00A000
 }
 
 /* Literal.Number.Float */
 .highlight .mh {
-  color: #0000FF
+  color: #00A000
 }
 
 /* Literal.Number.Hex */
 .highlight .mi {
-  color: #0000FF
+  color: #00A000
 }
 
 /* Literal.Number.Integer */
 .highlight .mo {
-  color: #0000FF
+  color: #00A000
 }
 
 /* Literal.Number.Oct */
