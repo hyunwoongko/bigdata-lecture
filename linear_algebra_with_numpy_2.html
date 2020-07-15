@@ -918,10 +918,10 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <br><br></p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/53.gif?raw=true" alt="img">
 <br><br></p>
-<p>그러나 본질은 여기에 있습니다. 왜 x에 a와 c가 곱해지는지, 왜 y왜 b와 d가 곱해지는지 알아야합니다. x에 a와 c가 곱해지는 이유는 x가 원래 x @ $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$ = $\begin{bmatrix} 1x \\ 0 \end{bmatrix}$이였는데, $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$이 변환 이후에 $\begin{bmatrix} a \\ b \end{bmatrix}$로 변환되었기 때문에 그렇게 연산하는 것입니다. 그래서 x는 $\begin{bmatrix} ax \\ cx \end{bmatrix}$로 변환됩니다. y는 원래 y @ $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$ = $\begin{bmatrix} 0 \\ 1y \end{bmatrix}$이였는데 $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$이 변환 이후에 $\begin{bmatrix} b \\ d \end{bmatrix}$로 변환되었기 때문에 그렇게 연산하는 것입니다. 그래서 y는 $\begin{bmatrix} by \\ dy \end{bmatrix}$로 변환됩니다.
+<p>그러나 본질은 여기에 있습니다. 왜 x에 a와 c가 곱해지는지, 왜 y왜 b와 d가 곱해지는지 알아야합니다. x에 a와 c가 곱해지는 이유는 x가 원래 x @ $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$ = $\begin{bmatrix} 1x \\ 0 \end{bmatrix}$이였는데, $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$이 변환 이후에 $\begin{bmatrix} a \\ b \end{bmatrix}$로 변환되었기 때문에 x는 $\begin{bmatrix} ax \\ cx \end{bmatrix}$로 변환됩니다. y는 원래 y @ $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$ = $\begin{bmatrix} 0 \\ 1y \end{bmatrix}$이였는데 $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$이 변환 이후에 $\begin{bmatrix} b \\ d \end{bmatrix}$로 변환되었기 때문에  y는 $\begin{bmatrix} by \\ dy \end{bmatrix}$로 변환됩니다.
 <br><br></p>
-<p>아래 수식을 보면 더 좋은 직관을 얻을 수 있을 것입니다.
-<img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/50.gif?raw=true" alt="img">
+<p>아래 수식을 보면 더 좋은 직관을 얻을 수 있을 것입니다.</p>
+<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/50.gif?raw=true" alt="img">
 <br><br></p>
 
 </div>
@@ -1006,8 +1006,8 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/51.gif?raw=true" alt="img"></p>
 <p>회전하고나면 $\hat{i}$는 $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$에서 $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$이 되고, $\hat{j}$는 $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$에서 $\begin{bmatrix} -1 \\ 0 \end{bmatrix}$이 됩니다. 따라서 이 변환은 $\begin{bmatrix} 0 &amp; 1 \\ -1 &amp; 0 \end{bmatrix}$이 됩니다.
 <br><br></p>
-<p>두번째는 기울이기(Shear)입니다. 
-<img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/52.gif?raw=true" alt="img"></p>
+<p>두번째는 기울이기(Shear)입니다.</p>
+<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/52.gif?raw=true" alt="img"></p>
 <p>회전하고나면 $\hat{i}$는 그대로 $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$이고, $\hat{j}$는 $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$에서 $\begin{bmatrix} 1 \\ 1 \end{bmatrix}$이 됩니다. 따라서 이 변환은 $\begin{bmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{bmatrix}$이 됩니다.
 <br><br></p>
 <p>두 행렬을 $\begin{bmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{bmatrix}$ @ $\begin{bmatrix} 0 &amp; 1 \\ -1 &amp; 0 \end{bmatrix}$과 같이 행렬 곱하면 어떻게 될까요? 정답은 두 연산을 각각 실행하는 것이 됩니다.</p>

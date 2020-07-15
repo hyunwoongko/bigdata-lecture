@@ -1073,9 +1073,9 @@ np.random.rand(shape)와 같이 사용할 수 있습니다.</p>
 <h4 id="6.2.-Norm">
 <a class="anchor" href="#6.2.-Norm" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.2. Norm<a class="anchor-link" href="#6.2.-Norm"> </a>
 </h4>
-<p>Norm(노름)은 벡터나 텐서등의 길이를 나타낼 때 씁니다. Norm은 위의 거리 공식 $distance = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$ 에서 유도할 수 있습니다. 그러나 앞서 배웠듯이 벡터는 원점에서 한 점으로 뻗어나온 직선입니다. 때문에 둘 중 한점의 좌표는 원점(0, 0)으로 생각할 수 있고 이는 즉 $norm = \sqrt{x_2^2 + y_2^2}$와 같이 식을 변경할 수 있습니다. 
+<p>Norm(노름)은 벡터나 텐서등의 길이, 크기 등을 나타낼 때 쓰며, $x$의 norm은 $||x||$와 같이 표기합니다. Norm은 위의 거리 공식 $distance = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$ 에서 유도할 수 있습니다. 그러나 앞서 배웠듯이 벡터는 원점에서 한 점으로 뻗어나온 직선입니다. 때문에 둘 중 한점의 좌표는 원점(0, 0)으로 생각할 수 있고 이는 즉 $norm = \sqrt{x_2^2 + y_2^2}$와 같이 식을 변경할 수 있습니다. 
 <br><br></p>
-<p>무슨 말이냐면, 예를 들어 $\begin{bmatrix} 2 \\ 3 \end{bmatrix}$과 같은 벡터가 있다면 원점과의 거리(길이)는 $\sqrt{(0 - 2)^2 + (0-3)^2}$인데, (0, 0)은 계산하는 의미가 없으므로 그냥 $\sqrt{2^2 + 3^2}$가 된다는 것입니다. Norm도 역시 마찬가지로 L1 Norm, L2 Norm 등이 존재하는데, 원점과의 거리를 계산할 때 유클리디언 거리로 계산하면 L2 Norm이 되고, 맨하탄 거리로 계산하면 L1 Norm이 됩니다.
+<p>무슨 말이냐면, 예를 들어 $\begin{bmatrix} 2 \\ 3 \end{bmatrix}$과 같은 벡터가 있다면 원점과의 거리(길이)는 $\sqrt{(0 - 2)^2 + (0-3)^2}$인데, (0, 0)은 계산하는 의미가 없으므로 그냥 $\sqrt{2^2 + 3^2}$가 된다는 것입니다. Norm도 역시 마찬가지로 L1 Norm, L2 Norm 등이 존재하는데, 원점과의 거리를 계산할 때 유클리디언 거리로 계산하면 L2 Norm이 되고, 맨하탄 거리로 계산하면 L1 Norm이 됩니다. L2 norm은 $||x||_2$처럼 표기하고, L1 norm은 $||x||_1$처럼 표기합니다.
 <br><br></p>
 <p>norm은 numpy의 linalg 패키지에 있는 norm 함수로 매우 쉽게 계산할 수 있습니다. 이 때, ord는 minkowski의 p를 몇으로 설정하지에 관한 것으로 ord가 2이면 유클리디언 거리 ord가 1이면 맨하탄 거리가 됩니다.</p>
 
@@ -1267,6 +1267,45 @@ manhatten distance :  3
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>이렇게 두 벡터의 차인 vec_diff를 구하고 그 diff의 norm을 계산한것과 우리가 알고 있는 거리에 대한 정의를 사용해 계산한 거리가 동일합니다. 따라서 앞으로 거리를 계산할 때는 위 처럼 편의를 위해 벡터 차를 구하고, 그 벡터 차의 norm을 사용하는 것이 바람직 하겠습니다.</p>
 <p><br></p>
+<p>그렇다면 행렬이나 텐서의 norm은 어떻게 구할까요?</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mat_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> 
+                  <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+
+<span class="n">vec_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">mat_a</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">vec_a</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>위를 보면 행렬이나 텐서의 norm을 어떻게 구하는지 알 수 있습니다. 행렬이나 텐서를 쭉 편것과 동일한 벡터의 norm과 동일합니다. 그냥 모든 원소의 값을 가지고 L2 혹은 L1 norm을 계산하면 됩니다. 간단하죠?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>여기까지 해서 여러분은 하루만에 머신러닝에 필요한 선형대수 내용을 모두 배우셨습니다. 이렇게 복잡하고 어려운 수학을 왜 배웠나 싶으실 수도 있는데 이후에 진행하다 보면 "선형대수 안 들어놓았으면 머신러닝 건들지도 못하겠구나."라는 생각이 자연스레 떠오르실 겁니다. 모두 수고하셨습니다 !</p>
 
 </div>
