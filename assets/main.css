@@ -323,7 +323,7 @@ pre, pre > code, .highlight { background-color: #f0f0f0; }
 .highlight .kt { color: #B00040; }
 
 /* Keyword.Type */
-.highlight .m { color: #0000FF; }
+.highlight .m { color: #00A000; }
 
 /* Literal.Number */
 .highlight .s { color: #BA2121; }
@@ -333,6 +333,9 @@ pre, pre > code, .highlight { background-color: #f0f0f0; }
 
 /* Name.Attribute */
 .highlight .nb { color: #008000; }
+
+/* Name.Namespace */
+.highlight .n { color: #1558b8; font-weight: bold; }
 
 /* Name.Builtin */
 .highlight .nc { color: #0000FF; font-weight: bold; }
@@ -371,16 +374,16 @@ pre, pre > code, .highlight { background-color: #f0f0f0; }
 .highlight .w { color: #bbbbbb; }
 
 /* Text.Whitespace */
-.highlight .mf { color: #0000FF; }
+.highlight .mf { color: #00A000; }
 
 /* Literal.Number.Float */
-.highlight .mh { color: #0000FF; }
+.highlight .mh { color: #00A000; }
 
 /* Literal.Number.Hex */
-.highlight .mi { color: #0000FF; }
+.highlight .mi { color: #00A000; }
 
 /* Literal.Number.Integer */
-.highlight .mo { color: #0000FF; }
+.highlight .mo { color: #00A000; }
 
 /* Literal.Number.Oct */
 .highlight .sb { color: #BA2121; }

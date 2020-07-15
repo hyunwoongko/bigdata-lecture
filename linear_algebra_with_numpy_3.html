@@ -268,18 +268,15 @@
 <li class="toc-entry toc-h3"><a href="#3.-Axis">3. Axis </a></li>
 <li class="toc-entry toc-h3"><a href="#4.-텐서-및-행렬-연산">4. 텐서 및 행렬 연산 </a>
 <ul>
-<li class="toc-entry toc-h4"><a href="#4.1.-Transpose-(전치행렬)">4.1. Transpose (전치행렬) </a></li>
+<li class="toc-entry toc-h4"><a href="#4.1.-transpose-(전치행렬)">4.1. transpose (전치행렬) </a></li>
+<li class="toc-entry toc-h4"><a href="#4.2.-reshpae-(shape-및-Rank-변경)">4.2. reshpae (shape 및 Rank 변경) </a></li>
+<li class="toc-entry toc-h4"><a href="#4.3.-squeeze-(쥐어-짜기)">4.3. squeeze (쥐어 짜기) </a></li>
+<li class="toc-entry toc-h4"><a href="#4.4.-expand_dims-(=-unsqueeze,-차원-증가)">4.4. expand_dims (= unsqueeze, 차원 증가) </a></li>
+<li class="toc-entry toc-h4"><a href="#4.5.-concatenate-(접합)">4.5. concatenate (접합) </a></li>
+<li class="toc-entry toc-h4"><a href="#4.6.-split-(자르기)">4.6. split (자르기) </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h3"><a href="#4.2.-Reshpae-(shape-및-Rank-변경)">4.2. Reshpae (shape 및 Rank 변경) </a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#4.3.-Squeeze-(쥐어-짜기)">4.3. Squeeze (쥐어 짜기) </a></li>
-<li class="toc-entry toc-h4"><a href="#4.4.-Expand_dims-(=-unsqueeze,-차원-증가)">4.4. Expand_dims (= unsqueeze, 차원 증가) </a></li>
-<li class="toc-entry toc-h4"><a href="#4.5.-Concatenate-(접합)">4.5. Concatenate (접합) </a></li>
-<li class="toc-entry toc-h4"><a href="#4.6.-Split-(자르기)">4.6. Split (자르기) </a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h3"><a href="#5.-numpy-생성-연산">5. numpy 생성 연산 </a>
+<li class="toc-entry toc-h3"><a href="#5.-텐서-생성-연산">5. 텐서 생성 연산 </a>
 <ul>
 <li class="toc-entry toc-h4"><a href="#5.1.-rand">5.1. rand </a></li>
 <li class="toc-entry toc-h4"><a href="#5.2.-ones">5.2. ones </a></li>
@@ -447,8 +444,8 @@
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="4.1.-Transpose-(전치행렬)">
-<a class="anchor" href="#4.1.-Transpose-(%EC%A0%84%EC%B9%98%ED%96%89%EB%A0%AC)" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.1. Transpose (전치행렬)<a class="anchor-link" href="#4.1.-Transpose-(%EC%A0%84%EC%B9%98%ED%96%89%EB%A0%AC)"> </a>
+<h4 id="4.1.-transpose-(전치행렬)">
+<a class="anchor" href="#4.1.-transpose-(%EC%A0%84%EC%B9%98%ED%96%89%EB%A0%AC)" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.1. transpose (전치행렬)<a class="anchor-link" href="#4.1.-transpose-(%EC%A0%84%EC%B9%98%ED%96%89%EB%A0%AC)"> </a>
 </h4>
 <p>$\begin{bmatrix} 1 &amp; 2 &amp; 3 \\ 4 &amp; 5 &amp; 6 \end{bmatrix}^T$ = $\begin{bmatrix} 1 &amp; 4 \\ 2 &amp; 5 \\ 3 &amp; 6 \end{bmatrix}$</p>
 <p>트랜스포즈 연산은 행렬을 뒤집는 것을 의미합니다. 만약 Shape가 (2, 3)인 행렬이였다면 뒤집고나서는 Shape가 (3, 2)가 됩니다. 수식 표기는 $A^T$와 같이 T를 붙여서 표기합니다. numpy에서는 .T로 손쉽게 행렬을 트랜스포즈 할 수 있습니다.</p>
@@ -562,12 +559,12 @@ transpose(1, 2, 0) :  (2, 3, 4)
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br><br></p>
-<h3 id="4.2.-Reshpae-(shape-및-Rank-변경)">
-<a class="anchor" href="#4.2.-Reshpae-(shape-%EB%B0%8F-Rank-%EB%B3%80%EA%B2%BD)" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.2. Reshpae (shape 및 Rank 변경)<a class="anchor-link" href="#4.2.-Reshpae-(shape-%EB%B0%8F-Rank-%EB%B3%80%EA%B2%BD)"> </a>
-</h3>
+<h4 id="4.2.-reshpae-(shape-및-Rank-변경)">
+<a class="anchor" href="#4.2.-reshpae-(shape-%EB%B0%8F-Rank-%EB%B3%80%EA%B2%BD)" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.2. reshpae (shape 및 Rank 변경)<a class="anchor-link" href="#4.2.-reshpae-(shape-%EB%B0%8F-Rank-%EB%B3%80%EA%B2%BD)"> </a>
+</h4>
 <p><img src="https://i.stack.imgur.com/OUjlv.png" alt="">
 <br></p>
-<p>Reshape 연산은 행렬이나 텐서의 일부분을 떼내서 다른 모양으로 재조직합니다. 때문에 Shape을 마음대로 바꿀 수 있습니다. 단 일정한 규칙 안에서 변경 가능한데, 해당하는 텐서의 Shape에서 각 Axis들의 곱으로 만들어낼 수 있는 Shape만 변경 가능합니다. numpy에서는 reshape()이라는 함수로 사용 가능합니다. 아래 예시를 봅시다.
+<p>reshape 연산은 행렬이나 텐서의 일부분을 떼내서 다른 모양으로 재조직합니다. 때문에 Shape을 마음대로 바꿀 수 있습니다. 단 일정한 규칙 안에서 변경 가능한데, 해당하는 텐서의 Shape에서 각 Axis들의 곱으로 만들어낼 수 있는 Shape만 변경 가능합니다. numpy에서는 reshape()이라는 함수로 사용 가능합니다. 아래 예시를 봅시다.
 <br><br></p>
 <ul>
 <li>(4, 2, 3) → reshape(4, 2 x 3) → (4, 6)</li>
@@ -631,10 +628,10 @@ reshape(4 * 2 * 3, 1) :  (24, 1)
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br></p>
-<h4 id="4.3.-Squeeze-(쥐어-짜기)">
-<a class="anchor" href="#4.3.-Squeeze-(%EC%A5%90%EC%96%B4-%EC%A7%9C%EA%B8%B0)" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.3. Squeeze (쥐어 짜기)<a class="anchor-link" href="#4.3.-Squeeze-(%EC%A5%90%EC%96%B4-%EC%A7%9C%EA%B8%B0)"> </a>
+<h4 id="4.3.-squeeze-(쥐어-짜기)">
+<a class="anchor" href="#4.3.-squeeze-(%EC%A5%90%EC%96%B4-%EC%A7%9C%EA%B8%B0)" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.3. squeeze (쥐어 짜기)<a class="anchor-link" href="#4.3.-squeeze-(%EC%A5%90%EC%96%B4-%EC%A7%9C%EA%B8%B0)"> </a>
 </h4>
-<p>Squeeze연산은 크기가 1인 Axis를 제거합니다. 텐서를 쥐어짜서 필요 없는 차원을 없앤다고 봐도 무방합니다 (그래서 이름이 squeeze인듯 합니다.)</p>
+<p>squeeze연산은 크기가 1인 Axis를 제거합니다. 텐서를 쥐어짜서 필요 없는 차원을 없앤다고 봐도 무방합니다 (그래서 이름이 squeeze인듯 합니다.)</p>
 <ul>
 <li>Shape : (4, 1, 2) → squeeze : (4, 2)</li>
 <li>Shape : (4, 1, 1, 1, 2) → squeeze : (4, 2)</li>
@@ -686,10 +683,10 @@ origin :  (1, 4, 1, 2) squeeze :  (4, 2)
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br></p>
-<h4 id="4.4.-Expand_dims-(=-unsqueeze,-차원-증가)">
-<a class="anchor" href="#4.4.-Expand_dims-(=-unsqueeze,-%EC%B0%A8%EC%9B%90-%EC%A6%9D%EA%B0%80)" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.4. Expand_dims (= unsqueeze, 차원 증가)<a class="anchor-link" href="#4.4.-Expand_dims-(=-unsqueeze,-%EC%B0%A8%EC%9B%90-%EC%A6%9D%EA%B0%80)"> </a>
+<h4 id="4.4.-expand_dims-(=-unsqueeze,-차원-증가)">
+<a class="anchor" href="#4.4.-expand_dims-(=-unsqueeze,-%EC%B0%A8%EC%9B%90-%EC%A6%9D%EA%B0%80)" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.4. expand_dims (= unsqueeze, 차원 증가)<a class="anchor-link" href="#4.4.-expand_dims-(=-unsqueeze,-%EC%B0%A8%EC%9B%90-%EC%A6%9D%EA%B0%80)"> </a>
 </h4>
-<p>Expand_dims연산은 Unsqueeze라고도 부르는데 Squeeze와 반대로 원하는 Axis에 크기가 1인 Axis를 새로 만듭니다. numpy에서는 np.expand_dims(a, 0)과 같이 사용합니다.</p>
+<p>expand_dims연산은 unsqueeze라고도 부르는데 squeeze와 반대로 원하는 Axis에 크기가 1인 Axis를 새로 만듭니다. numpy에서는 np.expand_dims(a, 0)과 같이 사용합니다.</p>
 <ul>
 <li>Shape : (4, 2) → expand_dims(0) : (1, 4, 2)</li>
 <li>Shape : (4, 2) → expand_dims(1) : (4, 1, 2)</li>
@@ -741,8 +738,8 @@ expand_dims(2) :  (4, 2, 1)
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br></p>
-<h4 id="4.5.-Concatenate-(접합)">
-<a class="anchor" href="#4.5.-Concatenate-(%EC%A0%91%ED%95%A9)" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.5. Concatenate (접합)<a class="anchor-link" href="#4.5.-Concatenate-(%EC%A0%91%ED%95%A9)"> </a>
+<h4 id="4.5.-concatenate-(접합)">
+<a class="anchor" href="#4.5.-concatenate-(%EC%A0%91%ED%95%A9)" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.5. concatenate (접합)<a class="anchor-link" href="#4.5.-concatenate-(%EC%A0%91%ED%95%A9)"> </a>
 </h4>
 <p><img src="https://www.w3resource.com/w3r_images/python-numpy-image-exercise-58.png" alt=""></p>
 <p>두 텐서를 이어 붙여서 새로운 텐서를 만듭니다. 가령 (4, 1, 2)와 (4, 1, 2)를 이어붙여서 (8, 1, 2)와 같이 만듭니다. 어디에 이어 붙일지는 axis로 선택 가능합니다. numpy에서는 np.concatenate([a, b, c, ...], axis=n)과 같이 사용합니다. 전체에서 가장 많이 쓰이는 연산 중 하나이니 꼭 숙지해야합니다.</p>
@@ -794,8 +791,8 @@ expand_dims(2) :  (4, 2, 1)
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br></p>
-<h4 id="4.6.-Split-(자르기)">
-<a class="anchor" href="#4.6.-Split-(%EC%9E%90%EB%A5%B4%EA%B8%B0)" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.6. Split (자르기)<a class="anchor-link" href="#4.6.-Split-(%EC%9E%90%EB%A5%B4%EA%B8%B0)"> </a>
+<h4 id="4.6.-split-(자르기)">
+<a class="anchor" href="#4.6.-split-(%EC%9E%90%EB%A5%B4%EA%B8%B0)" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.6. split (자르기)<a class="anchor-link" href="#4.6.-split-(%EC%9E%90%EB%A5%B4%EA%B8%B0)"> </a>
 </h4>
 <p><img src="https://www.w3resource.com/w3r_images/numpy-manipulation-split-function-image-a.png" alt=""></p>
 <p>concatenate와 반대로 텐서를 여러개로 자릅니다. axis=m에서 n개로 자르려면 numpy에서는 np.split(a, n, axis=m)처럼 사용합니다. concatenate처럼 자주 사용되니 알아둬야합니다.</p>
@@ -853,10 +850,10 @@ axis=2에서 2개로 자름 :  [(4, 1, 1), (4, 1, 1)]
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br><br></p>
-<h3 id="5.-numpy-생성-연산">
-<a class="anchor" href="#5.-numpy-%EC%83%9D%EC%84%B1-%EC%97%B0%EC%82%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. numpy 생성 연산<a class="anchor-link" href="#5.-numpy-%EC%83%9D%EC%84%B1-%EC%97%B0%EC%82%B0"> </a>
+<h3 id="5.-텐서-생성-연산">
+<a class="anchor" href="#5.-%ED%85%90%EC%84%9C-%EC%83%9D%EC%84%B1-%EC%97%B0%EC%82%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. 텐서 생성 연산<a class="anchor-link" href="#5.-%ED%85%90%EC%84%9C-%EC%83%9D%EC%84%B1-%EC%97%B0%EC%82%B0"> </a>
 </h3>
-<p>기본적으로 지금까지 numpy.array([1, 2, 3])과 같은 방식으로 numpy 벡터/행렬/텐서 등을 생성했습니다. 그러나 이 방법 말고도 다양한 생성 방법이 존재합니다.
+<p>기본적으로 지금까지 numpy.array([1, 2, 3])과 같은 방식으로 numpy 벡터/행렬/텐서 등을 직접 지정해서 생성했습니다. 그러나 이 방법 말고도 다양한 생성 방법이 존재합니다.
 <br></p>
 <h4 id="5.1.-rand">
 <a class="anchor" href="#5.1.-rand" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.1. rand<a class="anchor-link" href="#5.1.-rand"> </a>
@@ -974,7 +971,7 @@ np.random.rand(shape)와 같이 사용할 수 있습니다.</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -1066,22 +1063,67 @@ np.random.rand(shape)와 같이 사용할 수 있습니다.</p>
 <br><br></p>
 <p>예를 들어 $\begin{bmatrix} 2 \\ 3 \end{bmatrix}$와  $\begin{bmatrix} 5 \\ 10 \end{bmatrix}$ 같은 벡터가 있다면 두 벡터 사이의 거리는 $\sqrt{(5 - 2)^2 + (10 - 3)^2}$이 됩니다. 이런 거리를 L2거리, 혹은 유클리디안 거리라고 합니다. 그러면 유클리디안 거리가 아닌 거리도 있을까요? 제곱을 하지 않고 절대값을 사용하는 L1거리, 맨하탄 거리도 있습니다. 아래를 볼까요
 <br><br></p>
-<p><img src="https://lh3.googleusercontent.com/proxy/AVIWU_vSjlU9Dd8wcYOAAdD7ZkrsQeGjTitT0MSDhTPHqqSkb4EkqGuJ1lrSH_VTD0gr66URFHxYPxLAf-4dJnn6umoY7Fikdn0" alt=""></p>
+<p><img src="https://lh3.googleusercontent.com/proxy/AVIWU_vSjlU9Dd8wcYOAAdD7ZkrsQeGjTitT0MSDhTPHqqSkb4EkqGuJ1lrSH_VTD0gr66URFHxYPxLAf-4dJnn6umoY7Fikdn0" alt="">
+<br><br></p>
 <p>맨하탄 거리는 약간 다릅니다. $\begin{bmatrix} 2 \\ 3 \end{bmatrix}$와  $\begin{bmatrix} 5 \\ 10 \end{bmatrix}$ 같은 벡터가 있다면 두 벡터 사이의 맨하탄 거리는 $|5 - 2| + |10 - 3|$이 됩니다. 이렇게 구하는 거리를 맨하탄 거리, 혹은 L1 거리라고 합니다. 
 <br><br></p>
 <p><img src="https://mblogthumb-phinf.pstatic.net/MjAxNzA0MTJfMjQ2/MDAxNDkxOTY0NDkyNzUw.pcEqq7JbtHYh31aVcK3RF7xvlOWCfbnV77A9GDyKyZ8g.9L1Un6iGL7n0Slpnrdp57GQS0zecsXTM6jypv72Vk4kg.PNG.samsjang/%EC%BA%A1%EC%B2%98.PNG?type=w2" alt=""></p>
-<p>길어지는 식을 시그마를 이용해 간단하게 나타낼 수 있습니다. 맨하탄 거리는 $\sum |a_1 - a_2|$를, 유클리디언 거리는 $\sum \sqrt{(a_1 - a_2)^2}$로 나타낼 수 있습니다. 그렇다면 $\sum \sqrt[3]{(a_1 - a_2)^3}$이나 $\sum \sqrt[4]{(a_1 - a_2)^4}$같은 거리는 없을까요? 있습니다. 이런 거리들을 전부 일반화 시킨 것을 Mincowski(민코프스키) 거리라고 합니다. 민코프스키거리는 $\sum \sqrt[p]{(a_1 - a_2)^p}$와 같이 나타내고 P = 1일때는 맨하탄 거리, P = 2일때는 유클리디언 거리가 됩니다.
+<p>길어지는 식을 시그마를 이용해 간단하게 나타낼 수 있습니다. 맨하탄 거리는 $\sum |a_1 - a_2|$를, 유클리디언 거리는 $\sum \sqrt{(a_1 - a_2)^2}$로 나타낼 수 있습니다. 그렇다면 $\sum \sqrt[3]{(a_1 - a_2)^3}$이나 $\sum \sqrt[4]{(a_1 - a_2)^4}$같은 거리는 없을까요? 있습니다. 이런 거리들을 전부 일반화 시킨 것을 Mincowski(민코프스키) 거리라고 합니다. 민코프스키 거리는 $\sum \sqrt[p]{(a_1 - a_2)^p}$와 같이 나타내고 P = 1일때는 맨하탄 거리, P = 2일때는 유클리디언 거리가 됩니다.
 <br><br></p>
 <h4 id="6.2.-Norm">
 <a class="anchor" href="#6.2.-Norm" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.2. Norm<a class="anchor-link" href="#6.2.-Norm"> </a>
 </h4>
 <p>Norm(노름)은 벡터나 텐서등의 길이를 나타낼 때 씁니다. Norm은 위의 거리 공식 $distance = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$ 에서 유도할 수 있습니다. 그러나 앞서 배웠듯이 벡터는 원점에서 한 점으로 뻗어나온 직선입니다. 때문에 둘 중 한점의 좌표는 원점(0, 0)으로 생각할 수 있고 이는 즉 $norm = \sqrt{x_2^2 + y_2^2}$와 같이 식을 변경할 수 있습니다. 
 <br><br></p>
-<p>무슨 말이냐면, 예를 들어 $\begin{bmatrix} 2 \\ 3 \end{bmatrix}$과 같은 벡터가 있다면 원점과의 거리(길이)는 $\sqrt{(0 - 2)^2 + (0-3)^2}$인데, (0, 0)은 계산하는 의미가 없으므로 그냥 $\sqrt{2^2 + 3^2}$가 된다는 것입니다. 만약 $\begin{bmatrix} 2 \\ 3 \end{bmatrix}$</p>
+<p>무슨 말이냐면, 예를 들어 $\begin{bmatrix} 2 \\ 3 \end{bmatrix}$과 같은 벡터가 있다면 원점과의 거리(길이)는 $\sqrt{(0 - 2)^2 + (0-3)^2}$인데, (0, 0)은 계산하는 의미가 없으므로 그냥 $\sqrt{2^2 + 3^2}$가 된다는 것입니다. Norm도 역시 마찬가지로 L1 Norm, L2 Norm 등이 존재하는데, 원점과의 거리를 계산할 때 유클리디언 거리로 계산하면 L2 Norm이 되고, 맨하탄 거리로 계산하면 L1 Norm이 됩니다.
+<br><br></p>
+<p>norm은 numpy의 linalg 패키지에 있는 norm 함수로 매우 쉽게 계산할 수 있습니다.</p>
 
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="n">vec_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+
+<span class="c1"># linalg는 Linear Algebra의 줄임말입니다.</span>
+<span class="n">np_l2_norm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">vec_a</span><span class="p">,</span> <span class="nb">ord</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">sc_l2_norm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">vec_a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">vec_a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">'numpy_l2_norm : '</span><span class="p">,</span> <span class="n">np_l2_norm</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'scratch_l2_norm : '</span><span class="p">,</span> <span class="n">sc_l2_norm</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>numpy_l2_norm :  3.605551275463989
+scratch_l2_norm :  3.605551275463989
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 </div>
 
 
