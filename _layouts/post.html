@@ -65,19 +65,13 @@ comments: true
 
     function code_listener() {
 	var input_area = document.getElementsByClassName("input_area");
-	var output_area = document.getElementsByClassName("output_area");
-    	
+
 	for(var i = 0 ; i < input_area.length; i++){
 		input_area[i].onclick = function(){
 			run_exec();
     		}
 	}
 
-	for(var i = 0 ; i < output_area.length; i++){
-		output_area[i].onclick = function(){
-			run_exec();
-    		}
-	}
     } 
 
     code_listener();
