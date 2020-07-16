@@ -586,6 +586,11 @@ h6:hover .anchor-link {
   word-break: break-all;
 }
 
+.output_text > pre {
+  background: white !important;
+  border: white;
+}
+
 div.output_subarea.output_text.output_error > pre {
   background: rgb(255, 211, 211) !important;
   color: rgb(178, 43, 49) !important;
