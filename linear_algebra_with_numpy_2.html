@@ -259,7 +259,7 @@
     <ul class="section-nav">
 <li class="toc-entry toc-h3"><a href="#1.-내적-(Inner-Product,-Dot-Product)">1. 내적 (Inner Product, Dot Product) </a>
 <ul>
-<li class="toc-entry toc-h4"><a href="#1.1.-벡터와-벡터의-내적">1.1. 벡터와 벡터의 내적 </a></li>
+<li class="toc-entry toc-h4"><a href="#1.1.-벡터-벡터-내적-(Vector-Vector-Inner-Product)">1.1. 벡터-벡터 내적 (Vector-Vector Inner Product) </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h3"><a href="#2.-행렬">2. 행렬 </a>
@@ -276,12 +276,12 @@
 <li class="toc-entry toc-h4"><a href="#4.1.-행렬-합-(=-벡터-합,-Matrix-Addition)">4.1. 행렬 합 (= 벡터 합, Matrix Addition) </a></li>
 <li class="toc-entry toc-h4"><a href="#4.2.-스칼라-곱-(Scalar-Multiplication)">4.2. 스칼라 곱 (Scalar Multiplication) </a></li>
 <li class="toc-entry toc-h4"><a href="#4.3.-원소곱-(Elementwise-Multiplication)">4.3. 원소곱 (Elementwise Multiplication) </a></li>
-<li class="toc-entry toc-h4"><a href="#4.4.-행렬---벡터-내적-(Matrix---Vector-Multiplication)">4.4. 행렬 - 벡터 내적 (Matrix - Vector Multiplication) </a></li>
+<li class="toc-entry toc-h4"><a href="#4.4.-행렬-벡터-내적-(Matrix-Vector-Inner-Product)">4.4. 행렬-벡터 내적 (Matrix-Vector Inner Product) </a></li>
 <li class="toc-entry toc-h4"><a href="#4.5.-Shape-규칙-(Rule-of-multiplication)">4.5. Shape 규칙 (Rule of multiplication) </a></li>
-<li class="toc-entry toc-h4"><a href="#4.6.-행렬-내적-(Matrix-Multiplication)">4.6. 행렬 내적 (Matrix Multiplication) </a></li>
+<li class="toc-entry toc-h4"><a href="#4.6.-행렬-행렬-내적-(Matrix-Matrix-Inner-Product))">4.6. 행렬-행렬 내적 (Matrix-Matrix Inner Product)) </a></li>
 <li class="toc-entry toc-h4"><a href="#4.7.-행렬내적의-교환법칙은-성립하지-않는다?">4.7. 행렬내적의 교환법칙은 성립하지 않는다? </a></li>
 <li class="toc-entry toc-h4"><a href="#4.8.-더-높은-차원의-행렬">4.8. 더 높은 차원의 행렬 </a></li>
-<li class="toc-entry toc-h4"><a href="#4.9.-벡터---벡터-내적-(Vector---Vector-Multiplication)">4.9. 벡터 - 벡터 내적 (Vector - Vector Multiplication) </a></li>
+<li class="toc-entry toc-h4"><a href="#4.9.-벡터-벡터-내적-(Vector-Vector-Inner-Product)">4.9. 벡터-벡터 내적 (Vector-Vector Inner Product) </a></li>
 </ul>
 </li>
 </ul><!--
@@ -323,8 +323,8 @@
 <br><br></p>
 <p>그냥 길이만 곱하면 되지 무슨 어렵게 내적, 외적이냐고 하실 수 있는데, 기본적으로 벡터는 방향을 가진 데이터이기 때문에 더할때도 방향을 고려해줘야하고, 곱할 때도 방향을 맞추고 나서 계산해야합니다. 때문에 내적의 경우에는 두 요소 중 한 요소의 방향에 맞춘 뒤, 크기를 곱하는 것이고, 외적은 두 요소를 모두 새로운 방향에 놓고 크기를 곱하는 것입니다.</p>
 <p><br></p>
-<h4 id="1.1.-벡터와-벡터의-내적">
-<a class="anchor" href="#1.1.-%EB%B2%A1%ED%84%B0%EC%99%80-%EB%B2%A1%ED%84%B0%EC%9D%98-%EB%82%B4%EC%A0%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.1. 벡터와 벡터의 내적<a class="anchor-link" href="#1.1.-%EB%B2%A1%ED%84%B0%EC%99%80-%EB%B2%A1%ED%84%B0%EC%9D%98-%EB%82%B4%EC%A0%81"> </a>
+<h4 id="1.1.-벡터-벡터-내적-(Vector-Vector-Inner-Product)">
+<a class="anchor" href="#1.1.-%EB%B2%A1%ED%84%B0-%EB%B2%A1%ED%84%B0-%EB%82%B4%EC%A0%81-(Vector-Vector-Inner-Product)" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.1. 벡터-벡터 내적 (Vector-Vector Inner Product)<a class="anchor-link" href="#1.1.-%EB%B2%A1%ED%84%B0-%EB%B2%A1%ED%84%B0-%EB%82%B4%EC%A0%81-(Vector-Vector-Inner-Product)"> </a>
 </h4>
 <p>벡터와 벡터의 내적은 아래처럼 구합니다. 아래 애니메이션을 보면 $\vec{v}$와 $\vec{w}$를 내적하고 있습니다. 먼저 식($\vec{v} \cdot \vec{w}$) 에서 뒷쪽에 있는 $\vec{w}$를 $\vec{v}$가 있는 방향 속으로 넣습니다. 이 것을 투영(projection)이라고 합니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/71.gif?raw=true" alt="image.png">
@@ -1013,8 +1013,8 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br><br></p>
-<h4 id="4.4.-행렬---벡터-내적-(Matrix---Vector-Multiplication)">
-<a class="anchor" href="#4.4.-%ED%96%89%EB%A0%AC---%EB%B2%A1%ED%84%B0-%EB%82%B4%EC%A0%81-(Matrix---Vector-Multiplication)" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.4. 행렬 - 벡터 내적 (Matrix - Vector Multiplication)<a class="anchor-link" href="#4.4.-%ED%96%89%EB%A0%AC---%EB%B2%A1%ED%84%B0-%EB%82%B4%EC%A0%81-(Matrix---Vector-Multiplication)"> </a>
+<h4 id="4.4.-행렬-벡터-내적-(Matrix-Vector-Inner-Product)">
+<a class="anchor" href="#4.4.-%ED%96%89%EB%A0%AC-%EB%B2%A1%ED%84%B0-%EB%82%B4%EC%A0%81-(Matrix-Vector-Inner-Product)" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.4. 행렬-벡터 내적 (Matrix-Vector Inner Product)<a class="anchor-link" href="#4.4.-%ED%96%89%EB%A0%AC-%EB%B2%A1%ED%84%B0-%EB%82%B4%EC%A0%81-(Matrix-Vector-Inner-Product)"> </a>
 </h4>
 <p>위에서 말한 케이스로, 행렬을 통해 벡터를 선형변환 시키는 연산입니다. 일반적으로 $\begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix}$ @ $\begin{bmatrix} x \\ y \end{bmatrix}$와 같은 연산이 있을 때, 대부분은 $\begin{bmatrix} ax + by \\ cx + dy \end{bmatrix}$와 같이 외우셨을 겁니다. (아래처럼)
 <br><br></p>
@@ -1025,7 +1025,7 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <p>아래 수식을 보면 더 좋은 직관을 얻을 수 있을 것입니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/50.gif?raw=true" alt="img">
 <br><br></p>
-<p>이 연산을 내적이라고 부르는 이유는 뒤에 있는 벡터 $\begin{bmatrix} x \\ y \end{bmatrix}$가 변환이 되어 앞에 있는 행렬 $\begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix}$의 방향 안으로 들어가기 때문입니다. 벡터의 방향이 행렬에 의해 변하여, 행렬의 방향을 띄게 되었으므로 우리는 이 연산도 역시 '내적'이라고 부릅니다. 그리고 계산하는 방법도 매우 비슷합니다. (원소 곱의 합 형태로 연산) 
+<p>이 연산을 내적이라고 부르는 이유는 뒤에 있는 벡터 $\begin{bmatrix} x \\ y \end{bmatrix}$가 변환이 되어 앞에 있는 행렬 $\begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix}$의 방향 안으로 들어가기 때문입니다. 벡터의 방향이 행렬에 의해 변하여, 행렬이 가진 방향으로 바뀌므로 우리는 이 연산도 역시 '내적'이라고 부릅니다. 또한 위에서 언급한 벡터-벡터 내적과 계산하는 방법도 매우 비슷합니다. (원소 끼리 곱한뒤 합치는 형태로 연산) 기본적으로 원래 내적이라는게, 한 요소가 방향을 쥐고 있고 다른 요소가 그 요소의 방향에 맞춰서 바뀌면 그걸 내적이라고 부른다고 생각하시면 편합니다.
 <br><br></p>
 
 </div>
@@ -1101,8 +1101,8 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br><br></p>
-<h4 id="4.6.-행렬-내적-(Matrix-Multiplication)">
-<a class="anchor" href="#4.6.-%ED%96%89%EB%A0%AC-%EB%82%B4%EC%A0%81-(Matrix-Multiplication)" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.6. 행렬 내적 (Matrix Multiplication)<a class="anchor-link" href="#4.6.-%ED%96%89%EB%A0%AC-%EB%82%B4%EC%A0%81-(Matrix-Multiplication)"> </a>
+<h4 id="4.6.-행렬-행렬-내적-(Matrix-Matrix-Inner-Product))">
+<a class="anchor" href="#4.6.-%ED%96%89%EB%A0%AC-%ED%96%89%EB%A0%AC-%EB%82%B4%EC%A0%81-(Matrix-Matrix-Inner-Product))" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.6. 행렬-행렬 내적 (Matrix-Matrix Inner Product))<a class="anchor-link" href="#4.6.-%ED%96%89%EB%A0%AC-%ED%96%89%EB%A0%AC-%EB%82%B4%EC%A0%81-(Matrix-Matrix-Inner-Product))"> </a>
 </h4>
 <p>이제 조금 특별한 연산인 행렬 내적에 대해 소개합니다. 행렬과 행렬을 내적한다는 것은 합성함수를 만드는 것과 동일합니다. 변환에 변환을 적용하는 것은 곧 함수에 함수를 적용하는 것과 동일한 이치이기 때문입니다.
 <br><br></p>
@@ -1333,8 +1333,8 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br></p>
-<h4 id="4.9.-벡터---벡터-내적-(Vector---Vector-Multiplication)">
-<a class="anchor" href="#4.9.-%EB%B2%A1%ED%84%B0---%EB%B2%A1%ED%84%B0-%EB%82%B4%EC%A0%81-(Vector---Vector-Multiplication)" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.9. 벡터 - 벡터 내적 (Vector - Vector Multiplication)<a class="anchor-link" href="#4.9.-%EB%B2%A1%ED%84%B0---%EB%B2%A1%ED%84%B0-%EB%82%B4%EC%A0%81-(Vector---Vector-Multiplication)"> </a>
+<h4 id="4.9.-벡터-벡터-내적-(Vector-Vector-Inner-Product)">
+<a class="anchor" href="#4.9.-%EB%B2%A1%ED%84%B0-%EB%B2%A1%ED%84%B0-%EB%82%B4%EC%A0%81-(Vector-Vector-Inner-Product)" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.9. 벡터-벡터 내적 (Vector-Vector Inner Product)<a class="anchor-link" href="#4.9.-%EB%B2%A1%ED%84%B0-%EB%B2%A1%ED%84%B0-%EB%82%B4%EC%A0%81-(Vector-Vector-Inner-Product)"> </a>
 </h4>
 <p>이제 가장 처음에 이야기 했던 벡터 내적에 대해 다시 이야기 해봅시다. 벡터의 내적은 한 벡터를 다른 벡터의 방향 안에 넣은 뒤, 투영된 길이와 다른 벡터의 길이를 곱하는 연산이라고 했습니다. 그렇다면 우리는 $\vec{v} \cdot \vec{w}$의 연산을 다시 생각해볼 필요가 있습니다. 예를 하나 들어봅시다. $\begin{bmatrix} 1 \\ 2 \end{bmatrix} \cdot \begin{bmatrix} 3 \\ 4 \end{bmatrix}$를 벡터가 아닌 행렬로써 계산한다고 생각해봅시다. 사실 이 둘은 모두 Shape이 (2, 1)이기 때문에 행렬 내적으로 연산이 불가능합니다. 
 <br><br></p>
@@ -1343,10 +1343,10 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/75.gif?raw=true" alt="image.png"></p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/76.gif?raw=true" alt="image.png">
 <br><br></p>
-<p>먼저 앞의 벡터를 벡터로 생각하는게 아니라 뒤집어서 Shape이 (1, 2)인 행렬로 생각해봅시다. 그렇게 하면 (1, 2)의 행렬과 (2, 1)의 벡터를 곱해서 Shape이 (1, 1)인 단 하나의 Scalar가 되는데, 이 것이 바로 앞서 말한 벡터 내적과 동일한 연산입니다.</p>
+<p>먼저 앞의 벡터를 벡터로 생각하는게 아니라 뒤집어서 Shape이 (1, 2)인 행렬로 생각해봅시다. 그렇게 하면 (1, 2)의 행렬과 (2, 1)의 벡터를 내적해서 Shape이 (1, 1)인 단 하나의 Scalar가 되는데, 이 것이 바로 앞서 말한 벡터 내적과 동일한 연산입니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/78.gif?raw=true" alt="image.png">
 <br><br></p>
-<p>앞서서 행렬에 대해 이야기할 때, 행렬은 하나의 변환이라고 설명했습니다. 내적이라는 것은 한 벡터를 자기자신 벡터의 방향에 투영시키는 변환인데, 그러한 변환을 만들기 위해서는 벡터 자기자신을 뒤집어서 (1, 2)의 Shape으로 만들면 그러한 변환이 된다는 것 입니다. 더 자세하게 설명드리고 싶지만 내용이 너무 어렵고 복잡해지는 것 같아서 그 이유에 대한 내용은 생략합니다. 이에 대한 자세한 내용은 3Blue 1Brown의 Linear Algebra 강의 Chapter 9번의 "내적의 쌍대성" <a href="https://www.youtube.com/watch?v=LyGKycYT2v0&amp;t=651s">https://www.youtube.com/watch?v=LyGKycYT2v0&amp;t=651s</a> 을 보면 더욱 자세히 이해할 수 있습니다.</p>
+<p>앞서서 행렬에 대해 이야기할 때, 행렬은 하나의 변환이라고 설명했습니다. 내적이라는 것은 다른 벡터를 자기 자신 벡터의 방향에 투영시키는 변환인데, 그러한 변환을 만들기 위해서는 자기 자신 벡터를 뒤집어서 (1, 2)의 Shape을 갖는 행렬로 만들면 그러한 변환이 된다는 것 입니다. 더 자세하게 설명드리고 싶지만 내용이 너무 어렵고 복잡해지는 것 같아서 그 이유에 대한 내용은 생략하겠습니다. 이에 대한 자세한 내용은 3Blue 1Brown의 Linear Algebra 강의 Chapter 9번의 "내적의 쌍대성" <a href="https://www.youtube.com/watch?v=LyGKycYT2v0&amp;t=651s">https://www.youtube.com/watch?v=LyGKycYT2v0&amp;t=651s</a> 을 보면 더욱 자세히 이해할 수 있습니다. (이해가 안가시면 개인적으로 물어보면 답변해드리겠습니다.)</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/79.gif?raw=true" alt="image.png">
 <br><br></p>
 
