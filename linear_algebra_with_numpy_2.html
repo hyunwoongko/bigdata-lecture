@@ -262,25 +262,26 @@
 <li class="toc-entry toc-h4"><a href="#1.1.-벡터와-벡터의-내적">1.1. 벡터와 벡터의 내적 </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h3"><a href="#1.-행렬">1. 행렬 </a>
+<li class="toc-entry toc-h3"><a href="#2.-행렬">2. 행렬 </a>
 <ul>
-<li class="toc-entry toc-h4"><a href="#1.1.-변환-(Transformation)">1.1. 변환 (Transformation) </a></li>
-<li class="toc-entry toc-h4"><a href="#1.2.-선형-변환-(Linear-Transformation)">1.2. 선형 변환 (Linear Transformation) </a></li>
-<li class="toc-entry toc-h4"><a href="#1.3.-굳이-변환-이야기를-꺼내는-이유?">1.3. 굳이 변환 이야기를 꺼내는 이유? </a></li>
-<li class="toc-entry toc-h4"><a href="#1.4.-행렬의-본질">1.4. 행렬의 본질 </a></li>
+<li class="toc-entry toc-h4"><a href="#2.1.-변환-(Transformation)">2.1. 변환 (Transformation) </a></li>
+<li class="toc-entry toc-h4"><a href="#2.2.-선형-변환-(Linear-Transformation)">2.2. 선형 변환 (Linear Transformation) </a></li>
+<li class="toc-entry toc-h4"><a href="#2.3.-굳이-변환-이야기를-꺼내는-이유?">2.3. 굳이 변환 이야기를 꺼내는 이유? </a></li>
+<li class="toc-entry toc-h4"><a href="#2.4.-행렬의-본질">2.4. 행렬의 본질 </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h3"><a href="#2.-Shape">2. Shape </a></li>
-<li class="toc-entry toc-h3"><a href="#3.-행렬의-연산">3. 행렬의 연산 </a>
+<li class="toc-entry toc-h3"><a href="#3.-Shape">3. Shape </a></li>
+<li class="toc-entry toc-h3"><a href="#4.-행렬의-연산">4. 행렬의 연산 </a>
 <ul>
-<li class="toc-entry toc-h4"><a href="#3.1.-행렬-합-(=-벡터-합,-Matrix-Addition)">3.1. 행렬 합 (= 벡터 합, Matrix Addition) </a></li>
-<li class="toc-entry toc-h4"><a href="#3.2.-스칼라-곱-(Scalar-Multiplication)">3.2. 스칼라 곱 (Scalar Multiplication) </a></li>
-<li class="toc-entry toc-h4"><a href="#3.3.-원소곱-(Elementwise-Multiplication)">3.3. 원소곱 (Elementwise Multiplication) </a></li>
-<li class="toc-entry toc-h4"><a href="#3.4.-행렬---벡터-내적-(Matrix---Vector-Multiplication)">3.4. 행렬 - 벡터 내적 (Matrix - Vector Multiplication) </a></li>
-<li class="toc-entry toc-h4"><a href="#3.5.-Shape-규칙-(Rule-of-multiplication)">3.5. Shape 규칙 (Rule of multiplication) </a></li>
-<li class="toc-entry toc-h4"><a href="#3.6.-행렬-내적-(Matrix-Multiplication)">3.6. 행렬 내적 (Matrix Multiplication) </a></li>
-<li class="toc-entry toc-h4"><a href="#3.7.-행렬곱의-교환법칙은-성립하지-않는다?">3.7. 행렬곱의 교환법칙은 성립하지 않는다? </a></li>
-<li class="toc-entry toc-h4"><a href="#3.8.-더-높은-차원의-행렬">3.8. 더 높은 차원의 행렬 </a></li>
+<li class="toc-entry toc-h4"><a href="#4.1.-행렬-합-(=-벡터-합,-Matrix-Addition)">4.1. 행렬 합 (= 벡터 합, Matrix Addition) </a></li>
+<li class="toc-entry toc-h4"><a href="#4.2.-스칼라-곱-(Scalar-Multiplication)">4.2. 스칼라 곱 (Scalar Multiplication) </a></li>
+<li class="toc-entry toc-h4"><a href="#4.3.-원소곱-(Elementwise-Multiplication)">4.3. 원소곱 (Elementwise Multiplication) </a></li>
+<li class="toc-entry toc-h4"><a href="#4.4.-행렬---벡터-내적-(Matrix---Vector-Multiplication)">4.4. 행렬 - 벡터 내적 (Matrix - Vector Multiplication) </a></li>
+<li class="toc-entry toc-h4"><a href="#4.5.-Shape-규칙-(Rule-of-multiplication)">4.5. Shape 규칙 (Rule of multiplication) </a></li>
+<li class="toc-entry toc-h4"><a href="#4.6.-행렬-내적-(Matrix-Multiplication)">4.6. 행렬 내적 (Matrix Multiplication) </a></li>
+<li class="toc-entry toc-h4"><a href="#4.7.-행렬내적의-교환법칙은-성립하지-않는다?">4.7. 행렬내적의 교환법칙은 성립하지 않는다? </a></li>
+<li class="toc-entry toc-h4"><a href="#4.8.-더-높은-차원의-행렬">4.8. 더 높은 차원의 행렬 </a></li>
+<li class="toc-entry toc-h4"><a href="#4.9.-벡터---벡터-내적-(Vector---Vector-Multiplication)">4.9. 벡터 - 벡터 내적 (Vector - Vector Multiplication) </a></li>
 </ul>
 </li>
 </ul><!--
@@ -331,7 +332,75 @@
 <p>그리고 나서  $\vec{w}$가 있는 공간으로 투영된 $\vec{v}$와 $\vec{w}$의 크기를 서로 곱합니다. 이렇게 '내'적은 한 요소를 다른 요소가 존재하는 공간 안으로 넣어서 크기를 곱하기 때문에 그러한 이름이 붙은 것입니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/72.gif?raw=true" alt="image.png">
 <br><br></p>
+<p>만약 두 벡터의 방향이 같다면 내적의 결과는 양수가 되고, 두 벡터가 수직이라면 다른 벡터에 투영했을 때, 길이가 0이 되므로 결과 값은 0이 됩니다.</p>
+<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/77.gif?raw=true" alt="image.png">
+<br><br></p>
+<p>그리고 만약 두 벡터가 방향이 반대라면, 내적의 결과는 음수가 됩니다.</p>
+<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/73.gif?raw=true" alt="image.png">
+<br><br></p>
 <p>내적을 계산할 땐, 대부분 cos을 사용해서 계산하는데요. $\vec{v}$의 norm과 $\vec{w}$의 norm을 그냥 곱하는 것이 아니라, $\vec{v}$가 투영된 길이만큼 곱해야합니다. 투영된 길이가 바로 $\vec{v} \cos \theta$입니다.</p>
+<p><img src="https://qph.fs.quoracdn.net/main-qimg-234168ed4b95aa311a4cd1d8985253e7" alt="">
+<br><br></p>
+<p>근데 매번 코사인 각도를 측정해서 계산하는 것은 너무 비효율적이고 복잡합니다. 따라서 우리는 주로 내적을 계산할 때 이렇게 계산하지 않고 아래처럼 계산합니다.</p>
+<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/74.gif?raw=true" alt="image.png"></p>
+<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/75.gif?raw=true" alt="image.png"></p>
+<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/76.gif?raw=true" alt="image.png">
+<br><br></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>내적연산은 numpy의 @ 연산자를 통해 수행할 수 있습니다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="n">vec_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">vec_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+
+<span class="n">vec_a</span> <span class="o">@</span> <span class="n">vec_b</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>8</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>계산 결과는 2 <em> 3 + 1 </em> 2로 8이 됩니다. 이렇게 계산한 방법과 위의 투영을 통한 cos곱과 결과가 같습니다. 이 둘이 왜 동일한 연산인지 이해하기 위해서는 아래부터 이야기할 행렬에 대한 이해가 필요합니다. 따라서 이 내용은 가장 마지막에 다시 이야기 하도록 하겠습니다.</p>
 
 </div>
 </div>
@@ -340,12 +409,12 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br><br></p>
-<h3 id="1.-행렬">
-<a class="anchor" href="#1.-%ED%96%89%EB%A0%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. 행렬<a class="anchor-link" href="#1.-%ED%96%89%EB%A0%AC"> </a>
+<h3 id="2.-행렬">
+<a class="anchor" href="#2.-%ED%96%89%EB%A0%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. 행렬<a class="anchor-link" href="#2.-%ED%96%89%EB%A0%AC"> </a>
 </h3>
 <p>행렬은 이미 많이 들어봐서 알고 있을 것입니다. 그러나 행렬이 진정으로 무엇을 의미하는지는 학교에서 잘 가르쳐주지 않습니다. 행렬을 알기 전에 "변환", 즉 "Transformation"이라는 단어에 대해 먼저 생각해봅시다. <br><br></p>
-<h4 id="1.1.-변환-(Transformation)">
-<a class="anchor" href="#1.1.-%EB%B3%80%ED%99%98-(Transformation)" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.1. 변환 (Transformation)<a class="anchor-link" href="#1.1.-%EB%B3%80%ED%99%98-(Transformation)"> </a>
+<h4 id="2.1.-변환-(Transformation)">
+<a class="anchor" href="#2.1.-%EB%B3%80%ED%99%98-(Transformation)" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.1. 변환 (Transformation)<a class="anchor-link" href="#2.1.-%EB%B3%80%ED%99%98-(Transformation)"> </a>
 </h4>
 <p>변환은 함수와 어느정도 일맥상통합니다. 함수는 어떤 수를 입력받아서 다른 수로 변환합니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/31.gif?raw=true" alt="img">
@@ -359,8 +428,8 @@
 <p>이러한 변환을 공간 전체에 있는 모든 벡터에 적용한다면, 아래처럼 진행이 될 수 있습니다. 공간에 있는 모든 벡터가 위와 같이 회전하거나 변환됩니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/41.gif?raw=true" alt="img">
 <br><br><br></p>
-<h4 id="1.2.-선형-변환-(Linear-Transformation)">
-<a class="anchor" href="#1.2.-%EC%84%A0%ED%98%95-%EB%B3%80%ED%99%98-(Linear-Transformation)" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.2. 선형 변환 (Linear Transformation)<a class="anchor-link" href="#1.2.-%EC%84%A0%ED%98%95-%EB%B3%80%ED%99%98-(Linear-Transformation)"> </a>
+<h4 id="2.2.-선형-변환-(Linear-Transformation)">
+<a class="anchor" href="#2.2.-%EC%84%A0%ED%98%95-%EB%B3%80%ED%99%98-(Linear-Transformation)" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.2. 선형 변환 (Linear Transformation)<a class="anchor-link" href="#2.2.-%EC%84%A0%ED%98%95-%EB%B3%80%ED%99%98-(Linear-Transformation)"> </a>
 </h4>
 <p>그러나, 선형대수에서는 모든 종류의 변환을 다루지 않습니다. 선형대수에서는 모든 벡터가 선형성을 유지해야하기 때문에 "선형 변환"에 대하서만 다루고, "비 선형 변환"은 다루지 않습니다. 시각적으로 볼 때, 변환이 선형적(Linear)하다는 것은 두가지 속성을 의미합니다. 
 <br><br></p>
@@ -372,8 +441,8 @@
 <p>두가지 조건을 만족하지 않는 경우 선형변환이라고 하지 않습니다. 아래처럼 변환 이후에 직선이 휘어서 곡선이 되어있거나, 원점이 다른 곳으로 이동하면 그러한 변환은 선형변환이 아닌, 비선형 변환입니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/42.gif?raw=true" alt="img">
 <br><br></p>
-<h4 id="1.3.-굳이-변환-이야기를-꺼내는-이유?">
-<a class="anchor" href="#1.3.-%EA%B5%B3%EC%9D%B4-%EB%B3%80%ED%99%98-%EC%9D%B4%EC%95%BC%EA%B8%B0%EB%A5%BC-%EA%BA%BC%EB%82%B4%EB%8A%94-%EC%9D%B4%EC%9C%A0?" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.3. 굳이 변환 이야기를 꺼내는 이유?<a class="anchor-link" href="#1.3.-%EA%B5%B3%EC%9D%B4-%EB%B3%80%ED%99%98-%EC%9D%B4%EC%95%BC%EA%B8%B0%EB%A5%BC-%EA%BA%BC%EB%82%B4%EB%8A%94-%EC%9D%B4%EC%9C%A0?"> </a>
+<h4 id="2.3.-굳이-변환-이야기를-꺼내는-이유?">
+<a class="anchor" href="#2.3.-%EA%B5%B3%EC%9D%B4-%EB%B3%80%ED%99%98-%EC%9D%B4%EC%95%BC%EA%B8%B0%EB%A5%BC-%EA%BA%BC%EB%82%B4%EB%8A%94-%EC%9D%B4%EC%9C%A0?" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.3. 굳이 변환 이야기를 꺼내는 이유?<a class="anchor-link" href="#2.3.-%EA%B5%B3%EC%9D%B4-%EB%B3%80%ED%99%98-%EC%9D%B4%EC%95%BC%EA%B8%B0%EB%A5%BC-%EA%BA%BC%EB%82%B4%EB%8A%94-%EC%9D%B4%EC%9C%A0?"> </a>
 </h4>
 <p>선형 변환에 대해서 말씀 드린 이유는, 행렬이 바로 벡터를 선형 변환시키기 위한 도구이기 때문입니다. 선형대수의 장점은 하나의 연산이나 하나의 벡터에 대해 기하학적인 표현과 수치적인 표현이 모두 가능하다는 것에 있다고 이전에 말했습니다. 저는 지금까지 행렬에 대해서 기하학적으로 열심히 설명했던 것 입니다. 그러면 이러한 변환을 우리가 어떻게 수치적으로 계산할 수 있을까요?
 <br><br></p>
@@ -395,8 +464,8 @@
 <p>이렇게 기저벡터가 어디로 움직였는지만 알면, 해당 공간의 모든 벡터가 어디로 움직였는지 알 수 있게 됩니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/47.gif?raw=true" alt="img">
 <br><br></p>
-<h4 id="1.4.-행렬의-본질">
-<a class="anchor" href="#1.4.-%ED%96%89%EB%A0%AC%EC%9D%98-%EB%B3%B8%EC%A7%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.4. 행렬의 본질<a class="anchor-link" href="#1.4.-%ED%96%89%EB%A0%AC%EC%9D%98-%EB%B3%B8%EC%A7%88"> </a>
+<h4 id="2.4.-행렬의-본질">
+<a class="anchor" href="#2.4.-%ED%96%89%EB%A0%AC%EC%9D%98-%EB%B3%B8%EC%A7%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.4. 행렬의 본질<a class="anchor-link" href="#2.4.-%ED%96%89%EB%A0%AC%EC%9D%98-%EB%B3%B8%EC%A7%88"> </a>
 </h4>
 <p>위의 내용을 정리해서 써봅시다. $\hat{i}$는 $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$에서 $\begin{bmatrix} 1 \\ -2 \end{bmatrix}$로 움직였고, $\hat{j}$는 $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$에서 $\begin{bmatrix} 3 \\ 0 \end{bmatrix}$으로 움직였습니다. 따라서 임의의 벡터 $\vec{v}$ = $\begin{bmatrix} x \\ y \end{bmatrix}$는 변환 후에 x <em> $\begin{bmatrix} 1 \\ -2 \end{bmatrix}$ + y </em> $\begin{bmatrix} 3 \\ 0 \end{bmatrix}$이 됩니다. 이것을 조금 더 정리해서 쓰면 $\begin{bmatrix} 1x + 3y \\ -2x + 0y \end{bmatrix}$가 됩니다. 이제 슬슬 감이 오시나요?</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/48.gif?raw=true" alt="img">
@@ -412,8 +481,8 @@
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.-Shape">
-<a class="anchor" href="#2.-Shape" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Shape<a class="anchor-link" href="#2.-Shape"> </a>
+<h3 id="3.-Shape">
+<a class="anchor" href="#3.-Shape" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Shape<a class="anchor-link" href="#3.-Shape"> </a>
 </h3>
 <p>행렬과 벡터의 Shape에 대해 알아봅시다. Shape이란 말 그대로, 행렬이나 벡터의 모양을 의미합니다.
 일반적으로 Shape은 (행의 수, 열의 수)로 표기합니다. 우리가 처음 봤던 가장 기본 형태인 2차원 벡터는 
@@ -553,13 +622,13 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br><br></p>
-<h3 id="3.-행렬의-연산">
-<a class="anchor" href="#3.-%ED%96%89%EB%A0%AC%EC%9D%98-%EC%97%B0%EC%82%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. 행렬의 연산<a class="anchor-link" href="#3.-%ED%96%89%EB%A0%AC%EC%9D%98-%EC%97%B0%EC%82%B0"> </a>
+<h3 id="4.-행렬의-연산">
+<a class="anchor" href="#4.-%ED%96%89%EB%A0%AC%EC%9D%98-%EC%97%B0%EC%82%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. 행렬의 연산<a class="anchor-link" href="#4.-%ED%96%89%EB%A0%AC%EC%9D%98-%EC%97%B0%EC%82%B0"> </a>
 </h3>
 <p>벡터 챕터에서는 가장 중요한 기본 연산인 벡터합과 스칼라 곱에 대해 배웠습니다. 행렬은 벡터보다 조금 더 다양한 연산을 가지고 있습니다. 아래에서 차례로 알아봅시다.
 <br><br></p>
-<h4 id="3.1.-행렬-합-(=-벡터-합,-Matrix-Addition)">
-<a class="anchor" href="#3.1.-%ED%96%89%EB%A0%AC-%ED%95%A9-(=-%EB%B2%A1%ED%84%B0-%ED%95%A9,-Matrix-Addition)" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.1. 행렬 합 (= 벡터 합, Matrix Addition)<a class="anchor-link" href="#3.1.-%ED%96%89%EB%A0%AC-%ED%95%A9-(=-%EB%B2%A1%ED%84%B0-%ED%95%A9,-Matrix-Addition)"> </a>
+<h4 id="4.1.-행렬-합-(=-벡터-합,-Matrix-Addition)">
+<a class="anchor" href="#4.1.-%ED%96%89%EB%A0%AC-%ED%95%A9-(=-%EB%B2%A1%ED%84%B0-%ED%95%A9,-Matrix-Addition)" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.1. 행렬 합 (= 벡터 합, Matrix Addition)<a class="anchor-link" href="#4.1.-%ED%96%89%EB%A0%AC-%ED%95%A9-(=-%EB%B2%A1%ED%84%B0-%ED%95%A9,-Matrix-Addition)"> </a>
 </h4>
 <p>행렬 합은 두 행렬을 더 합니다. 벡터 합과 동일한 방식으로 수행됩니다. 각 원소 자리에 있는 수를 더합니다.
 주의할 것은 벡터 합이나 행렬 합은 Shape가 동일할 때만 수행 가능합니다. Shape가 다른 경우 더할 수 없습니다.</p>
@@ -792,8 +861,8 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br><br></p>
-<h4 id="3.2.-스칼라-곱-(Scalar-Multiplication)">
-<a class="anchor" href="#3.2.-%EC%8A%A4%EC%B9%BC%EB%9D%BC-%EA%B3%B1-(Scalar-Multiplication)" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.2. 스칼라 곱 (Scalar Multiplication)<a class="anchor-link" href="#3.2.-%EC%8A%A4%EC%B9%BC%EB%9D%BC-%EA%B3%B1-(Scalar-Multiplication)"> </a>
+<h4 id="4.2.-스칼라-곱-(Scalar-Multiplication)">
+<a class="anchor" href="#4.2.-%EC%8A%A4%EC%B9%BC%EB%9D%BC-%EA%B3%B1-(Scalar-Multiplication)" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.2. 스칼라 곱 (Scalar Multiplication)<a class="anchor-link" href="#4.2.-%EC%8A%A4%EC%B9%BC%EB%9D%BC-%EA%B3%B1-(Scalar-Multiplication)"> </a>
 </h4>
 <p>스칼라곱도 벡터에서 하던 방식과 동일하게 하면 됩니다. 모든 원소에 해당 스칼라를 곱합니다.</p>
 
@@ -843,8 +912,8 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br><br></p>
-<h4 id="3.3.-원소곱-(Elementwise-Multiplication)">
-<a class="anchor" href="#3.3.-%EC%9B%90%EC%86%8C%EA%B3%B1-(Elementwise-Multiplication)" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.3. 원소곱 (Elementwise Multiplication)<a class="anchor-link" href="#3.3.-%EC%9B%90%EC%86%8C%EA%B3%B1-(Elementwise-Multiplication)"> </a>
+<h4 id="4.3.-원소곱-(Elementwise-Multiplication)">
+<a class="anchor" href="#4.3.-%EC%9B%90%EC%86%8C%EA%B3%B1-(Elementwise-Multiplication)" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.3. 원소곱 (Elementwise Multiplication)<a class="anchor-link" href="#4.3.-%EC%9B%90%EC%86%8C%EA%B3%B1-(Elementwise-Multiplication)"> </a>
 </h4>
 <p>행렬의 각 자리 원소끼리 곱합니다. 행렬합과 마찬가지로 Shape이 동일해야합니다. * 연산자를 이용해 원소 곱 연산할 수 있습니다.</p>
 
@@ -944,8 +1013,8 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br><br></p>
-<h4 id="3.4.-행렬---벡터-내적-(Matrix---Vector-Multiplication)">
-<a class="anchor" href="#3.4.-%ED%96%89%EB%A0%AC---%EB%B2%A1%ED%84%B0-%EB%82%B4%EC%A0%81-(Matrix---Vector-Multiplication)" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.4. 행렬 - 벡터 내적 (Matrix - Vector Multiplication)<a class="anchor-link" href="#3.4.-%ED%96%89%EB%A0%AC---%EB%B2%A1%ED%84%B0-%EB%82%B4%EC%A0%81-(Matrix---Vector-Multiplication)"> </a>
+<h4 id="4.4.-행렬---벡터-내적-(Matrix---Vector-Multiplication)">
+<a class="anchor" href="#4.4.-%ED%96%89%EB%A0%AC---%EB%B2%A1%ED%84%B0-%EB%82%B4%EC%A0%81-(Matrix---Vector-Multiplication)" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.4. 행렬 - 벡터 내적 (Matrix - Vector Multiplication)<a class="anchor-link" href="#4.4.-%ED%96%89%EB%A0%AC---%EB%B2%A1%ED%84%B0-%EB%82%B4%EC%A0%81-(Matrix---Vector-Multiplication)"> </a>
 </h4>
 <p>위에서 말한 케이스로, 행렬을 통해 벡터를 선형변환 시키는 연산입니다. 일반적으로 $\begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix}$ @ $\begin{bmatrix} x \\ y \end{bmatrix}$와 같은 연산이 있을 때, 대부분은 $\begin{bmatrix} ax + by \\ cx + dy \end{bmatrix}$와 같이 외우셨을 겁니다. (아래처럼)
 <br><br></p>
@@ -956,6 +1025,8 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <p>아래 수식을 보면 더 좋은 직관을 얻을 수 있을 것입니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/50.gif?raw=true" alt="img">
 <br><br></p>
+<p>이 연산을 내적이라고 부르는 이유는 뒤에 있는 벡터가 앞에 있는 행렬의 방향으로 들어가기 때문입니다. 앞에 있는 행렬(변환)이 뒤의 벡터에 적용되어 방향이 변하기 때문에 이 연산을 우리는 '내적'이라고 부릅니다. 
+<br><br></p>
 
 </div>
 </div>
@@ -963,8 +1034,8 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="3.5.-Shape-규칙-(Rule-of-multiplication)">
-<a class="anchor" href="#3.5.-Shape-%EA%B7%9C%EC%B9%99-(Rule-of-multiplication)" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.5. Shape 규칙 (Rule of multiplication)<a class="anchor-link" href="#3.5.-Shape-%EA%B7%9C%EC%B9%99-(Rule-of-multiplication)"> </a>
+<h4 id="4.5.-Shape-규칙-(Rule-of-multiplication)">
+<a class="anchor" href="#4.5.-Shape-%EA%B7%9C%EC%B9%99-(Rule-of-multiplication)" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.5. Shape 규칙 (Rule of multiplication)<a class="anchor-link" href="#4.5.-Shape-%EA%B7%9C%EC%B9%99-(Rule-of-multiplication)"> </a>
 </h4>
 <p>벡터와 행렬 혹은 행렬과 행렬을 내적하려면 내적하려는 두 벡터/행렬의 Shape이 맞아야합니다. 벡터 - 행렬 내적과 행렬 - 행렬 내적 (원소곱이 아닌 행렬 단위곱을 내적이라고 합니다.)에서는 아래와 같은 Shape에 대한 규칙이 있습니다. <br></p>
 <p><img src="https://2.bp.blogspot.com/-iuS-Uayk2FA/T_VUQ3nvaiI/AAAAAAAAAhs/ARvCwQFufsc/s1600/matrix_multi.png" alt="">
@@ -976,7 +1047,7 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 </ul>
 <p><br></p>
 <p>이 규칙에 유의하여 계산해야하며, 연산에는 @라는 기호를 사용합니다. 
-파이썬에서 * 는 원소곱을 의미하며 @는 행렬-벡터곱, 행렬-행렬곱을 의미합니다.</p>
+파이썬에서 * 는 원소곱을 의미하며 @는 내적을 의미합니다.</p>
 
 </div>
 </div>
@@ -1030,10 +1101,10 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br><br></p>
-<h4 id="3.6.-행렬-내적-(Matrix-Multiplication)">
-<a class="anchor" href="#3.6.-%ED%96%89%EB%A0%AC-%EB%82%B4%EC%A0%81-(Matrix-Multiplication)" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.6. 행렬 내적 (Matrix Multiplication)<a class="anchor-link" href="#3.6.-%ED%96%89%EB%A0%AC-%EB%82%B4%EC%A0%81-(Matrix-Multiplication)"> </a>
+<h4 id="4.6.-행렬-내적-(Matrix-Multiplication)">
+<a class="anchor" href="#4.6.-%ED%96%89%EB%A0%AC-%EB%82%B4%EC%A0%81-(Matrix-Multiplication)" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.6. 행렬 내적 (Matrix Multiplication)<a class="anchor-link" href="#4.6.-%ED%96%89%EB%A0%AC-%EB%82%B4%EC%A0%81-(Matrix-Multiplication)"> </a>
 </h4>
-<p>이제 조금 특별한 연산인 행렬곱에 대해 소개합니다. 행렬과 행렬을 곱한다는 것은 (원소곱이 아니라 행렬 단위로 곱한다는 것) 합성함수를 만드는 것과 동일합니다. 변환에 변환을 적용하는 것은 함수에 함수를 적용하는 것과 동일한 이치이기 때문입니다.
+<p>이제 조금 특별한 연산인 행렬 내적에 대해 소개합니다. 행렬과 행렬을 곱한다는 것은 (원소곱이 아니라 행렬 단위로 곱한다는 것) 합성함수를 만드는 것과 동일합니다. 변환에 변환을 적용하는 것은 함수에 함수를 적용하는 것과 동일한 이치이기 때문입니다.
 <br><br></p>
 <p>여기에서 두가지 변환을 소개하겠습니다. 첫번째는 회전(Rotation)입니다. 여기서는 반시계방향으로 90도 회전해보겠습니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/51.gif?raw=true" alt="img"></p>
@@ -1052,7 +1123,7 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <p>만약 새로운 벡터가 이 변환에 적용된다면, 아래처럼 순서대로 두개의 행렬을 차례로 수행하게 되고, 이는 두 변환이 하나의 변환으로 합성된 것과 동일한 효과를 줍니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/56.gif?raw=true" alt="img">
 <br><br></p>
-<p>수치적으로 행렬곱을 표현하면 다음과 같습니다. 가장 먼저 $\hat{i}$가 움직일 곳을 찾습니다.</p>
+<p>수치적으로 행렬의 내적을 표현하면 다음과 같습니다. 가장 먼저 $\hat{i}$가 움직일 곳을 찾습니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/57.gif?raw=true" alt="img">
 <br><br></p>
 <p>기저벡터 $\hat{i}$가 왼쪽의 행렬을 만나 변환되는 것을 생각하면 이 과정이 쉽게 이해 갈 수 있습니다.</p>
@@ -1067,7 +1138,7 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <p>이렇게 계산한 결과는 여러분이 기존에 아래처럼 계산한 결과와 동일하며, 실제로는 이 계산과정을 간단하게 마치 공식처럼 풀어낸 것입니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/61.gif?raw=true" alt="img"></p>
 <p>이렇게 계산하면 오른쪽 행렬에 있던 기저벡터들이 모두 왼쪽 행렬에 의해 변환된 것으로 생각 할 수 있습니다. <br><br></p>
-<p>또한 기존에는 벡터와 행렬 한개만 가지고 변환하려고 했다면, 이 과정은 두개의 행렬을 미리 곱해서 합쳐놓고, 추후에 어떤 벡터가 입력되면 한번에 2개의 변환을 수행하는 것으로 생각 할 수도 있습니다. 이제 numpy를 이용해 행렬곱을 계산해봅시다.</p>
+<p>또한 기존에는 벡터와 행렬 한개만 가지고 변환하려고 했다면, 이 과정은 두개의 행렬을 미리 곱해서 합쳐놓고, 추후에 어떤 벡터가 입력되면 한번에 2개의 변환을 수행하는 것으로 생각 할 수도 있습니다. 이제 numpy를 이용해 행렬의 내적을 계산해봅시다.</p>
 
 </div>
 </div>
@@ -1212,10 +1283,10 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br></p>
-<h4 id="3.7.-행렬곱의-교환법칙은-성립하지-않는다?">
-<a class="anchor" href="#3.7.-%ED%96%89%EB%A0%AC%EA%B3%B1%EC%9D%98-%EA%B5%90%ED%99%98%EB%B2%95%EC%B9%99%EC%9D%80-%EC%84%B1%EB%A6%BD%ED%95%98%EC%A7%80-%EC%95%8A%EB%8A%94%EB%8B%A4?" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.7. 행렬곱의 교환법칙은 성립하지 않는다?<a class="anchor-link" href="#3.7.-%ED%96%89%EB%A0%AC%EA%B3%B1%EC%9D%98-%EA%B5%90%ED%99%98%EB%B2%95%EC%B9%99%EC%9D%80-%EC%84%B1%EB%A6%BD%ED%95%98%EC%A7%80-%EC%95%8A%EB%8A%94%EB%8B%A4?"> </a>
+<h4 id="4.7.-행렬내적의-교환법칙은-성립하지-않는다?">
+<a class="anchor" href="#4.7.-%ED%96%89%EB%A0%AC%EB%82%B4%EC%A0%81%EC%9D%98-%EA%B5%90%ED%99%98%EB%B2%95%EC%B9%99%EC%9D%80-%EC%84%B1%EB%A6%BD%ED%95%98%EC%A7%80-%EC%95%8A%EB%8A%94%EB%8B%A4?" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.7. 행렬내적의 교환법칙은 성립하지 않는다?<a class="anchor-link" href="#4.7.-%ED%96%89%EB%A0%AC%EB%82%B4%EC%A0%81%EC%9D%98-%EA%B5%90%ED%99%98%EB%B2%95%EC%B9%99%EC%9D%80-%EC%84%B1%EB%A6%BD%ED%95%98%EC%A7%80-%EC%95%8A%EB%8A%94%EB%8B%A4?"> </a>
 </h4>
-<p>한 가지 중요한 사항은 행렬곱은 교환법칙이 성립하지 않는다는 것입니다. A @ B와 B @ A가 같지 않습니다. 왜 그런지는 매우 단순한데, 순서를 바꿔서 움직이면 변환 결과가 달라지기 때문입니다. 만약 Shear를 먼저한다면 아래 처럼 움직입니다.</p>
+<p>한 가지 중요한 사항은 행렬내적은 교환법칙이 성립하지 않는다는 것입니다. A @ B와 B @ A가 같지 않습니다. 왜 그런지는 매우 단순한데, 순서를 바꿔서 움직이면 변환 결과가 달라지기 때문입니다. 만약 Shear를 먼저한다면 아래 처럼 움직입니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/62.gif?raw=true" alt="img">
 <br><br></p>
 <p>그러나 우리가 rotate 먼저 한다면 아래처럼 움직입니다.</p>
@@ -1231,8 +1302,8 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="3.8.-더-높은-차원의-행렬">
-<a class="anchor" href="#3.8.-%EB%8D%94-%EB%86%92%EC%9D%80-%EC%B0%A8%EC%9B%90%EC%9D%98-%ED%96%89%EB%A0%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.8. 더 높은 차원의 행렬<a class="anchor-link" href="#3.8.-%EB%8D%94-%EB%86%92%EC%9D%80-%EC%B0%A8%EC%9B%90%EC%9D%98-%ED%96%89%EB%A0%AC"> </a>
+<h4 id="4.8.-더-높은-차원의-행렬">
+<a class="anchor" href="#4.8.-%EB%8D%94-%EB%86%92%EC%9D%80-%EC%B0%A8%EC%9B%90%EC%9D%98-%ED%96%89%EB%A0%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.8. 더 높은 차원의 행렬<a class="anchor-link" href="#4.8.-%EB%8D%94-%EB%86%92%EC%9D%80-%EC%B0%A8%EC%9B%90%EC%9D%98-%ED%96%89%EB%A0%AC"> </a>
 </h4>
 <p>더 높은 차원에서의 행렬도 크게 다르지 않습니다. 2차원보다 높은 차원인 3차원에서의 연산도 크게 다르지 않습니다. 새로운 기저벡터인 $\hat{k}$가 생긴 것 외에는 계산 방법은 동일합니다.
 <br><br></p>
@@ -1254,7 +1325,25 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <p>마찬가지로 3차원 행렬은 3차원 공간상에서 벡터가 변환되는 과정을 나타낸 것입니다. 각각 열은 각 기저들 (i, j, k)이 어디로 움질일지를 나타내는 것입니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/65.gif?raw=true" alt="img">
 <br><br></p>
-<p>이제 여러분은 벡터와 행렬이 무엇인지 거의 완벽하게 이해했습니다. 선형대수 마지막 시간으로 행렬보다 더 높은 차원의 존재인 텐서에 대해 배우고, 다양한 변환 함수들에 대해 배웁니다. 마지막으로 벡터의 길이, 벡터와 벡터간의 거리 계산법에 대해 배워봅시다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
+<h4 id="4.9.-벡터---벡터-내적-(Vector---Vector-Multiplication)">
+<a class="anchor" href="#4.9.-%EB%B2%A1%ED%84%B0---%EB%B2%A1%ED%84%B0-%EB%82%B4%EC%A0%81-(Vector---Vector-Multiplication)" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.9. 벡터 - 벡터 내적 (Vector - Vector Multiplication)<a class="anchor-link" href="#4.9.-%EB%B2%A1%ED%84%B0---%EB%B2%A1%ED%84%B0-%EB%82%B4%EC%A0%81-(Vector---Vector-Multiplication)"> </a>
+</h4>
+<p>이제 가장 처음에 이야기 했던 벡터 내적에 대해 다시 이야기 해봅시다. 벡터의 내적은 한 벡터를 다른 벡터의 방향 안에 넣은 뒤, 투영된 길이와 다른 벡터의 길이를 곱하는 연산이라고 했습니다. 그렇다면 우리는 $\vec{v} \cdot \vec{w}$의 연산을 다시 생각해볼 필요가 있습니다. 예를 하나 들어봅시다. $\begin{bmatrix} 1 \\ 2 \end{bmatrix} \cdot \begin{bmatrix} 3 \\ 4 \end{bmatrix}$를 계산한다고 생각해봅시다. 사실 이 둘은 모두 Shape이 (2, 1)이기 때문에 행렬 내적으로 연산이 불가능합니다. 
+<br><br></p>
+<p>따라서 아래와 같이 연산하려면 조금 다르게 생각해야합니다.</p>
+<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/74.gif?raw=true" alt="image.png"></p>
+<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/75.gif?raw=true" alt="image.png"></p>
+<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/76.gif?raw=true" alt="image.png">
+<br><br></p>
+<p>먼저 앞의 벡터를 벡터로 생각하는게 아니라 뒤집어서 Shape이 (1, 2)인 행렬로 생각해봅시다. 그렇게 하면 (1, 2)의 행렬과 (2, 1)의 벡터를 곱해서 Shape이 (1, 1)인 단 하나의 Scalar가 됩니다.</p>
 
 </div>
 </div>
