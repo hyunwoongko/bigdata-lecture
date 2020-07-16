@@ -279,7 +279,7 @@
 <li class="toc-entry toc-h4"><a href="#4.4.-행렬-벡터-내적-(Matrix-Vector-Inner-Product)">4.4. 행렬-벡터 내적 (Matrix-Vector Inner Product) </a></li>
 <li class="toc-entry toc-h4"><a href="#4.5.-Shape-규칙-(Rule-of-multiplication)">4.5. Shape 규칙 (Rule of multiplication) </a></li>
 <li class="toc-entry toc-h4"><a href="#4.6.-행렬-행렬-내적-(Matrix-Matrix-Inner-Product))">4.6. 행렬-행렬 내적 (Matrix-Matrix Inner Product)) </a></li>
-<li class="toc-entry toc-h4"><a href="#4.7.-행렬내적의-교환법칙은-성립하지-않는다?">4.7. 행렬내적의 교환법칙은 성립하지 않는다? </a></li>
+<li class="toc-entry toc-h4"><a href="#4.7.-행렬내적은-교환법칙이-성립하지-않는다?">4.7. 행렬내적은 교환법칙이 성립하지 않는다? </a></li>
 <li class="toc-entry toc-h4"><a href="#4.8.-더-높은-차원의-행렬">4.8. 더 높은 차원의 행렬 </a></li>
 <li class="toc-entry toc-h4"><a href="#4.9.-벡터-벡터-내적-(Vector-Vector-Inner-Product)">4.9. 벡터-벡터 내적 (Vector-Vector Inner Product) </a></li>
 </ul>
@@ -339,8 +339,8 @@
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/73.gif?raw=true" alt="image.png">
 <br><br></p>
 <p>내적을 계산할 땐, 대부분 cos을 사용해서 계산하는데요. $\vec{v}$의 norm과 $\vec{w}$의 norm을 그냥 곱하는 것이 아니라, $\vec{v}$가 투영된 길이만큼 곱해야합니다. 투영된 길이가 바로 $\vec{v} \cos \theta$입니다.</p>
-<p><img src="https://qph.fs.quoracdn.net/main-qimg-234168ed4b95aa311a4cd1d8985253e7" alt="">
-<br></p>
+<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/80.gif?raw=true" alt="img">
+<br><br></p>
 <p>근데 매번 코사인 각도를 측정해서 계산하는 것은 너무 비효율적이고 복잡합니다. 따라서 우리는 주로 내적을 계산할 때 이렇게 계산하지 않고 아래처럼 계산합니다. (계산 결과는 하나의 Scalar가 됩니다)</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/74.gif?raw=true" alt="image.png"></p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/75.gif?raw=true" alt="image.png"></p>
@@ -1283,8 +1283,8 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br></p>
-<h4 id="4.7.-행렬내적의-교환법칙은-성립하지-않는다?">
-<a class="anchor" href="#4.7.-%ED%96%89%EB%A0%AC%EB%82%B4%EC%A0%81%EC%9D%98-%EA%B5%90%ED%99%98%EB%B2%95%EC%B9%99%EC%9D%80-%EC%84%B1%EB%A6%BD%ED%95%98%EC%A7%80-%EC%95%8A%EB%8A%94%EB%8B%A4?" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.7. 행렬내적의 교환법칙은 성립하지 않는다?<a class="anchor-link" href="#4.7.-%ED%96%89%EB%A0%AC%EB%82%B4%EC%A0%81%EC%9D%98-%EA%B5%90%ED%99%98%EB%B2%95%EC%B9%99%EC%9D%80-%EC%84%B1%EB%A6%BD%ED%95%98%EC%A7%80-%EC%95%8A%EB%8A%94%EB%8B%A4?"> </a>
+<h4 id="4.7.-행렬내적은-교환법칙이-성립하지-않는다?">
+<a class="anchor" href="#4.7.-%ED%96%89%EB%A0%AC%EB%82%B4%EC%A0%81%EC%9D%80-%EA%B5%90%ED%99%98%EB%B2%95%EC%B9%99%EC%9D%B4-%EC%84%B1%EB%A6%BD%ED%95%98%EC%A7%80-%EC%95%8A%EB%8A%94%EB%8B%A4?" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.7. 행렬내적은 교환법칙이 성립하지 않는다?<a class="anchor-link" href="#4.7.-%ED%96%89%EB%A0%AC%EB%82%B4%EC%A0%81%EC%9D%80-%EA%B5%90%ED%99%98%EB%B2%95%EC%B9%99%EC%9D%B4-%EC%84%B1%EB%A6%BD%ED%95%98%EC%A7%80-%EC%95%8A%EB%8A%94%EB%8B%A4?"> </a>
 </h4>
 <p>한 가지 중요한 사항은 행렬내적은 교환법칙이 성립하지 않는다는 것입니다. A @ B와 B @ A가 같지 않습니다. 왜 그런지는 매우 단순한데, 순서를 바꿔서 움직이면 변환 결과가 달라지기 때문입니다. 만약 Shear를 먼저한다면 아래 처럼 움직입니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/62.gif?raw=true" alt="img">
