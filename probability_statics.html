@@ -455,7 +455,7 @@ list :  [3, 3, 3]
 <span class="n">list_a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">'set : '</span><span class="p">,</span> <span class="n">set_a</span><span class="p">)</span> <span class="c1"># 순서가 없기 때문에 아무렇게 저장</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'list : '</span><span class="p">,</span> <span class="n">list_a</span><span class="p">)</span> <span class="c1"># 순서가 있기 때문에 차곡차곡 저장</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'list : '</span><span class="p">,</span> <span class="n">list_a</span><span class="p">)</span> <span class="c1"># 순서가 있기 때문에 들어온 순서대로 차곡차곡 저장</span>
 </pre></div>
 
     </div>
@@ -488,20 +488,44 @@ list :  [3, 3, 3, 1]
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 집합과 리스트에 0을 추가</span>
-<span class="n">set_a</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">list_a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">set_a</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">list_a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">'set : '</span><span class="p">,</span> <span class="n">set_a</span><span class="p">)</span> <span class="c1"># 순서가 없기 때문에 아무렇게 저장</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'list : '</span><span class="p">,</span> <span class="n">list_a</span><span class="p">)</span> <span class="c1"># 순서가 있기 때문에 차곡차곡 저장</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'list : '</span><span class="p">,</span> <span class="n">list_a</span><span class="p">)</span> <span class="c1"># 순서가 있기 때문에 들어온 순서대로 차곡차곡 저장</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>set :  {0, 1, 3}
+list :  [3, 3, 3, 1, 0]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
+<p>이제 집합에 <strong>중복과 순서</strong>가 없다는 말이 무슨 말인지 아시겠죠? 우리는 확률에서 '사건'을 다룹니다. 그리고 그 사건들이 발생할 '확률'을 계산하게 됩니다.</p>
+
+</div>
+</div>
+</div>
 </div>
 
 
