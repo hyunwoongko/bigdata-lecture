@@ -281,7 +281,8 @@
 <ul>
 <li class="toc-entry toc-h4"><a href="#2.1.-인덱싱">2.1. 인덱싱 </a></li>
 <li class="toc-entry toc-h4"><a href="#2.2.-슬라이싱">2.2. 슬라이싱 </a></li>
-<li class="toc-entry toc-h4"><a href="#2.2.-다차원-텐서-인덱싱">2.2. 다차원 텐서 인덱싱 </a></li>
+<li class="toc-entry toc-h4"><a href="#2.3.-다차원-텐서-인덱싱">2.3. 다차원 텐서 인덱싱 </a></li>
+<li class="toc-entry toc-h4"><a href="#2.4.-Span">2.4. Span </a></li>
 </ul>
 </li>
 </ul><!--
@@ -362,7 +363,7 @@
 <h4 id="1.2.-텐서-곱하기">
 <a class="anchor" href="#1.2.-%ED%85%90%EC%84%9C-%EA%B3%B1%ED%95%98%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.2. 텐서 곱하기<a class="anchor-link" href="#1.2.-%ED%85%90%EC%84%9C-%EA%B3%B1%ED%95%98%EA%B8%B0"> </a>
 </h4>
-<p>텐서와 텐서를 곱해봅니다. @를 사용해 곱할 수 있습니다.</p>
+<p>텐서와 텐서를 곱해봅니다. @를 사용해 곱할 수 있습니다. (텐서단위의 곱)</p>
 
 </div>
 </div>
@@ -2364,8 +2365,8 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br></p>
-<h4 id="2.2.-다차원-텐서-인덱싱">
-<a class="anchor" href="#2.2.-%EB%8B%A4%EC%B0%A8%EC%9B%90-%ED%85%90%EC%84%9C-%EC%9D%B8%EB%8D%B1%EC%8B%B1" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.2. 다차원 텐서 인덱싱<a class="anchor-link" href="#2.2.-%EB%8B%A4%EC%B0%A8%EC%9B%90-%ED%85%90%EC%84%9C-%EC%9D%B8%EB%8D%B1%EC%8B%B1"> </a>
+<h4 id="2.3.-다차원-텐서-인덱싱">
+<a class="anchor" href="#2.3.-%EB%8B%A4%EC%B0%A8%EC%9B%90-%ED%85%90%EC%84%9C-%EC%9D%B8%EB%8D%B1%EC%8B%B1" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.3. 다차원 텐서 인덱싱<a class="anchor-link" href="#2.3.-%EB%8B%A4%EC%B0%A8%EC%9B%90-%ED%85%90%EC%84%9C-%EC%9D%B8%EB%8D%B1%EC%8B%B1"> </a>
 </h4>
 <p>(,)을 이용하여 다차원 텐서의 인덱싱을 수행할 수 있습니다.</p>
 
@@ -2952,7 +2953,8 @@
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br></p>
 <p>아래 코드 셀을 클릭해서 Colab화면으로 이동합시다.
-Colab 화면에서 직접 원하는 모양의 행렬이나 텐서를 만들고 원하는 부분만 잘라내는 연습을 해봅시다.</p>
+Colab 화면에서 직접 원하는 모양의 행렬이나 텐서를 만들고 원하는 부분만 잘라내는 연습을 해봅시다.
+랭크1인 벡터와 랭크2인 행렬을 모두 만들어서 실습해보세요.</p>
 
 </div>
 </div>
@@ -2978,7 +2980,7 @@ Colab 화면에서 직접 원하는 모양의 행렬이나 텐서를 만들고 �
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br></p>
-<p>이번엔 랭크가 3 이상인 텐서를 다뤄봅시다.</p>
+<p>이번엔 랭크가 3 이상인 텐서를 다뤄봅시다. 랭크가 3 이상일 땐 주로 행, 열이라는 표현보다 axis라는 표현을 사용합니다.</p>
 
 </div>
 </div>
@@ -3000,7 +3002,7 @@ Colab 화면에서 직접 원하는 모양의 행렬이나 텐서를 만들고 �
                    <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]]])</span>
 
 
-<span class="n">ten_a</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># 2x2 행렬이 3개 있는것과 동일 = (3, 2, 2)</span>
+<span class="n">ten_a</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># 2x2 행렬이 3개 있는것과 동일 = (axis_0:3, axis_1:2, axis_2:2)</span>
 </pre></div>
 
     </div>
@@ -3270,7 +3272,73 @@ Colab 화면에서 직접 원하는 모양의 행렬이나 텐서를 만들고 �
 
 <div class="inner_cell">
     <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ten_a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="c1"># axis_0:0, axis_1:0, axis_2:전체</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([1, 2])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ten_a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="c1"># axis_0:0, axis_1:1, axis_2:전체</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([3, 4])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ten_a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="p">,:]</span> <span class="c1"># axis_0:0, axis_1:1, axis_2:전체</span>
 </pre></div>
 
     </div>
@@ -3329,6 +3397,52 @@ Colab 화면에서 직접 원하는 모양의 행렬이나 텐서를 만들고 �
 </div>
     
 
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ten_a</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="c1"># axis_0:0~2전까지, axis_1:1~2전까지, axis_2:1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[4],
+       [8]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
+<h4 id="2.4.-Span">
+<a class="anchor" href="#2.4.-Span" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.4. Span<a class="anchor-link" href="#2.4.-Span"> </a>
+</h4>
+<p>이제 좀 더 어려운 기능을 소개 드리겠습니다. Span 기능은 numpy에서</p>
+
+</div>
+</div>
+</div>
 </div>
 
 
