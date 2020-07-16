@@ -341,7 +341,7 @@
 <p>내적을 계산할 땐, 대부분 cos을 사용해서 계산하는데요. $\vec{v}$의 norm과 $\vec{w}$의 norm을 그냥 곱하는 것이 아니라, $\vec{v}$가 투영된 길이만큼 곱해야합니다. 투영된 길이가 바로 $\vec{v} \cos \theta$입니다.</p>
 <p><img src="https://qph.fs.quoracdn.net/main-qimg-234168ed4b95aa311a4cd1d8985253e7" alt="">
 <br></p>
-<p>근데 매번 코사인 각도를 측정해서 계산하는 것은 너무 비효율적이고 복잡합니다. 따라서 우리는 주로 내적을 계산할 때 이렇게 계산하지 않고 아래처럼 계산합니다.</p>
+<p>근데 매번 코사인 각도를 측정해서 계산하는 것은 너무 비효율적이고 복잡합니다. 따라서 우리는 주로 내적을 계산할 때 이렇게 계산하지 않고 아래처럼 계산합니다. (계산 결과는 하나의 Scalar가 됩니다)</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/74.gif?raw=true" alt="image.png"></p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/75.gif?raw=true" alt="image.png"></p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/76.gif?raw=true" alt="image.png">
@@ -1025,7 +1025,7 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <p>아래 수식을 보면 더 좋은 직관을 얻을 수 있을 것입니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/50.gif?raw=true" alt="img">
 <br><br></p>
-<p>이 연산을 내적이라고 부르는 이유는 뒤에 있는 벡터가 앞에 있는 행렬의 방향으로 들어가기 때문입니다. 앞에 있는 행렬(변환)이 뒤의 벡터에 적용되어 방향이 변하기 때문에 이 연산을 우리는 '내적'이라고 부릅니다. 
+<p>이 연산을 내적이라고 부르는 이유는 뒤에 있는 벡터 $\begin{bmatrix} x \\ y \end{bmatrix}$가 변환이 되어 앞에 있는 행렬 $\begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix}$의 방향 안으로 들어가기 때문입니다. 벡터의 방향이 행렬에 의해 변하여, 행렬의 방향을 띄게 되었으므로 우리는 이 연산도 역시 '내적'이라고 부릅니다. 그리고 계산하는 방법도 매우 비슷합니다. (원소 곱의 합 형태로 연산) 
 <br><br></p>
 
 </div>
@@ -1037,7 +1037,7 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <h4 id="4.5.-Shape-규칙-(Rule-of-multiplication)">
 <a class="anchor" href="#4.5.-Shape-%EA%B7%9C%EC%B9%99-(Rule-of-multiplication)" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.5. Shape 규칙 (Rule of multiplication)<a class="anchor-link" href="#4.5.-Shape-%EA%B7%9C%EC%B9%99-(Rule-of-multiplication)"> </a>
 </h4>
-<p>벡터와 행렬 혹은 행렬과 행렬을 내적하려면 내적하려는 두 벡터/행렬의 Shape이 맞아야합니다. 벡터 - 행렬 내적과 행렬 - 행렬 내적 (원소곱이 아닌 행렬 단위곱을 내적이라고 합니다.)에서는 아래와 같은 Shape에 대한 규칙이 있습니다. <br></p>
+<p>벡터와 행렬 혹은 행렬과 행렬을 내적하려면 내적하려는 두 벡터/행렬의 Shape이 맞아야합니다. 내적을 위해서는 아래와 같은 Shape에 대한 규칙이 있습니다. <br></p>
 <p><img src="https://2.bp.blogspot.com/-iuS-Uayk2FA/T_VUQ3nvaiI/AAAAAAAAAhs/ARvCwQFufsc/s1600/matrix_multi.png" alt="">
 <br></p>
 <ul>
@@ -1046,7 +1046,7 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <li>계산결과 나오는 벡터/행렬의 Shape은 (a, d)가 된다.</li>
 </ul>
 <p><br></p>
-<p>이 규칙에 유의하여 계산해야하며, 연산에는 @라는 기호를 사용합니다. 
+<p>이 규칙에 유의하여 계산해야하며, 위에서도 언급했지만 내적의 연산에는 @라는 기호를 사용합니다. 
 파이썬에서 * 는 원소곱을 의미하며 @는 내적을 의미합니다.</p>
 
 </div>
@@ -1104,7 +1104,7 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <h4 id="4.6.-행렬-내적-(Matrix-Multiplication)">
 <a class="anchor" href="#4.6.-%ED%96%89%EB%A0%AC-%EB%82%B4%EC%A0%81-(Matrix-Multiplication)" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.6. 행렬 내적 (Matrix Multiplication)<a class="anchor-link" href="#4.6.-%ED%96%89%EB%A0%AC-%EB%82%B4%EC%A0%81-(Matrix-Multiplication)"> </a>
 </h4>
-<p>이제 조금 특별한 연산인 행렬 내적에 대해 소개합니다. 행렬과 행렬을 곱한다는 것은 (원소곱이 아니라 행렬 단위로 곱한다는 것) 합성함수를 만드는 것과 동일합니다. 변환에 변환을 적용하는 것은 함수에 함수를 적용하는 것과 동일한 이치이기 때문입니다.
+<p>이제 조금 특별한 연산인 행렬 내적에 대해 소개합니다. 행렬과 행렬을 내적한다는 것은 합성함수를 만드는 것과 동일합니다. 변환에 변환을 적용하는 것은 곧 함수에 함수를 적용하는 것과 동일한 이치이기 때문입니다.
 <br><br></p>
 <p>여기에서 두가지 변환을 소개하겠습니다. 첫번째는 회전(Rotation)입니다. 여기서는 반시계방향으로 90도 회전해보겠습니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/51.gif?raw=true" alt="img"></p>
@@ -1114,7 +1114,7 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/52.gif?raw=true" alt="img"></p>
 <p>회전하고나면 $\hat{i}$는 그대로 $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$이고, $\hat{j}$는 $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$에서 $\begin{bmatrix} 1 \\ 1 \end{bmatrix}$이 됩니다. 따라서 이 변환은 $\begin{bmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{bmatrix}$이 됩니다.
 <br><br></p>
-<p>두 행렬을 $\begin{bmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{bmatrix}$ @ $\begin{bmatrix} 0 &amp; 1 \\ -1 &amp; 0 \end{bmatrix}$과 같이 행렬 곱하면 어떻게 될까요? 정답은 두 연산을 각각 실행하는 것이 됩니다.</p>
+<p>두 행렬을 $\begin{bmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{bmatrix}$ @ $\begin{bmatrix} 0 &amp; 1 \\ -1 &amp; 0 \end{bmatrix}$과 같이 내적하면 하면 어떻게 될까요? 정답은 두 연산을 차례대로 실행하는 것이 됩니다. (변환을 또 변환시킴)</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/54.gif?raw=true" alt="img">
 <br><br></p>
 <p>합성된 변환을 계산하면 아래처럼 계산할 수 있는데요. 각각 $\hat{i}$와 $\hat{j}$가 $\begin{bmatrix} 1 \\ 1 \end{bmatrix}$과 $\begin{bmatrix} -1 \\ 0 \end{bmatrix}$으로 이동했기 때문에 합성 변환에 대한 행렬은 $\begin{bmatrix} 1 &amp; 1 \\ -1 &amp; 0 \end{bmatrix}$이 됩니다. 그리고 이 변환은 이전의 두 변환과는 다른 새로운 변환이 됩니다.</p>
@@ -1346,7 +1346,7 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <p>먼저 앞의 벡터를 벡터로 생각하는게 아니라 뒤집어서 Shape이 (1, 2)인 행렬로 생각해봅시다. 그렇게 하면 (1, 2)의 행렬과 (2, 1)의 벡터를 곱해서 Shape이 (1, 1)인 단 하나의 Scalar가 되는데, 이 것이 바로 앞서 말한 벡터 내적입니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/78.gif?raw=true" alt="image.png">
 <br><br></p>
-<p>앞서서 행렬에 대해 이야기할 때, 행렬은 하나의 변환이라고 설명했습니다. 즉, (1, 2)의 행렬 자체가 한 벡터를 자신의 방향으로 투영시 변환이 된다는 것입니다. 그러한 변환을 만들기 위해서는 벡터 자기자신을 뒤집어서 (1, 2)의 Shape으로 만들면 된다는 것인데, 이것에 대한 보다 자세한 디테일은 강의의 수준을 넘어갑니다. 자세한 내용은 3Blue 1Brown의 Linear Algebra 강의 Chapter 9번의 "내적의 쌍대성"을 보면 더욱 자세히 이해할 수 있습니다.</p>
+<p>앞서서 행렬에 대해 이야기할 때, 행렬은 하나의 변환이라고 설명했습니다. 내적은 한 벡터를 다른 벡터의 방향에 투영시키는 변환인데, 그러한 변환을 만들기 위해서는 벡터 자기자신을 뒤집어서 (1, 2)의 Shape으로 만들면 된다는 것 입니다. 더 자세하게 설명드리고 싶지만 내용이 너무 어렵고 복잡해지는 것 같아서 이유에 대한 내용은 생략합니다. 이에 대한 자세한 내용은 3Blue 1Brown의 Linear Algebra 강의 Chapter 9번의 "내적의 쌍대성" <a href="https://www.youtube.com/watch?v=LyGKycYT2v0&amp;t=651s">https://www.youtube.com/watch?v=LyGKycYT2v0&amp;t=651s</a> 을 보면 더욱 자세히 이해할 수 있습니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/79.gif?raw=true" alt="image.png">
 <br><br></p>
 
