@@ -24,7 +24,7 @@ img {
 }
 
 h1, h2, h3, h4, h5 {
-  color: rgb(243, 101, 55) !important;
+  color: rgb(172, 65, 65) !important;
   margin-bottom: 3px !important;
 }
 
@@ -72,7 +72,7 @@ h1, h2, h3, h4, h5 {
 code {
   border-radius: 1px;
   font-family: 'Jeju Gothic', sans-serif;
-  color: rgb(243, 101, 55);
+  color: rgb(172, 65, 65);
   background-color: $jupyter-background;
 }
 
@@ -581,10 +581,11 @@ h6:hover .anchor-link {
 }
 
 .category-tags-link {
-  color: rgb(243, 101, 55) !important;
+  color: rgb(172, 65, 65) !important;
   text-align: justify;
   word-break: break-all;
 }
+
 
 .output_text > pre {
   background: white !important;
