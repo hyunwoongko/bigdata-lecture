@@ -461,7 +461,7 @@
 <p>변환 결과, 기저 $\hat{i}$는 $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$에서 $\begin{bmatrix} 1 \\ -2 \end{bmatrix}$로 움직였고, $\hat{j}$는 $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$에서 $\begin{bmatrix} 3 \\ 0 \end{bmatrix}$으로 움직였습니다. 따라서 변환된 벡터 $\vec{v}$ = -1 <em> $\begin{bmatrix} 1 \\ -2 \end{bmatrix}$ + 2 </em> $\begin{bmatrix} 3 \\ 0 \end{bmatrix}$이 되고, 이 값은 $\begin{bmatrix} 5 \\ 2 \end{bmatrix}$로 변환된 $\vec{v}$의 위치와 동일합니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/46.gif?raw=true" alt="img">
 <br><br></p>
-<p>이렇게 기저벡터가 어디로 움직였는지만 알면, 해당 공간의 모든 벡터가 어디로 움직였는지 알 수 있게 됩니다.</p>
+<p>이렇게 기저벡터가 어디로 움직였는지만 알면, 해당 공간의 모든 벡터가 어디로 움직였는지 알 수 있게 됩니다. 즉, 변환이라는 것은 기저벡터를 바꾸는 일입니다. 기존의 $\hat{i}$를 $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$에서 임의의 $\begin{bmatrix} a \\ b \end{bmatrix}$로, $\hat{j}$를  $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$에서 임의의 $\begin{bmatrix} c \\ d \end{bmatrix}$로 바꾸는 작업입니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/47.gif?raw=true" alt="img">
 <br><br></p>
 <h4 id="2.4.-행렬의-본질">
@@ -1394,9 +1394,10 @@ $\begin{bmatrix} 1 &amp; 1 \\ -2 &amp; 0 \end{bmatrix}$과 같은 행렬은 (2, 
 <p>먼저 앞의 벡터를 벡터로 생각하는게 아니라 뒤집어서 Shape이 (1, 2)인 행렬로 생각해봅시다. 그렇게 하면 (1, 2)의 행렬과 (2, 1)의 벡터를 내적해서 Shape이 (1, 1)인 단 하나의 Scalar가 되는데, 이 것이 바로 앞서 말한 벡터 내적과 동일한 연산입니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/78.gif?raw=true" alt="image.png">
 <br><br></p>
-<p>앞서서 행렬에 대해 이야기할 때, 행렬은 하나의 변환이라고 설명했습니다. 내적이라는 것은 다른 벡터를 자기 자신 벡터의 방향에 투영시키는 변환인데, 그러한 변환을 만들기 위해서는 자기 자신 벡터를 뒤집어서 (1, 2)의 Shape을 갖는 행렬로 만들면 그러한 변환이 된다는 것 입니다. 더 자세하게 설명드리고 싶지만 내용이 너무 어렵고 복잡해지는 것 같아서 그 이유에 대한 내용은 생략하겠습니다. 이에 대한 자세한 내용은 3Blue 1Brown의 Linear Algebra 강의 Chapter 9번의 "내적의 쌍대성" <a href="https://www.youtube.com/watch?v=LyGKycYT2v0&amp;t=651s">https://www.youtube.com/watch?v=LyGKycYT2v0&amp;t=651s</a> 을 보면 더욱 자세히 이해할 수 있습니다. (이해가 안가시면 개인적으로 물어보면 답변해드리겠습니다.)</p>
+<p>앞서서 행렬에 대해 이야기할 때, 행렬은 하나의 변환이라고 설명했습니다. 내적이라는 것은 다른 벡터를 자기 자신 벡터의 방향에 투영시키고 둘의 길이를 곱하는 것인데, 그러한 변환을 만들기 위해서는 자기 자신 벡터를 뒤집어서 (1, 2)의 Shape을 갖는 행렬로 만들면 그 것과 똑같은 변환이 된다는 것 입니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day1/79.gif?raw=true" alt="image.png">
 <br><br></p>
+<p>더 자세하게 설명드리고 싶지만 내용이 너무 어렵고 복잡해지는 것 같아서 그 이유에 대한 내용은 생략하겠습니다. 이에 대한 자세한 내용은 3Blue 1Brown의 Linear Algebra 강의 Chapter 9번의 "내적의 쌍대성" <a href="https://www.youtube.com/watch?v=LyGKycYT2v0&amp;t=651s">https://www.youtube.com/watch?v=LyGKycYT2v0&amp;t=651s</a> 을 보면 더욱 자세히 이해할 수 있습니다. (이해가 안가시면 개인적으로 물어보면 답변해드리겠습니다.)</p>
 
 </div>
 </div>
