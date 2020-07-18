@@ -153,7 +153,7 @@ pre {
   padding-top: 0 !important;
   background: $jupyter-background !important;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Monaco', serif !important; // 코드셀만 코딩폰트 적용
+  font-family: Consolas, Monaco, serif !important; // 코드셀만 코딩폰트 적용
   text-rendering: optimizeLegibility;
   border-radius: 5px !important;
   line-height: 190% !important;
@@ -166,7 +166,8 @@ pre {
   padding-bottom: 0 !important;
   padding-top: 0 !important;
   background: $jupyter-background !important;
-  font-family: 'Monaco', serif !important; // 코드셀만 코딩폰트 적용        -webkit-font-smoothing: antialiased;
+  font-family: Consolas, Monaco, serif !important; // 코드셀만 코딩폰트 적용
+  -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   border-radius: 5px !important;
   line-height: 180% !important;
