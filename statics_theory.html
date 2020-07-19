@@ -277,7 +277,12 @@
 <ul>
 <li class="toc-entry toc-h4"><a href="#4.1.-Softmax-함수">4.1. Softmax 함수 </a></li>
 <li class="toc-entry toc-h4"><a href="#4.2.-Sigmoid-함수">4.2. Sigmoid 함수 </a></li>
-<li class="toc-entry toc-h4"><a href="#4.3.-...-어렵나요?-그래도-기억해야할-것!">4.3. ... 어렵나요? 그래도 기억해야할 것! </a></li>
+<li class="toc-entry toc-h4"><a href="#4.3.-어렵나요?-그래도-기억해야할-것!">4.3. 어렵나요? 그래도 기억해야할 것! </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#5.-다양한-통계적-개념들">5. 다양한 통계적 개념들 </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#5.1.-평균">5.1. 평균 </a></li>
 </ul>
 </li>
 </ul><!--
@@ -501,37 +506,31 @@
 <h3 id="4.-Softmax와-Sigmoid-함수">
 <a class="anchor" href="#4.-Softmax%EC%99%80-Sigmoid-%ED%95%A8%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. Softmax와 Sigmoid 함수<a class="anchor-link" href="#4.-Softmax%EC%99%80-Sigmoid-%ED%95%A8%EC%88%98"> </a>
 </h3>
-<p>이제 앞으로 머신러닝 모델들을 쭉 배우면서 계속 마주칠 Softmax함수와 Sigmoid함수입니다. 이들은 위에서 설명한 베이즈 정리와 정확히 동일한 함수입니다. 이 부분의 내용은 상당히 어렵기 때문에 이해가 안가시면 그냥 패스하셔도 좋습니다. 이해가 되시는 분들만 따라오셔도 무방합니다. <strong>그러나 반드시 알아두셔야할 것은 Softmax와 Sigmoid라는 함수가 있고 앞으로 매번 나올 것인데, 이 함수들은 베이즈 정리와 동일하며, 확률값을 나타낸다는 것입니다.</strong> 예를 들어 각각 강아지, 고양이라는 2개의 클래스가 있다고 해봅시다. 그렇다면, 우리가 원하는 것(Accuracy)는 모델이 주어졌을 때 강아지를 잘 맞출 확률 $P(Dog|Model)$, 모델이 주어졌을 때 고양이를 잘 맞출 확률입니다.$P(Cat|Model)$입니다. <br><br></p>
+<p>이제 앞으로 머신러닝 모델들을 쭉 배우면서 계속 마주칠 Softmax함수와 Sigmoid함수입니다. 이들은 위에서 설명한 베이즈 정리와 정확히 동일한 함수입니다. 아래는 제가 직접 작성한 유도과정인데 상당히 어렵기 때문에 강의때는 다루지 않습니다. 만약 어떻게 저러한 모양의 함수가 되는지 궁금하시면 읽어보시고, 그게 아니라면 생략하셔도 무방합니다. 만약 읽다가 이해가 안가시면 저에게 질문해주세요! <br><br></p>
+<p><strong>그러나 반드시 알아두셔야할 것은 Softmax와 Sigmoid라는 함수가 있고 앞으로 매번 나올 것인데, 이 함수들은 베이즈 정리와 동일하며, 확률값을 나타낸다는 것입니다.</strong> 예를 들어 각각 강아지, 고양이라는 2개의 클래스가 있다고 해봅시다. 그렇다면, 우리가 원하는 것(Accuracy)는 모델이 주어졌을 때 강아지를 잘 맞출 확률 $P(Dog|Model)$, 모델이 주어졌을 때 고양이를 잘 맞출 확률입니다.$P(Cat|Model)$입니다. <br><br></p>
 <h4 id="4.1.-Softmax-함수">
 <a class="anchor" href="#4.1.-Softmax-%ED%95%A8%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.1. Softmax 함수<a class="anchor-link" href="#4.1.-Softmax-%ED%95%A8%EC%88%98"> </a>
 </h4>
 <p>강아지만 먼저 예시로 보겠습니다. 베이즈 정리로 풀어서 서술하면 아래와 같습니다.</p>
 <p><br>
-<br>
 
 $$P(Dog|Model) = \frac{P(Model|Dog)P(Dog)}{P(Model)}$$
 
-<br>
 <br></p>
 <p>이때, $P(Model)$은 모델이 현재 맞추려는 모든 클래스를 의미합니다. 모든 데이터셋은 겹치지 않기 때문에 (고양이이면서 강아지 일수 없음) 교집합이 없고, 그냥 덧셈으로 풀어서 쓸 수 있게 됩니다. 이를 전확률의 법칙이라고 합니다. 따라서 아래와 같이 식을 변경할 수 있습니다.</p>
 <p><br>
-<br>
 
 $$P(Dog|Model) = \frac{P(Model|Dog)P(Dog)}{P(Model|Dog)P(Dog) + P(Model|Cat)P(Cat)}$$
 
-<br>
 <br></p>
-<p>이 것을 함수로 만들고 싶은데, 확률은 0 ~ 1이기 때문에 만약 치역이 음수에서는 정의되지 않는 함수가 됩니다. 또한, Likelihood를 계산하려면 $P(Model|Dog_1) \times P(Model|Dog_2) \times P(Model|Dog_3)$...을 모두 곱해야 하기 때문에 연산량이 큽니다. 이를 Log로 바꾸게 되면 곱셈이 전부 덧셈으로 풀리게 되기 때문에 기능상 매우 편리합니다. 따라서 이들을 로그로 바꿔줍니다.</p>
+<p>이 것을 함수로 만들고 싶은데, 확률은 0 ~ 1이기 때문에 만약 치역이 음수에서는 정의되지 않는 함수가 됩니다. 또한, Likelihood를 계산하려면 확률들을 모두 곱해야 하기 때문에 연산량이 큽니다. 이를 Log로 바꾸게 되면 곱셈이 전부 덧셈으로 풀리게 되기 때문에 기능상 매우 편리합니다. 따라서 이들을 로그로 바꿔줍니다.</p>
 <p><br>
-<br>
 
 $$P(Dog|Model) = \frac{\log P(Model|Dog)P(Dog)}{\log P(Model|Dog)P(Dog) + \log P(Model|Cat)P(Cat)}$$
 
-<br>
 <br></p>
 <p>식이 너무 복잡하니 $\log P(Model|Dog)P(Dog) = z_{Dog}$으로 치환하고 $\log P(Model|Cat)P(Cat) = z_{Cat}$으로 치환하겠습니다. 그러면 아래와 같이 생각 할 수 있습니다.</p>
 <p><br>
-<br>
 
 $$\log P(Model|Dog)P(Dog) = z_{Dog}$$
 
@@ -545,19 +544,15 @@ $$\log P(Model|Cat)P(Cat) = z_{Cat}$$
 
 $$P(Model|Cat)P(Cat) = e^{z_{Cat}}$$
 
-<br>
 <br></p>
 <p>기존의 확률값들을 자연상수 $e$의 지수꼴로 나타낼 수 있게 되었습니다. 따라서 이를 아래처럼 다시 정리합니다.</p>
 <p><br>
-<br>
 
 $$P(Dog|Model) = \frac{e^{z_{Dog}}}{e^{z_{Dog}} + e^{z_{Cat}}}$$
 
-<br>
 <br></p>
 <p>이를 시그마로 묶어서 더 깔끔하게 표현할 수 있고, 마찬가지로 고양이에 관한 사후확률도 표현이 가능합니다.</p>
 <p><br>
-<br>
 
 $$P(Dog|Model) = \frac{e^{z_{Dog}}}{\sum_i e^{z_i}}$$
 
@@ -565,7 +560,6 @@ $$P(Dog|Model) = \frac{e^{z_{Dog}}}{\sum_i e^{z_i}}$$
 
 $$P(Cat|Model) = \frac{e^{z_{Cat}}}{\sum_i e^{z_i}}$$
 
-<br>
 <br></p>
 <p>이러한 <strong>함수를 Softmax함수라고 부릅니다. Softmax함수는 보통 여러개의 클래스를 분류할 때 사용됩니다.</strong> 
 <br><br></p>
@@ -574,7 +568,6 @@ $$P(Cat|Model) = \frac{e^{z_{Cat}}}{\sum_i e^{z_i}}$$
 </h4>
 <p>만약 클래스가 현재 예시처럼 2개 뿐이라면 한번 더 식을 정리 할 수 있습니다. 분모와 분자를 모두 $e^{z_{Dog}}$로 나누면 아래처럼 됩니다.</p>
 <p><br>
-<br>
 
 $$P(Dog|Model) = \frac{e^{z_{Dog}}}{e^{z_{Dog}} + e^{z_{Cat}}}$$
 
@@ -594,7 +587,6 @@ $$P(Dog|Model) = \frac{1}{1 + e^{z_{Cat} - z_{Dog}}}$$
 <br></p>
 <p>그리고 지수에 나온 뺄셈식($z_{Cat} - z_{Dog}$)을 풉니다.</p>
 <p><br>
-<br>
 
 $$z_{Cat} - z_{Dog} = \log P(Model|Cat)P(Cat) - \log P(Model|Dog)P(Dog) $$
 
@@ -618,21 +610,89 @@ $$z_{Cat} - z_{Dog} = - \log \frac{P(Dog|Model)}{P(Cat|Model)}$$
 
 $$z_{Cat} - z_{Dog} = - logit$$
 
-<br>
 <br></p>
 <p>최종적으로 아래와 같은 식이 만들어집니다.</p>
 <p><br>
-<br>
 
 $$P(Dog|Model) =  \frac{1}{1 + e^{z_{Cat} - z_{Dog}}} = \frac{1}{1 + e^{-logit}}$$
 
-<br>
 <br></p>
 <p>이러한 <strong>함수를 Sigmoid함수라고 부릅니다. Sigmoid함수는 보통 2개의 클래스를 분류할 때 사용됩니다.</strong> 
 <br><br></p>
-<h4 id="4.3.-...-어렵나요?-그래도-기억해야할-것!">
-<a class="anchor" href="#4.3.-...-%EC%96%B4%EB%A0%B5%EB%82%98%EC%9A%94?-%EA%B7%B8%EB%9E%98%EB%8F%84-%EA%B8%B0%EC%96%B5%ED%95%B4%EC%95%BC%ED%95%A0-%EA%B2%83!" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.3. ... 어렵나요? 그래도 기억해야할 것!<a class="anchor-link" href="#4.3.-...-%EC%96%B4%EB%A0%B5%EB%82%98%EC%9A%94?-%EA%B7%B8%EB%9E%98%EB%8F%84-%EA%B8%B0%EC%96%B5%ED%95%B4%EC%95%BC%ED%95%A0-%EA%B2%83!"> </a>
+<h4 id="4.3.-어렵나요?-그래도-기억해야할-것!">
+<a class="anchor" href="#4.3.-%EC%96%B4%EB%A0%B5%EB%82%98%EC%9A%94?-%EA%B7%B8%EB%9E%98%EB%8F%84-%EA%B8%B0%EC%96%B5%ED%95%B4%EC%95%BC%ED%95%A0-%EA%B2%83!" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.3. 어렵나요? 그래도 기억해야할 것!<a class="anchor-link" href="#4.3.-%EC%96%B4%EB%A0%B5%EB%82%98%EC%9A%94?-%EA%B7%B8%EB%9E%98%EB%8F%84-%EA%B8%B0%EC%96%B5%ED%95%B4%EC%95%BC%ED%95%A0-%EA%B2%83!"> </a>
 </h4>
+<p>위의 전개 내용은 궁금하신 분들만 확인하시고, 여러분들이 기억해야 할 내용은 아래와 같습니다.</p>
+<ul>
+<li>Sigmoid나 Softmax는 베이즈 정리와 동일하며, 이들은 <strong>확률</strong>을 나타냅니다.</li>
+<li>두 함수는 사실 같은 함수이며, Softmax는 클래스가 여러개일 때, Sigmoid는 클래스가 2개일 때 씁니다.</li>
+<li>그래프의 개형은 아래처럼 그려집니다. (Sigmoid 기준)
+<br>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+ 
+<span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">z</span><span class="p">))</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXQAAAD4CAYAAAD8Zh1EAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4yLjEsIGh0dHA6Ly9tYXRwbG90bGliLm9yZy+j8jraAAAfPklEQVR4nO3dfXzVdf3/8ceLXV8DYzAYjCEXciFy4QSBUjNNUJOyX6mUihehpWVZllZ25a2yrOyKQr5GapqIiYlGeVEqfTOFgQO5cDgmsHG1jbGx67Oz8/79sel34WAHOGefs3Oe99ttt+1zPp+dPc/N7emb9/l83h9zziEiIn1fP68DiIhIaKjQRUSihApdRCRKqNBFRKKECl1EJErEe/WDBw0a5AoKCrz68SIifdL69eurnXM53e3zrNALCgooKiry6seLiPRJZrbraPs05SIiEiVU6CIiUUKFLiISJVToIiJRQoUuIhIlVOgiIlFChS4iEiVU6CIiUUKFLiISJVToIiJRQoUuIhIlVOgiIlFChS4iEiV6LHQzW2ZmlWa2+Sj7zcx+ZWalZrbJzKaHPqaIiPQkmBH6g8DcY+yfB4zt/FgE/O7kY4mIyPHqsdCdc2uAmmMcMh942HV4DehvZkNDFVBERIITijn0PKC8y3ZF52PvY2aLzKzIzIqqqqpC8KNFRORdobhjkXXzmOvuQOfcUmApQGFhYbfHiIhEMn97gLrmNmqb26hrbuNwcxuHW/wcbm6jvsVPfUsbDa1+Glr8NLT6afT5aWxtp6nL52tmF/Cl88eFPFsoCr0CGNFleziwNwTPKyISds456lv9VB5upbK+har6VqrqW6lu8HGwoZWaRh/VjT4ONfo41OSjvsV/zOeL62dkJMeTlhjf8TkpnsyUBIZmJZOSGEdaYjyThmWF5bWEotBXAbeY2XJgJlDnnNsXgucVETlp7QHHvrpmdtc0UXGomT2HmtlT28y+umb21bWwv66FJl/7+74vIc4YmJZIdloS2emJFGSnMiA1kf6pCfRPSaB/aiJZKQlkpiSQlRJPZnICGckJJCf0w6y7iYvw67HQzewx4FxgkJlVAN8BEgCcc0uA1cBFQCnQBFwbrrAiIt1xzlHV0EppZQM7qhopq2pgZ3UjOw82UXGoibb2/5vhNYPBGUkMzUphfG4G544bTG5WEkMyk8nJSGJwRhKD0pPISknwrJhPVI+F7py7sof9Drg5ZIlERI6hpa2dt/bXs2VvHW/tq6dkfz0lB+qpa25775jUxDgKstOYODSTeaflkj8wlfyBqeQNSGFoVgqJ8dF5TWUoplxERMLC3x6g5EA9G8vrKC4/xKaKOt6ubKA90DHiTk+K59TcDC4+fShjB6czpvMjNzO5z42uQ0GFLiIRo9Xfzhu7a3m9rIaiXTVs2HWIxs757QGpCZw+vD8XTBzCpGGZTBqWxfABKTFZ3EejQhcRzzjn2LrvMGu2V/Ovt6tYv+sQrf4AZjA+N5PLpg+nsGAA00YMYMRAlXdPVOgi0quafH7+9+1qXtx2gJdKqqiqbwVgfG4Gn545klmjs5kxaiBZKQkeJ+17VOgiEnYNrX7+se0Az27ax5rtVbT6A2Qkx3PuqYM5Z1wOZ48dxODMZK9j9nkqdBEJC58/wEsllTy1YQ//LKnE5w+Qm5nMlTPy+cjEIZw5aiAJcdF5tolXVOgiElJb9x5m+brdrNq4l9qmNgalJ7JgRj4fnTKUaSMG0K+f5sHDRYUuIietpa2dVRv38ujru9lYXktifD8unJTLZdPz+OCYQcRrJN4rVOgicsL217Xwx9d28tjacmoafYwdnM5dl0zksml5DEhL9DpezFGhi8hxK61sYOmaHTz1xh78Acf5E4Zw7ZwCZp2SrVMLPaRCF5GgvbX/ML988W3+vmU/iXH9WDAjn+s/cAr52aleRxNU6CIShNLKeu578W3+umkfGUnx3HzuGBbOKWBQepLX0aQLFbqIHFXl4RZ+/sJ2VhSVk5IQxy0fGsMNHxxF/1TNj0ciFbqIvE+zr50lr+xg6Zoy/IEA18wu4AvnjWWg3uiMaCp0EXmPc47ntuzn7me3sae2mYsnD+Vrc09lZHaa19EkCCp0EQFg98EmvvX0ZtZsr2J8bgaPLzqLmadkex1LjoMKXSTG+dsD/OHfO/nZCyXE9+vHty+ZyNWzRupioD5IhS4Sw94+UM9XntjIpoo6zp8wmLs/dhpDs1K8jiUnSIUuEoMCAceyf7/DT54rISMpnt8smMbFk4fqoqA+ToUuEmP21TVz2+Mb+U/ZQc6fMIR7PjFZ55NHCRW6SAx56a1KbltRTKs/wI8/MZlPFY7QqDyKqNBFYkBbe4CfPlfC/WvKmDA0k8ULpnFKTrrXsSTEVOgiUa6qvpWbH93A2p01XHXWSL558QSSE+K8jiVhoEIXiWLF5bXc9Mf11Db7+OUVU5k/Nc/rSBJGKnSRKPXk+gruXPkmgzOTWPm5OUwclul1JAkzFbpIlAkEHD9/YTu/eamU2aOzWbxgum42ESNU6CJRpKWtna8+sZFnN+3jijNHcPfHTtONmGOICl0kStQ1tXHDw+so2nWIO+eNZ9HZp+iUxBgT1P+6zWyumZWYWamZ3dHN/iwze8bMNprZFjO7NvRRReRo9te18Kn7/8PG8jp+feU0bjxntMo8BvU4QjezOGAxcAFQAawzs1XOua1dDrsZ2Oqc+6iZ5QAlZvaoc84XltQi8p4dVQ1c/fu11DW38eC1ZzJ7zCCvI4lHgplymQGUOufKAMxsOTAf6FroDsiwjiFBOlAD+EOcVUSOsG3fYT7zwOuYwfJFZ3FaXpbXkcRDwUy55AHlXbYrOh/r6jfABGAv8CZwq3MucOQTmdkiMysys6KqqqoTjCwiAJsqarnyf14jIa4fK26cpTKXoAq9u4k4d8T2hUAxMAyYCvzGzN530qtzbqlzrtA5V5iTk3PcYUWkw/pdNXz6f14nPSmeFTfO0mX8AgRX6BXAiC7bw+kYiXd1LbDSdSgF3gHGhyaiiHS1Yfchrlm2juz0RFbcOIv87FSvI0mECKbQ1wFjzWyUmSUCVwCrjjhmN/BhADMbApwKlIUyqIh0TLNcs2wt2emJLF80i2H9dTMK+T89vinqnPOb2S3Ac0AcsMw5t8XMburcvwS4G3jQzN6kY4rm68656jDmFok5W/bWcdXv15KVksCfPnsWuVnJXkeSCBPUhUXOudXA6iMeW9Ll673AR0IbTUTeVVrZwFW/X0taYhyPffYs8jQyl27ommCRCLentpmrf/86/QweuWEmIwZqzly6p0IXiWDVDa1c9cDr1Lf4eei6GTqbRY5Ja7mIRKjGVj/X/mEde+ua+eP1M5k0TOeZy7FphC4SgdraA3z+0Q1s2VvH4gXTObNgoNeRpA/QCF0kwjjn+NZTm3llexU//PhkPjxhiNeRpI/QCF0kwvzqH6U8XlTOF84bw4KZ+V7HkT5EhS4SQZ4u3sN9L27nsul53HbBOK/jSB+jQheJEOt31XD7nzcxY9RA7rnsdK1nLsdNhS4SAcprmlj08HqGZiVz/2fOIDFef5py/PRbI+KxhlY/NzxURFt7gN9fc6Zu6CwnTGe5iHgoEHB8ZUUxb1fW89B1MxgzWBcOyYnTCF3EQ7/+ZynPbTnANy6awAfH6h4BcnJU6CIeeX7L/o4zWqblcf0HRnkdR6KACl3EA6WVDdy2YiOnD8/ih5dN1hktEhIqdJFe1tjq56ZH1pMU348lnzmD5IQ4ryNJlNCboiK9yDnH15/cRFlVA49cP1N3HJKQ0ghdpBct+/dOnt20j69eeCqzxwzyOo5EGRW6SC9Zv6uGH63exkcmDuFz54z2Oo5EIRW6SC+oafRxy5/eYFj/FO795BS9CSphoTl0kTALBBy3rSjmYIOPlZ+fTVZKgteRJEpphC4SZkvW7ODlkiruumQCp+XprkMSPip0kTAq2lnDz57fzsWTh/KZs0Z6HUeinApdJEzqmtq4dXkxef1T+NEndPGQhJ/m0EXC4N3zzQ8cbuHPn5tNZrLmzSX8NEIXCYNHX9/N37fs52tzT2XqiP5ex5EYoUIXCbGS/fXc/exWzh6Xww0fOMXrOBJDVOgiIdTS1s4XH3uDjOR4fvbJKfTrp3lz6T1BFbqZzTWzEjMrNbM7jnLMuWZWbGZbzOyV0MYU6Rvu+dtblByo595PTiEnI8nrOBJjenxT1MzigMXABUAFsM7MVjnntnY5pj/wW2Cuc263mQ0OV2CRSPVSSSUPvrqThbML+NCp+hOQ3hfMCH0GUOqcK3PO+YDlwPwjjlkArHTO7QZwzlWGNqZIZKtuaOX2JzYyPjeDO+aN9zqOxKhgCj0PKO+yXdH5WFfjgAFm9rKZrTezq7t7IjNbZGZFZlZUVVV1YolFIoxzjjue3MThFj+/vGKa1jcXzwRT6N29q+OO2I4HzgAuBi4E7jKzce/7JueWOucKnXOFOTm6f6JEh+XrynlxWyVfnzueU3MzvI4jMSyYC4sqgBFdtocDe7s5pto51wg0mtkaYAqwPSQpRSLUzupG7n52K3PGZHPt7AKv40iMC2aEvg4Ya2ajzCwRuAJYdcQxTwMfNLN4M0sFZgLbQhtVJLL42wN86fFi4vsZP9UpihIBehyhO+f8ZnYL8BwQByxzzm0xs5s69y9xzm0zs78Dm4AA8IBzbnM4g4t47bcv76C4vJZfXzmNoVm6lZx4L6i1XJxzq4HVRzy25Ijte4F7QxdNJHK9WVHHr/7xNvOnDuOjU4Z5HUcE0JWiIsetpa2dL68oZlB6Et+/9DSv44i8R6stihynn/y9hNLKBv54/QyyUrWKokQOjdBFjsOrO6pZ9u93uGbWSD44VqfeSmRRoYsE6XBLG7c/sYlRg9K4Y94Er+OIvI+mXESCdPczW9lX18yfPzeblERdDSqRRyN0kSC8uPUAT6yv4KZzRjM9f4DXcUS6pUIX6UFNo487Vr7J+NwMbj1/rNdxRI5KUy4iPbjr6c3UNft4+LoZJMVrqkUil0boIsfwzMa9/HXTPr50/jgmDsv0Oo7IManQRY6i8nALdz29makj+nPj2bo3qEQ+FbpIN5xz3LnyTZp97fzsU1OIj9OfikQ+/ZaKdOOJ9RX8462ONc5H56R7HUckKCp0kSNUHGri+89sZeaogSzUGufSh6jQRboIBBxf+/MmAs5pjXPpc1ToIl088vouXt1xkG9dPJERA1O9jiNyXFToIp3eqW7kR6vf4uxxOVw5Y0TP3yASYVToIkB7wHH7ExtJiDN+8onTMdNUi/Q9ulJUBHjgX2UU7TrEfZdPITcr2es4IidEI3SJeSX76/nZ89uZOymXj03N8zqOyAlToUtM8/kD3LaimIzkeH7w8dM01SJ9mqZcJKb95qVStuw9zP1XnUF2epLXcUROikboErOKy2tZ/FIpl03P48JJuV7HETlpKnSJSc2+dm57vJghGUl899JJXscRCQlNuUhMuudv2yirbuRPN8wkMznB6zgiIaERusScf71dxUP/2cW1cwqYPWaQ13FEQkaFLjGltsnH7U9sYnROGl+fO97rOCIhpUKXmOGc41t/2Ux1Qyu/uHwayQm6nZxEl6AK3czmmlmJmZWa2R3HOO5MM2s3s/8XuogiofF08V6e3bSPL18wjsnDs7yOIxJyPRa6mcUBi4F5wETgSjObeJTjfgw8F+qQIidrT20zdz29mcKRA7jpnNFexxEJi2BG6DOAUudcmXPOBywH5ndz3BeAJ4HKEOYTOWntAcdXVhQTCDjuu3wqcVrjXKJUMIWeB5R32a7ofOw9ZpYHfBxYcqwnMrNFZlZkZkVVVVXHm1XkhNy/ZgevldXwnUsnaY1ziWrBFHp3wxl3xPYvgK8759qP9UTOuaXOuULnXGFOTk6wGUVO2MbyWn7+/HYunjyUT54x3Os4ImEVzIVFFUDX1f6HA3uPOKYQWN65sNEg4CIz8zvn/hKSlCInoLHVz5ceL2ZwRhI//PhkLbwlUS+YQl8HjDWzUcAe4ApgQdcDnHOj3v3azB4EnlWZi9e+/8xWdh5s5LHPnkVWqq4GlejXY6E75/xmdgsdZ6/EAcucc1vM7KbO/cecNxfxwjMb9/J4UTmfP3c0Z52S7XUckV4R1FouzrnVwOojHuu2yJ1zC08+lsiJK69p4hsr32Rafn++fME4r+OI9BpdKSpRpa09wBceewMMfnXFNBLi9CsusUOrLUpU+fkL2zvWOV8wXacoSszR8EWixivbq1jyyg6unJHPxacP9TqOSK9ToUtU2FfXzJcfL+bUIRl856PvW5lCJCao0KXPa2sP8MXH3qC1rZ3Fn56uVRQlZmkOXfq8nz5fwrqdh/jlFVMZnZPudRwRz2iELn3ai1sPcP8rZSyYmc/8qXk9f4NIFFOhS5+1s7qRL68o5rS8TL59iebNRVTo0ic1+9q56ZH1xPUzfvfpMzRvLoLm0KUPcs7xzafepORAPX9YeKbONxfppBG69DkPvbqTlW/s4dYPj+XcUwd7HUckYqjQpU95dUc1d/91G+dPGMIXzxvrdRyRiKJClz6jvKaJmx/dwKhBadx3+RT66VZyIv9FhS59QrOvnRv/uB5/wLH0qjPISNb65iJH0puiEvECAceXHy9m2/7DLFt4Jqfo4iGRbmmELhHvp8+X8Pct+/nWxRP5kN4EFTkqFbpEtCeKyvntyztYMDOf6+YUeB1HJKKp0CVivVZ2kG889SZzxmTzvUsn6SbPIj1QoUtE2n6gnkUPF5E/MJXfLjhDdx4SCYL+SiTi7K9rYeGytSQlxPHQdTPIStUZLSLBUKFLRKlvaWPhH9ZS19zGHxaeyfABuqxfJFg6bVEiRktbOzc8VERpZQPLFp7JaXlZXkcS6VNU6BIR/O0BbvnTG6zdWcMvLp/K2eNyvI4k0udoykU8Fwg4vvbkJl7cdoDvXTpJN6oQOUEqdPGUc47vPrOFlRv2cNsF47h6VoHXkUT6LBW6eMY5x93PbuPh/+zisx8cxRfOG+N1JJE+TYUunnDOcc/f3mLZv9/h2jkFfOOiCbpwSOQkBVXoZjbXzErMrNTM7uhm/6fNbFPnx6tmNiX0USVaOOf48d9LuH9NGVedNZJvXzJRZS4SAj2e5WJmccBi4AKgAlhnZqucc1u7HPYOcI5z7pCZzQOWAjPDEVj6Nucc33tmKw++upMFM/N1Sb9ICAVz2uIMoNQ5VwZgZsuB+cB7he6ce7XL8a8Bw0MZUqJDIOD45l8289ja3Vw7p0Ajc5EQC2bKJQ8o77Jd0fnY0VwP/K27HWa2yMyKzKyoqqoq+JTS57W1B/jKExt5bO1uPn/uaJW5SBgEM0Lv7q/OdXug2YfoKPQPdLffObeUjukYCgsLu30OiT5NPj+fe2QDr2yv4vYLT+XmD+lsFpFwCKbQK4ARXbaHA3uPPMjMTgceAOY55w6GJp70dTWNPq59cB1vVtRyz2WTuWJGvteRRKJWMIW+DhhrZqOAPcAVwIKuB5hZPrASuMo5tz3kKaVPeqe6kesfXMee2maWfOYMPjIp1+tIIlGtx0J3zvnN7BbgOSAOWOac22JmN3XuXwJ8G8gGfts5L+p3zhWGL7ZEutfKDnLTI+vpZ8ajN8yksGCg15FEop45581UdmFhoSsqKvLkZ0t4/Xl9BXeu3ET+wFSWLTyTkdlpXkcSiRpmtv5oA2attigh09Ye4Ad/3caDr+5k9uhsfvfpM3RzCpFepEKXkKiqb+XmP21g7Ts1XP+BUdw5bzzxum2cSK9SoctJe73sILcuL6a22ccvLp/Kx6Zp+VsRL6jQ5YS1Bxy/famU+17czsjsNH6/cDaThukuQyJeUaHLCdlX18xXn9jIv0sPMn/qMH7w8cmkJ+nXScRL+guU4/Z08R7u+stm2todP/7EZD5VOEKX8YtEABW6BO1gQyvfWbWFZzftY3p+f37+qakUDNIpiSKRQoUuPXLO8dQbe7j72a00tPq5/cJTufHsU3QWi0iEUaHLMe2sbuTbq7awZnsV0/P78+NPnM7YIRlexxKRbqjQpVvNvnYWv1TK0jVlJMb347sfnchVswqI66e5cpFIpUKX/xIIOFZt3Mu9z5Wwp7aZj0/L48554xmcmex1NBHpgQpd3vPqjmp+uHobm/ccZtKwTO67fCozRmlRLZG+QoUurN91iPte2M7/llaT1z+F+y6fwvwpefTT9IpIn6JCj2Hrd9Xw63+W8nJJFdlpiXzzoglcNWskyQlxXkcTkROgQo8xzjleLqnidy/vYO3OGgakJnDHvPFcPWskqYn6dRDpy/QXHCMaW/2s3FDBg6/uZEdVI8OykvnORydy+ZkjVOQiUUJ/yVGuZH89j63dzZMbKqhv8XP68Czuu3wKl5w+jARdGCQSVVToUaiuuY3Vb+5jRVE5b+yuJTGuHxeelsvC2QVMz++vdVdEopQKPUq0tLXzyvYqVhXv5YVtB/D5A4wZnM63Lp7AZdOHMzAt0euIIhJmKvQ+rKHVz7+2V/G3zfv5x7YDNPrayU5LZMGMfC6bnsfkvCyNxkViiAq9j9lZ3ciat6v4x7ZK/rPjIL72AANSE7h06jAumjyUWadka9EskRilQo9wBxtaea2shv+UVfOvt6vZdbAJgILsVK6ZPZLzJwzhjJEDVOIiokKPJM45ymuaKdpVQ9GuQxTtrGH7gQYA0hLjOOuUbK6bM4pzxuVoHXIReR8Vukecc+yra2HL3sNs3lPHpopaNlbUUdPoAyAjKZ7pIwcwf2oes0ZnMzkvS6cZisgxqdB7QW2Tj9LKBkorG3hrfz0l++spOVD/XnmbwbjBGZw/YTCnD+/PGSMHMG5IhpaqFZHjokIPAecch5v97K5pYndNE7tqGtlZ3cjO6ibKqhupbmh979iUhDjG5WZwwYQhTMrLZNKwTMbnZpKmGyyLyElSi/TAOUddcxsHDrdSWd/CgcOt7K9rZl9dC3trm9lb28Ke2mYaWv3/9X05GUmMyk7jvPE5jBmc3vGRk8HwASlaxVBEwiKmCt05R5Ovnbrmtvc+apt8HGpq41CTj0ONPg42+qhp9FHd0MrBBh8HG3z42gPve66BaYnkZiaTn53KrNHZ5PVPIT87lfyBqYwYmEq6Rtwi0suCah0zmwv8EogDHnDO3XPEfuvcfxHQBCx0zm0IcVYAKutb2LLnME2+dpp8flra2mn0tXdst/pp9PlpaG2nsdVPQ6ufhpaOz4db2qhv8dMecEd97uSEfmSnJTEwLZFB6UmMz81kUHoSg9ITGZKZzOCMJIZkJpOblawlZkUk4vRY6GYWBywGLgAqgHVmtso5t7XLYfOAsZ0fM4HfdX4OubXv1HDLn97odl9qYhxpSfGkdX5OT4pnWP9k0pPiyUxJICM5nozkBLJSEuif0vE5KzWBAamJDEhNJCVRJS0ifVcwI/QZQKlzrgzAzJYD84GuhT4feNg554DXzKy/mQ11zu0LdeA5owfxl5vnkJIQR2piHMkJcaQlxZEcH6e5aRGJacEUeh5Q3mW7gvePvrs7Jg/4r0I3s0XAIoD8/PzjzQrAgLREBmihKRGR9wnmSpXuhr1HTkQHcwzOuaXOuULnXGFOTk4w+UREJEjBFHoFMKLL9nBg7wkcIyIiYRRMoa8DxprZKDNLBK4AVh1xzCrgautwFlAXjvlzERE5uh7n0J1zfjO7BXiOjtMWlznntpjZTZ37lwCr6ThlsZSO0xavDV9kERHpTlDnoTvnVtNR2l0fW9LlawfcHNpoIiJyPLR8n4hIlFChi4hECRW6iEiUUKGLiEQJFbqISJRQoYuIRAkVuohIlFChi4hECRW6iEiUUKGLiEQJFbqISJRQoYuIRAnrWFfLgx9sVgXs8uSHn5xBQLXXITwQi687Fl8zxObr7kuveaRzrts7BHlW6H2VmRU55wq9ztHbYvF1x+Jrhth83dHymjXlIiISJVToIiJRQoV+/JZ6HcAjsfi6Y/E1Q2y+7qh4zZpDFxGJEhqhi4hECRW6iEiUUKGfBDP7qpk5MxvkdZZwM7N7zewtM9tkZk+ZWX+vM4WTmc01sxIzKzWzO7zOE25mNsLMXjKzbWa2xcxu9TpTbzGzODN7w8ye9TrLyVKhnyAzGwFcAOz2OksveQE4zTl3OrAduNPjPGFjZnHAYmAeMBG40swmepsq7PzAV5xzE4CzgJtj4DW/61Zgm9chQkGFfuLuA74GxMS7ys65551z/s7N14DhXuYJsxlAqXOuzDnnA5YD8z3OFFbOuX3OuQ2dX9fTUXB53qYKPzMbDlwMPOB1llBQoZ8AM7sU2OOc2+h1Fo9cB/zN6xBhlAeUd9muIAbK7V1mVgBMA173Nkmv+AUdA7OA10FCId7rAJHKzF4EcrvZ9U3gG8BHejdR+B3rNTvnnu485pt0/PP80d7M1susm8di4l9iZpYOPAl8yTl32Os84WRmlwCVzrn1Znau13lCQYV+FM6587t73MwmA6OAjWYGHVMPG8xshnNufy9GDLmjveZ3mdk1wCXAh110X8BQAYzosj0c2OtRll5jZgl0lPmjzrmVXufpBXOAS83sIiAZyDSzR5xzn/E41wnThUUnycx2AoXOub6yUtsJMbO5wM+Bc5xzVV7nCSczi6fjjd8PA3uAdcAC59wWT4OFkXWMTh4CapxzX/I6T2/rHKF/1Tl3iddZTobm0CVYvwEygBfMrNjMlngdKFw63/y9BXiOjjcHV0RzmXeaA1wFnNf537e4c+QqfYhG6CIiUUIjdBGRKKFCFxGJEip0EZEooUIXEYkSKnQRkSihQhcRiRIqdBGRKPH/AbBO7B1kvYrwAAAAAElFTkSuQmCC%0A">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
+<h3 id="5.-다양한-통계적-개념들">
+<a class="anchor" href="#5.-%EB%8B%A4%EC%96%91%ED%95%9C-%ED%86%B5%EA%B3%84%EC%A0%81-%EA%B0%9C%EB%85%90%EB%93%A4" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. 다양한 통계적 개념들<a class="anchor-link" href="#5.-%EB%8B%A4%EC%96%91%ED%95%9C-%ED%86%B5%EA%B3%84%EC%A0%81-%EA%B0%9C%EB%85%90%EB%93%A4"> </a>
+</h3>
+<p>이 챕터에서는 평균, 기댓값, 분산, 표준편차 등에 대해 알려드립니다. 다양한 통계적 개념들에 대해 배웁니다. 
+<br><br></p>
+<h4 id="5.1.-평균">
+<a class="anchor" href="#5.1.-%ED%8F%89%EA%B7%A0" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.1. 평균<a class="anchor-link" href="#5.1.-%ED%8F%89%EA%B7%A0"> </a>
+</h4>
+<p>평균은 어떤 자료가 있을 때, 그 자료를 대표하는 값으로 모든 자료의 값으로 더하고 그 개수로 나누면 평균이다.</p>
+
 </div>
 </div>
 </div>
