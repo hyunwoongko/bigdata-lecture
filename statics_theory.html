@@ -290,8 +290,11 @@
 </li>
 <li class="toc-entry toc-h3"><a href="#6.-다양한-통계적-개념들">6. 다양한 통계적 개념들 </a>
 <ul>
-<li class="toc-entry toc-h4"><a href="#6.1.-평균">6.1. 평균 </a></li>
-<li class="toc-entry toc-h4"><a href="#5.2.-기댓값">5.2. 기댓값 </a></li>
+<li class="toc-entry toc-h4"><a href="#6.1.-평균-(Mean)">6.1. 평균 (Mean) </a></li>
+<li class="toc-entry toc-h4"><a href="#5.2.-기댓값-(Expectation-Value)">5.2. 기댓값 (Expectation Value) </a></li>
+<li class="toc-entry toc-h4"><a href="#5.3.-분산-(Variance)">5.3. 분산 (Variance) </a></li>
+<li class="toc-entry toc-h4"><a href="#5.4.-표준편차">5.4. 표준편차 </a></li>
+<li class="toc-entry toc-h4"><a href="#5.5-평균과-표준편차에-의한-정규분포의-변화">5.5 평균과 표준편차에 의한 정규분포의 변화 </a></li>
 </ul>
 </li>
 </ul><!--
@@ -895,15 +898,15 @@ $$P(Dog|Model) =  \frac{1}{1 + e^{z_{Cat} - z_{Dog}}} = \frac{1}{1 + e^{-logit}}
 </h3>
 <p>여기에서는 평균, 기댓값, 분산, 표준편차 등 다양한 통계적 개념들에 대해 배웁니다. 
 <br><br></p>
-<h4 id="6.1.-평균">
-<a class="anchor" href="#6.1.-%ED%8F%89%EA%B7%A0" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.1. 평균<a class="anchor-link" href="#6.1.-%ED%8F%89%EA%B7%A0"> </a>
+<h4 id="6.1.-평균-(Mean)">
+<a class="anchor" href="#6.1.-%ED%8F%89%EA%B7%A0-(Mean)" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.1. 평균 (Mean)<a class="anchor-link" href="#6.1.-%ED%8F%89%EA%B7%A0-(Mean)"> </a>
 </h4>
 <p><br>
 
-$$m = \frac{1}{N} \sum_{i} x_i$$
+$$mean = \frac{1}{N} \sum_{i} x_i$$
 
 <br></p>
-<p>평균은 어떤 자료가 n개 있을 때, 모든 자료의 값으로 더하고 개수인 n개로 나누면 그 것을 평균이라고 합니다. numpy에서는 mean()함수로 쉽게 구할 수 있습니다.</p>
+<p>평균은 어떤 자료가 n개 있을 때, 모든 자료의 값으로 더하고 개수인 n개로 나누면 그 것을 평균이라고 합니다. 평균을 일반적으로 해당 분포의 대표값으로 사용되는 값입니다. numpy에서는 mean()함수로 쉽게 구할 수 있습니다.</p>
 
 </div>
 </div>
@@ -917,7 +920,7 @@ $$m = \frac{1}{N} \sum_{i} x_i$$
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="n">vec_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
+<span class="n">vec_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
 <span class="n">vec_a</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 
@@ -933,7 +936,7 @@ $$m = \frac{1}{N} \sum_{i} x_i$$
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>5.0</pre>
+<pre>3.0</pre>
 </div>
 
 </div>
@@ -948,14 +951,249 @@ $$m = \frac{1}{N} \sum_{i} x_i$$
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br></p>
-<h4 id="5.2.-기댓값">
-<a class="anchor" href="#5.2.-%EA%B8%B0%EB%8C%93%EA%B0%92" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.2. 기댓값<a class="anchor-link" href="#5.2.-%EA%B8%B0%EB%8C%93%EA%B0%92"> </a>
+<h4 id="5.2.-기댓값-(Expectation-Value)">
+<a class="anchor" href="#5.2.-%EA%B8%B0%EB%8C%93%EA%B0%92-(Expectation-Value)" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.2. 기댓값 (Expectation Value)<a class="anchor-link" href="#5.2.-%EA%B8%B0%EB%8C%93%EA%B0%92-(Expectation-Value)"> </a>
 </h4>
-<p>기댓값은 그 사건이 일어날 확률과 값을 곱한 것을 평균낸 것입니다. 위에서 언급한 그냥 평균은 확률분포를 고려하지 않지만 기대값은 확률분포를 고려한 평균이라고 보시면 됩니다.</p>
+<p><br>
+
+$$E[x] = \sum_{i} x_i \cdot P(x_i)$$
+
+<br></p>
+<p>기댓값은 그 사건이 일어날 확률과 값을 곱한 뒤 전부 더한 것입니다. 여기에서 확률은 위에서 언급한 <strong>확률분포</strong>에 기인합니다. 즉, 위에서 언급한 그냥 <strong>평균은 확률분포를 고려하지 않아서 모든 데이터를 균등분포라고 생각하고 계산</strong>하지만 기대값은 확률분포를 고려한 평균이라고 보시면 됩니다. <br><br></p>
+<p>예를들어 10개의 데이터가 각각 발생할 확률이 다른데, 이들을 모두 더해서 평균을 내면 각 데이터의 값에 전부 같은 값인 $\frac{1}{10}$을 곱해서 $mean = \frac{1}{10} \sum_{i} x_i = \sum_{i} x_i \cdot \frac{1}{10}$처럼 계산합니다. 이는 $P(x_i)$를 모두 동일한 확률인 $\frac{1}{10}$으로 생각해서 계산한 것이라고 봐도 무방합니다. 즉, 평균의 경우 확률분포를 고려하지 않고 무조건 균등분포로 생각해서 계산합니다. <br><br></p>
+<p>그러나 기대값의 경우는 $\frac{1}{N}$을 곱하는 것이 아니라 그 데이터가 발생할 확률인 $P(x_i)$을 곱해주기 때문에, 그 분포의 대표값을 설정할 때, 평균에 비해서더 적합한 대표값을 설정할 수 있습니다. (정규분포등의 분포 특성을 고려할 수 있음)</p>
 
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
+<h4 id="5.3.-분산-(Variance)">
+<a class="anchor" href="#5.3.-%EB%B6%84%EC%82%B0-(Variance)" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.3. 분산 (Variance)<a class="anchor-link" href="#5.3.-%EB%B6%84%EC%82%B0-(Variance)"> </a>
+</h4>
+<p><br>
+
+$$deviation = x_i - mean$$
+
+<br></p>
+<p>분산 이전에 편차(Deviation)에 대해서 생각해봅시다. <strong>편차는 전체 데이터가 평균과 얼마나 차이가 나는지</strong>를 계산한 것으로, 각각 데이터의 값들에서 평균(기대값)을 뺀 값입니다. 만약 [1, 2, 3, 4, 5]라는 배열이 있으면 평균은 3입니다. 편차는 값에서 평균(기대값)을 뺀 것이므로 편차는 [3-1, 3-2, 3-3, 3-4, 3-5]이고, 계산하면 [-2, -1, 0, 1, 2]가 됩니다.
+<br><br></p>
+<p>
+$$Variance = \frac{1}{N} \sum_{i} (x_i - mean)^2$$
+
+<br></p>
+<p>편차(deviation)는 실제 데이터가 평균과 얼마나 차이가 나는지 평가하기 위한 척도인데, 빼다보니 음수가 포함되어서 편차를 모두 더하니 $deviation = -2 -1 +0 + 1 + 2$로 $deviation = 0$이 되어버렸습니다. 그러나 실제로 편차가 0이려면 데이터는 [3, 3, 3, 3, 3]과 같아야합니다. 따라서 <strong>음수값을 없애주기 위해 편차값들에 모두 제곱을 해서 더해준 값이 분산</strong>입니다.<br><br></p>
+<p>따라서 $Variance = \frac{1}{5} \cdot ((-2)^2 + (-1)^2 + 0^2 + 1^2 + 2^2) = \frac{1}{5} \cdot (4 + 1 + 0 + 1 + 4)$이고, 결과적으로 $Variance = \frac{1}{5} \cdot 10 = 2$가 되어 어느정도 편차를 잘 표현하고 있습니다. 즉, 정리하자면 분산은 데이터가 평균과 얼마나 차이나는지에 대한 척도입니다. numpy에서는 var()를 이용해 계산할 수 있습니다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">vec_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">vec_a</span><span class="o">.</span><span class="n">var</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2.0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
+<h4 id="5.4.-표준편차">
+<a class="anchor" href="#5.4.-%ED%91%9C%EC%A4%80%ED%8E%B8%EC%B0%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.4. 표준편차<a class="anchor-link" href="#5.4.-%ED%91%9C%EC%A4%80%ED%8E%B8%EC%B0%A8"> </a>
+</h4>
+<p><br>
+
+$$Standard Deviation = \sqrt{\frac{1}{N} \sum_{i} (x_i - mean)^2}$$
+
+<br></p>
+<p>분산이 어느정도 편차를 잘 표현하긴 하지만 원래 값에 제곱을 해버린지라 실제적인 편차값과는 거리가 있습니다. 가령, 위의 예시에 데이터들의 편차는 2, 1, 0, 1, 2로 실제로 평균내면 $\frac{6}{5} = 1.2$정도 됩니다. 그러나 제곱을 해버려서 값이 $2$로 커졌습니다. 따라서 <strong>표준편차는 분산값에 다시 루트를 씌워서 제곱으로 인한 값의 차이를 줄입니다.</strong> 따라서 $\sqrt{Variance} = \sqrt{2} = 1.414$로 이전의 2보다는 조금더 실제 편차의 평균인 1.2에 가까워졌음을 알 수 있습니다. numpy에서는 std()함수를 사용해서 계산할 수 있습니다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">vec_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">vec_a</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>1.4142135623730951</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
+<h4 id="5.5-평균과-표준편차에-의한-정규분포의-변화">
+<a class="anchor" href="#5.5-%ED%8F%89%EA%B7%A0%EA%B3%BC-%ED%91%9C%EC%A4%80%ED%8E%B8%EC%B0%A8%EC%97%90-%EC%9D%98%ED%95%9C-%EC%A0%95%EA%B7%9C%EB%B6%84%ED%8F%AC%EC%9D%98-%EB%B3%80%ED%99%94" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.5 평균과 표준편차에 의한 정규분포의 변화<a class="anchor-link" href="#5.5-%ED%8F%89%EA%B7%A0%EA%B3%BC-%ED%91%9C%EC%A4%80%ED%8E%B8%EC%B0%A8%EC%97%90-%EC%9D%98%ED%95%9C-%EC%A0%95%EA%B7%9C%EB%B6%84%ED%8F%AC%EC%9D%98-%EB%B3%80%ED%99%94"> </a>
+</h4>
+<p><img src="https://www.mathfactory.net/wp-content/uploads/%EC%88%98%ED%95%99-%EA%B3%B5%EC%8B%9D-%EC%A0%95%EA%B7%9C%EB%B6%84%ED%8F%AC-02.png" alt=""></p>
+<p>정규분포 그래프는 평균과 표준편차에 의해 결정됩니다. 평균이 움직이면 그래프 자체가 옆으로 움직이고, 표준편차가 커지면 그래프가 보다 완만해지며(평균과 차이 큼), 표준편차가 작아지면 보다 뾰족해집니다. (평균과 차이 작음) 이를 numpy를 통해 확인할 수 있습니다.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">normal_dist_1</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+<span class="c1"># 정규분포로 랜덤값 생성하기 (평균 0, 표준편차 1)</span>
+
+<span class="n">normal_dist_2</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+<span class="c1"># 정규분포로 랜덤값 생성하기 (평균 0, 표준편차 2)</span>
+
+<span class="n">normal_dist_3</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+<span class="c1"># 정규분포로 랜덤값 생성하기 (평균 0, 표준편차 3)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">normal_dist_1</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'std = 1.0'</span> <span class="p">,</span><span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">'stepfilled'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">normal_dist_2</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'std = 2.0'</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">'stepfilled'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">normal_dist_3</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'std = 3.0'</span><span class="p">,</span><span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">'stepfilled'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'std Difference'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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%0A">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">normal_dist_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+<span class="c1"># 정규분포로 랜덤값 생성하기 (평균 0, 표준편차 1.0)</span>
+
+<span class="n">normal_dist_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="c1"># 정규분포로 랜덤값 생성하기 (평균 0, 표준편차 1.0)</span>
+
+<span class="n">normal_dist_3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="c1"># 정규분포로 랜덤값 생성하기 (평균 0, 표준편차 1.0)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">normal_dist_1</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'mean = 0.0'</span> <span class="p">,</span><span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">'stepfilled'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">normal_dist_2</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'mean = 1.0'</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">'stepfilled'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">normal_dist_3</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'mean = 2.0'</span><span class="p">,</span><span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">'stepfilled'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'mean Difference'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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3ZcJEybwm9/8Zpd28+fPbx+5n3POOSxevLjPxwaXXMysCqxdu5Z58+Yxc+ZMxowZw3333cfvfvc7FixYwHe+8x0efvhhvv3tb3PKKadw9913s2XLFsaOHcvnP/959ttvPx577DHq6+v505/+xPnnn9++jtSKFStYvXo1Q4cO5YQTTuD3v/89J5544k7H/v73v8+99967S58++9nP8pOf/GSnxzZs2MDw4cPbtxsaGtiwYdd7iOe222233dhnn31oaWlh8ODBffqcHOhmVvFGjhzJ4YcfDsBhhx3G+PHjkcThhx/OunXrAFi0aBELFizgBz/4AZCZbvnKK68wdOhQmpqaWLlyJXV1dbz44ovtrzt27FgaGhoAOPLII1m3bt0ugT516lSmTp1aUD/zjbLzzVYptF1POdDNrOLtvvuH97zu169f+3a/fv1obW0FMiH50EMPccghO9+n++abb2b//fdn1apVfPDBB9TX1+d93bq6uvbXytWTEXpDQwNPPPFE+3ZzczPjxo3b5bkNDQ2sX7+ehoYGWltb2bp1KwMHDuziEyiMa+hmlgoTJ07kjjvuaB/9rlixAoCtW7fyiU98gn79+nHPPffw/vvv9+h1p06dysqVK3f56RjmbX1YtGgRmzdvZvPmzSxatIiJEyfu0u6MM85gzpw5ADz44IOccsopHqGbdZR70jRt0+GaFje1/z59/PTE+lGpn+uNN97IVVddxRFHHEFEMGLECB555BG+/vWvc/bZZzNv3jxOPvlk9tprr5L1YeDAgdx4442MGZP5jG666ab2kfdNN91EY2MjZ5xxBlOmTGHy5MkcdNBBDBw4kLlz5xbl+CrGmdXeaGxsDN/gwnqiLay7CpSiBHrblMUL7u/d80skqUBfs2YNhx56aNmOZx/K99lLWh4Rjfnae4RuFc9TFc0K4xq6mVlKeIRu1pncq0UrrPxilo8D3SqSyyxmPeeSi5lZSjjQrap5fRezDxVUcpE0CbgdqAPuiojvddJuDPA0cG5EPFi0XppZ5Sj2SpQpOz8xadIknn76aU488UQeeeSRvG1KtXxut4EuqQ64E5gANANLJS2IiOfytLsNeLTPvbKa5dF271TKRUeWubL07bff5qc//WmnbXKXz507dy7Tpk3j/vv7/sVWSMllLLA2Il6OiO3AXODMPO2uBB4CXu9zr8zMsqpp+VyA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%0A">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 </div>
 
 
