@@ -429,7 +429,7 @@
 <a class="anchor" href="#3.3.-%EC%99%9C-%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D%EC%9D%80-%EB%B2%A0%EC%9D%B4%EC%A7%80%EC%95%88%EC%9D%B8%EA%B0%80?" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.3. 왜 머신러닝은 베이지안인가?<a class="anchor-link" href="#3.3.-%EC%99%9C-%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D%EC%9D%80-%EB%B2%A0%EC%9D%B4%EC%A7%80%EC%95%88%EC%9D%B8%EA%B0%80?"> </a>
 </h4>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day2/110.png?raw=true" alt="">
-<br><br></p>
+<br></p>
 <ul>
 <li>머신러닝에 쓰이는 데이터셋은 고정적이다.</li>
 </ul>
@@ -516,10 +516,7 @@
 </h3>
 <p>이제 앞으로 머신러닝 모델들을 쭉 배우면서 계속 마주칠 Softmax함수와 Sigmoid함수입니다. 이들은 위에서 설명한 베이즈 정리와 정확히 동일한 함수입니다. 아래는 제가 직접 작성한 유도과정인데 상당히 어렵기 때문에 <strong>강의때는 다루지 않습니다.</strong> 만약 어떻게 저러한 모양의 함수가 작동하는지에 대해 궁금하시면 읽어보시고, 그게 아니라면 생략하셔도 무방합니다. 만약 읽다가 이해가 안가시면 저에게 질문해주세요! <br><br></p>
 <p><strong>그러나 반드시 알아두셔야할 것은 Softmax와 Sigmoid라는 함수가 있고 앞으로 매번 나올 것인데, 이 함수들은 베이즈 정리와 동일하며, 확률값을 나타낸다는 것입니다.</strong>  <br><br></p>
-<p><details><summary>자세한 내용을 보려면 누르세요!</summary>&lt;/p&gt;
-<p>
-
-</p>
+<p><details><summary>유도과정을 보려면 누르세요!</summary>&lt;/p&gt;
 <h4 id="Softmax-함수">
 <a class="anchor" href="#Softmax-%ED%95%A8%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>Softmax 함수<a class="anchor-link" href="#Softmax-%ED%95%A8%EC%88%98"> </a>
 </h4>
@@ -630,9 +627,14 @@ $$P(Dog|Model) =  \frac{1}{1 + e^{z_{Cat} - z_{Dog}}} = \frac{1}{1 + e^{-logit}}
 
 <br></p>
 <p>이러한 <strong>함수를 Sigmoid함수라고 부릅니다. Sigmoid함수는 보통 2개의 클래스를 분류할 때 사용됩니다.</strong></p>
-<p>&lt;/p&gt;
-&lt;/details&gt;
-<br></p>
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br><br></p>
 <h4 id="어렵나요?-그래도-기억해야할-것!">
 <a class="anchor" href="#%EC%96%B4%EB%A0%B5%EB%82%98%EC%9A%94?-%EA%B7%B8%EB%9E%98%EB%8F%84-%EA%B8%B0%EC%96%B5%ED%95%B4%EC%95%BC%ED%95%A0-%EA%B2%83!" aria-hidden="true"><span class="octicon octicon-link"></span></a>어렵나요? 그래도 기억해야할 것!<a class="anchor-link" href="#%EC%96%B4%EB%A0%B5%EB%82%98%EC%9A%94?-%EA%B7%B8%EB%9E%98%EB%8F%84-%EA%B8%B0%EC%96%B5%ED%95%B4%EC%95%BC%ED%95%A0-%EA%B2%83!"> </a>
 </h4>
@@ -645,9 +647,9 @@ $$P(Dog|Model) =  \frac{1}{1 + e^{z_{Cat} - z_{Dog}}} = \frac{1}{1 + e^{-logit}}
 </li>
 </ul>
 
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -700,17 +702,21 @@ $$P(Dog|Model) =  \frac{1}{1 + e^{z_{Cat} - z_{Dog}}} = \frac{1}{1 + e^{-logit}}
 <h3 id="6.-확률-분포">
 <a class="anchor" href="#6.-%ED%99%95%EB%A5%A0-%EB%B6%84%ED%8F%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. 확률 분포<a class="anchor-link" href="#6.-%ED%99%95%EB%A5%A0-%EB%B6%84%ED%8F%AC"> </a>
 </h3>
-<p>확률 분포란 특정 확률변수가 발생할 확률을 함수로 나타낸 것입니다. 말이 어려운데 아래 예제를 볼까요? 
+<p>확률 분포란 <strong>특정 값이 발생할 확률을 나타낸 함수</strong>입니다. 말이 어려운데 아래 예제를 볼까요? 
 <br><br></p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day2/115.png?raw=true" alt=""></p>
-<p>이 함수는 생쥐의 무게를 모델링한 함수(분포)입니다. 이 때, $x$축은 생쥐의 몸무게이며, $y$축은 이 분포에서 해당 몸무게의 생쥐가 발견될 가능성 (likelihood)입니다. 
+<p>이 함수는 생쥐의 무게를 모델링한 함수(분포)입니다. 이 때, $x$축은 생쥐의 몸무게라고 합시다.
 <br><br></p>
-<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day2/115.png?raw=true" alt=""></p>
-<p>확률분포란 특정한 값을 가질 확률을 나타내는 함수입니다. 우리는 위의 그래프에서 생쥐의 몸무게가 32g에서 34g 사이일 확률은 빨간색 영역의 넓이와 같다고 '정의'할 수 있습니다. 어떻게 이러한 정의가 가능한 것일까요? 우리는 콜모고로프의 공리적 확률에 대해 배웠습니다. 최소 0, 최대 1이며, 배반사건들의 확률 합이 합사건의 확률과 같기만 하다면 위와 같이 확률을 정의할 수 있습니다. 이렇게 <strong>특정 값</strong>에서 사건이 발생할 확률을 모델링 한 것을 우리는 <strong>확률 분포</strong>라고 합니다. 즉, <strong>확률 분포는 특정 값에서의 확률을 모델링한 함수</strong>와 같습니다. 
+<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day2/116.png?raw=true" alt=""></p>
+<p>확률분포란 <strong>특정한 값을 가질 확률을 나타내는 함수</strong>입니다. 우리는 위의 그래프에서 생쥐의 몸무게가 32g에서 34g 사이일 확률은 빨간색 영역의 넓이와 같다고 '정의'할 수 있습니다. 어떻게 이러한 정의가 가능한 것일까요? <br><br></p>
+<p>우리는 콜모고로프의 공리적 확률에 대해 배웠습니다. 최소 0, 최대 1이며, 배반사건들의 확률 합이 합사건의 확률과 같기만 하다면 위와 같이 확률을 정의할 수 있습니다. 이렇게 <strong>특정 값</strong>에서 사건이 발생할 확률을 모델링 한 것을 우리는 <strong>확률 분포</strong>라고 합니다. 즉, <strong>확률 분포는 특정 값에서의 확률을 모델링한 함수</strong>와 같습니다. <br><br></p>
+<p>세상에는 정말 다양한 확률분포 함수가 존재합니다. 그러나 머신러닝에서는 그런 분포를 다 사용하지는 않습니다. 때문에 이 강의에서는 가장 기본적이고 필수적인 분포함수만 간단하게 짚고 넘어갑니다.
 <br><br></p>
 <h4 id="6.1.-이산확률분포">
 <a class="anchor" href="#6.1.-%EC%9D%B4%EC%82%B0%ED%99%95%EB%A5%A0%EB%B6%84%ED%8F%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.1. 이산확률분포<a class="anchor-link" href="#6.1.-%EC%9D%B4%EC%82%B0%ED%99%95%EB%A5%A0%EB%B6%84%ED%8F%AC"> </a>
 </h4>
+<p><img src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&amp;fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99E192365D90B33B25" alt=""></p>
+<p>가장 먼저 이산확률분포에 대해 알아봅시다. 이산확률분포는 관측치가 이산적일때 사용하는 확률분포입니다. '이산'적이라는 것은 연속과 반대의 개념인데, 값이 뚝뚝 끊긴다고 생각하시면 됩니다. 가령 우리가 주사위를 던질 때 1, 2, 3, 4, 5, 6의 값만 가능하고,</p>
 <h4 id="6.2.-연속확률분포">
 <a class="anchor" href="#6.2.-%EC%97%B0%EC%86%8D%ED%99%95%EB%A5%A0%EB%B6%84%ED%8F%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.2. 연속확률분포<a class="anchor-link" href="#6.2.-%EC%97%B0%EC%86%8D%ED%99%95%EB%A5%A0%EB%B6%84%ED%8F%AC"> </a>
 </h4>
