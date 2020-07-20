@@ -317,14 +317,21 @@
 <br><br></p>
 <p>이 문제를 해결하기 위해 오차 $\hat{y} - y$를 제곱해서 $(\hat{y} - y)^2$로 만듭니다. 그러면 모든 음수가 사라지기 때문이죠. 그러면 이제부터는 평균 오차는 $\frac{1}{N}\sum_{i = 1}^N (\hat{y_i}-y_i)^2$가 됩니다.
 <br><br></p>
-<p>음... 그런데 이거 어디서 많이 본 것 같은 식 아닌가요? 맞습니다. 통계시간에 배운 분산과 동일합니다. 분산은 샘플과 평균의 차이의 제곱입니다. 오차함수는 샘플과 직선과의 차이의 제곱입니다. 즉, 오차함수라는건, 직선을 평균으로 봤을 때, 직선과 데이터들 사이의 분산을 의미합니다.</p>
 <p>
 $$Variance = \frac{1}{N} \sum_{i = 1}^N (x_i - mean)^2$$
 
 
-$$Loss Function = \frac{1}{N}\sum_{i = 1}^N (\hat{y_i}-y_i)^2$$
+$$LossFunction = \frac{1}{N}\sum_{i = 1}^N (\hat{y_i}-y_i)^2$$
 
 <br></p>
+<p>음... 그런데 이거 어디서 많이 본 것 같은 식 아닌가요? 맞습니다. 통계시간에 배운 분산과 동일합니다. 분산은 샘플과 평균의 차이의 제곱입니다. 오차함수는 샘플과 직선과의 차이의 제곱입니다. 즉, 오차함수라는건, 직선을 평균으로 봤을 때, 직선과 데이터들 사이의 분산을 의미합니다. 
+<br><br></p>
+<ul>
+<li>오차함수의 진짜 학습 원리 (읽어볼 사람만 읽어보세요)</li>
+</ul>
+<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day3/04.jpg?raw=true" alt=""></p>
+<p>표준편차는 오차(분산)의 제곱근이기 때문에, 오차가 작아지면 표준편차도 작아집니다. 표준편차가 작아지면 정규분포 형태를 띄는 모델의 확률분포가 뾰족해지면서 함수값이 높아집니다. 확률분포의 함수값은 통계시간에 배운 Likelihood를 의미합니다. 때문에 함수값이 올라간다는건 곧 모델이 예측하는 확률분포 함수의 Likelihood가 높아진다는 것이 되고 그러면 Likelihood와 비례하는 사후확률 (정확도)는 자연스레 올라가게 됩니다.
+<br><br></p>
 
 </div>
 </div>
@@ -335,6 +342,21 @@ $$Loss Function = \frac{1}{N}\sum_{i = 1}^N (\hat{y_i}-y_i)^2$$
 <h3 id="3.-학습-알고리즘-:-경사-하강-알고리즘-(Gradient-Descent)">
 <a class="anchor" href="#3.-%ED%95%99%EC%8A%B5-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-:-%EA%B2%BD%EC%82%AC-%ED%95%98%EA%B0%95-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-(Gradient-Descent)" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. 학습 알고리즘 : 경사 하강 알고리즘 (Gradient Descent)<a class="anchor-link" href="#3.-%ED%95%99%EC%8A%B5-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-:-%EA%B2%BD%EC%82%AC-%ED%95%98%EA%B0%95-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-(Gradient-Descent)"> </a>
 </h3>
+<p>이제 오차함수를 정의했습니다. 오차함수는 직선과 데이터 사이의 분산이였습니다. 그러면 이 분산을 어떻게 줄일 수 있을까요?</p>
+<p><br>
+
+$$LossFunction = \frac{1}{N}\sum_{i = 1}^N (\hat{y_i}-y_i)^2$$
+
+<br></p>
+<p>오차는 위와 같이 계산됩니다. 우리가 찾고자 하는 것은 $w$와 $b$이므로, $LossFunction$을 $LossFunction(w, b)$처럼 함수로 표현하겠습니다. 또한, $\hat{y} = wx + b$이기 때문에 이들을 그대로 대입해서 아래처럼 다시 쓸 수 있습니다.</p>
+<p><br>
+
+$$LossFunction(w, b) = \frac{1}{N}\sum_{i = 1}^N ((wx+b)-y_i)^2$$
+
+<br></p>
+<p>미지수가 $w$와 $b$이기 때문에 그외의 것들은 모두 상수입니다. 그러면 오차함수라는 것은 $w$와 $b$의 2차함수로 설명됩니다. 식만 봐서는 와닿지 않으니 아래의 그림을 볼까요?</p>
+<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day3/05.jpg?raw=true" alt=""></p>
+
 </div>
 </div>
 </div>
