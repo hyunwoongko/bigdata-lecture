@@ -323,7 +323,19 @@
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>이번 강의에서는 파이썬 데이터셋 관리의 표준이라고 해도 무방한 pandas에 대해 배워봅니다. 그리고, 학습 데이터와 테스트 데이터를 구성하는 방법에 대해 배웁니다. 우선 실습을 위해 데이터셋을 다운로드 받아주시길 바랍니다.</p>
+<p>이번 강의에서는 파이썬 데이터셋 관리의 표준이라고 해도 무방한 pandas에 대해 배워봅니다. 그리고, 학습 데이터와 테스트 데이터를 구성하는 방법에 대해 배웁니다. 우선 실습을 위해 아래에서 데이터셋을 다운로드 받고, 압축을 풀어서 전부 sample_data 폴더에 넣어주세요.</p>
+<p><a href="https://github.com/gusdnd852/bigdata-lecture/files/4948419/pandas_.zip">https://github.com/gusdnd852/bigdata-lecture/files/4948419/pandas_.zip</a></p>
+<p><br></p>
+
+<pre><code>root경로
+  |_...
+  |_sample_data
+    |_friend_list_tab.txt
+    |_friend_list.txt
+    |_friend_list.csv
+    |_friend_list_no_head.txt
+    |_friends.csv</code></pre>
+<p>위 처럼 압축을 모두 풀고 sample_data 폴더에 넣어주세요.</p>
 
 </div>
 </div>
@@ -348,7 +360,7 @@
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="n">data_frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'data/friend_list.csv'</span><span class="p">)</span>
+<span class="n">data_frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'sample_data/friend_list.csv'</span><span class="p">)</span>
 <span class="n">data_frame</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
@@ -993,7 +1005,7 @@
     <span class="p">{</span><span class="s1">'name'</span> <span class="p">:</span> <span class="s1">'Nate'</span><span class="p">,</span> <span class="s1">'age'</span> <span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">'job'</span> <span class="p">:</span> <span class="s1">'teacher'</span><span class="p">}</span>
 <span class="p">]</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">friend_list</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">'data/friends.csv'</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">'sample_data/friends.csv'</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1444,7 +1456,7 @@ loc 함수를 이용해서 출력 할 수 있습니다.</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'data/friend_list.csv'</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'sample_data/friend_list.csv'</span><span class="p">)</span>
 <span class="n">df</span>
 </pre></div>
 
