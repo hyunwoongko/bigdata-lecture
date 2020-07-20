@@ -291,11 +291,11 @@
 <li class="toc-entry toc-h3"><a href="#6.-다양한-통계적-개념들">6. 다양한 통계적 개념들 </a>
 <ul>
 <li class="toc-entry toc-h4"><a href="#6.1.-평균-(Mean)">6.1. 평균 (Mean) </a></li>
-<li class="toc-entry toc-h4"><a href="#5.2.-기댓값-(Expectation-Value)">5.2. 기댓값 (Expectation Value) </a></li>
-<li class="toc-entry toc-h4"><a href="#5.3.-분산-(Variance)">5.3. 분산 (Variance) </a></li>
-<li class="toc-entry toc-h4"><a href="#5.4.-표준편차">5.4. 표준편차 </a></li>
-<li class="toc-entry toc-h4"><a href="#5.5-평균과-표준편차에-의한-정규분포의-변화">5.5 평균과 표준편차에 의한 정규분포의 변화 </a></li>
-<li class="toc-entry toc-h4"><a href="#5.6.-표준화와-정규화">5.6. 표준화와 정규화 </a></li>
+<li class="toc-entry toc-h4"><a href="#6.2.-기댓값-(Expectation-Value)">6.2. 기댓값 (Expectation Value) </a></li>
+<li class="toc-entry toc-h4"><a href="#6.3.-분산-(Variance)">6.3. 분산 (Variance) </a></li>
+<li class="toc-entry toc-h4"><a href="#6.4.-표준편차">6.4. 표준편차 </a></li>
+<li class="toc-entry toc-h4"><a href="#6.5-평균과-표준편차에-의한-정규분포의-변화">6.5 평균과 표준편차에 의한 정규분포의 변화 </a></li>
+<li class="toc-entry toc-h4"><a href="#6.6.-표준화와-정규화">6.6. 표준화와 정규화 </a></li>
 </ul>
 </li>
 </ul><!--
@@ -538,7 +538,7 @@ $$P(Dog|Model) = \frac{P(Model|Dog)P(Dog)}{P(Model)}$$
 $$P(Dog|Model) = \frac{P(Model|Dog)P(Dog)}{P(Model|Dog)P(Dog) + P(Model|Cat)P(Cat)}$$
 
 <br></p>
-<p>이 것을 함수로 만들고 싶은데, 확률은 0 ~ 1이기 때문에 만약 치역이 음수에서는 정의되지 않는 함수가 됩니다. 또한, Likelihood를 계산하려면 확률들을 모두 곱해야 하기 때문에 연산량이 큽니다. 이를 Log로 바꾸게 되면 곱셈이 전부 덧셈으로 풀리게 되기 때문에 기능상 매우 편리합니다. 따라서 이들을 로그로 바꿔줍니다.</p>
+<p>이 것을 함수로 만들고 싶은데, 확률은 0 ~ 1이기 때문에 음수 공역에서는 치역이 존재하지 않기 때문에 정의되지 않는 함수가 됩니다. 또한, Likelihood를 Log로 바꾸게 되면 독립일 때, 곱셈이 전부 덧셈으로 풀리게 되기 때문에 연산이 매우 편리합니다. 따라서 이들을 로그로 바꿔줍니다.</p>
 <p><br>
 
 $$P(Dog|Model) = \frac{\log P(Model|Dog)P(Dog)}{\log P(Model|Dog)P(Dog) + \log P(Model|Cat)P(Cat)}$$
@@ -954,8 +954,8 @@ $$mean = \frac{1}{N} \sum_{i} x_i$$
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br></p>
-<h4 id="5.2.-기댓값-(Expectation-Value)">
-<a class="anchor" href="#5.2.-%EA%B8%B0%EB%8C%93%EA%B0%92-(Expectation-Value)" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.2. 기댓값 (Expectation Value)<a class="anchor-link" href="#5.2.-%EA%B8%B0%EB%8C%93%EA%B0%92-(Expectation-Value)"> </a>
+<h4 id="6.2.-기댓값-(Expectation-Value)">
+<a class="anchor" href="#6.2.-%EA%B8%B0%EB%8C%93%EA%B0%92-(Expectation-Value)" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.2. 기댓값 (Expectation Value)<a class="anchor-link" href="#6.2.-%EA%B8%B0%EB%8C%93%EA%B0%92-(Expectation-Value)"> </a>
 </h4>
 <p><br>
 
@@ -973,8 +973,8 @@ $$E[x] = \sum_{i} x_i \cdot P(x_i)$$
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br></p>
-<h4 id="5.3.-분산-(Variance)">
-<a class="anchor" href="#5.3.-%EB%B6%84%EC%82%B0-(Variance)" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.3. 분산 (Variance)<a class="anchor-link" href="#5.3.-%EB%B6%84%EC%82%B0-(Variance)"> </a>
+<h4 id="6.3.-분산-(Variance)">
+<a class="anchor" href="#6.3.-%EB%B6%84%EC%82%B0-(Variance)" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.3. 분산 (Variance)<a class="anchor-link" href="#6.3.-%EB%B6%84%EC%82%B0-(Variance)"> </a>
 </h4>
 <p><br>
 
@@ -1033,8 +1033,8 @@ $$Variance = \frac{1}{N} \sum_{i} (x_i - mean)^2$$
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br></p>
-<h4 id="5.4.-표준편차">
-<a class="anchor" href="#5.4.-%ED%91%9C%EC%A4%80%ED%8E%B8%EC%B0%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.4. 표준편차<a class="anchor-link" href="#5.4.-%ED%91%9C%EC%A4%80%ED%8E%B8%EC%B0%A8"> </a>
+<h4 id="6.4.-표준편차">
+<a class="anchor" href="#6.4.-%ED%91%9C%EC%A4%80%ED%8E%B8%EC%B0%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.4. 표준편차<a class="anchor-link" href="#6.4.-%ED%91%9C%EC%A4%80%ED%8E%B8%EC%B0%A8"> </a>
 </h4>
 <p><br>
 
@@ -1086,8 +1086,8 @@ $$Standard Deviation = \sqrt{\frac{1}{N} \sum_{i} (x_i - mean)^2}$$
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br></p>
-<h4 id="5.5-평균과-표준편차에-의한-정규분포의-변화">
-<a class="anchor" href="#5.5-%ED%8F%89%EA%B7%A0%EA%B3%BC-%ED%91%9C%EC%A4%80%ED%8E%B8%EC%B0%A8%EC%97%90-%EC%9D%98%ED%95%9C-%EC%A0%95%EA%B7%9C%EB%B6%84%ED%8F%AC%EC%9D%98-%EB%B3%80%ED%99%94" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.5 평균과 표준편차에 의한 정규분포의 변화<a class="anchor-link" href="#5.5-%ED%8F%89%EA%B7%A0%EA%B3%BC-%ED%91%9C%EC%A4%80%ED%8E%B8%EC%B0%A8%EC%97%90-%EC%9D%98%ED%95%9C-%EC%A0%95%EA%B7%9C%EB%B6%84%ED%8F%AC%EC%9D%98-%EB%B3%80%ED%99%94"> </a>
+<h4 id="6.5-평균과-표준편차에-의한-정규분포의-변화">
+<a class="anchor" href="#6.5-%ED%8F%89%EA%B7%A0%EA%B3%BC-%ED%91%9C%EC%A4%80%ED%8E%B8%EC%B0%A8%EC%97%90-%EC%9D%98%ED%95%9C-%EC%A0%95%EA%B7%9C%EB%B6%84%ED%8F%AC%EC%9D%98-%EB%B3%80%ED%99%94" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.5 평균과 표준편차에 의한 정규분포의 변화<a class="anchor-link" href="#6.5-%ED%8F%89%EA%B7%A0%EA%B3%BC-%ED%91%9C%EC%A4%80%ED%8E%B8%EC%B0%A8%EC%97%90-%EC%9D%98%ED%95%9C-%EC%A0%95%EA%B7%9C%EB%B6%84%ED%8F%AC%EC%9D%98-%EB%B3%80%ED%99%94"> </a>
 </h4>
 <p><img src="https://www.mathfactory.net/wp-content/uploads/%EC%88%98%ED%95%99-%EA%B3%B5%EC%8B%9D-%EC%A0%95%EA%B7%9C%EB%B6%84%ED%8F%AC-02.png" alt=""></p>
 <p>정규분포 그래프는 평균과 표준편차에 의해 결정됩니다. 평균이 움직이면 그래프 자체가 옆으로 움직이고, 표준편차가 커지면 그래프가 보다 완만해지며(평균과 차이 큼), 표준편차가 작아지면 보다 뾰족해집니다. (평균과 차이 작음) 이를 numpy를 통해 확인할 수 있습니다.</p>
@@ -1201,8 +1201,8 @@ $$Standard Deviation = \sqrt{\frac{1}{N} \sum_{i} (x_i - mean)^2}$$
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br></p>
-<h4 id="5.6.-표준화와-정규화">
-<a class="anchor" href="#5.6.-%ED%91%9C%EC%A4%80%ED%99%94%EC%99%80-%EC%A0%95%EA%B7%9C%ED%99%94" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.6. 표준화와 정규화<a class="anchor-link" href="#5.6.-%ED%91%9C%EC%A4%80%ED%99%94%EC%99%80-%EC%A0%95%EA%B7%9C%ED%99%94"> </a>
+<h4 id="6.6.-표준화와-정규화">
+<a class="anchor" href="#6.6.-%ED%91%9C%EC%A4%80%ED%99%94%EC%99%80-%EC%A0%95%EA%B7%9C%ED%99%94" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.6. 표준화와 정규화<a class="anchor-link" href="#6.6.-%ED%91%9C%EC%A4%80%ED%99%94%EC%99%80-%EC%A0%95%EA%B7%9C%ED%99%94"> </a>
 </h4>
 <p>표준화와 정규화는 머신러닝에서 빼놓을 수 없는 매우 중요한 과정입니다. 딥러닝 쪽에서 배치 정규화를 언급하면서 한번 더 자세하게 설명하겠지만, 통계파트에서도 설명합니다. <br><br></p>
 <ol>
