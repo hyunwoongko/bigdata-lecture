@@ -258,7 +258,7 @@
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
 <li class="toc-entry toc-h3"><a href="#1.-파일에서-데이터-불러오기-(read_csv)">1. 파일에서 데이터 불러오기 (read_csv) </a></li>
-<li class="toc-entry toc-h3"><a href="#2.-데이터-프레임-생성-(DataFrame),-저장하기-(to_csv)">2. 데이터 프레임 생성 (DataFrame), 저장하기 (to_csv) </a>
+<li class="toc-entry toc-h3"><a href="#2.-데이터-프레임-생성-및-저장">2. 데이터 프레임 생성 및 저장 </a>
 <ul>
 <li class="toc-entry toc-h4"><a href="#2.1-데이터-프레임-생성-(DataFrame)">2.1 데이터 프레임 생성 (DataFrame) </a></li>
 <li class="toc-entry toc-h4"><a href="#2.2-데이터-프레임-저장-(to_csv)">2.2 데이터 프레임 저장 (to_csv) </a></li>
@@ -278,14 +278,14 @@
 </li>
 <li class="toc-entry toc-h3"><a href="#5.-데이터-프레임-행,열-삭제하기-(drop)">5. 데이터 프레임 행,열 삭제하기 (drop) </a>
 <ul>
-<li class="toc-entry toc-h4"><a href="#5.1-row-삭제-(drop)">5.1 row 삭제 (drop) </a></li>
+<li class="toc-entry toc-h4"><a href="#5.1-row-삭제">5.1 row 삭제 </a></li>
 <li class="toc-entry toc-h4"><a href="#5.2-조건부-삭제">5.2 조건부 삭제 </a></li>
-<li class="toc-entry toc-h4"><a href="#5.3-컬럼-삭제">5.3 컬럼 삭제 </a></li>
+<li class="toc-entry toc-h4"><a href="#5.3-column-삭제">5.3 column 삭제 </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h3"><a href="#6.-데이터-그룹-만들기-(groupby)">6. 데이터 그룹 만들기 (groupby) </a>
 <ul>
-<li class="toc-entry toc-h4"><a href="#6.1-그룹화-(groupby)">6.1 그룹화 (groupby) </a></li>
+<li class="toc-entry toc-h4"><a href="#6.1-그룹화">6.1 그룹화 </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h3"><a href="#7.-다양한-함수-써보기">7. 다양한 함수 써보기 </a>
@@ -296,7 +296,7 @@
 <li class="toc-entry toc-h4"><a href="#7.4.-셔플하기-(sample)">7.4. 셔플하기 (sample) </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h3"><a href="#8.-데이터-프레임-합치기-(concat,-append)">8. 데이터 프레임 합치기 (concat, append) </a>
+<li class="toc-entry toc-h3"><a href="#8.-데이터-프레임-합치기">8. 데이터 프레임 합치기 </a>
 <ul>
 <li class="toc-entry toc-h4"><a href="#8.1-접합하기-(concat)">8.1 접합하기 (concat) </a></li>
 <li class="toc-entry toc-h4"><a href="#8.2-추가하기-(append)">8.2 추가하기 (append) </a></li>
@@ -713,8 +713,8 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br></p>
-<h3 id="2.-데이터-프레임-생성-(DataFrame),-저장하기-(to_csv)">
-<a class="anchor" href="#2.-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84-%EC%83%9D%EC%84%B1-(DataFrame),-%EC%A0%80%EC%9E%A5%ED%95%98%EA%B8%B0-(to_csv)" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. 데이터 프레임 생성 (DataFrame), 저장하기 (to_csv)<a class="anchor-link" href="#2.-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84-%EC%83%9D%EC%84%B1-(DataFrame),-%EC%A0%80%EC%9E%A5%ED%95%98%EA%B8%B0-(to_csv)"> </a>
+<h3 id="2.-데이터-프레임-생성-및-저장">
+<a class="anchor" href="#2.-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84-%EC%83%9D%EC%84%B1-%EB%B0%8F-%EC%A0%80%EC%9E%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. 데이터 프레임 생성 및 저장<a class="anchor-link" href="#2.-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84-%EC%83%9D%EC%84%B1-%EB%B0%8F-%EC%A0%80%EC%9E%A5"> </a>
 </h3>
 <p>데이터 프레임은 일종의 '표'를 의미합니다. 
 데이터 프레임을 다루는 방법을 알아봅시다.</p>
@@ -3512,8 +3512,8 @@ for문과 if문을 통해 점수를 분류 합니다.</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="5.1-row-삭제-(drop)">
-<a class="anchor" href="#5.1-row-%EC%82%AD%EC%A0%9C-(drop)" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.1 row 삭제 (drop)<a class="anchor-link" href="#5.1-row-%EC%82%AD%EC%A0%9C-(drop)"> </a>
+<h4 id="5.1-row-삭제">
+<a class="anchor" href="#5.1-row-%EC%82%AD%EC%A0%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.1 row 삭제<a class="anchor-link" href="#5.1-row-%EC%82%AD%EC%A0%9C"> </a>
 </h4>
 </div>
 </div>
@@ -3985,8 +3985,8 @@ for문과 if문을 통해 점수를 분류 합니다.</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br></p>
-<h4 id="5.3-컬럼-삭제">
-<a class="anchor" href="#5.3-%EC%BB%AC%EB%9F%BC-%EC%82%AD%EC%A0%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.3 컬럼 삭제<a class="anchor-link" href="#5.3-%EC%BB%AC%EB%9F%BC-%EC%82%AD%EC%A0%9C"> </a>
+<h4 id="5.3-column-삭제">
+<a class="anchor" href="#5.3-column-%EC%82%AD%EC%A0%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.3 column 삭제<a class="anchor-link" href="#5.3-column-%EC%82%AD%EC%A0%9C"> </a>
 </h4>
 <p>특정 컬럼만 삭제 할 수 있습니다. 이전과 같은 drop()함수를 쓰지만 axis를 달리해줍니다.</p>
 
@@ -4165,8 +4165,8 @@ for문과 if문을 통해 점수를 분류 합니다.</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="6.1-그룹화-(groupby)">
-<a class="anchor" href="#6.1-%EA%B7%B8%EB%A3%B9%ED%99%94-(groupby)" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.1 그룹화 (groupby)<a class="anchor-link" href="#6.1-%EA%B7%B8%EB%A3%B9%ED%99%94-(groupby)"> </a>
+<h4 id="6.1-그룹화">
+<a class="anchor" href="#6.1-%EA%B7%B8%EB%A3%B9%ED%99%94" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.1 그룹화<a class="anchor-link" href="#6.1-%EA%B7%B8%EB%A3%B9%ED%99%94"> </a>
 </h4>
 </div>
 </div>
@@ -5894,8 +5894,8 @@ Name: job, dtype: int64</pre>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br></p>
-<h3 id="8.-데이터-프레임-합치기-(concat,-append)">
-<a class="anchor" href="#8.-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84-%ED%95%A9%EC%B9%98%EA%B8%B0-(concat,-append)" aria-hidden="true"><span class="octicon octicon-link"></span></a>8. 데이터 프레임 합치기 (concat, append)<a class="anchor-link" href="#8.-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84-%ED%95%A9%EC%B9%98%EA%B8%B0-(concat,-append)"> </a>
+<h3 id="8.-데이터-프레임-합치기">
+<a class="anchor" href="#8.-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84-%ED%95%A9%EC%B9%98%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>8. 데이터 프레임 합치기<a class="anchor-link" href="#8.-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84-%ED%95%A9%EC%B9%98%EA%B8%B0"> </a>
 </h3>
 <p>데이터 프레임을 합치기 위해서는 두가지 함수를 사용하면 됩니다.</p>
 <ol>
