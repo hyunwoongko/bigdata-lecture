@@ -429,8 +429,7 @@ $$KLD = - \sum_{i} P_i \cdot \log_2 \frac{Q_i}{P_i}$$
 <a class="anchor" href="#4.-%EB%94%A5%EB%9F%AC%EB%8B%9D%EC%97%90-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. 딥러닝에 적용하기<a class="anchor-link" href="#4.-%EB%94%A5%EB%9F%AC%EB%8B%9D%EC%97%90-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0"> </a>
 </h3>
 <p>그래서 이걸 왜 공부한걸까요? 로지스틱 회귀모형(회귀이지만 분류모델입니다)과 거의 대부분의 딥러닝 분류(Classification) 알고리즘은 현재 $KLD$를 최소화하는 방식으로 학습하고 있으며, 거의 대부분의 트리기반의 머신러닝 알고리즘은 Entropy로 정보의 양을 비교하여 트리를 설계합니다. 대부분 머신러닝 알고리즘 학습의 주축이기 때문에 소개한 것입니다. (이후 수업때 계속 써먹어야 해서 설명한거긴 합니다)<br><br></p>
-<p>분류모델 학습시에 우리의 데이터에는 정답열이 있습니다. 이러한 정답열은 섀넌의 Entropy에 해당합니다. 전부 맞추면 100%의 성능을 보이겠지만 이론상으로만 가능하고 현실적으로 불가능합니다. 그에 비해 우리의 예측은 CrossEntropy입니다. 정답과는 다르지만 나름 잘 모델링해서 만든 예측입니다. <br><br></p>
-<p>그리고 $KLD$는 정답데이터와 모델 예측간의 차이입니다. 만약 $KLD$가 크다면 모델의 예측과 실제 정답의 차이가 큰 것으로 모델을 더 강하게 학습시켜야하고, 만약 $KLD$가 작다면 모델의 예측과 실제 정답의 차이가 작은 것으로 모델을 더 약하게 학습시켜야 합니다.</p>
+<p>분류모델 학습시에 우리의 데이터에는 정답열이 있습니다. 이러한 정답열은 섀넌의 Entropy에 해당합니다. 전부 맞추면 100%의 성능을 보이겠지만 이론상으로만 가능하고 현실적으로 불가능합니다. 그에 비해 우리의 예측은 CrossEntropy입니다. 정답과는 다르지만 나름 잘 모델링해서 만든 예측입니다. 그리고 $KLD$는 정답데이터와 모델 예측간의 차이입니다. 만약 $KLD$가 크다면 모델의 예측과 실제 정답의 차이가 큰 것으로 모델을 더 강하게 학습시켜야하고, 만약 $KLD$가 작다면 모델의 예측과 실제 정답의 차이가 작은 것으로 모델을 더 약하게 학습시켜야 합니다. 실제 다양한 딥러닝 모델들은 이 $KLD$값을 목적함수로 두고 최소화 시키면서 학습을 진행합니다.</p>
 
 </div>
 </div>
@@ -442,10 +441,9 @@ $$KLD = - \sum_{i} P_i \cdot \log_2 \frac{Q_i}{P_i}$$
 <h4 id="4.1.-One---Hot-인코딩">
 <a class="anchor" href="#4.1.-One---Hot-%EC%9D%B8%EC%BD%94%EB%94%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.1. One - Hot 인코딩<a class="anchor-link" href="#4.1.-One---Hot-%EC%9D%B8%EC%BD%94%EB%94%A9"> </a>
 </h4>
-<p>그렇다면 어떻게 $KLD$를 적용할까요? 분류데이터에는 구체적으로 나뉘어진 정답열이 있기 때문에 정답열에서 모델의 예측을 빼면 $KLD$가 됩니다.
-(사실은 그냥 빼는 것이 아니라 log를 적용해서 계산해야하지만, 정답 - 예측이라는 컨셉을 보여주기 위해 그냥 뺄셈으로 계산하겠습니다.) <br><br></p>
-<p>우리가 딥러닝 혹은 로지스틱모형등의 분류모델을 쓰면 최종적인 출력값이 클래스의 갯수로 출력됩니다. 이해가 잘 안갈테니 예를 들어 보여드리겠습니다.
-만약 생체 정보를 바탕으로 질병을 나타내는 데이터가 있다고 가정합시다. 우리의 데이터셋은 아래와 같습니다.</p>
+<p>그렇다면 실질적으로 어떻게 $KLD$를 적용할까요? 분류데이터에는 구체적으로 나뉘어진 정답열이 있기 때문에 정답열에서 모델의 예측을 빼면 $KLD$가 됩니다.
+이에 대한 간단한 예시를 보여드리겠습니다. (사실은 그냥 빼는 것이 아니라 log를 적용해서 빼야하지만, 여기에서는 정답 - 예측이라는 컨셉을 보여주기 위해 그냥 뺄셈으로 계산하겠습니다.) <br><br></p>
+<p>만약 생체 정보를 바탕으로 질병을 나타내는 데이터가 있다고 가정합시다. 우리의 데이터셋은 아래와 같습니다.</p>
 
 </div>
 </div>
@@ -721,15 +719,6 @@ $$KLD = - \sum_{i} P_i \cdot \log_2 \frac{Q_i}{P_i}$$
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><br></p>
-<p>그러면 데이터 샘플들은 다음과 같은 라벨 세트를 가지게 됩니다.</p>
-
-</div>
-</div>
-</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -742,105 +731,8 @@ $$KLD = - \sum_{i} P_i \cdot \log_2 \frac{Q_i}{P_i}$$
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-hide</span>
 
-<span class="n">dataset</span><span class="p">[</span><span class="s1">'질병(라벨)'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-    </details>
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>array([0, 1, 0, 2, 1, 0, 2, 3], dtype=int64)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><br></p>
-<p>실제 정답이 위와 같을 때, 우리의 예측 정답이 다음과 같았다고 합시다.</p>
-
-</div>
-</div>
-</div>
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<details class="description">
-      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
-        <p></p>
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-hide</span>
-
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="s1">'질병(라벨)'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-    </details>
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>array([3, 2, 0, 1, 2, 0, 1, 0], dtype=int64)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><br></p>
-<p>이 때, 실제 정답에서 예측값을 빼서 KLD를 구해보면 아래처럼 됩니다. (위에서 말한대로 실제로는 log를 이용해 계산해야하지만 간단하게 정답 - 예측이라는 컨셉을 보여드리기 위해 그냥 뺄셈으로 연산하였습니다.)</p>
-
-</div>
-</div>
-</div>
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<details class="description">
-      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
-        <p></p>
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse-hide</span>
-<span class="n">predict</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="s1">'질병(라벨)'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 <span class="n">label</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="s1">'질병(라벨)'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">predict</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="s1">'질병(라벨)'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -851,6 +743,14 @@ $$KLD = - \sum_{i} P_i \cdot \log_2 \frac{Q_i}{P_i}$$
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>이 때, 실제 라벨과 모델의 예측이 아래와 같다고 합시다.</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -858,7 +758,8 @@ $$KLD = - \sum_{i} P_i \cdot \log_2 \frac{Q_i}{P_i}$$
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">label</span> <span class="o">-</span> <span class="n">predict</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'label : '</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'predict : '</span><span class="p">,</span> <span class="n">predict</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -870,12 +771,51 @@ $$KLD = - \sum_{i} P_i \cdot \log_2 \frac{Q_i}{P_i}$$
 
 <div class="output_area">
 
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>array([-3, -1,  0,  1, -1,  0,  1,  3], dtype=int64)</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>label :  [0 1 0 2 1 0 2 3]
+predict :  [3 2 0 1 2 0 1 0]
+</pre>
+</div>
 </div>
 
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
+<p>KLD는 정답과 예측의 차이입니다. 따라서 아래와 같이 계산합니다. (위에서 말한대로 간단하게 보여드리기 위해 log를 적용하지 않고 계산했습니다.)</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'KLD : '</span><span class="p">,</span> <span class="n">label</span> <span class="o">-</span> <span class="n">predict</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>KLD :  [-3 -1  0  1 -1  0  1  3]
+</pre>
+</div>
 </div>
 
 </div>
@@ -916,8 +856,8 @@ One-Hot 인코딩은 각 라벨을 다음과 같이 변경합니다.</p>
 <p><br></p>
 <p>정답인 경우 결과가 [0, 0, 0, 0]이 되지만, 오답의 경우 리스트에 1과 -1이 반드시 생깁니다. 그래서 이 리스트 원소들을 모두 제곱해서 음수를 없애주면 아래와 같습니다.</p>
 <ul>
-<li>(오답 case) 정답 0번 / 예측 3번 : [1, 0, 0, -1]$^2$ → [1, 0, 0, 1]</li>
-<li>(오답 case) 정답 2번 / 예측 1번 : [0, -1, 1, 0]$^2$ → [0, 1, 1, 0]</li>
+<li>(오답 case) 정답 0번 / 예측 3번 : [1$^2$, 0$^2$, 0$^2$, -1$^2$] → [1, 0, 0, 1]</li>
+<li>(오답 case) 정답 2번 / 예측 1번 : [0$^2$, -1$^2$, 1$^2$, 0$^2$] → [0, 1, 1, 0]</li>
 </ul>
 <p><br></p>
 <p>그리고 나서 리스트의 원소 합을 모두 더해주면 반드시 2가 됩니다.</p>
@@ -926,8 +866,8 @@ One-Hot 인코딩은 각 라벨을 다음과 같이 변경합니다.</p>
 <li>(오답 case) 정답 2번 / 예측 1번 : [0, 1, 1, 0] → 2</li>
 </ul>
 <p><br></p>
-<p>이런 방식으로 '정답 - 예측'을 구하면 정답인 경우 합이 0, 오답인 경우 합이 반드시 2가 나오게 되고, 어떻게 틀리던지 출력값이 동일하게 됩니다.
-(실제 출력은 log값을 사용하기 때문에 2가 나오진 않습니다만, 어떻게 틀리던지간에 오답이라면 동일한 출력값이 나오게 됩니다.)
+<p>이런 방식으로 '정답 - 예측'을 구하면 정답인 경우 합이 0, 오답인 경우 합이 반드시 2가 나오게 되고, <strong>어떻게 틀리던지 출력값이 동일</strong>하게 됩니다.
+(실제 출력은 log값을 사용하기 때문에 2가 나오진 않습니다만, 어떻게 틀리던지간에 <strong>오답이라면 동일한 출력값</strong>이 나오게 됩니다.)
 Tensorflow, Sklearn 등의 유명 머신러닝, 딥러닝 패키지의 분류 모델들은 기본적으로 이러한 One hot 인코딩 기능이 자동으로 구현되어있습니다. 
 따라서 사용자가 직접 인코딩 하지 않아도 무방하지만, 태스크에 따라서는 직접 One-Hot 인코딩을 해야하는 경우도 존재하니 잘 숙지하시길 바랍니다.</p>
 
