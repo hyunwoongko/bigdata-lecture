@@ -13,9 +13,9 @@
 <meta property="og:url" content="https://gusdnd852.github.io/bigdata-lecture/pandas_practice" />
 <meta property="og:site_name" content="TensorFlow로 시작하는 머신러닝 &amp; 딥러닝" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-07-18T00:00:00-05:00" />
+<meta property="article:published_time" content="2020-07-19T00:00:00-05:00" />
 <script type="application/ld+json">
-{"url":"https://gusdnd852.github.io/bigdata-lecture/pandas_practice","@type":"BlogPosting","headline":"Pandas를 이용한 데이터 셋 구축 및 관리","dateModified":"2020-07-18T00:00:00-05:00","datePublished":"2020-07-18T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://gusdnd852.github.io/bigdata-lecture/pandas_practice"},"description":"Numpy 기반의 라이브러리인 Pandas를 배워보고, 데이터셋을 구축해봅시다.","@context":"https://schema.org"}</script>
+{"url":"https://gusdnd852.github.io/bigdata-lecture/pandas_practice","@type":"BlogPosting","headline":"Pandas를 이용한 데이터 셋 구축 및 관리","dateModified":"2020-07-19T00:00:00-05:00","datePublished":"2020-07-19T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://gusdnd852.github.io/bigdata-lecture/pandas_practice"},"description":"Numpy 기반의 라이브러리인 Pandas를 배워보고, 데이터셋을 구축해봅시다.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
@@ -261,7 +261,7 @@
 <li class="toc-entry toc-h3"><a href="#2.-데이터-프레임-생성,-저장하기">2. 데이터 프레임 생성, 저장하기 </a>
 <ul>
 <li class="toc-entry toc-h4"><a href="#2.1-데이터-프레임-생성">2.1 데이터 프레임 생성 </a></li>
-<li class="toc-entry toc-h4"><a href="#2.4-데이터-프레임-저장">2.4 데이터 프레임 저장 </a></li>
+<li class="toc-entry toc-h4"><a href="#2.2-데이터-프레임-저장">2.2 데이터 프레임 저장 </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h3"><a href="#3.-데이터-행,열-선택-및-필터-하기">3. 데이터 행,열 선택 및 필터 하기 </a>
@@ -347,7 +347,7 @@
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="n">data_frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'sample_data/friend_list.csv'</span><span class="p">)</span>
+<span class="n">data_frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'data/friend_list.csv'</span><span class="p">)</span>
 <span class="n">data_frame</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
@@ -971,8 +971,8 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br></p>
-<h4 id="2.4-데이터-프레임-저장">
-<a class="anchor" href="#2.4-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84-%EC%A0%80%EC%9E%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.4 데이터 프레임 저장<a class="anchor-link" href="#2.4-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84-%EC%A0%80%EC%9E%A5"> </a>
+<h4 id="2.2-데이터-프레임-저장">
+<a class="anchor" href="#2.2-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84-%EC%A0%80%EC%9E%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.2 데이터 프레임 저장<a class="anchor-link" href="#2.2-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84-%EC%A0%80%EC%9E%A5"> </a>
 </h4>
 <p>데이터 프레임을 저장하려면 to_csv 함수를 이용해서 파일 형태로 저장 할 수 있습니다.</p>
 
@@ -992,7 +992,7 @@
     <span class="p">{</span><span class="s1">'name'</span> <span class="p">:</span> <span class="s1">'Nate'</span><span class="p">,</span> <span class="s1">'age'</span> <span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">'job'</span> <span class="p">:</span> <span class="s1">'teacher'</span><span class="p">}</span>
 <span class="p">]</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">friend_list</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">'sample_data/friends.csv'</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">'data/friends.csv'</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1019,6 +1019,7 @@
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
 <h3 id="3.-데이터-행,열-선택-및-필터-하기">
 <a class="anchor" href="#3.-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%96%89,%EC%97%B4-%EC%84%A0%ED%83%9D-%EB%B0%8F-%ED%95%84%ED%84%B0-%ED%95%98%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. 데이터 행,열 선택 및 필터 하기<a class="anchor-link" href="#3.-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%96%89,%EC%97%B4-%EC%84%A0%ED%83%9D-%EB%B0%8F-%ED%95%84%ED%84%B0-%ED%95%98%EA%B8%B0"> </a>
 </h3>
@@ -1339,6 +1340,7 @@ loc 함수를 이용해서 출력 할 수 있습니다.</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
 <h4 id="3.2-데이터-행,-열-필터링">
 <a class="anchor" href="#3.2-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%96%89,-%EC%97%B4-%ED%95%84%ED%84%B0%EB%A7%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.2 데이터 행, 열 필터링<a class="anchor-link" href="#3.2-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%96%89,-%EC%97%B4-%ED%95%84%ED%84%B0%EB%A7%81"> </a>
 </h4>
@@ -1441,7 +1443,7 @@ loc 함수를 이용해서 출력 할 수 있습니다.</p>
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'sample_data/friend_list.csv'</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'data/friend_list.csv'</span><span class="p">)</span>
 <span class="n">df</span>
 </pre></div>
 
@@ -1827,6 +1829,7 @@ axis=1은 세로 방향이라는 뜻이고 axis=0는 가로방향 이라는 뜻�
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
 <h3 id="4.-데이터-프레임-행,열-생성-및-수정하기">
 <a class="anchor" href="#4.-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84-%ED%96%89,%EC%97%B4-%EC%83%9D%EC%84%B1-%EB%B0%8F-%EC%88%98%EC%A0%95%ED%95%98%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. 데이터 프레임 행,열 생성 및 수정하기<a class="anchor-link" href="#4.-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84-%ED%96%89,%EC%97%B4-%EC%83%9D%EC%84%B1-%EB%B0%8F-%EC%88%98%EC%A0%95%ED%95%98%EA%B8%B0"> </a>
 </h3>
@@ -2496,6 +2499,7 @@ for문과 if문을 통해 점수를 분류 합니다.</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
 <h4 id="4.2-데이터-프레임-수정하기">
 <a class="anchor" href="#4.2-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84-%EC%88%98%EC%A0%95%ED%95%98%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.2 데이터 프레임 수정하기<a class="anchor-link" href="#4.2-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84-%EC%88%98%EC%A0%95%ED%95%98%EA%B8%B0"> </a>
 </h4>
@@ -2765,6 +2769,7 @@ for문과 if문을 통해 점수를 분류 합니다.</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
 <h3 id="5.-데이터-프레임-행,열-삭제하기">
 <a class="anchor" href="#5.-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84-%ED%96%89,%EC%97%B4-%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. 데이터 프레임 행,열 삭제하기<a class="anchor-link" href="#5.-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84-%ED%96%89,%EC%97%B4-%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0"> </a>
 </h3>
@@ -3155,6 +3160,7 @@ for문과 if문을 통해 점수를 분류 합니다.</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
 <h4 id="5.2-데이터-프레임-조건부-삭제">
 <a class="anchor" href="#5.2-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84-%EC%A1%B0%EA%B1%B4%EB%B6%80-%EC%82%AD%EC%A0%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.2 데이터 프레임 조건부 삭제<a class="anchor-link" href="#5.2-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84-%EC%A1%B0%EA%B1%B4%EB%B6%80-%EC%82%AD%EC%A0%9C"> </a>
 </h4>
@@ -3238,6 +3244,7 @@ for문과 if문을 통해 점수를 분류 합니다.</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
 <h4 id="5.3-컬럼-삭제">
 <a class="anchor" href="#5.3-%EC%BB%AC%EB%9F%BC-%EC%82%AD%EC%A0%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.3 컬럼 삭제<a class="anchor-link" href="#5.3-%EC%BB%AC%EB%9F%BC-%EC%82%AD%EC%A0%9C"> </a>
 </h4>
@@ -3337,6 +3344,7 @@ for문과 if문을 통해 점수를 분류 합니다.</p>
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">friend_list</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'name'</span><span class="p">,</span> <span class="s1">'age'</span><span class="p">,</span> <span class="s1">'job'</span><span class="p">])</span>
 <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">'age'</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
 <span class="n">df</span>
 </pre></div>
 
@@ -3405,6 +3413,7 @@ for문과 if문을 통해 점수를 분류 합니다.</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
 <h3 id="6.-데이터-그룹-만들기">
 <a class="anchor" href="#6.-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B7%B8%EB%A3%B9-%EB%A7%8C%EB%93%A4%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. 데이터 그룹 만들기<a class="anchor-link" href="#6.-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B7%B8%EB%A3%B9-%EB%A7%8C%EB%93%A4%EA%B8%B0"> </a>
 </h3>
@@ -3563,6 +3572,7 @@ for문과 if문을 통해 점수를 분류 합니다.</p>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
 <h4 id="6.2-분류">
 <a class="anchor" href="#6.2-%EB%B6%84%EB%A5%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.2 분류<a class="anchor-link" href="#6.2-%EB%B6%84%EB%A5%98"> </a>
 </h4>
@@ -3820,6 +3830,7 @@ male : 5
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
 <h3 id="7.-다양한-함수-써보기">
 <a class="anchor" href="#7.-%EB%8B%A4%EC%96%91%ED%95%9C-%ED%95%A8%EC%88%98-%EC%8D%A8%EB%B3%B4%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>7. 다양한 함수 써보기<a class="anchor-link" href="#7.-%EB%8B%A4%EC%96%91%ED%95%9C-%ED%95%A8%EC%88%98-%EC%8D%A8%EB%B3%B4%EA%B8%B0"> </a>
 </h3>
@@ -4146,6 +4157,7 @@ male : 5
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
 <h4 id="7.2-applymap-함수">
 <a class="anchor" href="#7.2-applymap-%ED%95%A8%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>7.2 applymap 함수<a class="anchor-link" href="#7.2-applymap-%ED%95%A8%EC%88%98"> </a>
 </h4>
@@ -4314,6 +4326,7 @@ male : 5
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
 <h4 id="7.3-unique-함수">
 <a class="anchor" href="#7.3-unique-%ED%95%A8%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>7.3 unique 함수<a class="anchor-link" href="#7.3-unique-%ED%95%A8%EC%88%98"> </a>
 </h4>
@@ -4586,6 +4599,7 @@ Name: job, dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
 <h3 id="8.-데이터-프레임-합치기">
 <a class="anchor" href="#8.-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84-%ED%95%A9%EC%B9%98%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>8. 데이터 프레임 합치기<a class="anchor-link" href="#8.-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%94%84%EB%A0%88%EC%9E%84-%ED%95%A9%EC%B9%98%EA%B8%B0"> </a>
 </h3>
@@ -4965,6 +4979,7 @@ Name: job, dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
 <h4 id="8.2-append-함수">
 <a class="anchor" href="#8.2-append-%ED%95%A8%EC%88%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>8.2 append 함수<a class="anchor-link" href="#8.2-append-%ED%95%A8%EC%88%98"> </a>
 </h4>
@@ -5064,6 +5079,7 @@ Name: job, dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><br></p>
 <h4 id="8.3-row로-합치는-방법">
 <a class="anchor" href="#8.3-row%EB%A1%9C-%ED%95%A9%EC%B9%98%EB%8A%94-%EB%B0%A9%EB%B2%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>8.3 row로 합치는 방법<a class="anchor-link" href="#8.3-row%EB%A1%9C-%ED%95%A9%EC%B9%98%EB%8A%94-%EB%B0%A9%EB%B2%95"> </a>
 </h4>
