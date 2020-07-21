@@ -1380,7 +1380,7 @@ Name: age, dtype: int64</pre>
 During handling of the above exception, another exception occurred:
 
 <span class="ansi-red-intense-fg ansi-bold">KeyError</span>                                  Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-164-d9380026b377&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-14-d9380026b377&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>df<span class="ansi-yellow-intense-fg ansi-bold">[</span><span class="ansi-blue-intense-fg ansi-bold">'age'</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-blue-intense-fg ansi-bold">'name'</span><span class="ansi-yellow-intense-fg ansi-bold">]</span> <span class="ansi-red-intense-fg ansi-bold"># 에러 발생</span>
 
 <span class="ansi-green-intense-fg ansi-bold">c:\users\asus\desktop\venv\lib\site-packages\pandas\core\frame.py</span> in <span class="ansi-cyan-fg">__getitem__</span><span class="ansi-blue-intense-fg ansi-bold">(self, key)</span>
@@ -1656,7 +1656,7 @@ Name: 0, dtype: object</pre>
 <pre>
 <span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
 <span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-171-9b00826cedd2&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-65-9b00826cedd2&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>df<span class="ansi-yellow-intense-fg ansi-bold">.</span>loc<span class="ansi-yellow-intense-fg ansi-bold">[</span><span class="ansi-cyan-intense-fg ansi-bold">0</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-cyan-intense-fg ansi-bold">1</span><span class="ansi-yellow-intense-fg ansi-bold">]</span>
 
 <span class="ansi-green-intense-fg ansi-bold">c:\users\asus\desktop\venv\lib\site-packages\pandas\core\indexing.py</span> in <span class="ansi-cyan-fg">__getitem__</span><span class="ansi-blue-intense-fg ansi-bold">(self, key)</span>
@@ -2097,6 +2097,23 @@ Name: name, dtype: object</pre>
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">friend_dict_list</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -5300,8 +5317,8 @@ male : 5
 <div class="output_text output_subarea output_execute_result">
 <pre>teacher              8
 student              5
-banker               2
 lawyer               2
+banker               2
 developer            1
 dentist              1
 basketball player    1
@@ -5538,14 +5555,14 @@ Name: job, dtype: int64</pre>
   </thead>
   <tbody>
     <tr>
-      <th>13</th>
-      <td>Brian</td>
-      <td>student</td>
+      <th>18</th>
+      <td>Gwen</td>
+      <td>teacher</td>
     </tr>
     <tr>
-      <th>0</th>
-      <td>Wendy</td>
-      <td>banker</td>
+      <th>4</th>
+      <td>Brian</td>
+      <td>student</td>
     </tr>
   </tbody>
 </table>
@@ -5613,104 +5630,104 @@ Name: job, dtype: int64</pre>
   </thead>
   <tbody>
     <tr>
-      <th>7</th>
-      <td>Philip</td>
-      <td>lawyer</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>Chris</td>
-      <td>banker</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>Janny</td>
-      <td>basketball player</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>Nate</td>
-      <td>teacher</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>Brian</td>
-      <td>student</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>John</td>
-      <td>teacher</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Rob</td>
-      <td>lawyer</td>
-    </tr>
-    <tr>
       <th>3</th>
-      <td>Edward</td>
-      <td>teacher</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Yuna</td>
-      <td>teacher</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>Brian</td>
-      <td>student</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>Nate</td>
-      <td>teacher</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>Obrian</td>
-      <td>dentist</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>Janny</td>
-      <td>developer</td>
-    </tr>
-    <tr>
-      <th>19</th>
       <td>Abraham</td>
       <td>student</td>
     </tr>
     <tr>
-      <th>10</th>
-      <td>Fred</td>
-      <td>teacher</td>
+      <th>12</th>
+      <td>Wendy</td>
+      <td>banker</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>Jessy</td>
-      <td>student</td>
+      <th>7</th>
+      <td>Obrian</td>
+      <td>dentist</td>
     </tr>
     <tr>
-      <th>8</th>
+      <th>15</th>
+      <td>Chris</td>
+      <td>banker</td>
+    </tr>
+    <tr>
+      <th>14</th>
       <td>Ian</td>
       <td>teacher</td>
     </tr>
     <tr>
-      <th>5</th>
-      <td>Gwen</td>
+      <th>1</th>
+      <td>Nate</td>
       <td>teacher</td>
     </tr>
     <tr>
-      <th>16</th>
+      <th>17</th>
+      <td>Janny</td>
+      <td>basketball player</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Brian</td>
+      <td>student</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Yuna</td>
+      <td>teacher</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Nate</td>
+      <td>teacher</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Rob</td>
+      <td>lawyer</td>
+    </tr>
+    <tr>
+      <th>11</th>
       <td>Matt</td>
       <td>student</td>
     </tr>
     <tr>
       <th>0</th>
-      <td>Wendy</td>
-      <td>banker</td>
+      <td>John</td>
+      <td>teacher</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Brian</td>
+      <td>student</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Philip</td>
+      <td>lawyer</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Gwen</td>
+      <td>teacher</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Janny</td>
+      <td>developer</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Fred</td>
+      <td>teacher</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Edward</td>
+      <td>teacher</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Jessy</td>
+      <td>student</td>
     </tr>
   </tbody>
 </table>
@@ -5779,78 +5796,78 @@ Name: job, dtype: int64</pre>
   <tbody>
     <tr>
       <th>0</th>
-      <td>Wendy</td>
-      <td>banker</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Abraham</td>
-      <td>student</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Janny</td>
-      <td>developer</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Nate</td>
-      <td>teacher</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Matt</td>
-      <td>student</td>
-    </tr>
-    <tr>
-      <th>5</th>
       <td>Jessy</td>
       <td>student</td>
     </tr>
     <tr>
-      <th>6</th>
-      <td>Ian</td>
-      <td>teacher</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Chris</td>
-      <td>banker</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>Rob</td>
-      <td>lawyer</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>Fred</td>
-      <td>teacher</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>Brian</td>
-      <td>student</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>Nate</td>
-      <td>teacher</td>
-    </tr>
-    <tr>
-      <th>12</th>
+      <th>1</th>
       <td>Gwen</td>
       <td>teacher</td>
     </tr>
     <tr>
-      <th>13</th>
+      <th>2</th>
+      <td>Rob</td>
+      <td>lawyer</td>
+    </tr>
+    <tr>
+      <th>3</th>
       <td>Brian</td>
       <td>student</td>
     </tr>
     <tr>
+      <th>4</th>
+      <td>Abraham</td>
+      <td>student</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Nate</td>
+      <td>teacher</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Brian</td>
+      <td>student</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Wendy</td>
+      <td>banker</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Nate</td>
+      <td>teacher</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Yuna</td>
+      <td>teacher</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Janny</td>
+      <td>developer</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Janny</td>
+      <td>basketball player</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Obrian</td>
+      <td>dentist</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Chris</td>
+      <td>banker</td>
+    </tr>
+    <tr>
       <th>14</th>
-      <td>Philip</td>
-      <td>lawyer</td>
+      <td>Fred</td>
+      <td>teacher</td>
     </tr>
     <tr>
       <th>15</th>
@@ -5859,23 +5876,23 @@ Name: job, dtype: int64</pre>
     </tr>
     <tr>
       <th>16</th>
-      <td>Janny</td>
-      <td>basketball player</td>
+      <td>Matt</td>
+      <td>student</td>
     </tr>
     <tr>
       <th>17</th>
-      <td>Obrian</td>
-      <td>dentist</td>
+      <td>Ian</td>
+      <td>teacher</td>
     </tr>
     <tr>
       <th>18</th>
-      <td>Yuna</td>
+      <td>John</td>
       <td>teacher</td>
     </tr>
     <tr>
       <th>19</th>
-      <td>John</td>
-      <td>teacher</td>
+      <td>Philip</td>
+      <td>lawyer</td>
     </tr>
   </tbody>
 </table>
@@ -6713,31 +6730,31 @@ Name: job, dtype: int64</pre>
     <tr>
       <th>0</th>
       <td>NaN</td>
-      <td>-0.032036</td>
-      <td>0.650698</td>
+      <td>0.723694</td>
+      <td>-0.557731</td>
     </tr>
     <tr>
       <th>1</th>
       <td>NaN</td>
-      <td>0.645188</td>
+      <td>0.083286</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1.844413</td>
+      <td>0.068105</td>
       <td>NaN</td>
-      <td>-0.558567</td>
+      <td>-0.564248</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-1.053910</td>
+      <td>-0.859638</td>
       <td>NaN</td>
-      <td>1.078320</td>
+      <td>-0.396153</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.067559</td>
-      <td>-1.778296</td>
+      <td>-0.540531</td>
+      <td>-0.231617</td>
       <td>NaN</td>
     </tr>
   </tbody>
@@ -6813,31 +6830,31 @@ Name: job, dtype: int64</pre>
     <tr>
       <th>0</th>
       <td>0.000000</td>
-      <td>-0.032036</td>
-      <td>0.650698</td>
+      <td>0.723694</td>
+      <td>-0.557731</td>
     </tr>
     <tr>
       <th>1</th>
       <td>0.000000</td>
-      <td>0.645188</td>
+      <td>0.083286</td>
       <td>0.000000</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1.844413</td>
+      <td>0.068105</td>
       <td>0.000000</td>
-      <td>-0.558567</td>
+      <td>-0.564248</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-1.053910</td>
+      <td>-0.859638</td>
       <td>0.000000</td>
-      <td>1.078320</td>
+      <td>-0.396153</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.067559</td>
-      <td>-1.778296</td>
+      <td>-0.540531</td>
+      <td>-0.231617</td>
       <td>0.000000</td>
     </tr>
   </tbody>
@@ -6910,31 +6927,31 @@ Name: job, dtype: int64</pre>
     <tr>
       <th>0</th>
       <td>missing</td>
-      <td>-0.0320358</td>
-      <td>0.650698</td>
+      <td>0.723694</td>
+      <td>-0.557731</td>
     </tr>
     <tr>
       <th>1</th>
       <td>missing</td>
-      <td>0.645188</td>
+      <td>0.0832861</td>
       <td>missing</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1.84441</td>
+      <td>0.0681052</td>
       <td>missing</td>
-      <td>-0.558567</td>
+      <td>-0.564248</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-1.05391</td>
+      <td>-0.859638</td>
       <td>missing</td>
-      <td>1.07832</td>
+      <td>-0.396153</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.0675589</td>
-      <td>-1.7783</td>
+      <td>-0.540531</td>
+      <td>-0.231617</td>
       <td>missing</td>
     </tr>
   </tbody>
@@ -7006,31 +7023,31 @@ Name: job, dtype: int64</pre>
     <tr>
       <th>0</th>
       <td>NaN</td>
-      <td>-0.032036</td>
-      <td>0.650698</td>
+      <td>0.723694</td>
+      <td>-0.557731</td>
     </tr>
     <tr>
       <th>1</th>
       <td>NaN</td>
-      <td>0.645188</td>
+      <td>0.083286</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1.844413</td>
+      <td>0.068105</td>
       <td>NaN</td>
-      <td>-0.558567</td>
+      <td>-0.564248</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-1.053910</td>
+      <td>-0.859638</td>
       <td>NaN</td>
-      <td>1.078320</td>
+      <td>-0.396153</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.067559</td>
-      <td>-1.778296</td>
+      <td>-0.540531</td>
+      <td>-0.231617</td>
       <td>NaN</td>
     </tr>
   </tbody>
@@ -7068,9 +7085,9 @@ Name: job, dtype: int64</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>C1    0.286020
-C2   -0.388381
-C3    0.390150
+<pre>C1   -0.444021
+C2    0.191788
+C3   -0.506044
 dtype: float64</pre>
 </div>
 
@@ -7129,33 +7146,33 @@ dtype: float64</pre>
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.286020</td>
-      <td>-0.032036</td>
-      <td>0.650698</td>
+      <td>-0.444021</td>
+      <td>0.723694</td>
+      <td>-0.557731</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.286020</td>
-      <td>0.645188</td>
-      <td>0.390150</td>
+      <td>-0.444021</td>
+      <td>0.083286</td>
+      <td>-0.506044</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1.844413</td>
-      <td>-0.388381</td>
-      <td>-0.558567</td>
+      <td>0.068105</td>
+      <td>0.191788</td>
+      <td>-0.564248</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-1.053910</td>
-      <td>-0.388381</td>
-      <td>1.078320</td>
+      <td>-0.859638</td>
+      <td>0.191788</td>
+      <td>-0.396153</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.067559</td>
-      <td>-1.778296</td>
-      <td>0.390150</td>
+      <td>-0.540531</td>
+      <td>-0.231617</td>
+      <td>-0.506044</td>
     </tr>
   </tbody>
 </table>
@@ -7201,7 +7218,7 @@ dtype: float64</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>0.28602045072157917</pre>
+<pre>-0.444021363508113</pre>
 </div>
 
 </div>
@@ -7259,33 +7276,33 @@ dtype: float64</pre>
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.286020</td>
-      <td>-0.032036</td>
-      <td>0.650698</td>
+      <td>-0.444021</td>
+      <td>0.723694</td>
+      <td>-0.557731</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.286020</td>
-      <td>0.645188</td>
-      <td>0.286020</td>
+      <td>-0.444021</td>
+      <td>0.083286</td>
+      <td>-0.444021</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1.844413</td>
-      <td>0.286020</td>
-      <td>-0.558567</td>
+      <td>0.068105</td>
+      <td>-0.444021</td>
+      <td>-0.564248</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-1.053910</td>
-      <td>0.286020</td>
-      <td>1.078320</td>
+      <td>-0.859638</td>
+      <td>-0.444021</td>
+      <td>-0.396153</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.067559</td>
-      <td>-1.778296</td>
-      <td>0.286020</td>
+      <td>-0.540531</td>
+      <td>-0.231617</td>
+      <td>-0.444021</td>
     </tr>
   </tbody>
 </table>
@@ -7355,32 +7372,32 @@ dtype: float64</pre>
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.286020</td>
-      <td>-0.032036</td>
-      <td>0.650698</td>
+      <td>-0.444021</td>
+      <td>0.723694</td>
+      <td>-0.557731</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.286020</td>
-      <td>0.645188</td>
+      <td>-0.444021</td>
+      <td>0.083286</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1.844413</td>
-      <td>-0.388381</td>
-      <td>-0.558567</td>
+      <td>0.068105</td>
+      <td>0.191788</td>
+      <td>-0.564248</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-1.053910</td>
-      <td>-0.388381</td>
-      <td>1.078320</td>
+      <td>-0.859638</td>
+      <td>0.191788</td>
+      <td>-0.396153</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.067559</td>
-      <td>-1.778296</td>
+      <td>-0.540531</td>
+      <td>-0.231617</td>
       <td>NaN</td>
     </tr>
   </tbody>
@@ -7953,41 +7970,41 @@ dtype: float64</pre>
   <tbody>
     <tr>
       <th>0</th>
-      <td>6.4</td>
-      <td>2.8</td>
-      <td>5.6</td>
-      <td>2.2</td>
-      <td>2</td>
+      <td>4.4</td>
+      <td>2.9</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>6.6</td>
-      <td>2.9</td>
-      <td>4.6</td>
-      <td>1.3</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>5.1</td>
-      <td>2.5</td>
-      <td>3.0</td>
-      <td>1.1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>5.1</td>
-      <td>3.8</td>
-      <td>1.9</td>
+      <td>5.4</td>
+      <td>3.4</td>
+      <td>1.5</td>
       <td>0.4</td>
       <td>0</td>
     </tr>
     <tr>
+      <th>2</th>
+      <td>6.3</td>
+      <td>2.3</td>
+      <td>4.4</td>
+      <td>1.3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5.8</td>
+      <td>4.0</td>
+      <td>1.2</td>
+      <td>0.2</td>
+      <td>0</td>
+    </tr>
+    <tr>
       <th>4</th>
-      <td>5.7</td>
-      <td>3.8</td>
-      <td>1.7</td>
+      <td>4.6</td>
+      <td>3.4</td>
+      <td>1.4</td>
       <td>0.3</td>
       <td>0</td>
     </tr>
@@ -8001,42 +8018,42 @@ dtype: float64</pre>
     </tr>
     <tr>
       <th>145</th>
-      <td>6.8</td>
-      <td>2.8</td>
-      <td>4.8</td>
+      <td>4.9</td>
+      <td>3.6</td>
       <td>1.4</td>
-      <td>1</td>
+      <td>0.1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>146</th>
-      <td>6.6</td>
-      <td>3.0</td>
-      <td>4.4</td>
-      <td>1.4</td>
-      <td>1</td>
+      <td>5.1</td>
+      <td>3.7</td>
+      <td>1.5</td>
+      <td>0.4</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>147</th>
-      <td>5.6</td>
-      <td>2.8</td>
-      <td>4.9</td>
-      <td>2.0</td>
-      <td>2</td>
+      <td>5.5</td>
+      <td>2.4</td>
+      <td>3.7</td>
+      <td>1.0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>148</th>
-      <td>6.7</td>
-      <td>3.1</td>
-      <td>4.7</td>
-      <td>1.5</td>
+      <td>6.4</td>
+      <td>2.9</td>
+      <td>4.3</td>
+      <td>1.3</td>
       <td>1</td>
     </tr>
     <tr>
       <th>149</th>
-      <td>5.0</td>
-      <td>3.5</td>
-      <td>1.3</td>
-      <td>0.3</td>
+      <td>5.1</td>
+      <td>3.3</td>
+      <td>1.7</td>
+      <td>0.5</td>
       <td>0</td>
     </tr>
   </tbody>
@@ -8107,11 +8124,11 @@ dtype: float64</pre>
   <tbody>
     <tr>
       <th>0</th>
-      <td>2</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>2</th>
@@ -8131,15 +8148,15 @@ dtype: float64</pre>
     </tr>
     <tr>
       <th>145</th>
-      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>146</th>
-      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>147</th>
-      <td>2</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>148</th>
@@ -8212,37 +8229,37 @@ dtype: float64</pre>
   <tbody>
     <tr>
       <th>0</th>
-      <td>6.4</td>
-      <td>2.8</td>
-      <td>5.6</td>
-      <td>2.2</td>
+      <td>4.4</td>
+      <td>2.9</td>
+      <td>1.4</td>
+      <td>0.2</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>6.6</td>
-      <td>2.9</td>
-      <td>4.6</td>
-      <td>1.3</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>5.1</td>
-      <td>2.5</td>
-      <td>3.0</td>
-      <td>1.1</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>5.1</td>
-      <td>3.8</td>
-      <td>1.9</td>
+      <td>5.4</td>
+      <td>3.4</td>
+      <td>1.5</td>
       <td>0.4</td>
     </tr>
     <tr>
+      <th>2</th>
+      <td>6.3</td>
+      <td>2.3</td>
+      <td>4.4</td>
+      <td>1.3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5.8</td>
+      <td>4.0</td>
+      <td>1.2</td>
+      <td>0.2</td>
+    </tr>
+    <tr>
       <th>4</th>
-      <td>5.7</td>
-      <td>3.8</td>
-      <td>1.7</td>
+      <td>4.6</td>
+      <td>3.4</td>
+      <td>1.4</td>
       <td>0.3</td>
     </tr>
     <tr>
@@ -8254,38 +8271,38 @@ dtype: float64</pre>
     </tr>
     <tr>
       <th>145</th>
-      <td>6.8</td>
-      <td>2.8</td>
-      <td>4.8</td>
+      <td>4.9</td>
+      <td>3.6</td>
       <td>1.4</td>
+      <td>0.1</td>
     </tr>
     <tr>
       <th>146</th>
-      <td>6.6</td>
-      <td>3.0</td>
-      <td>4.4</td>
-      <td>1.4</td>
+      <td>5.1</td>
+      <td>3.7</td>
+      <td>1.5</td>
+      <td>0.4</td>
     </tr>
     <tr>
       <th>147</th>
-      <td>5.6</td>
-      <td>2.8</td>
-      <td>4.9</td>
-      <td>2.0</td>
+      <td>5.5</td>
+      <td>2.4</td>
+      <td>3.7</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>148</th>
-      <td>6.7</td>
-      <td>3.1</td>
-      <td>4.7</td>
-      <td>1.5</td>
+      <td>6.4</td>
+      <td>2.9</td>
+      <td>4.3</td>
+      <td>1.3</td>
     </tr>
     <tr>
       <th>149</th>
-      <td>5.0</td>
-      <td>3.5</td>
-      <td>1.3</td>
-      <td>0.3</td>
+      <td>5.1</td>
+      <td>3.3</td>
+      <td>1.7</td>
+      <td>0.5</td>
     </tr>
   </tbody>
 </table>
@@ -8414,7 +8431,7 @@ dtype: float64</pre>
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>accuracy :  0.94
+<pre>accuracy :  0.9
 </pre>
 </div>
 </div>
@@ -8451,13 +8468,13 @@ dtype: float64</pre>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>              precision    recall  f1-score   support
 
-      setosa       1.00      1.00      1.00        20
-  versicolor       0.95      0.90      0.92        20
-   virginica       0.82      0.90      0.86        10
+      setosa       1.00      1.00      1.00        21
+  versicolor       0.73      0.92      0.81        12
+   virginica       0.93      0.76      0.84        17
 
-    accuracy                           0.94        50
-   macro avg       0.92      0.93      0.93        50
-weighted avg       0.94      0.94      0.94        50
+    accuracy                           0.90        50
+   macro avg       0.89      0.89      0.88        50
+weighted avg       0.91      0.90      0.90        50
 
 </pre>
 </div>
