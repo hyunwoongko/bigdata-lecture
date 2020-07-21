@@ -1016,10 +1016,11 @@ $$b := b - (lr \times \frac{dLoss}{db}) $$
 <li>집의 가격과 제일 반비례하는 것 : LSTAT(하위계층 비율), -74%</li>
 <li>RAD와 TAX의 상관관계가 무려 91%나 됨.</li>
 <li>DIS는 다른 데이터들과 상관관계가 높은편임.
-<br>
+<br><br>
 </li>
 </ul>
-<p>분석 결론 : 집의 가격은 방의 개수와 하위계층 비율과 큰 상관관계가 있고, 나머지 데이터와는 유의미한 관계 포착이 어렵습니다. 또한, RAD(고속도로와 거리)와 TAX(재산세율)의 경우 다중공선성이 우려되므로, 이 두 데이터는 반드시 빼고 회귀를 진행해야하며, DIS의 경우 다른 데이터들과 상관관계가 높으니 DIS(작업센터 거리)도 반드시 빼고 진행해야합니다.</p>
+<p>회귀분석 결론 : 집의 가격은 방의 개수와 하위계층 비율과 큰 상관관계가 있고, 나머지 데이터와는 유의미한 관계 포착이 어렵습니다. 또한, RAD(고속도로와 거리)와 TAX(재산세율)의 경우 다중공선성이 우려되므로, 이 두 데이터는 반드시 빼고 회귀를 진행해야하며, DIS의 경우 다른 데이터들과 상관관계가 높으니 DIS(작업센터 거리)도 반드시 빼고 진행해야합니다.
+<br><br></p>
 
 </div>
 </div>
@@ -1030,6 +1031,8 @@ $$b := b - (lr \times \frac{dLoss}{db}) $$
 <h4 id="4.3.-모델링">
 <a class="anchor" href="#4.3.-%EB%AA%A8%EB%8D%B8%EB%A7%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.3. 모델링<a class="anchor-link" href="#4.3.-%EB%AA%A8%EB%8D%B8%EB%A7%81"> </a>
 </h4>
+<p>모델링은 유명 머신러닝 프레임워크인 sklearn을 사용합니다. sklearn의 경우는 사용법이 너무 단순하고 쉽기 때문에, 따로 강의로 빼지 않고 각 강의를 진행하면서 차차 소개하려고합니다.</p>
+
 </div>
 </div>
 </div>
@@ -1049,12 +1052,36 @@ $$b := b - (lr \times \frac{dLoss}{db}) $$
 
 <span class="c1"># 라벨은 집의 가격</span>
 <span class="n">label</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="s1">'MEDV'</span><span class="p">]</span>
+</pre></div>
 
-<span class="c1"># 차원 늘리기</span>
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">"""</span>
+<span class="sd">np.concatenate을 위해서는 차원을 늘리는게 좋습니다. </span>
+<span class="sd">물론 바로 붙여주는 np._c같은 함수도 있긴 하지만 제 강의 중에는</span>
+<span class="sd">여러분의 암기량을 최소로 하기 위해 concatenate만 소개했기 때문에 </span>
+<span class="sd">여기에서도 강의중에 설명했던 np.concatenate으로 구현합니다.</span>
+<span class="sd">"""</span>
+
+<span class="c1"># 차원 늘리기 (n) → (n, 1)</span>
+<span class="c1"># 새로운 축을 만들고, 이 둘을 다른 열로 붙여야합니다.</span>
 <span class="n">rm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">rm</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> 
 <span class="n">lstat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">lstat</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="c1"># 접합하기</span>
+<span class="c1"># 접합하기 (n, 1) ◎ (n, 1) = (n, 2), </span>
+<span class="c1"># ◎ = concatenate입니다.</span>
 <span class="n">regression_dataset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">rm</span><span class="p">,</span> <span class="n">lstat</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> 
 <span class="n">regression_dataset</span>
 </pre></div>
@@ -1071,13 +1098,13 @@ $$b := b - (lr \times \frac{dLoss}{db}) $$
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>array([[ 6.436, 16.22 ],
-       [ 6.25 ,  5.5  ],
-       [ 5.854, 23.79 ],
+<pre>array([[ 7.079,  5.7  ],
+       [ 6.8  ,  5.03 ],
+       [ 6.552,  3.76 ],
        ...,
-       [ 6.051, 18.76 ],
-       [ 6.98 ,  5.04 ],
-       [ 5.705, 11.5  ]])</pre>
+       [ 6.13 , 27.8  ],
+       [ 6.341, 17.79 ],
+       [ 6.976,  5.64 ]])</pre>
 </div>
 
 </div>
@@ -1361,7 +1388,7 @@ test r2 score : 0.5651552946238321
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>array([25.35376773])</pre>
+<pre>array([32.73604593])</pre>
 </div>
 
 </div>
@@ -1381,7 +1408,7 @@ test r2 score : 0.5651552946238321
 </h3>
 <ul>
 <li>선형 회귀의 원리 즉, 알고리즘을 쉽게 이해할 수 있습니다.</li>
-<li>선형 회귀 알고리즘은 로지스틱 회귀, 딥러닝의 베이스입니다.</li>
+<li>선형 회귀 알고리즘은 로지스틱 회귀, 딥러닝의 베이스입니다. 선형회귀를 공부하면 딥러닝의 핵심인 Gradient Descent 알고리즘을 이해할 수 있습니다.</li>
 <li>선형적인 데이터 셋이 있으면 큰 효과를 볼 수 있습니다.
 <br><br>
 </li>
@@ -1390,8 +1417,9 @@ test r2 score : 0.5651552946238321
 <a class="anchor" href="#6.-%EC%84%A0%ED%98%95-%ED%9A%8C%EA%B7%80%EC%9D%98-%EB%8B%A8%EC%A0%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. 선형 회귀의 단점<a class="anchor-link" href="#6.-%EC%84%A0%ED%98%95-%ED%9A%8C%EA%B7%80%EC%9D%98-%EB%8B%A8%EC%A0%90"> </a>
 </h3>
 <ul>
-<li>비정상적인 데이터 샘플이 존재할 시 큰 영향을 받습니다.</li>
+<li>비정상적인 데이터 샘플이 존재할 시 직선 형성에 큰 영향을 받습니다.</li>
 <li>비선형적인 관계를 가진 변수는 그 관계를 모델링 할 수 없습니다.</li>
+<li>다중공선성과 같은 문제를 자체적으로 해결하지 못합니다. </li>
 </ul>
 
 </div>
