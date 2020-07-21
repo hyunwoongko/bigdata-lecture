@@ -377,19 +377,20 @@ $$LossFunction(w, b) = \frac{1}{N}\sum_{i = 1}^N ((wx+b)-y_i)^2$$
 <p>그런데 3차원에서 생각하는건 너무 복잡하고 머리아프니 2차원이라고 생각하고 수식으로 풀어봅시다.</p>
 <p><br><br></p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day3/10.png?raw=true" alt=""></p>
-<p>위 그림에서 최종적으로 도착해야 하는 가장 Loss가 낮은 지점은 w=-2라고 해봅시다. 현재 w는 20에 있습니다. 이 위치에서는 기울기가 양수입니다. 따라서 $w := w - \frac{dLoss}{dW}$와 같이, w에서 w방향의 기울기를 뺍니다. 그러면 w는 줄어들고 조금 더 최소값에 가까워집니다.</p>
+<p>b는 생략하고 w만 봅시다. 위 그림에서 최종적으로 도착해야 하는 가장 Loss가 낮은 지점은 w=-2라고 해봅시다. 현재 w는 20에 있습니다. 이 위치에서는 기울기가 양수입니다. 따라서 $w := w - \frac{dLoss}{dW}$와 같이, w값에서 w방향의 기울기(편미분)를 뺍니다. 그러면 w는 줄어들고 조금 더 최소값에 가까워집니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day3/11.png?raw=true" alt=""></p>
-<p>위 그림에서 현재 w는 8에 있습니다. 이 위치에서는 기울기가 양수입니다. 따라서 $w := w - \frac{dLoss}{dW}$와 같이, w에서 w방향의 기울기를 뺍니다. 기울기는 중앙으로 다가갈수록 점점 작아집니다. 결과적으로 w는 줄어들고 조금 더 최소값에 가까워집니다.</p>
+<p>위 그림에서 현재 w는 8에 있습니다. 이 위치에서는 기울기가 양수입니다. 따라서 $w := w - \frac{dLoss}{dW}$와 같이, w값에서 w방향의 기울기(편미분)를 뺍니다. 그러면 w는 줄어들고 조금 더 최소값에 가까워집니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day3/12.png?raw=true" alt=""></p>
-<p>위 그림에서 현재 w는 2까지 왔습니다. 여기에서 이 위치에서는 기울기가 양수입니다. 따라서 $w := w - \frac{dLoss}{dW}$와 같이, w에서 w방향의 기울기를 뺍니다. 기울기는 중앙으로 다가갈수록 점점 작아집니다. 결과적으로 w는 줄어들고 조금 더 최소값에 가까워집니다.</p>
+<p>위 그림에서 현재 w는 2까지 왔습니다. 이 위치에서는 기울기가 양수입니다. 따라서 $w := w - \frac{dLoss}{dW}$와 같이, w값에서 w방향의 기울기(편미분)을 뺍니다. 기울기는 중앙으로 다가갈수록 점점 작아집니다. 결과적으로 w는 줄어들고 조금 더 최소값에 가까워집니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day3/13.png?raw=true" alt=""></p>
-<p>위 그림에서 현재 w가 -2에 도달했습니다. 여기에서 이 위치에서는 기울기가 0입니다. 따라서 $w := w - \frac{dLoss}{dW}$와 같이, w에서 w방향의 기울기를 빼도 w는 변화하지 않고 최종 적으로 원하는 곳으로 이동합니다.
+<p>위 그림에서 현재 w가 -2에 도달했습니다. 여기에서 이 위치에서는 기울기이 위치에서는 기울기가 양수입니다. 따라서 $w := w - \frac{dLoss}{dW}$와 같이, w값에서 w방향의 기울기(편미분)를 뺍니다. 그러면 w는 줄어들고 조금 더 최소값에 가까워집니다.가 0입니다. 따라서 $w := w - \frac{dLoss}{dW}$와 같이, w에서 w방향의 기울기를 빼도 w는 변화하지 않고 최종 적으로 원하는 곳으로 이동합니다.
 <br><br></p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day3/14.png?raw=true" alt=""></p>
 <p>만약 w의 랜덤값이 반댓방향으로 초기화 되면 아래와 같이 동작할 텐데, 기울기가 음수이므로 $w := w - \frac{dLoss}{dW}$가 되면, w - (-기울기) 이므로 w는 증가하게 되고 마찬가지로 최소지점에 도달하게 됩니다. 이 것이 경사하강 알고리즘입니다.
 <br><br></p>
-<p>그러나, 실제 알고리즘은 더 디테일한 부분이 있는데, 실제로는 기울기 값이 너무 커서 w값이 크게 벗어나 버립니다. 기울기 값이 너무 크기 때문에 기울기에 0.001과 같은 작은 숫자를 곱하는데 그 것을 '러닝레이트' 혹은 '학습율'이라고 부릅니다. 따라서 아래와 같이 다시 쓸 수 있습니다. 또한 우리는 w말고 b도 학습시켜야 2방향 모두에서 원하는 위치로 갈 수 있기 때문에 w와 b를 동시에 학습시켜야합니다.</p>
-<p>
+<p>그러나, 실제 알고리즘은 더 디테일한 부분이 있는데, 실제로는 기울기 값이 너무 커서 w값이 크게 벗어나 버립니다. 기울기 값이 너무 크기 때문에 기울기에 0.001과 같은 작은 숫자를 곱하는데 그 것을 '러닝레이트(learning rate, 아래 수식에서 lr)' 혹은 '학습율'이라고 부릅니다. 따라서 아래와 같이 다시 쓸 수 있습니다. 또한 우리는 w말고 b도 학습시켜야 2방향 모두에서 원하는 위치로 갈 수 있기 때문에 w와 b를 동시에 학습시켜야합니다. (Loss함수를 w는 w방향으로 편미분, b는 b방향으로 편미분해서 계산합니다)</p>
+<p><br>
+
 $$w := w - (lr \times \frac{dLoss}{dW}) $$
 </p>
 <p>
@@ -1445,7 +1446,7 @@ test r2 score : 0.45982886630956876
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>두개의 컬럼만 사용해서 어느정도는 선형 회귀분석에 성공하였습니다.</p>
+<p>두개의 컬럼만 사용해서 선형 회귀분석에 성공하였습니다.</p>
 
 </div>
 </div>
