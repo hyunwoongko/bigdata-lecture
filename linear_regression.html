@@ -263,8 +263,9 @@
 <li class="toc-entry toc-h3"><a href="#4.-보스턴시-주택-가격-예측하기">4. 보스턴시 주택 가격 예측하기 </a>
 <ul>
 <li class="toc-entry toc-h4"><a href="#4.1.-데이터셋에-대한-설명">4.1. 데이터셋에 대한 설명 </a></li>
-<li class="toc-entry toc-h4"><a href="#4.2.-데이터셋-분석">4.2. 데이터셋 분석 </a></li>
-<li class="toc-entry toc-h4"><a href="#4.3.-모델링">4.3. 모델링 </a></li>
+<li class="toc-entry toc-h4"><a href="#4.2.-데이터셋-로딩">4.2. 데이터셋 로딩 </a></li>
+<li class="toc-entry toc-h4"><a href="#4.3.-데이터셋-분석">4.3. 데이터셋 분석 </a></li>
+<li class="toc-entry toc-h4"><a href="#4.4.-모델링">4.4. 모델링 </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h3"><a href="#5.-선형-회귀의-장점">5. 선형 회귀의 장점 </a></li>
@@ -423,29 +424,6 @@ $$b := b - (lr \times \frac{dLoss}{db}) $$
 </div>
 </div>
 </div>
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'sample_data/boston.csv'</span><span class="p">)</span>
-<span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">'CAT. MEDV'</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="c1"># dataset</span>
-<span class="c1"># 열이 너무 많아서 블로그에서 깨집니다. (colab에서 실행해주세요)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    
-
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -476,9 +454,41 @@ $$b := b - (lr \times \frac{dLoss}{db}) $$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="4.2.-데이터셋-로딩">
+<a class="anchor" href="#4.2.-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%85%8B-%EB%A1%9C%EB%94%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.2. 데이터셋 로딩<a class="anchor-link" href="#4.2.-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%85%8B-%EB%A1%9C%EB%94%A9"> </a>
+</h4>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'sample_data/boston.csv'</span><span class="p">)</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">'CAT. MEDV'</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># dataset</span>
+<span class="c1"># 열이 너무 많아서 블로그에서 깨집니다. (colab에서 실행해주세요)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p><br></p>
-<h4 id="4.2.-데이터셋-분석">
-<a class="anchor" href="#4.2.-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%85%8B-%EB%B6%84%EC%84%9D" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.2. 데이터셋 분석<a class="anchor-link" href="#4.2.-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%85%8B-%EB%B6%84%EC%84%9D"> </a>
+<h4 id="4.3.-데이터셋-분석">
+<a class="anchor" href="#4.3.-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%85%8B-%EB%B6%84%EC%84%9D" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.3. 데이터셋 분석<a class="anchor-link" href="#4.3.-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%85%8B-%EB%B6%84%EC%84%9D"> </a>
 </h4>
 <p>우선 데이터셋의 속성들이 집의 가격과 어떤 관계를 가지고 있는지 확인할 필요가 있습니다. 우선 각 속성과 집의 가격을 2차원 벡터로 모델링해서 시각화 해보겠습니다.</p>
 
@@ -1028,8 +1038,8 @@ $$b := b - (lr \times \frac{dLoss}{db}) $$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="4.3.-모델링">
-<a class="anchor" href="#4.3.-%EB%AA%A8%EB%8D%B8%EB%A7%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.3. 모델링<a class="anchor-link" href="#4.3.-%EB%AA%A8%EB%8D%B8%EB%A7%81"> </a>
+<h4 id="4.4.-모델링">
+<a class="anchor" href="#4.4.-%EB%AA%A8%EB%8D%B8%EB%A7%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.4. 모델링<a class="anchor-link" href="#4.4.-%EB%AA%A8%EB%8D%B8%EB%A7%81"> </a>
 </h4>
 <p>모델링은 유명 머신러닝 프레임워크인 sklearn을 사용합니다. sklearn의 경우는 사용법이 너무 단순하고 쉽기 때문에, 따로 강의로 빼지 않고 각 강의를 진행하면서 차차 소개하려고합니다.</p>
 
