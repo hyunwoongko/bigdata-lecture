@@ -334,6 +334,7 @@ $$LossFunction = \frac{1}{N}\sum_{i = 1}^N (\hat{y_i}-y_i)^2$$
 
 <br></p>
 <p>음... 그런데 이거 어디서 많이 본 것 같은 식 아닌가요? 맞습니다. 통계시간에 배운 분산과 동일합니다. 분산은 샘플과 평균의 차이의 제곱입니다. 오차함수는 샘플과 직선과의 차이의 제곱입니다. 즉, 오차함수라는건, 직선을 평균으로 봤을 때, 직선과 데이터들 사이의 분산을 의미합니다. 
+이러한 오차함수를 이제부터 MSE (Mean Squared Error)라고 부르도록 하겠습니다.
 <br><br></p>
 <ul>
 <li>오차함수의 진짜 학습 원리 (읽어볼 사람만 읽어보세요)</li>
@@ -374,7 +375,7 @@ $$LossFunction(w, b) = \frac{1}{N}\sum_{i = 1}^N ((wx+b)-y_i)^2$$
 <br><br></p>
 <p>실제로 경사하강법 알고리즘은 경사를 타고 쭉 내려가서 w와 b를 조정하고 Loss가 최소인곳을 찾아냅니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day3/08.gif?raw=true" alt=""></p>
-<p>그런데 3차원에서 생각하는건 너무 복잡하고 머리아프니 2차원이라고 생각하고 수식으로 풀어봅시다.</p>
+<p>그런데 3차원에서 생각하는건 너무 복잡하고 머리 아프니 2차원이라고 생각하고 수식으로 풀어봅시다.</p>
 <p><br><br></p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day3/10.png?raw=true" alt=""></p>
 <p>b는 생략하고 w만 봅시다. 위 그림에서 최종적으로 도착해야 하는 가장 Loss가 낮은 지점은 w=-2라고 해봅시다. 현재 w는 20에 있습니다. 이 위치에서는 기울기가 양수입니다. 따라서 $w := w - \frac{dLoss}{dW}$와 같이, w값에서 w방향의 기울기(편미분)를 뺍니다. 그러면 w는 줄어들고 조금 더 최소값에 가까워집니다.</p>
@@ -409,7 +410,15 @@ $$b := b - (lr \times \frac{dLoss}{db}) $$
 <h3 id="4.-보스턴-주택-가격-예측">
 <a class="anchor" href="#4.-%EB%B3%B4%EC%8A%A4%ED%84%B4-%EC%A3%BC%ED%83%9D-%EA%B0%80%EA%B2%A9-%EC%98%88%EC%B8%A1" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. 보스턴 주택 가격 예측<a class="anchor-link" href="#4.-%EB%B3%B4%EC%8A%A4%ED%84%B4-%EC%A3%BC%ED%83%9D-%EA%B0%80%EA%B2%A9-%EC%98%88%EC%B8%A1"> </a>
 </h3>
-<p>보스턴 주택 가격 데이터셋은 1978년에 미국 보스턴 지역의 주택가격에 영향을 미치는 요소를 정리한 데이터셋입니다.</p>
+<p>보스턴 주택 가격 데이터셋은 1978년에 미국 보스턴 지역의 주택가격에 영향을 미치는 요소를 정리한 데이터셋입니다. 아래 주소에서 다운로드 받은 뒤, 압축을 풀고 sample_data 폴더에 넣어주세요! (그냥 드래그 하면 됩니다)
+<br></p>
+<p><a href="https://github.com/gusdnd852/bigdata-lecture/files/4952990/boston.zip">https://github.com/gusdnd852/bigdata-lecture/files/4952990/boston.zip</a></p>
+
+<pre><code>root경로
+    |_...
+    |_sample_data
+        |_boston.csv</code></pre>
+<p><br></p>
 
 </div>
 </div>
@@ -1352,7 +1361,7 @@ test r2 score : 0.5651552946238321
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>array([32.73604593])</pre>
+<pre>array([25.35376773])</pre>
 </div>
 
 </div>
