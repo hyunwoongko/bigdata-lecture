@@ -261,7 +261,7 @@
 <li class="toc-entry toc-h3"><a href="#2.-회귀를-해봤으니,-이제-분류를-해보자">2. 회귀를 해봤으니, 이제 분류를 해보자 </a></li>
 <li class="toc-entry toc-h3"><a href="#3.-Hello!-시그모이드(Sigmoid)">3. Hello! 시그모이드(Sigmoid) </a></li>
 <li class="toc-entry toc-h3"><a href="#4.-Cross-Entropy-Loss-함수">4. Cross Entropy Loss 함수 </a></li>
-<li class="toc-entry toc-h3"><a href="#5.-유방암-진단하기">5. 유방암 진단하기 </a>
+<li class="toc-entry toc-h3"><a href="#5.-위스콘신-대학병원-유방암-환자-진단하기">5. 위스콘신 대학병원 유방암 환자 진단하기 </a>
 <ul>
 <li class="toc-entry toc-h4"><a href="#5.1.-데이터셋-설명">5.1. 데이터셋 설명 </a></li>
 <li class="toc-entry toc-h4"><a href="#5.2.-데이터셋-로딩">5.2. 데이터셋 로딩 </a></li>
@@ -409,8 +409,8 @@ $$<p><br><br></p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br></p>
-<h3 id="5.-유방암-진단하기">
-<a class="anchor" href="#5.-%EC%9C%A0%EB%B0%A9%EC%95%94-%EC%A7%84%EB%8B%A8%ED%95%98%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. 유방암 진단하기<a class="anchor-link" href="#5.-%EC%9C%A0%EB%B0%A9%EC%95%94-%EC%A7%84%EB%8B%A8%ED%95%98%EA%B8%B0"> </a>
+<h3 id="5.-위스콘신-대학병원-유방암-환자-진단하기">
+<a class="anchor" href="#5.-%EC%9C%84%EC%8A%A4%EC%BD%98%EC%8B%A0-%EB%8C%80%ED%95%99%EB%B3%91%EC%9B%90-%EC%9C%A0%EB%B0%A9%EC%95%94-%ED%99%98%EC%9E%90-%EC%A7%84%EB%8B%A8%ED%95%98%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. 위스콘신 대학병원 유방암 환자 진단하기<a class="anchor-link" href="#5.-%EC%9C%84%EC%8A%A4%EC%BD%98%EC%8B%A0-%EB%8C%80%ED%95%99%EB%B3%91%EC%9B%90-%EC%9C%A0%EB%B0%A9%EC%95%94-%ED%99%98%EC%9E%90-%EC%A7%84%EB%8B%A8%ED%95%98%EA%B8%B0"> </a>
 </h3>
 </div>
 </div>
@@ -483,9 +483,12 @@ $$<p><br><br></p>
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
+<span class="c1"># 0 : 양성, 1 : 악성</span>
+<span class="n">label_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'M'</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span> 
+
 <span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'sample_data/cancer.csv'</span><span class="p">)</span>
 <span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">'id'</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 필요 없는 데이터 삭제</span>
-<span class="n">dataset</span><span class="p">[</span><span class="s1">'diagnosis'</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="s1">'diagnosis'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="s1">'M'</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">:</span><span class="mi">1</span><span class="p">})</span> <span class="c1"># 라벨 맵핑 </span>
+<span class="n">dataset</span><span class="p">[</span><span class="s1">'diagnosis'</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="s1">'diagnosis'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">label_dict</span><span class="p">)</span> <span class="c1"># 라벨 맵핑 </span>
 
 <span class="c1"># dataset</span>
 <span class="c1"># 열이 너무 많아서 블로그에서 깨집니다. (colab에서 주석을 풀고 실행해주세요)</span>
@@ -842,7 +845,7 @@ dimension_mean : dimension_worst = 0.35
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x295fe5cb470&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x155bf939860&gt;</pre>
 </div>
 
 </div>
@@ -852,7 +855,7 @@ dimension_mean : dimension_worst = 0.35
 
 
 <div class="output_png output_subarea ">
-<img src="data:image/png;base64,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%0A">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANUAAAD/CAYAAABmd5PTAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4yLjEsIGh0dHA6Ly9tYXRwbG90bGliLm9yZy+j8jraAAAP90lEQVR4nO3de1BUdR/H8c/uyiCCt+JWpIZm6TPp6GgK6VheEpSLtxwHRGpCS0UcUnEkTDJ0TEZSH9PM8lJqJGkKKmiZ4w1NwKdmaGQwpUlkReQSghsq7D5/OO60Ayic/R53Fz+vf3A5Zzk/Gd/supw9X43JZDKBiMRobb0AoraGUREJY1REwhgVkTBGRSSMUREJsyqqgwcPYvz48Rg7dix2797daHtBQQEmT56MgIAAJCQkoL6+3prDETkExVHduHEDa9euxbfffosDBw5gz549uHz5ssU+cXFxWLZsGY4ePQqTyYS0tDSrF0xk7xRHdfbsWfj5+aFLly7o0KEDAgICcOTIEfP2kpIS1NXVYcCAAQCAyZMnW2wnaqsUR1VWVgYPDw/zbU9PT9y4caPZ7R4eHhbbidoqxVEZjUZoNBrzbZPJZHH7UduJ2qp2Su/o7e2NvLw88+2bN2/C09PTYvvNmzfNt8vLyy22t0RV1W0YjU2fmvj0026Yv+pAK1dN1DL/jZ+IioraJrdptRp07era7H0VR/Xqq69iw4YNqKyshIuLC3788UckJSWZt/v4+MDZ2RkXLlzAoEGDkJ6ejhEjRrTqGEajqdmoAKC86rbS5RM90sP+7T2M4qd/Xl5eeP/99xEZGYmJEyciODgY/fv3x6xZs5Cfnw8AWLNmDVatWoXAwEAYDAZERkYqPRyRw9DY81s/Kipqm/1p4eHREeGLG/9ujEjCt8nTcfNmTZPbtFoNnn7ardn78owKImGMikgYoyISxqiIhDEqImGMikgYoyISxqiIhDEqImGMikgYoyISxqiIhDEqImGMikgYoyISxqiIhDEqImGMikgYoyISxqiIhDEqImGMikiY4qj0ej2mT5+OwMBAzJkzB7dvN39hy+zsbLz11ltKD0XkUBRHtXz5coSHh+PIkSN4+eWXsWnTpkb7GI1GbNu2DQsWLIDRaLRqoUSOQlFU9+7dQ25uLgICAgA0PybnypUruHLlisXloInaOkVRVVVVwc3NDe3a3b8Ue3Njcnr37o2VK1eic+fO1q2SyIE8ckBBVlYWVq1aZfG5Hj16NBqLo8aYnIddWpdIbR4eHRXd75FRjRs3DuPGjbP43L179zB06FA0NDRAp9M1GqMj5VHXUidS02O9lrqTkxMGDx6MzMxMAMCBAwdaPSaHqK1S/OpfYmIi0tLSMH78eOTl5SE2NhYAkJqaivXr14stkMjRcJQOURM4SofIjjAqImGMikgYoyISxqiIhDEqImGMikgYoyISxqiIhDEqImGMikgYoyISxqiIhDEqImGMikgYoyISxqiIhDEqImGMikgYoyISxqiIhDEqImGqjtIpKytDVFQUJkyYgEmTJuHcuXNWLZbIEag6Sic5ORmjRo1Ceno6UlJSsGjRIjQ0NFi1YCJ7p+oonTfeeAPBwcEA7g81uHPnDgwGgxXLJbJ/jxxQ0JSWjtJ5EB0AbN26FX379kXHjhwsQG3bYxmls2PHDuzZswe7du1q1eI4SodsyW5H6SQnJ+PkyZPYvXs3vL29W7U4jtIhW7LLUTo7duzA+fPnkZqa2uqgiByV4qkfJSUlWLJkCSoqKvDMM8/g008/RefOnZGamoqysjLMnz8fQ4YMgZubGzp16mS+35YtW+Dl5dWiY3DqB9mKNVM/FL1QAQA+Pj7YuXNno8+HhYWZ/5ybm6v0yxM5LJ5RQSSMUREJY1REwhgVkTBGRSSMUREJY1REwhgVkTBGRSSMUREJY1REwhgVkTBGRSSMUREJY1REwhgVkTBGRSSMUREJY1REwhgVkTBGRSSMUREJU32Uzttvv43Q0FBMnToVBQUFVi2WyBGoOkpn7dq1CAgIQEZGBmJiYrB8+XKrFkvkCFQdpbNy5UpMmzYNAHDt2jWLK9UStVWqjtLRau83GxgYiJKSkiYfzYjamscySufIkSMoKCjAO++8g6ysLHTp0qVFi+MoHbIluxylc+LECbzyyitwdXVF37598eyzz6K4uLjFUXGUDtmSXY7S2b9/P9LS0gAAly9fRnl5OXr27KnkkEQOQ/Grf4mJiUhLS8P48eORl5eH2NhYAEBqairWr18PAPjggw9w5swZhIaGIj4+HikpKXB1dZVZOZGdUjyf6nHgfCqyFWvmU/GMCiJhjIpIGKMiEsaoiIQxKiJhjIpIGKMiEsaoiIQxKiJhjIpIGKMiEsaoiIQxKiJhjIpIGKMiEsaoiIQxqifAnepiVBZm4k51sa2X8kRQdIkyciy1+v+h3lCBWv09OHfuZuvltHl8pHoCmBruWXwkdTEqImGMikgYoyISpuoonQdqa2sxZswYnD9/XunhiByGqqN0HkhKSsKtW7eUHorIoag6SgcAMjMz4erqipdeekn5KokciKKoWjpKR6/X4+uvv8bixYutWyWRA1FtlI7RaERCQgI+/PBDtG/fXtHiOEqHbMnuRukUFRWhqKgICQkJAICrV69i6dKlSEpKgp+fX4sWx1E6ZEtKr6Wu6DSlf4/SCQkJaXKUzgsvvICTJ0+ab8+YMQPz5s3D0KFDlRySyGGoOkqH6Emk+IRaHx8f7Ny5s9Hnw8LCmty/qX2J2iKeUUEkjFERCWNURMIYFZEwRkUkjFERCWNURMIYFZEwRkUkjFERCWNURMIYFZEwRkUkjFERCWNURMIYFZEwRkUkjFERCWNURMIYFZEwRkUkjFERCVN8iTK9Xo+4uDhUVFTA19cXa9asgaurq8U+JSUlCA4ORvfu3QEA7u7u2Lp1q3UrJrJzqo7S+f333xESEoL09HSkp6czKHoiqDpKJz8/H5cuXcKECRMQGRmJwsJC61ZL5ABUHaXj7OyM0NBQ7N+/H1FRUYiOjsbdu3etWzGRnVNtlA4AxMTEmP/82muvISUlBUVFRejTp0+LFsdROmRLdjdKB7h//fTg4GB07doVAGAymcyPbi3BUTpkS0pH6Sh6+vfvUToAmhylAwC5ubnYu3cvACAnJwdGoxE9e/ZUckgih6HqKJ2EhAScPXsWwcHBWL16NVJSUqDV8ldj1LapOkrHy8sL27dvV3oIIofEhw0iYYyKSBijIhLGqIiEMSoiYYyKSJjGZDI1fcqCHXjYGRUdO7VHe2enx7wixxQZGYmSkhL4+Pjgm2++sfVyHELdnXuouVXX5LZHnVGh+PdUtlZzqw41aPovTZYaGkzmj82dekNy+PSPSBijIhLGqIiEMSoiYYyKSBijIhLGqIiEMSoiYYyKSBijIhLGqIiEMSoiYYyKSBijIhKmOCq9Xo/p06cjMDAQc+bMwe3btxvtc/fuXaxYsQITJ05EUFAQzpw5Y9ViiRyBqqN0vvrqK1RVVWH//v1Yt24d4uPjYcfviSQSoeoonaysLMyaNQsajQa9e/fG9u3bGRW1eaqO0vnrr7+Qm5uL8PBwTJs2DeXl5bzsM7V5qo7SaWhoQGlpKXbv3o3CwkLMnDkTWVlZ6NixZRM7OEpHhk6nMX/ktBT1qTpKx93dHUFBQdBoNOjTpw+8vb3x559/on///i1a3MMu/EItx2tUyLLpKJ2RI0ea9ykuLsb169fh6+ur5JBEDkPVUTqLFi1CWVkZgoKCMHv2bKxYsaLFT/2IHJXDXvePWi42di5KS/Xw9n4W69Y1/tUHtY4qT/+IqHmMikgYoyISxqiIhDEqImGMikgYoyISxqiIhDEqImGMikgYoyISxqiIhDEqImGMikgYoyISxqiIhDGqJ4CLS3uLj6QuRvUEmDo1HP/5z8uYOjXc1kt5IvDt9EStxLfTEz1mjIpIGKMiEsaoiIQ98rLPzdHr9YiLi0NFRQV8fX2xZs0auLq6Wuwze/ZsXL9+HQBgNBpx6dIl7N27F/369bNu1UR2TPGrf++99x5CQ0MRFBSEjRs3wmAwIC4urtn9169fj/LyciQlJbX4GHz1j+zRo179UxTVgwEFOTk5aNeuHa5fv46IiAj8/PPPTe5fVFSEqKgoHDx4EG5uLZ/kUVV1m1GR3dFqNeja1bXZ7Yqe/rV0PtUDmzZtQlRUVKuCAvDQhRPZK1XnUwFAdXU1srOzsXLlSiuWSeQ4VJ1PBQAnT57EiBEj4OzsLLNiIjun6nwqAPjtt98wePBg5SskcjCqzqcC7g978/Lysn6lRA7Crk+oJXJEPKOCSBijIhLGqIiEMSoiYYzKji1ZsgSbN2/GrFmzbLqOhIQE5Ofn23QNjkTxWer0eHh6euLLL7+06Rp4NkzrMCo7YjKZ8Mknn+DEiRPw9PREQ0MDhgwZglGjRuH48eO4dOkSkpKSYDAYUFlZiXfffRdhYWGoqanB4sWLcfXqVXTr1g2lpaX47LPPkJOTg9OnT6O6uhrFxcUYNmwYPvroIwDA5s2bkZGRAZ1Oh2HDhiEuLg7//PMPFixYgPLycgBAdHQ0Ro8ejRkzZmDevHno0aMHFi1aBIPBAK1Wi6VLl2LAgAE2/I7ZJ0ZlR44ePYqLFy/i0KFDqKmpQWhoqMX277//HnPnzoW/vz+Ki4sRGhqKsLAwbNy4Eb6+vvj888+Rn5+PadOmme/z66+/4tChQ9DpdAgMDERYWBhKS0tx/Phx7Nu3D05OToiJicF3332HDh06wMfHB1u2bEFBQQEyMjIwevRo89fau3cvXn/9dcycOROnTp3ChQsXGFUT+H8qO5KTk4OxY8fCyckJTz31VKNTv5YsWYI7d+7giy++wLp162AwGAAA2dnZmDBhAgCgX79+ePHFF833GThwINzc3ODi4oJu3bqhuroav/zyC4KCguDi4oJ27dphypQpOHfuHAYOHIhjx45h7ty5yM/PR3R0tMXx/f39sW3bNixcuBB///03IiIiVP6OOCZGZUc0Gg3+fYLLg7fWPBAbG4uffvoJvXr1Mp8WBgA6nQ7NnRjz7xOZH3x9o9HYaL/6+no8//zzyMrKQkhICPLy8vDmm29a7Dto0CAcPnwYw4cPR2ZmJmbPnq3479qWMSo74u/vj6ysLNy9exfV1dU4ffq0xfbs7GzMnz8fY8aMwalTpwAADQ0N8Pf3x8GDBwEAhYWF+OOPP5p9Kw4A+Pn54fDhw6irq0N9fT327dsHPz8/7Nq1Cxs2bMC4ceOQmJiIyspK1NbWmu+XnJyMjIwMTJo0CcuWLcPFixdV+C44Pv6fyo6MGTMG+fn5CA4Ohru7O3r16mWxPSYmBuHh4XB2dkafPn3g4+ODa9euITo6GvHx8QgJCUH37t3h7u6O9u2bv8TzyJEjUVBQgClTpqC+vh7Dhw9HREQE6urqsGDBAoSEhECn0yEuLg6dOnUy32/GjBlYuHAhfvjhB+h0OqxevVq174Uj4wm1bUB6ejqee+45DBo0CHq9HhERETh27Bi0Wj4RsQU+UrUBPXv2RGJiIoxGI7RaLT7++GMGZUN8pCISxh9nRMIYFZEwRkUkjFERCWNURMIYFZGw/wMKwhwviOKhCAAAAABJRU5ErkJggg==%0A">
 </div>
 
 </div>
@@ -974,7 +977,7 @@ dimension_mean : dimension_worst = 0.35
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x295fe590d30&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x155bcca6ef0&gt;</pre>
 </div>
 
 </div>
@@ -1026,7 +1029,7 @@ dimension_mean : dimension_worst = 0.35
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x295fe63c898&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x155bfad6828&gt;</pre>
 </div>
 
 </div>
@@ -1175,7 +1178,7 @@ dimension_mean : dimension_worst = 0.35
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x295fea63208&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x155bf939f98&gt;</pre>
 </div>
 
 </div>
@@ -1325,7 +1328,7 @@ dimension_mean : dimension_worst = 0.35
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x295feafc128&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x155bfb5cc18&gt;</pre>
 </div>
 
 </div>
@@ -1738,15 +1741,192 @@ weighted avg       1.00      1.00      1.00       114
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>다중공선성을 제거하고 데이터를 표준화 했더니 100%의 테스트 성능을 보여줍니다. 이렇게 데이터를 분석할때는 여러가지 통계적 기법을 사용해서 데이터를 전처리하고, 모델에 적용하는 것이 굉장히 중요합니다.</p>
+<p>다중공선성을 제거하고 데이터를 표준화 했더니 100%의 테스트 성능을 보여줍니다. 이렇게 데이터를 분석할때는 여러가지 통계적 기법을 사용해서 데이터를 전처리하고, 모델에 적용하는 것이 굉장히 중요합니다. 이제 모델을 저장하겠습니다.</p>
 
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># sklearn 모델 저장</span>
+<span class="kn">import</span> <span class="nn">joblib</span>
+
+<span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s1">'./models/logistic_regression.pkl'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>['./models/logistic_regression.pkl']</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># sklearn 모델 불러오기</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">joblib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">'./models/logistic_regression.pkl'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">train_feature</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">train_label</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">'</span><span class="se">\n\n</span><span class="s1">'</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">break</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>((0, radius_worst       -0.572947
+texture_worst      -1.633063
+perimeter_worst    -0.603859
+area_worst         -0.582206
+smoothness_worst    0.268539
+compactness_mean   -0.653838
+concavity_mean     -0.613766
+points_worst       -0.314856
+symmetry_worst     -0.119216
+dimension_worst    -0.898930
+Name: 0, dtype: float64), 1)
+
+((1, radius_worst       -0.908125
+texture_worst      -0.445348
+perimeter_worst    -0.862471
+area_worst         -0.800523
+smoothness_worst   -0.484775
+compactness_mean    0.196146
+concavity_mean     -0.312712
+points_worst       -0.537730
+symmetry_worst      0.063433
+dimension_worst    -0.447135
+Name: 1, dtype: float64), 1)
+
+((2, radius_worst       -0.798468
+texture_worst       0.124104
+perimeter_worst    -0.813367
+area_worst         -0.718676
+smoothness_worst    0.198464
+compactness_mean   -0.498004
+concavity_mean     -0.731805
+points_worst       -0.613035
+symmetry_worst      0.157182
+dimension_worst    -0.284355
+Name: 2, dtype: float64), 1)
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># sklearn 모델 예측하기 </span>
+<span class="c1"># (위의 실제 정답셋과 비교해보세요)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">eval_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.798468</span><span class="p">,</span>
+                      <span class="mf">0.124104</span><span class="p">,</span>
+                     <span class="o">-</span><span class="mf">0.813367</span><span class="p">,</span>
+                     <span class="o">-</span><span class="mf">0.718676</span><span class="p">,</span>
+                     <span class="mf">0.198464</span><span class="p">,</span>
+                     <span class="o">-</span><span class="mf">0.498004</span><span class="p">,</span>
+                     <span class="o">-</span><span class="mf">0.731805</span><span class="p">,</span>
+                     <span class="o">-</span><span class="mf">0.613035</span><span class="p">,</span>
+                     <span class="mf">0.157182</span><span class="p">,</span>
+                     <span class="o">-</span><span class="mf">0.284355</span><span class="p">])</span>
+
+<span class="n">eval_data</span> <span class="o">=</span> <span class="n">eval_data</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">eval_data</span><span class="p">)</span> 
+<span class="nb">list</span><span class="p">(</span><span class="n">label_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="nb">list</span><span class="p">(</span><span class="n">label_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">pred</span><span class="p">)]</span>
+<span class="c1"># 실제 정담 : 1(악성) | 예측 : 1(악성)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'B'</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><br><br></p>
+<p><br></p>
 <h3 id="4.-로지스틱-회귀-장점">
 <a class="anchor" href="#4.-%EB%A1%9C%EC%A7%80%EC%8A%A4%ED%8B%B1-%ED%9A%8C%EA%B7%80-%EC%9E%A5%EC%A0%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. 로지스틱 회귀 장점<a class="anchor-link" href="#4.-%EB%A1%9C%EC%A7%80%EC%8A%A4%ED%8B%B1-%ED%9A%8C%EA%B7%80-%EC%9E%A5%EC%A0%90"> </a>
 </h3>
