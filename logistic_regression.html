@@ -680,9 +680,7 @@ dimension_mean : dimension_worst = 0.35
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><br></p>
-<p>실제로 dimension을 제외한 모든 컬럼에서 mean과 worst사이에 다중공선성이 발생했습니다. 이를 해결해봅시다.
-<br><br></p>
+<p>실제로 dimension을 제외한 모든 컬럼에서 mean과 worst사이에 다중공선성이 발생했습니다. 이를 해결해봅시다.</p>
 
 </div>
 </div>
@@ -1539,203 +1537,9 @@ dimension    : worst : 0.32</code></pre>
                             <span class="n">dataset</span><span class="p">[</span><span class="s1">'points_worst'</span><span class="p">],</span>
                             <span class="n">dataset</span><span class="p">[</span><span class="s1">'symmetry_worst'</span><span class="p">],</span>
                             <span class="n">dataset</span><span class="p">[</span><span class="s1">'dimension_worst'</span><span class="p">]])</span><span class="o">.</span><span class="n">T</span>
-
-<span class="n">new_dataset</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped="">
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>radius_worst</th>
-      <th>texture_worst</th>
-      <th>perimeter_worst</th>
-      <th>area_worst</th>
-      <th>smoothness_worst</th>
-      <th>compactness_mean</th>
-      <th>concavity_mean</th>
-      <th>points_worst</th>
-      <th>symmetry_worst</th>
-      <th>dimension_worst</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>13.50</td>
-      <td>15.64</td>
-      <td>86.97</td>
-      <td>549.1</td>
-      <td>0.1385</td>
-      <td>0.06981</td>
-      <td>0.03987</td>
-      <td>0.09391</td>
-      <td>0.2827</td>
-      <td>0.06771</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>11.88</td>
-      <td>22.94</td>
-      <td>78.28</td>
-      <td>424.8</td>
-      <td>0.1213</td>
-      <td>0.11470</td>
-      <td>0.06387</td>
-      <td>0.07926</td>
-      <td>0.2940</td>
-      <td>0.07587</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>12.41</td>
-      <td>26.44</td>
-      <td>79.93</td>
-      <td>471.4</td>
-      <td>0.1369</td>
-      <td>0.07804</td>
-      <td>0.03046</td>
-      <td>0.07431</td>
-      <td>0.2998</td>
-      <td>0.07881</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>11.92</td>
-      <td>15.77</td>
-      <td>76.53</td>
-      <td>434.0</td>
-      <td>0.1367</td>
-      <td>0.11360</td>
-      <td>0.04635</td>
-      <td>0.08611</td>
-      <td>0.2102</td>
-      <td>0.06784</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>16.20</td>
-      <td>15.73</td>
-      <td>104.50</td>
-      <td>819.1</td>
-      <td>0.1126</td>
-      <td>0.06934</td>
-      <td>0.03393</td>
-      <td>0.08178</td>
-      <td>0.2487</td>
-      <td>0.06766</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>564</th>
-      <td>14.90</td>
-      <td>23.89</td>
-      <td>95.10</td>
-      <td>687.6</td>
-      <td>0.1282</td>
-      <td>0.05994</td>
-      <td>0.04859</td>
-      <td>0.10450</td>
-      <td>0.2235</td>
-      <td>0.06925</td>
-    </tr>
-    <tr>
-      <th>565</th>
-      <td>10.88</td>
-      <td>19.48</td>
-      <td>70.89</td>
-      <td>357.1</td>
-      <td>0.1360</td>
-      <td>0.09159</td>
-      <td>0.03581</td>
-      <td>0.04074</td>
-      <td>0.2434</td>
-      <td>0.08488</td>
-    </tr>
-    <tr>
-      <th>566</th>
-      <td>17.80</td>
-      <td>28.03</td>
-      <td>113.80</td>
-      <td>973.1</td>
-      <td>0.1301</td>
-      <td>0.10520</td>
-      <td>0.05375</td>
-      <td>0.12260</td>
-      <td>0.3175</td>
-      <td>0.09772</td>
-    </tr>
-    <tr>
-      <th>567</th>
-      <td>15.80</td>
-      <td>16.93</td>
-      <td>103.10</td>
-      <td>749.9</td>
-      <td>0.1347</td>
-      <td>0.09242</td>
-      <td>0.06895</td>
-      <td>0.10690</td>
-      <td>0.2606</td>
-      <td>0.07810</td>
-    </tr>
-    <tr>
-      <th>568</th>
-      <td>22.69</td>
-      <td>21.84</td>
-      <td>152.10</td>
-      <td>1535.0</td>
-      <td>0.1192</td>
-      <td>0.15150</td>
-      <td>0.19320</td>
-      <td>0.19660</td>
-      <td>0.2730</td>
-      <td>0.08666</td>
-    </tr>
-  </tbody>
-</table>
-<p>569 rows × 10 columns</p>
-</div>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -1956,6 +1760,7 @@ weighted avg       1.00      1.00      1.00       114
 </h3>
 <ul>
 <li>복잡한 비선형 문제를 해결하는데 큰 어려움을 겪는다.</li>
+<li>다중공선성과 같은 문제를 자체적으로 해결하지 못합니다. </li>
 </ul>
 
 </div>
