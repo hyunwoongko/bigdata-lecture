@@ -304,7 +304,17 @@
 <a class="anchor" href="#2.-%ED%9A%8C%EA%B7%80%EB%A5%BC-%ED%95%B4%EB%B4%A4%EC%9C%BC%EB%8B%88,-%EC%9D%B4%EC%A0%9C-%EB%B6%84%EB%A5%98%EB%A5%BC-%ED%95%B4%EB%B3%B4%EC%9E%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. 회귀를 해봤으니, 이제 분류를 해보자<a class="anchor-link" href="#2.-%ED%9A%8C%EA%B7%80%EB%A5%BC-%ED%95%B4%EB%B4%A4%EC%9C%BC%EB%8B%88,-%EC%9D%B4%EC%A0%9C-%EB%B6%84%EB%A5%98%EB%A5%BC-%ED%95%B4%EB%B3%B4%EC%9E%90"> </a>
 </h3>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day3/15.png?raw=true" alt=""></p>
-<p>이전 시간에 선형회귀에 대해 배웠으니 이번엔 분류를 해봅시다. 선형회귀 모델의 출력은 연속형입니다. 이 연속형 값이 전체의 절반을 넘었으면 출력을 1, 절반을 못넘겼으면 출력을 0이라고 해서 분류 할 수 있을거라고 생각해봅시다. 예를 들자면, 위 그림처럼 시험공부를 1시간, 2시간, 3시간한 친구들은 시험에서 떨어졌고, 시험공부를 4시간, 5시간, 6시간 한 친구들은 시험에 붙었다고 합시다.</p>
+<p>이전 시간에 선형회귀에 대해 배웠으니 이번엔 분류를 해봅시다. 선형회귀 모델의 출력은 연속형입니다. 이 연속형 값이 전체의 절반을 넘었으면 출력을 1, 절반을 못넘겼으면 출력을 0이라고 해서 분류 할 수 있을거라고 생각해봅시다. 예를 들자면, 위 그림(x축:공부시간, y축:합격여부)처럼 시험공부를 1시간, 2시간, 3시간한 친구들은 시험에서 떨어졌고, 시험공부를 4시간, 5시간, 6시간 한 친구들은 시험에 붙었다고 합시다. <br><br>
+<br><br></p>
+<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day3/16.png?raw=true" alt=""></p>
+<p>그러면 이전에 했던것과 비슷하게 선형회귀 모델을 사용해서 직선을 하나 찾고, 직선의 중간쯤을 넘어가면 불합격, 직선의 중간쯤을 넘어가면 합격이라고 예상할 수도 있지 않을까요? 
+<br><br></p>
+<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day3/17.png?raw=true" alt=""></p>
+<p>선형회귀의 출력은 연속형이니까 뭔가 그럴싸 해보입니다. 0.5지점을 넘어가면 1, 넘지 못하면 0이라고 생각할 수 있을 것 같습니다. 그러나 여기에는 커다란 문제가 있습니다.
+<br><br></p>
+<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day3/18.png?raw=true" alt=""></p>
+<p>만약 빨간 네모칸에 있는 데이터가 입력되었다고 해봅시다. 이 학생은 공부를 상당히 많이 했습니다. 그래서 x축의 가장 끝쪽에 위치합니다.
+<br><br></p>
 
 </div>
 </div>
