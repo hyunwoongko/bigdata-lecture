@@ -5,7 +5,7 @@
 <lastmod>2020-07-23T00:00:00-05:00</lastmod>
 </url>
 <url>
-<loc>https://gusdnd852.github.io/bigdata-lecture/2020/07/23/_01_%EA%B5%B0%EC%A7%91%ED%99%94_%EB%AA%A8%EB%8D%B8.html</loc>
+<loc>https://gusdnd852.github.io/bigdata-lecture/2020/07/23/_01_%EB%94%94%EC%8B%9C%EC%A0%84_%ED%8A%B8%EB%A6%AC.html</loc>
 <lastmod>2020-07-23T00:00:00-05:00</lastmod>
 </url>
 <url>
@@ -45,11 +45,11 @@
 <lastmod>2020-07-23T00:00:00-05:00</lastmod>
 </url>
 <url>
-<loc>https://gusdnd852.github.io/bigdata-lecture/2020/07/23/_02_%EC%9B%8C%EB%93%9C_%EC%9E%84%EB%B2%A0%EB%94%A9.html</loc>
+<loc>https://gusdnd852.github.io/bigdata-lecture/2020/07/23/_02_%EC%95%99%EC%83%81%EB%B8%94_%EB%AA%A8%EB%8D%B8.html</loc>
 <lastmod>2020-07-23T00:00:00-05:00</lastmod>
 </url>
 <url>
-<loc>https://gusdnd852.github.io/bigdata-lecture/2020/07/23/_02_%EC%B0%A8%EC%9B%90%EC%B6%95%EC%86%8C_%EB%AA%A8%EB%8D%B8.html</loc>
+<loc>https://gusdnd852.github.io/bigdata-lecture/2020/07/23/_02_%EC%9B%8C%EB%93%9C_%EC%9E%84%EB%B2%A0%EB%94%A9.html</loc>
 <lastmod>2020-07-23T00:00:00-05:00</lastmod>
 </url>
 <url>
@@ -65,7 +65,7 @@
 <lastmod>2020-07-23T00:00:00-05:00</lastmod>
 </url>
 <url>
-<loc>https://gusdnd852.github.io/bigdata-lecture/2020/07/23/_03_matplotlib_%EC%8B%9C%EA%B0%81%ED%99%94_%EC%8B%A4%EC%8A%B5.html</loc>
+<loc>https://gusdnd852.github.io/bigdata-lecture/2020/07/23/_03_%EB%AA%A8%EB%8D%B8_%ED%8F%89%EA%B0%80%EB%B0%A9%EB%B2%95%EA%B3%BC_%EC%98%A4%EB%B2%84%ED%94%BC%ED%8C%85.html</loc>
 <lastmod>2020-07-23T00:00:00-05:00</lastmod>
 </url>
 <url>
@@ -97,6 +97,10 @@
 <lastmod>2020-07-23T00:00:00-05:00</lastmod>
 </url>
 <url>
+<loc>https://gusdnd852.github.io/bigdata-lecture/2020/07/23/_04_%EA%B5%B0%EC%A7%91%ED%99%94_%EB%AA%A8%EB%8D%B8.html</loc>
+<lastmod>2020-07-23T00:00:00-05:00</lastmod>
+</url>
+<url>
 <loc>https://gusdnd852.github.io/bigdata-lecture/naive_bayes</loc>
 <lastmod>2020-07-23T00:00:00-05:00</lastmod>
 </url>
@@ -125,10 +129,6 @@
 <lastmod>2020-07-23T00:00:00-05:00</lastmod>
 </url>
 <url>
-<loc>https://gusdnd852.github.io/bigdata-lecture/2020/07/23/_05_%EB%94%94%EC%8B%9C%EC%A0%84_%ED%8A%B8%EB%A6%AC.html</loc>
-<lastmod>2020-07-23T00:00:00-05:00</lastmod>
-</url>
-<url>
 <loc>https://gusdnd852.github.io/bigdata-lecture/linear_algebra_with_numpy_3</loc>
 <lastmod>2020-07-23T00:00:00-05:00</lastmod>
 </url>
@@ -137,11 +137,7 @@
 <lastmod>2020-07-23T00:00:00-05:00</lastmod>
 </url>
 <url>
-<loc>https://gusdnd852.github.io/bigdata-lecture/2020/07/23/_06_%EC%95%99%EC%83%81%EB%B8%94_%EB%AA%A8%EB%8D%B8.html</loc>
-<lastmod>2020-07-23T00:00:00-05:00</lastmod>
-</url>
-<url>
-<loc>https://gusdnd852.github.io/bigdata-lecture/model_evaluation_overfitting</loc>
+<loc>https://gusdnd852.github.io/bigdata-lecture/2020/07/23/_05_%EC%B0%A8%EC%9B%90%EC%B6%95%EC%86%8C_%EB%AA%A8%EB%8D%B8.html</loc>
 <lastmod>2020-07-23T00:00:00-05:00</lastmod>
 </url>
 <url>
