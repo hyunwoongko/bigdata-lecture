@@ -733,11 +733,26 @@ $$
 <span class="n">max_random_state</span> <span class="o">=</span> <span class="mi">30</span>  
 <span class="c1"># 랜덤스테이트와 상관없이 피쳐엔지니어링이 잘 되었는지 평가하기 위해!</span>
 
-<span class="c1"># 블로그에서 깨지니, colab에서 주석 풀어주세요</span>
-<span class="c1"># dataset </span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(768, 9)</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -763,13 +778,7 @@ $$
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">"""</span>
-<span class="sd">@author : Hyunwoong Ko</span>
-<span class="sd">@when : 2020/07/06</span>
-<span class="sd">@homepage : https://www.github.com/gusdnd852</span>
-<span class="sd">"""</span>
-
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
 
 
 <span class="k">class</span> <span class="nc">Trainer</span><span class="p">:</span>
@@ -948,7 +957,7 @@ $$
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>SVM, 랜덤포레스트, 그래디언트부스팅, XGBoost  모두 74 ~ 76% 정도의 정확도를 얻었으며, 세 모델을 합친 앙상블모델의 정확도가 78%로 가장 높았습니다. 여기에 여러가지 분석 기법 및 피쳐 추출기법을 사용해 성능을 조금 더 향상시켜보겠습니다.</p>
+<p>SVM, 랜덤포레스트, 그래디언트부스팅, XGBoost  모두 75% 정도의 정확도를 얻었으며, 세 모델을 합친 앙상블모델의 정확도가 76.4%로 가장 높았습니다. 여기에 여러가지 분석 기법 및 피쳐 추출기법을 사용해 성능을 조금 더 향상시켜보겠습니다.</p>
 
 </div>
 </div>
@@ -2982,7 +2991,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>피쳐 셀렉션 이후 랜덤포레스트는 0.2%, 그래디언트 부스팅은 0.3%가 증가했으며, XGBoost는 오히려 1.2% 감소하였고, 앙상블 모델은 거의 2% 가까이 올랐습니다. 이렇게 앙상블 트리모델과 종합 앙상블 모델은 이전에 배운 SVM보다도 좋은 성능을 보여주는 경우가 많습니다. 따라서 딥러닝이 아닌 머신러닝 기법으로 분류, 회귀 작업을 수행하실때는 주로 저 위의 3가지 모델(SVM, Random Forest, Gradient Boosting등)과 앙상블 모델을 적극적으로 활용해보시길바랍니다.</p>
+<p>피쳐 셀렉션 이후 랜덤포레스트는 0.2%, 그래디언트 부스팅은 0.3%가 증가했으며, XGBoost는 오히려 1.2% 감소하였고, 앙상블 모델은 거의 2% 가까이 올랐습니다. 이렇게 앙상블 트리모델과 종합 앙상블 모델은 이전에 배운 SVM보다도 좋은 성능을 보여주는 경우가 많습니다. 따라서 딥러닝이 아닌 머신러닝 기법으로 분류 작업을 수행하실때는 주로 저 위의 3가지 모델(SVM, Random Forest, Gradient Boosting등)과 앙상블 모델을 적극적으로 활용해보시길바랍니다.</p>
 
 </div>
 </div>
