@@ -267,12 +267,12 @@
 <li class="toc-entry toc-h4"><a href="#5.2.-Generalized-Additive-Model-(GAM)">5.2. Generalized Additive Model (GAM) </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h3"><a href="#6.-오차항의-확률분포가-정규분포가-아닌-경우">6. 오차항의 확률분포가 정규분포가 아닌 경우 </a>
+<li class="toc-entry toc-h3"><a href="#6.-오차항(Error)의-확률분포가-정규분포가-아닌-경우">6. 오차항(Error)의 확률분포가 정규분포가 아닌 경우 </a>
 <ul>
 <li class="toc-entry toc-h4"><a href="#6.1.-Generalized-Linear-Model-(GLM)">6.1. Generalized Linear Model (GLM) </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h3"><a href="#7.-오차항에-자기-상관성이-있는-경우">7. 오차항에 자기 상관성이 있는 경우 </a>
+<li class="toc-entry toc-h3"><a href="#7.-자기-상관성이-있는-경우">7. 자기 상관성이 있는 경우 </a>
 <ul>
 <li class="toc-entry toc-h4"><a href="#7.1.-Autoregressive-Model">7.1. Autoregressive Model </a></li>
 </ul>
@@ -357,7 +357,7 @@
 <ul>
 <li>독립 변수와 종속 변수가 선형 관계가 아닌 경우: Polynomial regression, Generalized Additive Model (GAM)</li>
 <li>데이터에 아웃라이어가 있는 경우: Robust regression, Quantile regression</li>
-<li>오차항의 확률분포가 정규분포가 아닌 경우: Generalized Linear Model (GLM)</li>
+<li>오차항(Error)의 확률분포가 정규분포가 아닌 경우: Generalized Linear Model (GLM)</li>
 <li>자기 상관성이 있는 경우 (시계열): Auto-regression</li>
 <li>독립변수 간에 상관성이 있는 경우 (다중공선성): Ridge regression, Lasso regression, Elastic Net regression, Principal Component Regression (PCR), Partial Least Square (PLS) regression
 <br><br>
@@ -463,8 +463,8 @@
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="6.-오차항의-확률분포가-정규분포가-아닌-경우">
-<a class="anchor" href="#6.-%EC%98%A4%EC%B0%A8%ED%95%AD%EC%9D%98-%ED%99%95%EB%A5%A0%EB%B6%84%ED%8F%AC%EA%B0%80-%EC%A0%95%EA%B7%9C%EB%B6%84%ED%8F%AC%EA%B0%80-%EC%95%84%EB%8B%8C-%EA%B2%BD%EC%9A%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. 오차항의 확률분포가 정규분포가 아닌 경우<a class="anchor-link" href="#6.-%EC%98%A4%EC%B0%A8%ED%95%AD%EC%9D%98-%ED%99%95%EB%A5%A0%EB%B6%84%ED%8F%AC%EA%B0%80-%EC%A0%95%EA%B7%9C%EB%B6%84%ED%8F%AC%EA%B0%80-%EC%95%84%EB%8B%8C-%EA%B2%BD%EC%9A%B0"> </a>
+<h3 id="6.-오차항(Error)의-확률분포가-정규분포가-아닌-경우">
+<a class="anchor" href="#6.-%EC%98%A4%EC%B0%A8%ED%95%AD(Error)%EC%9D%98-%ED%99%95%EB%A5%A0%EB%B6%84%ED%8F%AC%EA%B0%80-%EC%A0%95%EA%B7%9C%EB%B6%84%ED%8F%AC%EA%B0%80-%EC%95%84%EB%8B%8C-%EA%B2%BD%EC%9A%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. 오차항(Error)의 확률분포가 정규분포가 아닌 경우<a class="anchor-link" href="#6.-%EC%98%A4%EC%B0%A8%ED%95%AD(Error)%EC%9D%98-%ED%99%95%EB%A5%A0%EB%B6%84%ED%8F%AC%EA%B0%80-%EC%A0%95%EA%B7%9C%EB%B6%84%ED%8F%AC%EA%B0%80-%EC%95%84%EB%8B%8C-%EA%B2%BD%EC%9A%B0"> </a>
 </h3>
 <h4 id="6.1.-Generalized-Linear-Model-(GLM)">
 <a class="anchor" href="#6.1.-Generalized-Linear-Model-(GLM)" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.1. Generalized Linear Model (GLM)<a class="anchor-link" href="#6.1.-Generalized-Linear-Model-(GLM)"> </a>
@@ -472,7 +472,7 @@
 <p>일반화 선형 회귀 모델은 종속 변수에 적절한 함수를 적용하는 회귀 모델링 기법입니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day5/reg04.png?raw=true" alt="">
 <br><br></p>
-<p>이렇게 종속변수에 적용하는 함수를 link function 이라고 부르는데 오차항의 확률 분포가 무엇이냐에 따라 일반적으로 사용하는 link function 이 정해져 있습니다. 우리는 이미 Logistic회귀에서 Sigmoid함수를 link function으로 사용해봤죠. 보통 GLM은 종속 변수의 특성에 따라 세부적인 명칭을 구분하기도 합니다.
+<p>이렇게 종속변수에 적용하는 함수를 link function 이라고 부르는데 오차항(Error)의 확률 분포가 무엇이냐에 따라 일반적으로 사용하는 link function 이 정해져 있습니다. 우리는 이미 Logistic회귀에서 Sigmoid함수를 link function으로 사용해봤죠. 보통 GLM은 종속 변수의 특성에 따라 세부적인 명칭을 구분하기도 합니다.
 <br><br></p>
 <ul>
 <li>종속 변수가 0 아니면 1인 경우: Logistic regression</li>
@@ -490,8 +490,8 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br></p>
-<h3 id="7.-오차항에-자기-상관성이-있는-경우">
-<a class="anchor" href="#7.-%EC%98%A4%EC%B0%A8%ED%95%AD%EC%97%90-%EC%9E%90%EA%B8%B0-%EC%83%81%EA%B4%80%EC%84%B1%EC%9D%B4-%EC%9E%88%EB%8A%94-%EA%B2%BD%EC%9A%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>7. 오차항에 자기 상관성이 있는 경우<a class="anchor-link" href="#7.-%EC%98%A4%EC%B0%A8%ED%95%AD%EC%97%90-%EC%9E%90%EA%B8%B0-%EC%83%81%EA%B4%80%EC%84%B1%EC%9D%B4-%EC%9E%88%EB%8A%94-%EA%B2%BD%EC%9A%B0"> </a>
+<h3 id="7.-자기-상관성이-있는-경우">
+<a class="anchor" href="#7.-%EC%9E%90%EA%B8%B0-%EC%83%81%EA%B4%80%EC%84%B1%EC%9D%B4-%EC%9E%88%EB%8A%94-%EA%B2%BD%EC%9A%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>7. 자기 상관성이 있는 경우<a class="anchor-link" href="#7.-%EC%9E%90%EA%B8%B0-%EC%83%81%EA%B4%80%EC%84%B1%EC%9D%B4-%EC%9E%88%EB%8A%94-%EA%B2%BD%EC%9A%B0"> </a>
 </h3>
 </div>
 </div>
