@@ -501,12 +501,19 @@ $$<p><br><br></p>
 
 <div class="output_area">
 
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-2-334502d4b39c&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">import</span> pandas <span class="ansi-green-fg">as</span> pd
+<span class="ansi-green-intense-fg ansi-bold">      2</span> 
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-red-fg"># 0 : 양성, 1 : 악성</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> label_dict <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">{</span><span class="ansi-blue-fg">'M'</span><span class="ansi-blue-fg">:</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">'B'</span><span class="ansi-blue-fg">:</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">}</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> 
 
-
-<div class="output_text output_subarea output_execute_result">
-<pre>(569, 31)</pre>
+<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named 'pandas'</pre>
 </div>
-
 </div>
 
 </div>
@@ -564,12 +571,19 @@ $$<p><br><br></p>
 
 <div class="output_area">
 
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-3-2c97dbb72f79&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> sklearn<span class="ansi-blue-fg">.</span>linear_model <span class="ansi-green-fg">import</span> LogisticRegression
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">from</span> sklearn<span class="ansi-blue-fg">.</span>metrics <span class="ansi-green-fg">import</span> accuracy_score<span class="ansi-blue-fg">,</span> classification_report
+<span class="ansi-green-intense-fg ansi-bold">      3</span> 
+<span class="ansi-green-intense-fg ansi-bold">      4</span> data_label <span class="ansi-blue-fg">=</span> dataset<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">'diagnosis'</span><span class="ansi-blue-fg">]</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> data_feature <span class="ansi-blue-fg">=</span> dataset<span class="ansi-blue-fg">.</span>drop<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">'diagnosis'</span><span class="ansi-blue-fg">,</span> axis<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">)</span>
 
-
-<div class="output_text output_subarea output_execute_result">
-<pre>0.9824561403508771</pre>
+<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named 'sklearn'</pre>
 </div>
-
 </div>
 
 </div>
@@ -675,16 +689,18 @@ weighted avg       0.98      0.98      0.98       114
 
 <div class="output_area">
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>radius_mean : radius_wrost = 0.97
-texture_mean : texture_worst = 0.91
-perimeter_mean : perimeter_worst = 0.97
-smoothness_mean : smoothness_worst = 0.81
-compactness_mean : compactness_worst = 0.87
-concavity_mean : concavity_worst = 0.88
-points_mean : points_worst = 0.75
-dimension_mean : dimension_worst = 0.35
-</pre>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-4-e53a253c1dcb&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">import</span> seaborn <span class="ansi-green-fg">as</span> sns
+<span class="ansi-green-intense-fg ansi-bold">      2</span> 
+<span class="ansi-green-intense-fg ansi-bold">      3</span> correlation_matrix <span class="ansi-blue-fg">=</span> dataset<span class="ansi-blue-fg">.</span>corr<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>round<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> sns<span class="ansi-blue-fg">.</span>set<span class="ansi-blue-fg">(</span>rc<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">{</span><span class="ansi-blue-fg">'figure.figsize'</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">25</span><span class="ansi-blue-fg">,</span><span class="ansi-cyan-fg">18</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">}</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> 
+
+<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named 'seaborn'</pre>
 </div>
 </div>
 
@@ -896,8 +912,7 @@ dimension_mean : dimension_worst = 0.35
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 가로로 보기위해 전치시킵니다.</span>
-<span class="n">mean_correlation_bar</span><span class="o">.</span><span class="n">T</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mean_correlation_bar</span><span class="o">.</span><span class="n">T</span>
 </pre></div>
 
     </div>
@@ -1599,12 +1614,19 @@ dimension    : worst : 0.32</code></pre>
 
 <div class="output_area">
 
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-5-cacea8d00998&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> sklearn<span class="ansi-blue-fg">.</span>linear_model <span class="ansi-green-fg">import</span> LogisticRegression
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">from</span> sklearn<span class="ansi-blue-fg">.</span>metrics <span class="ansi-green-fg">import</span> accuracy_score<span class="ansi-blue-fg">,</span> classification_report
+<span class="ansi-green-intense-fg ansi-bold">      3</span> 
+<span class="ansi-green-intense-fg ansi-bold">      4</span> data_label <span class="ansi-blue-fg">=</span> dataset<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">'diagnosis'</span><span class="ansi-blue-fg">]</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> data_feature <span class="ansi-blue-fg">=</span> new_dataset
 
-
-<div class="output_text output_subarea output_execute_result">
-<pre>0.9912280701754386</pre>
+<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named 'sklearn'</pre>
 </div>
-
 </div>
 
 </div>
@@ -1698,12 +1720,19 @@ weighted avg       0.99      0.99      0.99       114
 
 <div class="output_area">
 
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-6-8a870e8ef3bf&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> sklearn<span class="ansi-blue-fg">.</span>linear_model <span class="ansi-green-fg">import</span> LogisticRegression
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">from</span> sklearn<span class="ansi-blue-fg">.</span>metrics <span class="ansi-green-fg">import</span> accuracy_score<span class="ansi-blue-fg">,</span> classification_report
+<span class="ansi-green-intense-fg ansi-bold">      3</span> 
+<span class="ansi-green-intense-fg ansi-bold">      4</span> data_label <span class="ansi-blue-fg">=</span> dataset<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">'diagnosis'</span><span class="ansi-blue-fg">]</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> data_feature <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">(</span>new_dataset <span class="ansi-blue-fg">-</span> new_dataset<span class="ansi-blue-fg">.</span>mean<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">/</span> new_dataset<span class="ansi-blue-fg">.</span>std<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-red-fg"># 표준화 기법 적용</span>
 
-
-<div class="output_text output_subarea output_execute_result">
-<pre>1.0</pre>
+<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named 'sklearn'</pre>
 </div>
-
 </div>
 
 </div>
@@ -1767,8 +1796,7 @@ weighted avg       1.00      1.00      1.00       114
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># sklearn 모델 저장</span>
-<span class="kn">import</span> <span class="nn">joblib</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">joblib</span>
 <span class="kn">import</span> <span class="nn">os</span>
 
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">'./models/'</span><span class="p">):</span>
@@ -1786,12 +1814,19 @@ weighted avg       1.00      1.00      1.00       114
 
 <div class="output_area">
 
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-7-f4d67213eec8&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># sklearn 모델 저장</span>
+<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">import</span> joblib
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-green-fg">import</span> os
+<span class="ansi-green-intense-fg ansi-bold">      4</span> 
+<span class="ansi-green-intense-fg ansi-bold">      5</span> <span class="ansi-green-fg">if</span> <span class="ansi-green-fg">not</span> os<span class="ansi-blue-fg">.</span>path<span class="ansi-blue-fg">.</span>exists<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">'./models/'</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
 
-
-<div class="output_text output_subarea output_execute_result">
-<pre>['./models/logistic_regression.pkl']</pre>
+<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named 'joblib'</pre>
 </div>
-
 </div>
 
 </div>
@@ -1807,8 +1842,7 @@ weighted avg       1.00      1.00      1.00       114
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># sklearn 모델 불러오기</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">'./models/'</span><span class="p">):</span>
     <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s1">'./models/'</span><span class="p">)</span>
@@ -1817,6 +1851,27 @@ weighted avg       1.00      1.00      1.00       114
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-8-ea8dcf6f9239&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span>     os<span class="ansi-blue-fg">.</span>makedirs<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">'./models/'</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span> 
+<span class="ansi-green-fg">----&gt; 7</span><span class="ansi-red-fg"> </span>model <span class="ansi-blue-fg">=</span> joblib<span class="ansi-blue-fg">.</span>load<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">'./models/logistic_regression.pkl'</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name 'joblib' is not defined</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -1900,8 +1955,7 @@ Name: 2, dtype: float64), 1)
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># sklearn 모델 예측하기 </span>
-<span class="c1"># (위의 실제 정답셋과 비교해보세요)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># (위의 실제 정답셋과 비교해보세요)</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
@@ -1931,12 +1985,19 @@ Name: 2, dtype: float64), 1)
 
 <div class="output_area">
 
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-9-3511fa16bb2b&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-red-fg"># (위의 실제 정답셋과 비교해보세요)</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> 
+<span class="ansi-green-fg">----&gt; 4</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">import</span> numpy <span class="ansi-green-fg">as</span> np
+<span class="ansi-green-intense-fg ansi-bold">      5</span> 
+<span class="ansi-green-intense-fg ansi-bold">      6</span> eval_data = np.array([-0.798468,
 
-
-<div class="output_text output_subarea output_execute_result">
-<pre>'B'</pre>
+<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named 'numpy'</pre>
 </div>
-
 </div>
 
 </div>
