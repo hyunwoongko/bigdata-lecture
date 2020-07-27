@@ -522,7 +522,7 @@
 </h4>
 <p>혹시 왜 문서 간의 유사도를 구할 때 좌표 거리를 이용하지 않고 이렇게 복잡하게 코사인 유사도를 구하는지 의구심을 갖는 분이 계실지도 모릅니다. 다시 말해 위와 같이 주요 단어의 빈도수를 구하고 나면 그냥 이 값들을 이용해서 각 문서를 좌표 상의 점으로 표현한 후 두 문서의 거리를 구해도 될텐데 말이죠. 결론부터 얘기하자면, 만약 두 벡터를 비교할 때 벡터에 있는 값들의 <strong>전체 크기에 상관없이 상대적인 값들에만 관심이 있다면 코사인 유사도를 사용</strong>하며, <strong>값의 절대적인 크기도 중요하다면 좌표 거리를 구해야 합니다.</strong> 
 <br><br></p>
-<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day5/cst20.png?raw=true" alt=""></p>
+<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day5/cst21.png?raw=true" alt=""></p>
 <p>예를 들어 위 그림과 같이 또 다른 경제 관련 기사 C 와 정치 관련 기사 D 가 있다고 해보죠. 그런데 기사 C와 D는 정식 기사인 A, B와 달리 중요 소식만 짧게 전달하는 단신 기사여서 전체 분량이 매우 적다면 아래와 같이 벡터의 크기가 상대적으로 작을 것입니다. 이런 경우 비록 기사 C는 경제 관련 단어들이 상대적으로 많이 포함되었더라도 A에 비해 전체 단어 수가 적기 때문에 <strong>벡터의 방향은 같아도 두 점의 거리는 매우 멀게 됩니다.</strong> D역시 마찬가지로 B와 방향은 비슷해도 거리는 멀게 됩니다. 그래서 좌표 거리를 구하게 되면 <strong>C와 D는 각각 A와 B 와의 거리에 비해 둘 사이의 거리가 더 가깝게 구해집니다.</strong> 결국 좌표 거리를 이용해서 문서의 유사도를 구할 경우 문서에 포함된 주요 단어가 무엇인지에 상관없이 분량이 적은 문서들은 모두 비슷한 문서로 묶이는 문제가 발생하게 되죠. <br><br></p>
 <h4 id="7.6.-집합간의-유사도-구하기">
 <a class="anchor" href="#7.6.-%EC%A7%91%ED%95%A9%EA%B0%84%EC%9D%98-%EC%9C%A0%EC%82%AC%EB%8F%84-%EA%B5%AC%ED%95%98%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>7.6. 집합간의 유사도 구하기<a class="anchor-link" href="#7.6.-%EC%A7%91%ED%95%A9%EA%B0%84%EC%9D%98-%EC%9C%A0%EC%82%AC%EB%8F%84-%EA%B5%AC%ED%95%98%EA%B8%B0"> </a>
