@@ -346,10 +346,9 @@
 <ul>
 <li>독립변수(x)와 종속변수(y)는 반드시 선형 관계이다.</li>
 <li>데이터에 아웃라이어가 없어야 한다.</li>
-<li>독립변수와 오차항은 서로 독립이다.</li>
 <li>자기 상관성이 없다. (출력이 다시 입력이 되는 순환구조)</li>
 <li>독립변수 간에서는 서로 선형적으로 독립이다. (다중공선성이 없어야한다)</li>
-<li>에러(MSE)는 평균이 0이고 분산이 일정한 정규 분포를 갖는다.
+<li>에러(MSE)는 평균이 0이고 분산이 일정한 '정규 분포'를 갖는다.
 <br><br>
 </li>
 </ul>
@@ -469,10 +468,11 @@
 <h4 id="6.1.-Generalized-Linear-Model-(GLM)">
 <a class="anchor" href="#6.1.-Generalized-Linear-Model-(GLM)" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.1. Generalized Linear Model (GLM)<a class="anchor-link" href="#6.1.-Generalized-Linear-Model-(GLM)"> </a>
 </h4>
-<p>일반화 선형 회귀 모델은 종속 변수에 적절한 함수를 적용하는 회귀 모델링 기법입니다.</p>
+<p><img src="https://miro.medium.com/max/1636/1*04_JAPxreK8j4fkh6Pmw1Q.png" alt=""></p>
+<p>일반화 선형 회귀 모델은 종속 변수에 적절한 함수를 적용하는 회귀 모델링 기법입니다. 우리가 이미 알고있는 Logistic Regression이 바로 GLM의 일종인데, Logistic Regression의 오차함수를 MSE로 풀면 위 그림의 왼쪽처럼 구불구불하게 되어 MSE로는 풀 수가 없습니다. Logistic Regression의 오차함수를 MSE로 표현하면 정규분포의 형상을 하고 있지 않기 때문에 특별한 함수(Sigmoid)를 Y값에 취해주고, CrossEntropyLoss를 사용하여 풀었습니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day5/reg04.png?raw=true" alt="">
 <br><br></p>
-<p>이렇게 종속변수에 적용하는 함수를 link function 이라고 부르는데 오차항(Error)의 확률 분포가 무엇이냐에 따라 일반적으로 사용하는 link function 이 정해져 있습니다. 우리는 이미 Logistic회귀에서 Sigmoid함수를 link function으로 사용해봤죠. 보통 GLM은 종속 변수의 특성에 따라 세부적인 명칭을 구분하기도 합니다.
+<p>이렇게 종속변수에 적용하는 sigmoid와 같은 함수를 link function 이라고 부르는데 오차항(Error)의 확률 분포가 무엇이냐에 따라 일반적으로 사용하는 link function 이 정해져 있습니다. 보통 GLM은 종속 변수의 특성에 따라 세부적인 명칭을 구분하기도 합니다.
 <br><br></p>
 <ul>
 <li>종속 변수가 0 아니면 1인 경우: Logistic regression</li>
