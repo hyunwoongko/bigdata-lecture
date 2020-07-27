@@ -313,13 +313,23 @@
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>트리와 앙상블까지 해서 준비한 지도학습 알고리즘은 모두 끝났습니다. 그러나 너무 분류 위주로만 설명한 것 같아서 이번엔 다양항 회귀분석 기법을 소개해드리려고 합니다. 그러나 아래있는 회귀 귀법들을 다 소개하기엔 제게 주어진 시간이 너무도 짧기 때문에 어떨때 어떤 회귀기법을 사용하는지만 알려드리고, 그에 대한 간단한 설명과 키워드만 전달해드리겠습니다.</p>
+<p><br><br></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="1.-선형회귀-리마인드">
 <a class="anchor" href="#1.-%EC%84%A0%ED%98%95%ED%9A%8C%EA%B7%80-%EB%A6%AC%EB%A7%88%EC%9D%B8%EB%93%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. 선형회귀 리마인드<a class="anchor-link" href="#1.-%EC%84%A0%ED%98%95%ED%9A%8C%EA%B7%80-%EB%A6%AC%EB%A7%88%EC%9D%B8%EB%93%9C"> </a>
 </h3>
 <p>우리가 이전에 배운 선형 회귀 모델은 회귀 모델의 가장 기본 형태입니다. 이 모델을 수식으로 표현하면 아래와 같습니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day5/reg01.png?raw=true" alt="">
 <br><br></p>
-<p>고전적 선형 회귀 모델은 독립 변수의 개수에 따라 아래와 같이 명칭을 구분하기도 합니다.</p>
+<p>이제부터 우리는 독립변수와 종속변수라는 단어를 자주 사용하게 될텐데요. 종속변수와 독립변수에 대해서 모르시는 분들도 존재할 수 있을 것 같아서 설명드립니다. 말이 어려워보이는데 간단합니다. 만약 우리가 회귀모델 $y = 2x + 3$을 만들었다면, 입력 데이터 $x$는 독립변수이고, 출력 $y$는 종속변수 입니다. 앞으로 이렇게 이해하시면 될 것 같습니다. <br><br></p>
+<p>고전적 선형 회귀 모델은 독립변수(x)의 개수에 따라 아래와 같이 명칭을 구분하기도 합니다.</p>
 <ul>
 <li>단순 선형 회귀 (simple linear regression): 독립 변수가 하나</li>
 <li>다중 선형 회귀 (multiple linear regression): 독립 변수가 둘 이상
@@ -329,15 +339,15 @@
 <p>다중선형회귀는 처음들어보실텐데요. 이전시간에는 단순 선형회귀만 배웠기 때문에 이번에는 다중 선형회귀에 대해 배워봅시다. 만약 아래와 같은 데이터가 있다고 해봅시다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day5/reg09.png?raw=true" alt="">
 <br><br></p>
-<p>이전과 다르게 $x$(독립변수)가 3개가 되었습니다. 따라서 회귀를 진행하려면 이에 곱해질 가중치($w$)도 3개가 있어야합니다. 따라서 아래와 같이 수식을 변경합니다. 이러한 방식의 회귀를 다중 선형회귀라고 합니다. 즉, $x$(독립변수)가 여러개여서, 그에 곱해지는 가중치($w$)도 여러개인 그런 선형회귀 방법입니다.</p>
-<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day5/reg10.png?raw=true" alt="">
+<p>이전과 다르게 $x$(독립변수)가 3개가 되었습니다. 따라서 회귀를 진행하려면 이에 곱해질 가중치($w$)도 3개가 있어야합니다. 따라서 아래와 같이 수식을 변경합니다. 이러한 방식의 회귀를 다중 선형회귀라고 합니다. 즉, $x$(독립변수)가 여러개여서, 그에 곱해지는 가중치($w$)도 여러개인 그런 선형회귀 방법입니다. (대부분은 x의 열 개수가 2개 이상이기 때문에 다중 선형회귀를 하게 됩니다.)</p>
+<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day5/reg10.jpg?raw=true" alt="">
 <br><br></p>
 <p>선형 회귀 모델은 형태가 단순한만큼 데이터에 대해 많은 가정을 갖고 있었습니다.</p>
 <ul>
-<li>독립변수와 종속변수는 반드시 선형 관계이다.</li>
+<li>독립변수(x)와 종속변수(y)는 반드시 선형 관계이다.</li>
 <li>데이터에 아웃라이어가 없어야 한다.</li>
 <li>독립변수와 오차항은 서로 독립이다.</li>
-<li>자기 상관성이 없다.</li>
+<li>자기 상관성이 없다. (출력이 다시 입력이 되는 순환구조)</li>
 <li>독립변수 간에서는 서로 선형적으로 독립이다. (다중공선성이 없어야한다)</li>
 <li>에러(MSE)는 평균이 0이고 분산이 일정한 정규 분포를 갖는다.
 <br><br>
@@ -412,10 +422,9 @@
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>두번째로 고려해야할 가정은 종속 변수 개수입니다. 종속변수와 독립변수에 대해서 모르시는 분들도 존재할 수 있을 것 같아서 설명드립니다. 말이 어려워보이는데 간단합니다. 만약 우리가 회귀모델 $y = 2x + 3$을 만들었다면, 입력 데이터 $x$는 독립변수이고, 출력 $y$는 종속변수 입니다. 앞으로 이렇게 이해하시면 될 것 같습니다. <br><br></p>
-<p>보통 $y = h(x) + e$ 라고 하면 종속변수인 y는 하나인것만 생각합니다만 실제로는 종속변수가 여러 개인 경우에 대해서도 회귀 모델을 만들 때가 있습니다. 그래서 종속변수가 하나인 회귀 모델을 <strong>'단변량(univariate)' 회귀 모델</strong> 이라고 부르며, 종속변수가 2개 이상인 경우를 <strong>'다변량(multivariate)' 회귀 모델</strong>이라고 부릅니다.   다변량 회귀 모델은 주로 계량 경제학에서 많이 다루는데 종속변수 간에 서로 상관성이 있는지, 종속변수가 서로 다른 종속변수의 독립변수 역할도 수행하는지, 어떤 두 종속 변수가 장기 균형 관계를 갖는지 등의 조건에 따라 다양한 회귀 모델로 나뉩니다.
+<p>두번째로 고려해야할 가정은 종속 변수 개수입니다. 보통 $y = h(x) + e$ 라고 하면 종속변수인 y는 하나인것만 생각합니다만 실제로는 종속변수가 여러 개인 경우에 대해서도 회귀 모델을 만들 때가 있습니다. 그래서 종속변수가 하나인 회귀 모델을 <strong>'단변량(univariate)' 회귀 모델</strong> 이라고 부르며, 종속변수가 2개 이상인 경우를 <strong>'다변량(multivariate)' 회귀 모델</strong>이라고 부릅니다.   다변량 회귀 모델은 주로 계량 경제학에서 많이 다루는데 종속변수 간에 서로 상관성이 있는지, 종속변수가 서로 다른 종속변수의 독립변수 역할도 수행하는지, 어떤 두 종속 변수가 장기 균형 관계를 갖는지 등의 조건에 따라 다양한 회귀 모델로 나뉩니다.
 <br><br></p>
-<p>여기까지가 회귀 모델의 가장 상위 단계에서 고려해야 하는 모델링 방식입니다. 즉, 모델링 대상이 하나의 종속변수만 다루는지 아니면 여러 개의 종속변수를 같이 고려해야 하는지, 종속변수가 가중치(w)와의 선형 결합만으로 표현이 가능한지 아닌지에 따라 '단변량 선형 회귀 모델', '단변량 비선형 회귀 모델', '다변량 선형 회귀 모델', '다변량 비선형 회귀 모델'로 구분하게 되며 이 각각이 다시 하위에 광범위한 모델링 기법들을 포함하고 있습니다 (그런데 보통 비선형 회귀 모델에서는 단변량과 다변량을 따로 구분하지는 않는 것 같습니다). 이 글에서 이 모든 회귀 모델들을 다루기는 불가능하므로 범위를 좁혀서, 회귀 분석을 할 때 주로 사용하고 있는 '단변량 선형 회귀 모델'에 대해서 좀 더 자세히 다루겠습니다. <br><br></p>
+<p>여기까지가 회귀 모델의 가장 상위 단계에서 고려해야 하는 모델링 방식입니다. 즉, 모델링 대상이 하나의 종속변수만 다루는지 아니면 여러 개의 종속변수를 같이 고려해야 하는지, 종속변수가 가중치(w)와의 선형 결합만으로 표현이 가능한지 아닌지에 따라 '단변량 선형 회귀 모델', '단변량 비선형 회귀 모델', '다변량 선형 회귀 모델', '다변량 비선형 회귀 모델'로 구분하게 되며 이 각각이 다시 하위에 광범위한 모델링 기법들을 포함하고 있습니다 (그런데 보통 비선형 회귀 모델에서는 단변량과 다변량을 따로 구분하지는 않는 것 같습니다). 이 글에서 이 모든 회귀 모델들을 다루기는 불가능하므로 범위를 좁혀서, 회귀 분석을 할 때 주로 사용하고 있는 '단변량 선형 회귀 모델'의 조건에서 벗어나는 상황에 사용할 수 있는 회귀방법들에 대해서 좀 더 자세히 다루겠습니다. <br><br></p>
 
 </div>
 </div>
@@ -444,8 +453,7 @@
 <a class="anchor" href="#5.2.-Generalized-Additive-Model-(GAM)" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.2. Generalized Additive Model (GAM)<a class="anchor-link" href="#5.2.-Generalized-Additive-Model-(GAM)"> </a>
 </h4>
 <p>'일반화 가법 모형(GAM)'은 회귀 모델을 만들 때 독립변수에 단순히 w만 곱하는 것이 아니라독립변수(x)를 다른 함수에 입력한 출력을 독립변수로써 사용하는 기법입니다.</p>
-<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day5/reg03.png?raw=true" alt="">
-<br><br></p>
+<p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day5/reg03.png?raw=true" alt=""></p>
 <p>독립변수에 적용되는 함수들을 smooth function 이라고 부르는데, 이 smooth function으로 비선형 함수를 사용함으로써 종속변수와 독립변수 간의 비선형 관계를 표현하는 방식입니다. smooth function 으로 어떤 함수를 사용하느냐에 따라 다양한 관계를 표현할 수 있기 때문에 'generalized' 라는 이름이 붙었죠. <br><br></p>
 <p>실상 바로 위에서 소개한 다항 회귀 역시 일종의 GAM 입니다. GAM은 이렇게 표현할 수 있는 모델의 범위가 넓긴 하지만 여전히 회귀 계수 관점에서는 선형 결합 형태로만 표현되는 한계가 있습니다(즉, 비선형 회귀 모델이 아닙니다). 가령, GAM은 두개 이상의 독립 변수 간의 상호 작용에 대한 추정(다중공선성 체크)을 자동으로 해주지는 못합니다. <br><br></p>
 
@@ -497,14 +505,14 @@
 <p>보통 시계열 데이터와 같이 순서가 정해져 있는 데이터의 경우 주기성이나 계절성 같이 일정한 패턴을 갖고 있는 경우가 많은데 이것을 '자기 상관성' 이라고 합니다. 그래서 이런 경우에는 아래와 같이 회귀 모델을 만들게 됩니다. 바로 이전 타임스텝의 종속변수가 다음 타임스텝을 설명하게 되는 꼴입니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day5/reg05.png?raw=true" alt="">
 <br><br></p>
-<p>수식을 보면 알 수 있듯이, 특정 시점 t의 데이터를 과거 시점의 종속변수들이 설명하는 방식입니다. 이런 모델을 '자기 회귀 (Autoregressive)' 모델이라고 부릅니다. 대개의 경우 현실 세계에서는 위와 같이 단순한 자기 회귀 모델로만 적용할 수 있는 경우는 거의 없습니다. 보통 위 수식에 있는 e_t 에 또 다른 패턴이 있는 경우가 많으며 어떤 패턴이 있느냐에 따라 크게 두 가지 방식으로 확장됩니다.</p>
+<p>수식을 보면 알 수 있듯이, 특정 시점 t의 데이터를 과거 시점의 종속변수들이 설명하는 방식입니다. 이런 모델을 '자기 회귀 (Autoregressive)' 모델이라고 부릅니다. 대부분의 시계열데이터 (주가예측 데이터, 자연어 데이터 등)이 이러한 Autoregressive한 성격을 띄고 있습니다.</p>
 <ul>
 <li>시간에 따라 평균이 변하는 경우: Auto-Regressive Moving Average (ARMA) model</li>
 <li>시간에 따라 분산이 달라지는 경우: Auto-Regressive Conditionally Heteroscedastic (ARCH) model
 <br><br>
 </li>
 </ul>
-<p>우리는 차후 딥러닝 시간에 이러한 Autoregressive Model인 RNN에 대해서 배워볼 예정입니다.</p>
+<p>우리는 차후 딥러닝 시간에 이러한 Autoregressive Model인 RNN에 대해서 배워볼 예정입니다. 그리고 RNN은 실제로 주가예측이나 자연어처리 같은 시계열 문제를 해결하기 위해 사용됩니다. 더 자세하게 Auto Regressive 모델에 대해 공부해보시려면 위의 모델들을 검색해보세요.</p>
 
 </div>
 </div>
@@ -519,8 +527,8 @@
 <h4 id="8.1.-Robust-regression">
 <a class="anchor" href="#8.1.-Robust-regression" aria-hidden="true"><span class="octicon octicon-link"></span></a>8.1. Robust regression<a class="anchor-link" href="#8.1.-Robust-regression"> </a>
 </h4>
-<p>일반적으로 선형 회귀 모델에서는 회귀 계수를 추정할 때 잔차의 제곱합을 이용하는 '최소 제곱법(ㅡMSE)'을 사용합니다. 그런데 이렇게 잔차의 제곱을 이용할 경우 아웃라이어와 같이 잔차가 다른 데이터에 비해 매우 큰 경우에는 제곱을 하면 그 값이 비례적으로 커지기 때문에 이 값 하나로 인해 전체 추정치가 왜곡되기 쉽습니다. <br><br></p>
-<p>Robust regression 은 이런 문제를 완화하기 위한 회귀 모델 기법입니다. 모델의 형태 자체는 일반적인 선형 회귀 모델과 동일하지만 회귀 계수의 추정 방식에서 차이가 있는 것이죠. 가장 널리 알려진 Robust regression 기법은 잔차의 제곱 대신 절대값의 합이 최소가 되도록 계수를 추정하는 방식입니다. 이렇게 절대값을 이용하면 아웃라이어의 영향력이 줄어들기 때문에 왜곡 현상이 완화됩니다. 고전적 선형 회귀와 로버스트 회귀의 계수 추정 방법을 수식으로 비교하면 아래와 같습니다.</p>
+<p>일반적으로 선형 회귀 모델에서는 회귀 계수를 추정할 때 잔차의 제곱합을 이용하는 '최소 제곱법(MSE)'을 사용합니다. 그런데 이렇게 잔차의 제곱을 이용할 경우 아웃라이어와 같이 잔차가 다른 데이터에 비해 매우 큰 경우에는 제곱을 하면 그 값이 비례적으로 커지기 때문에 이 값 하나로 인해 전체 추정치가 왜곡되기 쉽습니다. <br><br></p>
+<p>Robust regression 은 이런 문제를 완화하기 위한 회귀 모델 기법입니다. 모델의 형태 자체는 일반적인 선형 회귀 모델과 동일하지만 Loss함수에서 차이가 있는 것이죠. 가장 널리 알려진 Robust regression 기법은 제곱 대신 절대값의 합이 최소가 되도록 계수를 추정하는 방식입니다. 이렇게 절대값을 이용하면 아웃라이어의 영향력이 줄어들기 때문에 왜곡 현상이 완화됩니다. 고전적 선형 회귀와 로버스트 회귀의 계수 추정 방법을 수식으로 비교하면 아래와 같습니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day5/reg06.png?raw=true" alt="">
 <br><br></p>
 <h4 id="8.2.-Quantile-regression">
@@ -554,10 +562,9 @@
 <p>이때, 오차함수인 LossFunction에 $\sum_i w_i$를 다시 더해주는 것을 'regularization'라고 부릅니다. 그래서 전체 오차함수는 $LossFunction(w, b) = \sum_i (\hat{y_i} - y_i)^2 + \lambda \sum_i w_i$와 같은 형태가 됩니다. 여기에서 $\lambda$는 얼마나 regularization할지 결정하는 상수입니다.
 <br><br></p>
 <p>이러한 작업이 왜 도움이 되냐면 특정 가중치(w)값이 과다하게 커지지 못하게 가중치(w)자체의 값을 Loss함수에 넣으면 $w$값들도 Loss를 최소화하면서 같이 작아져서 특정 가중치(w)값이 과다하게 커지지 못합니다. 즉, 일종의 페널티 역할을 하는 것이죠. <br><br></p>
-<p>여기서 소개하는 Ridge / lasso / elastic net 이 모두 이런 regularization 을 이용한 회귀 모델링 기법입니다. 이것 역시 로버스트 회귀처럼 모델의 형태 자체는 고전적인 선형 회귀 모델과 동일하나 회귀 계수를 추정하는 방식에서 차이가 있습니다. 말로 설명하기에 앞서 우선 수식으로 표현하면 아래와 같습니다.</p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day5/reg07.png?raw=true" alt="">
 <br><br></p>
-<p>위 수식을 보면 고전적인 선형 회귀 모델은 회귀 계수를 추정할 때 잔차의 제곱의 합을 계산합니다. 이 함수를 Loss함수라고 부르는데 이 Loss함수가 최소가 되는 회귀 계수를 찾는 것이죠. 그런데 여기서 소개하는 회귀 모델들은 이 비용함수에 (그림에서 빨간색으로 표시한) 추가적인 수식들이 붙습니다. 이런 추가적인 수식을 페널티 함수라고 부릅니다. 말그대로 회귀 계수 값 자체가 너무 커지지 않도록 페널티를 줌으로써 회귀계수값들이 과다 추정되는 것을 막는 것입니다. 이 때 페널티 함수의 형태에 따라 ridge 와 lasso 가 구분됩니다. ridge regression 은 회귀 계수의 제곱합을 계산하는 방식이고, lasso 는 회귀 계수의 절대값을 계산하는 방식입니다. 그리고 elastic net은 이 둘을 결합한 방식이죠.</p>
+<p>여기서 소개하는 Ridge / lasso / elastic net 이 모두 이런 regularization 을 이용한 회귀 모델링 기법입니다. 이것 역시 로버스트 회귀처럼 모델의 형태 자체는 고전적인 선형 회귀 모델과 동일하나 회귀 계수를 추정하는 방식에서 차이가 있습니다. 이 때 페널티 함수의 형태에 따라 ridge 와 lasso 가 구분됩니다. ridge regression 은 회귀 계수의 제곱합을 계산하는 방식이고, lasso 는 회귀 계수의 절대값을 계산하는 방식입니다. 그리고 elastic net은 이 둘을 결합한 방식이죠.</p>
 
 </div>
 </div>
