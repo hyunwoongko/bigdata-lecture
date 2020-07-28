@@ -1,5 +1,5 @@
 <br>
-<img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/images/main.jpg?raw=true">
+<img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/main.jpg?raw=true">
 <br><br>
 
 
