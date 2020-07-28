@@ -294,7 +294,7 @@
 <br><br></p>
 <p><img src="https://t3.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/brunch/service/user/301t/image/XcA97WckMIJnlE3Vrw8puEIAfDo.jpg" alt="">
 <br></p>
-<p>1957년 코넬 항공 연구소에 근무하던 Frank Rosenblatt은 MCP 뉴런 모델을 기초로 <strong>퍼셉트론(Perceptron) 학습 규칙</strong>이라는 개념을 고안하게 되는데, Rosenblatt은 하나의 MCP 뉴런이 출력신호를 발생할지 안할지 결정하기 위해, MCP 뉴런으로 들어오는 각 입력값에 곱해지는 가중치 값을 자동적으로 학습하는 알고리즘을 제안했습니다. <br><br></p>
+<p>1957년 코넬 항공 연구소에 근무하던 Frank Rosenblatt은 MCP 뉴런 모델을 기초로 <strong>퍼셉트론(Perceptron) 학습 규칙</strong>이라는 개념을 고안하게 되는데, Rosenblatt은 하나의 MCP 뉴런이 출력신호를 발생할지 안할지 결정하기 위해, MCP 뉴런으로 들어오는 각 입력값에 곱해지는 가중치 값을 자동적으로 학습하는 알고리즘을 제안했습니다. (Percetron은 인지하다의 Percept와 뉴론의 ron이 결합된 말입니다)<br><br></p>
 <p><img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/_notebooks/img/Day6/12.png?raw=true" alt=""></p>
 <p>이 알고리즘은 머신러닝의 지도학습이나 분류(classification)의 맥락에서 볼 때, 하나의 샘플이 어떤 클래스에 속해 있는지 예측하는데 사용될 수 있습니다. 여기서 $x_0$부터 $x_n$은 퍼셉트론 알고리즘으로 입력되는 값이며, $w_0$부터 $w_n$은 각각 입력에 곱해지는 가중치입니다. 입력값은 보통 분류를 위한 데이터의 특성(feature)을 나타내는 값으로 이루어져 있으며, 이 <strong>특성값에 가중치 곱한 값을 모두 더하여 하나의 값으로 만듭</strong>니다. 이 값을 만드는 함수를 순입력 함수(net input 함수)라고 부릅니다. 순입력 함수의 결과값을 특정 임계값과 비교를 하고, 순입력 함수 결과값이 이 임계값보다 크면 1, 그렇지 않으면 -1로 출력하는 함수를 정의합니다. 이 함수를 <strong>활성화 함수(Activation function)라고 부릅니다.</strong>
 <br><br></p>
@@ -377,9 +377,49 @@
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
 
-<span class="k">class</span> <span class="nc">Perceptron</span><span class="p">:</span>
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-2-ec9e900ea5e3&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> sklearn<span class="ansi-blue-fg">.</span>datasets <span class="ansi-green-fg">import</span> load_iris
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">from</span> matplotlib <span class="ansi-green-fg">import</span> pyplot <span class="ansi-green-fg">as</span> plt
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-green-fg">import</span> pandas <span class="ansi-green-fg">as</span> pd
+<span class="ansi-green-intense-fg ansi-bold">      4</span> <span class="ansi-green-fg">import</span> numpy <span class="ansi-green-fg">as</span> np
+
+<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named 'sklearn'</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Perceptron</span><span class="p">:</span>
     
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thresholds</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">eta</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">thresholds</span> <span class="o">=</span> <span class="n">thresholds</span>
@@ -414,29 +454,6 @@
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-2-16ad94f8f70d&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">import</span> numpy <span class="ansi-green-fg">as</span> np
-<span class="ansi-green-intense-fg ansi-bold">      2</span> 
-<span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-green-fg">class</span> Perceptron<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> 
-<span class="ansi-green-intense-fg ansi-bold">      5</span>     <span class="ansi-green-fg">def</span> __init__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> thresholds<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">0.0</span><span class="ansi-blue-fg">,</span> eta<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">0.01</span><span class="ansi-blue-fg">,</span> n_iter<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">10</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-
-<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named 'numpy'</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
     
 
@@ -447,9 +464,7 @@
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> 
               <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
               <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> 
               <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
@@ -469,19 +484,29 @@
 
 <div class="output_area">
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-3-678b3dad01b9&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">import</span> numpy <span class="ansi-green-fg">as</span> np
-<span class="ansi-green-intense-fg ansi-bold">      2</span> 
-<span class="ansi-green-intense-fg ansi-bold">      3</span> X = np.array([[0, 0], 
-<span class="ansi-green-intense-fg ansi-bold">      4</span>               <span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span>               <span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span>
-
-<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named 'numpy'</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[0.2 0.2 0.2]
+[0.  0.4 0.2]
+[-0.2  0.4  0.2]
+[-0.2  0.4  0.4]
+[-0.4  0.4  0.2]
+[-0.4  0.4  0.2]
+[-0.4  0.4  0.2]
+[-0.4  0.4  0.2]
+[-0.4  0.4  0.2]
+[-0.4  0.4  0.2]
+</pre>
 </div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;__main__.Perceptron at 0x234c0140c50&gt;</pre>
+</div>
+
 </div>
 
 </div>
@@ -641,42 +666,13 @@
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-
-<span class="n">iris_dataset</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">iris_dataset</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">iris_dataset</span><span class="o">.</span><span class="n">target</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">iris_dataset</span><span class="o">.</span><span class="n">data</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">y</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-4-cce000208e4f&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> sklearn<span class="ansi-blue-fg">.</span>datasets <span class="ansi-green-fg">import</span> load_iris
-<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">from</span> matplotlib <span class="ansi-green-fg">import</span> pyplot <span class="ansi-green-fg">as</span> plt
-<span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-green-fg">import</span> pandas <span class="ansi-green-fg">as</span> pd
-<span class="ansi-green-intense-fg ansi-bold">      4</span> <span class="ansi-green-fg">import</span> numpy <span class="ansi-green-fg">as</span> np
-<span class="ansi-green-intense-fg ansi-bold">      5</span> 
-
-<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named 'sklearn'</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -756,29 +752,29 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>24</td>
+      <td>30</td>
       <td>4.8</td>
-      <td>3.4</td>
-      <td>1.9</td>
+      <td>3.1</td>
+      <td>1.6</td>
       <td>0.2</td>
       <td>-1.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>8</td>
-      <td>4.4</td>
-      <td>2.9</td>
-      <td>1.4</td>
-      <td>0.2</td>
-      <td>-1.0</td>
+      <td>73</td>
+      <td>6.1</td>
+      <td>2.8</td>
+      <td>4.7</td>
+      <td>1.2</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>84</td>
-      <td>5.4</td>
-      <td>3.0</td>
-      <td>4.5</td>
-      <td>1.5</td>
+      <td>90</td>
+      <td>5.5</td>
+      <td>2.6</td>
+      <td>4.4</td>
+      <td>1.2</td>
       <td>1.0</td>
     </tr>
   </tbody>
@@ -870,7 +866,7 @@
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;__main__.Perceptron at 0x234bdfd0438&gt;</pre>
+<pre>&lt;__main__.Perceptron at 0x234c0140d30&gt;</pre>
 </div>
 
 </div>
@@ -932,28 +928,28 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>70</td>
-      <td>5.9</td>
-      <td>3.2</td>
-      <td>4.8</td>
-      <td>1.8</td>
+      <td>22</td>
+      <td>4.6</td>
+      <td>3.6</td>
       <td>1.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>26</td>
-      <td>5.0</td>
-      <td>3.4</td>
-      <td>1.6</td>
-      <td>0.4</td>
+      <td>0.2</td>
       <td>-1.0</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>59</td>
-      <td>5.2</td>
+      <th>1</th>
+      <td>67</td>
+      <td>5.8</td>
       <td>2.7</td>
-      <td>3.9</td>
+      <td>4.1</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>76</td>
+      <td>6.8</td>
+      <td>2.8</td>
+      <td>4.8</td>
       <td>1.4</td>
       <td>1.0</td>
     </tr>
@@ -977,41 +973,7 @@
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">perceptron</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="mf">5.9</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">,</span> <span class="mf">4.8</span><span class="p">,</span> <span class="mf">1.8</span><span class="p">])</span>
-<span class="c1"># label : 1, predict : 1</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>1</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    
-
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">perceptron</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">perceptron</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="mf">4.6</span><span class="p">,</span> <span class="mf">3.6</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span>
 <span class="c1"># label : -1, predict : -1</span>
 </pre></div>
 
@@ -1045,7 +1007,41 @@
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">perceptron</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="mf">5.2</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">,</span> <span class="mf">3.9</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">perceptron</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="mf">5.8</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">,</span> <span class="mf">4.1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+<span class="c1"># label : 1, predict : 1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>1</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">perceptron</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="mf">6.8</span><span class="p">,</span> <span class="mf">2.8</span><span class="p">,</span> <span class="mf">4.8</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">])</span>
 <span class="c1"># label : 1, predict : 1</span>
 </pre></div>
 
