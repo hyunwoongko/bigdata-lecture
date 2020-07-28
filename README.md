@@ -1,5 +1,5 @@
 <br>
-<img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/main.jpg?raw=true">
+<img src="https://github.com/gusdnd852/bigdata-lecture/blob/master/main_logo.jpg?raw=true">
 <br><br>
 
 
@@ -9,3 +9,6 @@
 강의자료 및 소스코드를 열람해주세요.
 <br><br>
  
+
+
+
