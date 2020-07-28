@@ -13,9 +13,9 @@
 <meta property="og:url" content="https://gusdnd852.github.io/bigdata-lecture/knn" />
 <meta property="og:site_name" content="TensorFlow로 시작하는 머신러닝 &amp; 딥러닝" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-07-26T00:00:00-05:00" />
+<meta property="article:published_time" content="2020-07-27T00:00:00-05:00" />
 <script type="application/ld+json">
-{"url":"https://gusdnd852.github.io/bigdata-lecture/knn","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://gusdnd852.github.io/bigdata-lecture/knn"},"headline":"최근접 이웃 알고리즘","dateModified":"2020-07-26T00:00:00-05:00","datePublished":"2020-07-26T00:00:00-05:00","description":"거리기반 모델인 최근접 이웃 알고리즘을 배워보고 실습을 진행해봅시다.","@context":"https://schema.org"}</script>
+{"url":"https://gusdnd852.github.io/bigdata-lecture/knn","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://gusdnd852.github.io/bigdata-lecture/knn"},"headline":"최근접 이웃 알고리즘","dateModified":"2020-07-27T00:00:00-05:00","datePublished":"2020-07-27T00:00:00-05:00","description":"거리기반 모델인 최근접 이웃 알고리즘을 배워보고 실습을 진행해봅시다.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
@@ -491,29 +491,6 @@
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-3-de82ee9320cf&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> matplotlib <span class="ansi-green-fg">import</span> pyplot <span class="ansi-green-fg">as</span> plt
-<span class="ansi-green-intense-fg ansi-bold">      2</span> 
-<span class="ansi-green-intense-fg ansi-bold">      3</span> 
-<span class="ansi-green-intense-fg ansi-bold">      4</span> absent <span class="ansi-blue-fg">=</span> dataset<span class="ansi-blue-fg">[</span>dataset<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">'kyphosis'</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span> present <span class="ansi-blue-fg">=</span> dataset<span class="ansi-blue-fg">[</span>dataset<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">'kyphosis'</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">==</span> <span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span>
-
-<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named 'matplotlib'</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
     
 
@@ -566,7 +543,7 @@
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-4-d6c9238694d0&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-3-d6c9238694d0&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> sklearn<span class="ansi-blue-fg">.</span>neighbors <span class="ansi-green-fg">import</span> KNeighborsClassifier
 <span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">from</span> sklearn<span class="ansi-blue-fg">.</span>metrics <span class="ansi-green-fg">import</span> accuracy_score<span class="ansi-blue-fg">,</span> classification_report
 <span class="ansi-green-intense-fg ansi-bold">      3</span> 
@@ -865,7 +842,7 @@ weighted avg       0.77      0.82      0.80        17
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-5-d42ab958b1ac&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-4-d42ab958b1ac&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> matplotlib <span class="ansi-green-fg">import</span> pyplot <span class="ansi-green-fg">as</span> plt
 <span class="ansi-green-intense-fg ansi-bold">      2</span> 
 <span class="ansi-green-intense-fg ansi-bold">      3</span> 
@@ -931,7 +908,7 @@ weighted avg       0.77      0.82      0.80        17
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-6-d6c9238694d0&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-5-d6c9238694d0&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> sklearn<span class="ansi-blue-fg">.</span>neighbors <span class="ansi-green-fg">import</span> KNeighborsClassifier
 <span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">from</span> sklearn<span class="ansi-blue-fg">.</span>metrics <span class="ansi-green-fg">import</span> accuracy_score<span class="ansi-blue-fg">,</span> classification_report
 <span class="ansi-green-intense-fg ansi-bold">      3</span> 
@@ -1058,7 +1035,7 @@ return {n_neighbors : 5, p: 2}</code></pre>
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-7-81c4c5b6b978&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-6-81c4c5b6b978&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> sklearn<span class="ansi-blue-fg">.</span>model_selection <span class="ansi-green-fg">import</span> GridSearchCV
 <span class="ansi-green-intense-fg ansi-bold">      2</span> 
 <span class="ansi-green-intense-fg ansi-bold">      3</span> model <span class="ansi-blue-fg">=</span> KNeighborsClassifier<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
@@ -1189,7 +1166,7 @@ weighted avg       0.94      0.94      0.93        17
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-8-caa5267b7065&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-7-caa5267b7065&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># sklearn 모델 저장</span>
 <span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">import</span> joblib
 <span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-green-fg">import</span> os
@@ -1234,7 +1211,7 @@ weighted avg       0.94      0.94      0.93        17
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-9-960a2161b069&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-8-960a2161b069&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      5</span>     os<span class="ansi-blue-fg">.</span>makedirs<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">'./models/'</span><span class="ansi-blue-fg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">      6</span> 
 <span class="ansi-green-fg">----&gt; 7</span><span class="ansi-red-fg"> </span>model <span class="ansi-blue-fg">=</span> joblib<span class="ansi-blue-fg">.</span>load<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">'./models/knn.pkl'</span><span class="ansi-blue-fg">)</span>
@@ -1332,7 +1309,7 @@ Name: 2, dtype: float64), 1)
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-10-965e7f5badc0&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-9-965e7f5badc0&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-red-fg"># (위의 실제 정답셋과 비교해보세요)</span>
 <span class="ansi-green-intense-fg ansi-bold">      3</span> 
 <span class="ansi-green-fg">----&gt; 4</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">import</span> numpy <span class="ansi-green-fg">as</span> np
@@ -1425,7 +1402,7 @@ Name: 2, dtype: float64), 1)
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-11-ef983ed9dcfb&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-10-ef983ed9dcfb&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      2</span> 
 <span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-red-fg">#collapse-hide</span>
 <span class="ansi-green-fg">----&gt; 4</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> matplotlib <span class="ansi-green-fg">import</span> pyplot <span class="ansi-green-fg">as</span> plt
@@ -1491,7 +1468,7 @@ Name: 2, dtype: float64), 1)
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-12-69af965f1fe3&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-11-69af965f1fe3&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg">#collapse-hide</span>
 <span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">import</span> pandas <span class="ansi-green-fg">as</span> pd
 <span class="ansi-green-intense-fg ansi-bold">      3</span> 
@@ -1613,7 +1590,7 @@ Name: 2, dtype: float64), 1)
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-13-a5037e35d050&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-12-a5037e35d050&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg">#collapse-hide</span>
 <span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">import</span> pandas <span class="ansi-green-fg">as</span> pd
 <span class="ansi-green-intense-fg ansi-bold">      3</span> 
@@ -1731,7 +1708,7 @@ Name: 2, dtype: float64), 1)
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-14-9eeedaaffac4&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-13-9eeedaaffac4&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg">#collapse-hide</span>
 <span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> matplotlib <span class="ansi-green-fg">import</span> pyplot <span class="ansi-green-fg">as</span> plt
 <span class="ansi-green-intense-fg ansi-bold">      3</span> 
@@ -1902,7 +1879,7 @@ Name: 2, dtype: float64), 1)
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-15-d42ab958b1ac&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-14-d42ab958b1ac&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> matplotlib <span class="ansi-green-fg">import</span> pyplot <span class="ansi-green-fg">as</span> plt
 <span class="ansi-green-intense-fg ansi-bold">      2</span> 
 <span class="ansi-green-intense-fg ansi-bold">      3</span> 
@@ -1962,7 +1939,7 @@ Name: 2, dtype: float64), 1)
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-16-8ae82e556c03&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-15-8ae82e556c03&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> matplotlib <span class="ansi-green-fg">import</span> pyplot <span class="ansi-green-fg">as</span> plt
 <span class="ansi-green-intense-fg ansi-bold">      2</span> 
 <span class="ansi-green-intense-fg ansi-bold">      3</span> 
